@@ -11,7 +11,7 @@ about:
       href: https://www.linkedin.com/in/dany-lopez-gonzalez-48795227/
     - text: ResearchGate
       href: https://www.researchgate.net/profile/Dany-Lopez-Gonzalez
-    - text: Email
+    - text: Contact
       href: mailto:dxlopez@uc.cl
 ---
 

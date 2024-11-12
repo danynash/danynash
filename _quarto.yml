@@ -1,6 +1,9 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - CNAME
+
 
 website:
   title: "danynash"
@@ -20,5 +23,3 @@ format:
 
 editor: visual
 
-resources:
-  - CNAME

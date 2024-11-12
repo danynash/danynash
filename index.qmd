@@ -13,7 +13,6 @@ about:
       href: https://www.researchgate.net/profile/Dany-Lopez-Gonzalez
     - text: Trayectics
       href: https://trayectics.com/
-    - text: ResearchGate
     - text: Contact
       href: mailto:dxlopez@uc.cl
 ---

@@ -10,7 +10,7 @@ website:
         text: Home
       - about.qmd
       - tutorials.qmd
-
+      - listados.qmd
 format:
   html:
     theme: Spacelab

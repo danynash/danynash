@@ -1,8 +1,12 @@
 ---
-title: "tutorials"
+title: "Tutorials"
+listing:
+  contents: "posts/*/index.qmd"
+  feed: true
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: true
+  filter-ui: true
+page-layout: full
 ---
-## A title
-
-```{=html}
-<iframe width="780" height="500" src="https://example.com/" title="Webpage example"></iframe>
-```

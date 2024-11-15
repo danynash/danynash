@@ -1,0 +1,112 @@
+---
+title: "Análisis de datos SiES - Matricula 1er año"
+date: "2022-06-28"
+---
+
+::: {.panel-tabset}
+
+## Español
+
+
+\makeindex
+
+```{r setup, include=FALSE}
+#-----------------------------------------------------------------------------------------
+# setup objects
+#-----------------------------------------------------------------------------------------
+
+# knitr option
+knitr::opts_chunk$set(dev = 'png')
+knitr::opts_chunk$set(comment = NA)
+knitr::opts_chunk$set(dpi = 1200, fig.width = 10, fig.height = 5)
+options(knitr.kable.NA = '', digits = 2)
+
+# avoid scientific notation
+options(scipen=999)
+
+# remove all previous objects
+rm(list = ls())
+
+# fonts
+Sys.setenv(LANG="en_US.UTF-8")
+
+# get start time
+start_time <- Sys.time()
+start_time
+
+
+#-----------------------------------------------------------------------------------------
+# useful functions
+#-----------------------------------------------------------------------------------------
+
+# ------------------------------------------------------
+# specify decimals
+# ------------------------------------------------------
+
+# function of specify decimal places in numbers
+specify_decimal <- function(x, k) format(round(x, k), nsmall=k)
+
+# format numbers, no trailling zeros
+two_decimal_no_zero <- function(x) substr(format(round(x, 2), nsmall=2), 2, 4)
+
+# ------------------------------------------------------
+# local path
+# ------------------------------------------------------
+
+# get local path from relative path
+local_path <- function(x){
+paste0(tools::file_path_as_absolute(x),'/')  
+}
+```
+
+
+
+# 1. Introducción
+
+Este taller usará la base de datos extraída del Servicio de Información de Educación Superior (SiES) ubicada en el siguiente link <http://www.mifuturo.cl/bases-de-datos-de-matriculados>. Como se indica en la página, la base de datos a trabajar:
+
+*"Corresponde a las bases de datos de estudiantes matriculadas y matriculados en las instituciones de Educación Superior vigentes en Chile, entre los años 2007 y 2023, tanto a nivel de Pregrado, como Posgrado y Postítulo".*
+
+Usaremos esta base de datos para replicar algunas tablas y reportes que se encuentran en el documento [Informe de matricula 2023 Educación Superior](https://educacionsuperior.mineduc.cl/2023/07/11/informe-de-matricula-2023-la-matricula-en-educacion-superior-crecio-3-en-2023-y-suma-casi-140-mil-estudiantes-de-pueblos-originarios/).
+
+En particular, descargaremos la base de datos junto con su glosario, los que se encuentran indicados como
+
+-   `› Base Matrícula Histórica 2007 – 2023 06 | 07 | 2023`
+
+-   `› Glosario Base Matrícula`
+
+```{r echo=FALSE, out.width = "400px", fig.align='center', fig.cap='Extracto de la página Web <http://www.mifuturo.cl> consultada el 1 de agosto de 2023' }
+knitr::include_graphics('00Figuras/ExtraccionDeDatos.png')
+```
+
+# Referencias
+
+> <https://www.mifuturo.cl/bases-de-datos-de-matriculados>
+
+> [Informe de matricula 2023 Educación Superior](https://educacionsuperior.mineduc.cl/2023/07/11/informe-de-matricula-2023-la-matricula-en-educacion-superior-crecio-3-en-2023-y-suma-casi-140-mil-estudiantes-de-pueblos-originarios/)
+
+\newpage
+
+# 1.1 Objetivo actividad
+
+En este taller vamos a emplear los datos de SiES para replicar algunas tablas que se reportan en el documento *Matrícula en Educacion Superior 2023 SIES* elaborado en junio de 2023. En particular, replicaremos la Tabla 1 (Evolución de la Matrícula Total por nivel de formación) y la expandiremos desde el año 2007 hasta el 2023.
+
+```{r echo=FALSE, out.width = "500px", fig.align='center'}
+knitr::include_graphics('00Figuras/Tabla_replica_01.png')
+```
+
+
+
+
+
+
+
+
+## English
+
+Under Construction
+
+:::
+
+
+

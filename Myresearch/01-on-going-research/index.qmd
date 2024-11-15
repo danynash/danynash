@@ -1,0 +1,17 @@
+---
+title: "Learning Statistics is all about trandusction"
+date: "2022-06-28"
+---
+
+
+::: {.panel-tabset}
+
+## Español
+
+En construcción
+
+## English
+
+Under Construction
+
+:::

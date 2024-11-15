@@ -11,9 +11,8 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - myresearch.qmd
       - tutorials.qmd
-      - listados.qmd
 format:
   html:
     theme: Spacelab

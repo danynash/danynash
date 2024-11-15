@@ -1,5 +1,6 @@
 ---
-title: "Análisis de datos SiES - Matricula 1er año"
+title: "SiES data analysis - 1st year enrollment"
+description: "The public database of the Chilean Higher Education Information Service (SiES) is used to analyze the first-year enrollment rate."
 date: "2022-06-28"
 ---
 
@@ -190,6 +191,11 @@ Para abrir la base de datos del SiES y el `codebook`, puede ocupar los siguiente
 db <- read.csv2('../../../DDBB_danynash_page/01BasedeDatos/MATRICULA OFICIAL 2007 AL 2023 09_06_2023 WEB.csv',
                 sep=";",header = TRUE, na.strings = c(""," "), fileEncoding="latin1")
 
+
+```
+
+```{r ,echo=FALSE, eval=TRUE}
+# Ejecutar el siguiente codigo para aquellas persons que usan Mac
 
 codebook <- readxl::read_excel("../../../DDBB_danynash_page/Codeboook.xlsx",
                                  sheet='codebook',col_names =T, na=c(""," ")

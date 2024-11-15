@@ -1,12 +1,12 @@
 ---
 title: "What is learned in physics laboratories in higher education?"
+description: "International literature review on what is learned in introductory physics laboratory courses"
 date: "2022-06-28"
+
 ---
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## Español
-
 
 # Introduction
 
@@ -29,6 +29,4 @@ Para responder a la pregunta de revisión, este estudio se focaliza en estudiant
 ## English
 
 Under Construction
-
 :::
-

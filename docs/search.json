@@ -11,14 +11,14 @@
     "href": "tutorials.html",
     "title": "Tutorials",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nAnálisis de datos SiES - Matricula 1er año\n\n\n\n\n\n\n\n\n\nJun 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nSiES data analysis - 1st year enrollment\n\n\nThe public database of the Chilean Higher Education Information Service (SiES) is used to analyze the first-year enrollment rate.\n\n\n\n\n\n\nJun 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "myresearch.html",
     "href": "myresearch.html",
     "title": "My Research",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nLearning Statistics is all about trandusction\n\n\n\n\n\n\n\n\n\nJun 28, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nWhat is learned in physics laboratories in higher education?\n\n\n\n\n\n\n\n\n\nJun 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nLearning Statistics is all about trandusction\n\n\nA Qualitative Analysis of Semiotic Modes in Building Statistical Knowledge\n\n\n\n\n\n\nJun 28, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nWhat is learned in physics laboratories in higher education?\n\n\nInternational literature review on what is learned in introductory physics laboratory courses\n\n\n\n\n\n\nJun 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about_me.html",
@@ -30,7 +30,7 @@
   {
     "objectID": "tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html#footnotes",
     "href": "tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html#footnotes",
-    "title": "Análisis de datos SiES - Matricula 1er año",
+    "title": "SiES data analysis - 1st year enrollment",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nAquí usamos un metalenguaje que proviene del trabajo desarrollo por Wickham en la construcción de la libreria tidy como una forma estándar de asignar un significado a la estructura de un conjunto de datos. Para mayores detalles vea Wickham, H. (2014). Tidy Data. Journal of Statistical Software 59 (10). DOl: 10.18637/jss. v059.i10↩︎\nEn R tipicamente este conjunto de datos queda capturado por un dataframe. Puede consultar el link para mayores detalles sobre lo que es un dataframe.↩︎\nConvertir un conjunto de datos en formato long o wide es lo que también se conoce como tablas pivotes.↩︎"
   },

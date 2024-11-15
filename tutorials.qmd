@@ -1,7 +1,7 @@
 ---
 title: "Tutorials"
 listing:
-  contents: "posts/*/index.qmd"
+  contents: "tutoriales/*/index.qmd"
   feed: true
   sort: "date desc"
   type: grid

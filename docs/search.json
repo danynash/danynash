@@ -14,18 +14,18 @@
     "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nAnálisis de datos SiES - Matricula 1er año\n\n\n\n\n\n\n\n\n\nJun 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/01-Matricual-Sies-DescriptiveAnalysis/index.html",
-    "href": "posts/01-Matricual-Sies-DescriptiveAnalysis/index.html",
-    "title": "Análisis de datos SiES - Matricula 1er año",
-    "section": "",
-    "text": "EspañolEnglish\n\n\n\n1. Introducción\nEste taller usará la base de datos extraída del Servicio de Información de Educación Superior (SiES) ubicada en el siguiente link http://www.mifuturo.cl/bases-de-datos-de-matriculados. Como se indica en la página, la base de datos a trabajar:\n“Corresponde a las bases de datos de estudiantes matriculadas y matriculados en las instituciones de Educación Superior vigentes en Chile, entre los años 2007 y 2023, tanto a nivel de Pregrado, como Posgrado y Postítulo”.\nUsaremos esta base de datos para replicar algunas tablas y reportes que se encuentran en el documento Informe de matricula 2023 Educación Superior.\nEn particular, descargaremos la base de datos junto con su glosario, los que se encuentran indicados como\n\n› Base Matrícula Histórica 2007 – 2023 06 | 07 | 2023\n› Glosario Base Matrícula\n\n\n\n\n\n\nExtracto de la página Web http://www.mifuturo.cl consultada el 1 de agosto de 2023\n\n\n\n\n\n\nReferencias\n\nhttps://www.mifuturo.cl/bases-de-datos-de-matriculados\n\n\nInforme de matricula 2023 Educación Superior\n\n\n\n\n1.1 Objetivo actividad\nEn este taller vamos a emplear los datos de SiES para replicar algunas tablas que se reportan en el documento Matrícula en Educacion Superior 2023 SIES elaborado en junio de 2023. En particular, replicaremos la Tabla 1 (Evolución de la Matrícula Total por nivel de formación) y la expandiremos desde el año 2007 hasta el 2023.\n\n\n\n\n\n\n\n\n\n\n\n\nUnder Construction"
-  },
-  {
     "objectID": "myresearch.html",
     "href": "myresearch.html",
     "title": "My Research",
     "section": "",
     "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nLearning Statistics is all about trandusction\n\n\n\n\n\n\n\n\n\nJun 28, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nWhat is learned in physics laboratories in higher education?\n\n\n\n\n\n\n\n\n\nJun 28, 2022\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html",
+    "href": "tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html",
+    "title": "Análisis de datos SiES - Matricula 1er año",
+    "section": "",
+    "text": "EspañolEnglish\n\n\n\n1. Introducción\nEste taller usará la base de datos extraída del Servicio de Información de Educación Superior (SiES) ubicada en el siguiente link http://www.mifuturo.cl/bases-de-datos-de-matriculados. Como se indica en la página, la base de datos a trabajar:\n“Corresponde a las bases de datos de estudiantes matriculadas y matriculados en las instituciones de Educación Superior vigentes en Chile, entre los años 2007 y 2023, tanto a nivel de Pregrado, como Posgrado y Postítulo”.\nUsaremos esta base de datos para replicar algunas tablas y reportes que se encuentran en el documento Informe de matricula 2023 Educación Superior.\nEn particular, descargaremos la base de datos junto con su glosario, los que se encuentran indicados como\n\n› Base Matrícula Histórica 2007 – 2023 06 | 07 | 2023\n› Glosario Base Matrícula\n\n\n\n\n\n\nExtracto de la página Web http://www.mifuturo.cl consultada el 1 de agosto de 2023\n\n\n\n\n\n\nReferencias\n\nhttps://www.mifuturo.cl/bases-de-datos-de-matriculados\n\n\nInforme de matricula 2023 Educación Superior\n\n\n\n\n1.1 Objetivo actividad\nEn este taller vamos a emplear los datos de SiES para replicar algunas tablas que se reportan en el documento Matrícula en Educacion Superior 2023 SIES elaborado en junio de 2023. En particular, replicaremos la Tabla 1 (Evolución de la Matrícula Total por nivel de formación) y la expandiremos desde el año 2007 hasta el 2023.\n\n\n\n\n\n\n\n\n\n\n\n\nUnder Construction"
   },
   {
     "objectID": "index.html",

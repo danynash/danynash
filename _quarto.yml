@@ -11,6 +11,7 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - about_me.qmd
       - myresearch.qmd
       - tutorials.qmd
 format:

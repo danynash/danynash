@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>danynash</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">danynash</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about_me.html"> 
+<span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./myresearch.html"> 
+<span class="menu-text">My Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./publications.html"> 
+<span class="menu-text">Selected Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./tutorials.html"> 
+<span class="menu-text">Tutorials</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+
+
+
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="3" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 2;"><span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> {p5} <span class="im">from</span> <span class="st">"@tmcw/p5"</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>math <span class="op">=</span> <span class="pp">require</span>(<span class="st">"mathjs"</span>)<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Matter <span class="op">=</span> <span class="pp">require</span>(<span class="st">"matter-js"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="9" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 8;"><span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">p5</span>(sketch <span class="kw">=&gt;</span> {</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> alto <span class="op">=</span> <span class="dv">700</span><span class="op">;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> ancho <span class="op">=</span> <span class="dv">1000</span><span class="op">;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> dx <span class="op">=</span> <span class="dv">40</span><span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> dy <span class="op">=</span> <span class="dv">40</span><span class="op">;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> sep <span class="op">=</span> <span class="fl">1.5</span><span class="op">;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> posGroundX<span class="op">=</span><span class="dv">25</span><span class="op">;</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> posGroundY<span class="op">=</span><span class="dv">450</span><span class="op">;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> anchoBarra <span class="op">=</span> <span class="dv">500</span><span class="op">;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> altoBarra <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> circulos<span class="op">;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> Engine <span class="op">=</span> Matter<span class="op">.</span><span class="at">Engine</span><span class="op">,</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a> <span class="co">// Render = Matter.Render, // Uso la lib p5j</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    World <span class="op">=</span> Matter<span class="op">.</span><span class="at">World</span><span class="op">,</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    Bodies <span class="op">=</span> Matter<span class="op">.</span><span class="at">Bodies</span><span class="op">,</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    Composite <span class="op">=</span> Matter<span class="op">.</span><span class="at">Composite</span><span class="op">,</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    Common <span class="op">=</span> Matter<span class="op">.</span><span class="at">Common</span><span class="op">,</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    Svg <span class="op">=</span> Matter<span class="op">.</span><span class="at">Svg</span><span class="op">,</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    Body <span class="op">=</span> Matter<span class="op">.</span><span class="at">Body</span><span class="op">,</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    Vertices <span class="op">=</span> Matter<span class="op">.</span><span class="at">Vertices</span><span class="op">;</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ENGINE</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> engine<span class="op">;</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> world<span class="op">;</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> ground<span class="op">;</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> circle<span class="op">;</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a> <span class="kw">let</span> pos_ini_i <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> pos_ini_j <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> filas <span class="op">=</span>  <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> columnas <span class="op">=</span> <span class="dv">12</span> <span class="op">;</span> </span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> galton_board_1<span class="op">;</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> galton_board_2<span class="op">;</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> galton_board_3<span class="op">;</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> galton_board<span class="op">=</span>[]<span class="op">;</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>  sketch<span class="op">.</span><span class="at">setup</span> <span class="op">=</span> <span class="kw">function</span>() {</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    sketch<span class="op">.</span><span class="fu">createCanvas</span>(ancho<span class="op">,</span> alto)<span class="op">;</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>     <span class="co">//system = new ParticleSystem(sketch, sketch.createVector(sketch.width/2, 50));</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    <span class="co">//circulos = new Grid_circles(sketch,alto, ancho, dx, dy, sep);</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>    circulos <span class="op">=</span> <span class="kw">new</span> <span class="fu">Grid_circles_v2</span>(sketch<span class="op">,</span>filas<span class="op">,</span>columnas<span class="op">,</span> ancho<span class="op">,</span> alto)<span class="op">;</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    circulos<span class="op">.</span><span class="fu">add_circles</span>()<span class="op">;</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>   <span class="co">// console.log('Circulos::',circulos.circles[0][0].j);</span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>  <span class="co">//  console.log('Circulos::',circulos.nm2xy(1,1)[0]);</span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>   <span class="co">// Engine</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>    engine <span class="op">=</span> Engine<span class="op">.</span><span class="fu">create</span>()<span class="op">;</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>   <span class="co">//   engine.gravity.x=0;</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>   engine<span class="op">.</span><span class="at">gravity</span><span class="op">.</span><span class="at">y</span> <span class="op">=</span> <span class="fl">0.9</span><span class="op">;</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>     world  <span class="op">=</span> engine<span class="op">.</span><span class="at">world</span><span class="op">;</span> </span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>     Matter<span class="op">.</span><span class="at">Runner</span><span class="op">.</span><span class="fu">run</span>(engine)<span class="op">;</span> <span class="co">// Engine.run(engine)</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>     ground <span class="op">=</span> Matter<span class="op">.</span><span class="at">Bodies</span><span class="op">.</span><span class="fu">rectangle</span>(posGroundX<span class="op">,</span> posGroundY<span class="op">,</span> anchoBarra<span class="op">,</span> altoBarra<span class="op">,</span> { <span class="dt">isStatic</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">angle</span><span class="op">:</span> <span class="dv">0</span> })<span class="op">;</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>     circle <span class="op">=</span> Matter<span class="op">.</span><span class="at">Bodies</span><span class="op">.</span><span class="fu">circle</span>(<span class="dv">520</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">15</span><span class="op">,</span> { <span class="dt">isStatic</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span> <span class="dt">inertia</span><span class="op">:</span> <span class="kw">Infinity</span><span class="op">,</span> <span class="dt">friction</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">restitution</span><span class="op">:</span> <span class="fl">0.2</span><span class="op">,</span> <span class="dt">frictionAir</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">frictionStatic</span><span class="op">:</span> <span class="dv">0</span> })<span class="op">;</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>     <span class="co">// GALTON BOARD</span></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>        <span class="co">// galton_board_1 = Matter.Bodies.circle(390, 90, 20, { isStatic: true });</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>        <span class="co">// galton_board_2 = Matter.Bodies.circle(300, 150, 20, { isStatic: true });</span></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>         <span class="co">//galton_board_3 = Matter.Bodies.circle(470, 150, 20, { isStatic: true });</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>     <span class="cf">for</span>(<span class="kw">let</span> lineas_num<span class="op">=</span><span class="dv">0</span><span class="op">;</span> lineas_num<span class="op">&lt;</span><span class="dv">5</span><span class="op">;</span> lineas_num<span class="op">++</span>){</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>          <span class="kw">let</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>         <span class="co">// let galton_board_temp=[];</span></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span>(<span class="kw">let</span> dots_x <span class="op">=</span> pos_ini_i<span class="op">-</span>lineas_num<span class="op">;</span> dots_x <span class="op">&lt;=</span> (pos_ini_i<span class="op">+</span>lineas_num)<span class="op">;</span> dots_x<span class="op">++</span>){</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>          <span class="kw">let</span> dots_y<span class="op">=</span> pos_ini_j <span class="op">+</span> lineas_num<span class="op">;</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>          galton_board<span class="op">.</span><span class="fu">push</span>(Matter<span class="op">.</span><span class="at">Bodies</span><span class="op">.</span><span class="fu">circle</span>(circulos<span class="op">.</span><span class="fu">nm2xy</span>(dots_x<span class="op">,</span>dots_y)[<span class="dv">0</span>]<span class="op">,</span>circulos<span class="op">.</span><span class="fu">nm2xy</span>(dots_x<span class="op">,</span>dots_y)[<span class="dv">1</span>]<span class="op">,</span><span class="dv">20</span><span class="op">,</span>{<span class="dt">isStatic</span><span class="op">:</span> <span class="kw">true</span> }))<span class="op">;</span></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>          y<span class="op">=</span>y<span class="op">+</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>       <span class="co">//   galton_board.push(galton_board_temp);</span></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>     }</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>      <span class="co">// console.log(galton_board);</span></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>     <span class="kw">var</span> objects <span class="op">=</span> galton_board<span class="op">.</span><span class="fu">concat</span>(ground)<span class="op">;</span></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>     objects <span class="op">=</span> objects<span class="op">.</span><span class="fu">concat</span>(circle)<span class="op">;</span></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>     <span class="co">// circle = Matter.Bodies.circle(550, 0, 40, { isStatic: false });</span></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>    <span class="co">//  console.log(ground);</span></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>    Engine<span class="op">.</span><span class="fu">run</span>(engine)<span class="op">;</span></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>    <span class="co">//World.add(world,[ground, circle,galton_board_1,galton_board_2,galton_board_3]);</span></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>    World<span class="op">.</span><span class="fu">add</span>(world<span class="op">,</span>objects )<span class="op">;</span></span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>  sketch<span class="op">.</span><span class="at">draw</span> <span class="op">=</span> <span class="kw">function</span>() {</span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Use degrees.</span></span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a> <span class="co">// sketch.angleMode(DEGREES);</span></span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>    sketch<span class="op">.</span><span class="fu">background</span>(<span class="st">'lightgray'</span>)<span class="op">;</span></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>  <span class="co">//  system.addParticle();</span></span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>    <span class="co">//system.run();</span></span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>             <span class="co">//       console.log('sssssss');</span></span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>                circulos<span class="op">.</span><span class="fu">run</span>()<span class="op">;</span></span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>                circulos<span class="op">.</span><span class="fu">mouseMoved</span>(sketch<span class="op">,</span>math)<span class="op">;</span>   </span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>     <span class="co">//   console.log("GROUND &gt;&gt;&gt; (",sketch.round(ground.position.x,0),"," , sketch.round(ground.position.y,0),")");</span></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>       <span class="co">//       console.log("CIRCULO &gt;&gt;&gt; (",sketch.round(circle.position.x,0),"," ,sketch.round(circle.position.y,0),")");</span></span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>     <span class="co">//ground</span></span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a> <span class="co">// console.log(ground.position.x);</span></span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a>    sketch<span class="op">.</span><span class="fu">push</span>()<span class="op">;</span></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>    sketch<span class="op">.</span><span class="fu">translate</span>(ground<span class="op">.</span><span class="at">position</span><span class="op">.</span><span class="at">x</span><span class="op">,</span>ground<span class="op">.</span><span class="at">position</span><span class="op">.</span><span class="at">y</span>)<span class="op">;</span></span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>    sketch<span class="op">.</span><span class="fu">rotate</span>(<span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>    sketch<span class="op">.</span><span class="fu">fill</span>(<span class="dv">0</span><span class="op">,</span><span class="dv">80</span><span class="op">,</span><span class="dv">250</span><span class="op">,</span><span class="dv">200</span>)<span class="op">;</span></span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>  sketch<span class="op">.</span><span class="fu">stroke</span>(<span class="dv">0</span><span class="op">,</span><span class="dv">80</span><span class="op">,</span><span class="dv">250</span><span class="op">,</span><span class="dv">200</span>)<span class="op">;</span></span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>    sketch<span class="op">.</span><span class="fu">rectMode</span>(sketch<span class="op">.</span><span class="at">CENTER</span>)<span class="op">;</span></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>    sketch<span class="op">.</span><span class="fu">rect</span>(<span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span>anchoBarra<span class="op">,</span>altoBarra)<span class="op">;</span></span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>    sketch<span class="op">.</span><span class="fu">pop</span>()<span class="op">;</span></span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>     <span class="co">//circle</span></span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>    sketch<span class="op">.</span><span class="fu">push</span>()<span class="op">;</span></span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>    sketch<span class="op">.</span><span class="fu">translate</span>(circle<span class="op">.</span><span class="at">position</span><span class="op">.</span><span class="at">x</span><span class="op">,</span>circle<span class="op">.</span><span class="at">position</span><span class="op">.</span><span class="at">y</span> )<span class="op">;</span></span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>    sketch<span class="op">.</span><span class="fu">rectMode</span>(sketch<span class="op">.</span><span class="at">CENTER</span>)<span class="op">;</span></span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>    sketch<span class="op">.</span><span class="fu">fill</span>(<span class="dv">0</span><span class="op">,</span><span class="dv">80</span><span class="op">,</span><span class="dv">250</span><span class="op">,</span><span class="dv">200</span>)<span class="op">;</span></span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>  sketch<span class="op">.</span><span class="fu">stroke</span>(<span class="dv">0</span><span class="op">,</span><span class="dv">80</span><span class="op">,</span><span class="dv">250</span><span class="op">,</span><span class="dv">200</span>)<span class="op">;</span></span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>    sketch<span class="op">.</span><span class="fu">circle</span>(<span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">30</span>)<span class="op">;</span></span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a>    sketch<span class="op">.</span><span class="fu">pop</span>()<span class="op">;</span></span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>    <span class="co">//GALTON</span></span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a>     <span class="cf">for</span>(<span class="kw">let</span> lineas_num<span class="op">=</span><span class="dv">0</span><span class="op">;</span> lineas_num<span class="op">&lt;</span><span class="dv">5</span><span class="op">;</span> lineas_num<span class="op">++</span>){</span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a>          <span class="kw">let</span> y<span class="op">=</span><span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span>(<span class="kw">let</span> dots_x <span class="op">=</span> pos_ini_i<span class="op">-</span>lineas_num<span class="op">;</span> dots_x <span class="op">&lt;=</span> (pos_ini_i<span class="op">+</span>lineas_num)<span class="op">;</span> dots_x<span class="op">++</span>){</span>
+<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a>          <span class="kw">let</span> dots_y<span class="op">=</span>pos_ini_j<span class="op">+</span>lineas_num<span class="op">;</span></span>
+<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a>        <span class="co">//  galton_board[lineas_num][y] = Matter.Bodies.circle(circulos.nm2xy(dots_x,dots_y)[0],circulos.nm2xy(dots_x,dots_y)[1], 20,{ isStatic: true });</span></span>
+<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a>          sketch<span class="op">.</span><span class="fu">push</span>()<span class="op">;</span></span>
+<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a>          sketch<span class="op">.</span><span class="fu">translate</span>(circulos<span class="op">.</span><span class="fu">nm2xy</span>(dots_x<span class="op">,</span>dots_y)[<span class="dv">0</span>]<span class="op">,</span>circulos<span class="op">.</span><span class="fu">nm2xy</span>(dots_x<span class="op">,</span>dots_y)[<span class="dv">1</span>] )<span class="op">;</span></span>
+<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a>            sketch<span class="op">.</span><span class="fu">rectMode</span>(sketch<span class="op">.</span><span class="at">CENTER</span>)<span class="op">;</span></span>
+<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a>          sketch<span class="op">.</span><span class="fu">fill</span>(<span class="st">'orange'</span>)<span class="op">;</span></span>
+<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a>          sketch<span class="op">.</span><span class="fu">stroke</span>(<span class="dv">0</span><span class="op">,</span><span class="dv">20</span><span class="op">,</span><span class="dv">250</span><span class="op">,</span><span class="dv">200</span>)<span class="op">;</span></span>
+<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a>            sketch<span class="op">.</span><span class="fu">circle</span>(<span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">30</span>)<span class="op">;</span></span>
+<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a>            sketch<span class="op">.</span><span class="fu">pop</span>()<span class="op">;</span></span>
+<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a>          y<span class="op">=</span>y<span class="op">+</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a>     }</span>
+<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a>     <span class="co">/*</span></span>
+<span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.push();</span></span>
+<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.translate(galton_board_1.position.x,galton_board_1.position.y );</span></span>
+<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.rectMode(sketch.CENTER);</span></span>
+<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.fill('red');</span></span>
+<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a><span class="co">  sketch.stroke(0,80,250,200);</span></span>
+<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.circle(0,0,40);</span></span>
+<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.pop();</span></span>
+<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.push();</span></span>
+<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.translate(galton_board_2.position.x,galton_board_2.position.y );</span></span>
+<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.rectMode(sketch.CENTER);</span></span>
+<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.fill('red');</span></span>
+<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a><span class="co">  sketch.stroke(0,80,250,200);</span></span>
+<span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.circle(0,0,40);</span></span>
+<span id="cb2-217"><a href="#cb2-217" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.pop();</span></span>
+<span id="cb2-218"><a href="#cb2-218" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.push();</span></span>
+<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.translate(galton_board_3.position.x,galton_board_3.position.y );</span></span>
+<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.rectMode(sketch.CENTER);</span></span>
+<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.fill('red');</span></span>
+<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a><span class="co">  sketch.stroke(0,80,250,200);</span></span>
+<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.circle(0,0,40);</span></span>
+<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a><span class="co">    sketch.pop();</span></span>
+<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a><span class="co">    */</span></span>
+<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a> <span class="co">// console.log(circle.position.y);</span></span>
+<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a>  Engine<span class="op">.</span><span class="fu">update</span>(engine)<span class="op">;</span></span>
+<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="246" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 245;"><span id="cb3-246"><a href="#cb3-246" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Stud {</span>
+<span id="cb3-247"><a href="#cb3-247" aria-hidden="true" tabindex="-1"></a><span class="fu">constructor</span>(p5<span class="op">,</span> posX<span class="op">,</span> posY<span class="op">,</span> dx<span class="op">,</span> dy<span class="op">,</span> value) {</span>
+<span id="cb3-248"><a href="#cb3-248" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">posX</span>  <span class="op">=</span> posX <span class="op">;</span></span>
+<span id="cb3-249"><a href="#cb3-249" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">posY</span>  <span class="op">=</span> posY<span class="op">;</span></span>
+<span id="cb3-250"><a href="#cb3-250" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">dx</span>    <span class="op">=</span> dx<span class="op">;</span></span>
+<span id="cb3-251"><a href="#cb3-251" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">dy</span>    <span class="op">=</span> dy<span class="op">;</span></span>
+<span id="cb3-252"><a href="#cb3-252" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">value</span> <span class="op">=</span> value<span class="op">;</span></span>
+<span id="cb3-253"><a href="#cb3-253" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">p5</span> <span class="op">=</span> p5<span class="op">;</span></span>
+<span id="cb3-254"><a href="#cb3-254" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-255"><a href="#cb3-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-256"><a href="#cb3-256" aria-hidden="true" tabindex="-1"></a><span class="fu">run</span>() {</span>
+<span id="cb3-257"><a href="#cb3-257" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="fu">display</span>()<span class="op">;</span></span>
+<span id="cb3-258"><a href="#cb3-258" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-259"><a href="#cb3-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-260"><a href="#cb3-260" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>() {</span>
+<span id="cb3-261"><a href="#cb3-261" aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="at">p5</span><span class="op">.</span><span class="fu">stroke</span>(<span class="st">'black'</span>)<span class="op">;</span></span>
+<span id="cb3-262"><a href="#cb3-262" aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="at">p5</span><span class="op">.</span><span class="fu">strokeWeight</span>(<span class="kw">this</span><span class="op">.</span><span class="at">value</span>)<span class="op">;</span></span>
+<span id="cb3-263"><a href="#cb3-263" aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="at">p5</span><span class="op">.</span><span class="fu">fill</span>(<span class="st">'white'</span>)<span class="op">;</span></span>
+<span id="cb3-264"><a href="#cb3-264" aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="at">p5</span><span class="op">.</span><span class="fu">circle</span>(<span class="kw">this</span><span class="op">.</span><span class="at">posX</span> <span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">posY</span><span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">dx</span>)<span class="op">;</span></span>
+<span id="cb3-265"><a href="#cb3-265" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-266"><a href="#cb3-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-267"><a href="#cb3-267" aria-hidden="true" tabindex="-1"></a><span class="fu">brilla</span>(nivel){</span>
+<span id="cb3-268"><a href="#cb3-268" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">value</span> <span class="op">=</span> nivel<span class="op">;</span></span>
+<span id="cb3-269"><a href="#cb3-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-270"><a href="#cb3-270" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-271"><a href="#cb3-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-272"><a href="#cb3-272" aria-hidden="true" tabindex="-1"></a><span class="fu">isDead</span>() {</span>
+<span id="cb3-273"><a href="#cb3-273" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-274"><a href="#cb3-274" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-275"><a href="#cb3-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-276"><a href="#cb3-276" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-277"><a href="#cb3-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-278"><a href="#cb3-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-279"><a href="#cb3-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-280"><a href="#cb3-280" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Stud_v2 {</span>
+<span id="cb3-281"><a href="#cb3-281" aria-hidden="true" tabindex="-1"></a><span class="fu">constructor</span>(p5<span class="op">,</span> posX<span class="op">,</span> posY<span class="op">,</span>i<span class="op">,</span>j<span class="op">,</span> dx<span class="op">,</span> dy<span class="op">,</span> value) {</span>
+<span id="cb3-282"><a href="#cb3-282" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">posX</span>  <span class="op">=</span> posX <span class="op">;</span></span>
+<span id="cb3-283"><a href="#cb3-283" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">posY</span>  <span class="op">=</span> posY<span class="op">;</span></span>
+<span id="cb3-284"><a href="#cb3-284" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">i</span> <span class="op">=</span> i<span class="op">;</span></span>
+<span id="cb3-285"><a href="#cb3-285" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">j</span> <span class="op">=</span> j<span class="op">;</span></span>
+<span id="cb3-286"><a href="#cb3-286" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">dx</span>    <span class="op">=</span> dx<span class="op">;</span></span>
+<span id="cb3-287"><a href="#cb3-287" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">dy</span>    <span class="op">=</span> dy<span class="op">;</span></span>
+<span id="cb3-288"><a href="#cb3-288" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">value</span> <span class="op">=</span> value<span class="op">;</span></span>
+<span id="cb3-289"><a href="#cb3-289" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">p5</span> <span class="op">=</span> p5<span class="op">;</span></span>
+<span id="cb3-290"><a href="#cb3-290" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-291"><a href="#cb3-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-292"><a href="#cb3-292" aria-hidden="true" tabindex="-1"></a><span class="fu">run</span>() {</span>
+<span id="cb3-293"><a href="#cb3-293" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="fu">display</span>()<span class="op">;</span></span>
+<span id="cb3-294"><a href="#cb3-294" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-295"><a href="#cb3-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-296"><a href="#cb3-296" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>() {</span>
+<span id="cb3-297"><a href="#cb3-297" aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="at">p5</span><span class="op">.</span><span class="fu">stroke</span>(<span class="st">'black'</span>)<span class="op">;</span></span>
+<span id="cb3-298"><a href="#cb3-298" aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="at">p5</span><span class="op">.</span><span class="fu">strokeWeight</span>(<span class="kw">this</span><span class="op">.</span><span class="at">value</span>)<span class="op">;</span></span>
+<span id="cb3-299"><a href="#cb3-299" aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="at">p5</span><span class="op">.</span><span class="fu">fill</span>(<span class="st">'white'</span>)<span class="op">;</span></span>
+<span id="cb3-300"><a href="#cb3-300" aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="at">p5</span><span class="op">.</span><span class="fu">circle</span>(<span class="kw">this</span><span class="op">.</span><span class="at">posX</span> <span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">posY</span><span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">dx</span>)<span class="op">;</span></span>
+<span id="cb3-301"><a href="#cb3-301" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-302"><a href="#cb3-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-303"><a href="#cb3-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-304"><a href="#cb3-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-305"><a href="#cb3-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-306"><a href="#cb3-306" aria-hidden="true" tabindex="-1"></a><span class="fu">brilla</span>(nivel){</span>
+<span id="cb3-307"><a href="#cb3-307" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">value</span> <span class="op">=</span> nivel<span class="op">;</span></span>
+<span id="cb3-308"><a href="#cb3-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-309"><a href="#cb3-309" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-310"><a href="#cb3-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-311"><a href="#cb3-311" aria-hidden="true" tabindex="-1"></a><span class="fu">isDead</span>() {</span>
+<span id="cb3-312"><a href="#cb3-312" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-313"><a href="#cb3-313" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-314"><a href="#cb3-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-315"><a href="#cb3-315" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-316"><a href="#cb3-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-317"><a href="#cb3-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-318"><a href="#cb3-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-319"><a href="#cb3-319" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Grid_circles_v2 {</span>
+<span id="cb3-320"><a href="#cb3-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-321"><a href="#cb3-321" aria-hidden="true" tabindex="-1"></a> <span class="fu">constructor</span>(p5<span class="op">,</span>filas<span class="op">,</span>columnas<span class="op">,</span>ancho<span class="op">,</span> alto) {</span>
+<span id="cb3-322"><a href="#cb3-322" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-323"><a href="#cb3-323" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">p5</span>    <span class="op">=</span> p5<span class="op">;</span></span>
+<span id="cb3-324"><a href="#cb3-324" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">filas</span> <span class="op">=</span> filas<span class="op">,</span></span>
+<span id="cb3-325"><a href="#cb3-325" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">columnas</span> <span class="op">=</span> columnas<span class="op">;</span></span>
+<span id="cb3-326"><a href="#cb3-326" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-327"><a href="#cb3-327" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">sepX</span><span class="op">=</span>ancho<span class="op">*</span><span class="fl">0.05</span><span class="op">;</span></span>
+<span id="cb3-328"><a href="#cb3-328" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">sepY</span><span class="op">=</span>alto<span class="op">*</span><span class="fl">0.06</span><span class="op">;</span></span>
+<span id="cb3-329"><a href="#cb3-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-330"><a href="#cb3-330" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">ancho</span> <span class="op">=</span> ancho<span class="op">-</span> <span class="kw">this</span><span class="op">.</span><span class="at">sepX</span><span class="op">*</span><span class="dv">2</span><span class="op">;</span></span>
+<span id="cb3-331"><a href="#cb3-331" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">alto</span>  <span class="op">=</span> alto <span class="op">-</span> <span class="kw">this</span><span class="op">.</span><span class="at">sepY</span><span class="op">*</span><span class="dv">2</span><span class="op">;</span></span>
+<span id="cb3-332"><a href="#cb3-332" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-333"><a href="#cb3-333" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">deltaX</span> <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">p5</span><span class="op">.</span><span class="fu">round</span>(<span class="kw">this</span><span class="op">.</span><span class="at">ancho</span><span class="op">/</span><span class="kw">this</span><span class="op">.</span><span class="at">columnas</span>)<span class="op">;</span></span>
+<span id="cb3-334"><a href="#cb3-334" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">deltaY</span> <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">p5</span><span class="op">.</span><span class="fu">round</span>(<span class="kw">this</span><span class="op">.</span><span class="at">alto</span><span class="op">/</span><span class="kw">this</span><span class="op">.</span><span class="at">filas</span>)<span class="op">;</span></span>
+<span id="cb3-335"><a href="#cb3-335" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-336"><a href="#cb3-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-337"><a href="#cb3-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-338"><a href="#cb3-338" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">circles</span> <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb3-339"><a href="#cb3-339" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-340"><a href="#cb3-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-341"><a href="#cb3-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-342"><a href="#cb3-342" aria-hidden="true" tabindex="-1"></a> <span class="fu">add_circles</span>() {</span>
+<span id="cb3-343"><a href="#cb3-343" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-344"><a href="#cb3-344" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">columnas</span> <span class="op">;</span> i<span class="op">=</span> i<span class="op">+</span><span class="dv">1</span>) {</span>
+<span id="cb3-345"><a href="#cb3-345" aria-hidden="true" tabindex="-1"></a>        <span class="kw">let</span> CircleRow <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb3-346"><a href="#cb3-346" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> ( <span class="kw">let</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">filas</span> <span class="op">;</span> j<span class="op">=</span> j<span class="op">+</span><span class="dv">1</span>) {</span>
+<span id="cb3-347"><a href="#cb3-347" aria-hidden="true" tabindex="-1"></a>              <span class="kw">let</span> posX <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">sepX</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="at">deltaX</span><span class="op">*</span>i<span class="op">;</span></span>
+<span id="cb3-348"><a href="#cb3-348" aria-hidden="true" tabindex="-1"></a>              <span class="kw">let</span> posY <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">sepY</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="at">deltaY</span><span class="op">*</span>j<span class="op">;</span></span>
+<span id="cb3-349"><a href="#cb3-349" aria-hidden="true" tabindex="-1"></a>              </span>
+<span id="cb3-350"><a href="#cb3-350" aria-hidden="true" tabindex="-1"></a>        <span class="co">//      console.log('DeltaX', posX);</span></span>
+<span id="cb3-351"><a href="#cb3-351" aria-hidden="true" tabindex="-1"></a><span class="co">//  console.log('DeltaY', posY);</span></span>
+<span id="cb3-352"><a href="#cb3-352" aria-hidden="true" tabindex="-1"></a>                CircleRow<span class="op">.</span><span class="fu">push</span>(<span class="kw">new</span> <span class="fu">Stud_v2</span>(<span class="kw">this</span><span class="op">.</span><span class="at">p5</span><span class="op">,</span>posX<span class="op">,</span> posY<span class="op">,</span>i<span class="op">+</span><span class="dv">1</span><span class="op">,</span>j<span class="op">+</span><span class="dv">1</span><span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">deltaX</span><span class="op">*</span><span class="fl">0.45</span><span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">deltaY</span><span class="op">*</span><span class="fl">0.45</span><span class="op">,</span> <span class="dv">1</span>))<span class="op">;</span></span>
+<span id="cb3-353"><a href="#cb3-353" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb3-354"><a href="#cb3-354" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="at">circles</span><span class="op">.</span><span class="fu">push</span>(CircleRow)<span class="op">;</span></span>
+<span id="cb3-355"><a href="#cb3-355" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-356"><a href="#cb3-356" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-357"><a href="#cb3-357" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-358"><a href="#cb3-358" aria-hidden="true" tabindex="-1"></a>    <span class="co">//return circles;</span></span>
+<span id="cb3-359"><a href="#cb3-359" aria-hidden="true" tabindex="-1"></a> }</span>
+<span id="cb3-360"><a href="#cb3-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-361"><a href="#cb3-361" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-362"><a href="#cb3-362" aria-hidden="true" tabindex="-1"></a><span class="fu">run</span>() {</span>
+<span id="cb3-363"><a href="#cb3-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-364"><a href="#cb3-364" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span><span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb3-365"><a href="#cb3-365" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i]<span class="op">.</span><span class="at">length</span><span class="op">;</span> j<span class="op">++</span>){</span>
+<span id="cb3-366"><a href="#cb3-366" aria-hidden="true" tabindex="-1"></a>              <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="fu">run</span>()<span class="op">;</span></span>
+<span id="cb3-367"><a href="#cb3-367" aria-hidden="true" tabindex="-1"></a>          }</span>
+<span id="cb3-368"><a href="#cb3-368" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb3-369"><a href="#cb3-369" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-370"><a href="#cb3-370" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-371"><a href="#cb3-371" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-372"><a href="#cb3-372" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-373"><a href="#cb3-373" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-374"><a href="#cb3-374" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nm2xy</span>(i<span class="op">,</span>j){</span>
+<span id="cb3-375"><a href="#cb3-375" aria-hidden="true" tabindex="-1"></a>  i<span class="op">=</span>i<span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-376"><a href="#cb3-376" aria-hidden="true" tabindex="-1"></a>  j<span class="op">=</span>j<span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-377"><a href="#cb3-377" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> [<span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">posX</span><span class="op">,</span><span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">posY</span>]<span class="op">;</span></span>
+<span id="cb3-378"><a href="#cb3-378" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-379"><a href="#cb3-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-380"><a href="#cb3-380" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-381"><a href="#cb3-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-382"><a href="#cb3-382" aria-hidden="true" tabindex="-1"></a><span class="fu">mouseMoved</span>(p5<span class="op">,</span> math){</span>
+<span id="cb3-383"><a href="#cb3-383" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">math</span> <span class="op">=</span> math<span class="op">;</span></span>
+<span id="cb3-384"><a href="#cb3-384" aria-hidden="true" tabindex="-1"></a>      <span class="kw">this</span><span class="op">.</span><span class="at">locX</span> <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">p5</span><span class="op">.</span><span class="at">mouseX</span><span class="op">;</span></span>
+<span id="cb3-385"><a href="#cb3-385" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">locY</span> <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">p5</span><span class="op">.</span><span class="at">mouseY</span><span class="op">;</span></span>
+<span id="cb3-386"><a href="#cb3-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-387"><a href="#cb3-387" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span><span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb3-388"><a href="#cb3-388" aria-hidden="true" tabindex="-1"></a>      <span class="co">//  console.log(i);</span></span>
+<span id="cb3-389"><a href="#cb3-389" aria-hidden="true" tabindex="-1"></a>       <span class="co">// console.log(this.locX);</span></span>
+<span id="cb3-390"><a href="#cb3-390" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i]<span class="op">.</span><span class="at">length</span><span class="op">;</span> j<span class="op">++</span>){</span>
+<span id="cb3-391"><a href="#cb3-391" aria-hidden="true" tabindex="-1"></a>    <span class="co">//      m = this.circles[i][j];</span></span>
+<span id="cb3-392"><a href="#cb3-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-393"><a href="#cb3-393" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span>(<span class="kw">this</span><span class="op">.</span><span class="at">math</span><span class="op">.</span><span class="fu">abs</span>(<span class="kw">this</span><span class="op">.</span><span class="at">locX</span> <span class="op">-</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">posX</span>) <span class="op">&lt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">dx</span><span class="op">/</span><span class="dv">2</span> <span class="op">&amp;</span> </span>
+<span id="cb3-394"><a href="#cb3-394" aria-hidden="true" tabindex="-1"></a>               <span class="kw">this</span><span class="op">.</span><span class="at">math</span><span class="op">.</span><span class="fu">abs</span>(<span class="kw">this</span><span class="op">.</span><span class="at">locY</span> <span class="op">-</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">posY</span>) <span class="op">&lt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">dy</span><span class="op">/</span><span class="dv">2</span> </span>
+<span id="cb3-395"><a href="#cb3-395" aria-hidden="true" tabindex="-1"></a>               ){</span>
+<span id="cb3-396"><a href="#cb3-396" aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="fu">brilla</span>(<span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb3-397"><a href="#cb3-397" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb3-398"><a href="#cb3-398" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span>(<span class="kw">this</span><span class="op">.</span><span class="at">math</span><span class="op">.</span><span class="fu">abs</span>(<span class="kw">this</span><span class="op">.</span><span class="at">locX</span> <span class="op">-</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">posX</span>) <span class="op">&gt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">dx</span><span class="op">/</span><span class="dv">2</span> <span class="op">||</span></span>
+<span id="cb3-399"><a href="#cb3-399" aria-hidden="true" tabindex="-1"></a>               <span class="kw">this</span><span class="op">.</span><span class="at">math</span><span class="op">.</span><span class="fu">abs</span>(<span class="kw">this</span><span class="op">.</span><span class="at">locY</span> <span class="op">-</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">posY</span>) <span class="op">&gt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">dy</span><span class="op">/</span><span class="dv">2</span> </span>
+<span id="cb3-400"><a href="#cb3-400" aria-hidden="true" tabindex="-1"></a>               ){</span>
+<span id="cb3-401"><a href="#cb3-401" aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="fu">brilla</span>(<span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb3-402"><a href="#cb3-402" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb3-403"><a href="#cb3-403" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb3-404"><a href="#cb3-404" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-405"><a href="#cb3-405" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb3-406"><a href="#cb3-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-407"><a href="#cb3-407" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-408"><a href="#cb3-408" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-409"><a href="#cb3-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-410"><a href="#cb3-410" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-411"><a href="#cb3-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-412"><a href="#cb3-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-413"><a href="#cb3-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-414"><a href="#cb3-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-415"><a href="#cb3-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-416"><a href="#cb3-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-417"><a href="#cb3-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-418"><a href="#cb3-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-419"><a href="#cb3-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-420"><a href="#cb3-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-421"><a href="#cb3-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-422"><a href="#cb3-422" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Grid_circles {</span>
+<span id="cb3-423"><a href="#cb3-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-424"><a href="#cb3-424" aria-hidden="true" tabindex="-1"></a> <span class="fu">constructor</span>(p5<span class="op">,</span>ancho<span class="op">,</span> alto<span class="op">,</span> dx<span class="op">,</span> dy<span class="op">,</span> sep ) {</span>
+<span id="cb3-425"><a href="#cb3-425" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-426"><a href="#cb3-426" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">p5</span>    <span class="op">=</span> p5<span class="op">;</span></span>
+<span id="cb3-427"><a href="#cb3-427" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-428"><a href="#cb3-428" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">ancho</span> <span class="op">=</span> ancho<span class="op">;</span></span>
+<span id="cb3-429"><a href="#cb3-429" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">alto</span>  <span class="op">=</span> alto<span class="op">;</span></span>
+<span id="cb3-430"><a href="#cb3-430" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-431"><a href="#cb3-431" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">deltaX</span> <span class="op">=</span> dx</span>
+<span id="cb3-432"><a href="#cb3-432" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">deltaY</span> <span class="op">=</span> dy</span>
+<span id="cb3-433"><a href="#cb3-433" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-434"><a href="#cb3-434" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-435"><a href="#cb3-435" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-436"><a href="#cb3-436" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-437"><a href="#cb3-437" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-438"><a href="#cb3-438" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">dx</span>    <span class="op">=</span> dx<span class="op">;</span></span>
+<span id="cb3-439"><a href="#cb3-439" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">dy</span>    <span class="op">=</span> dy<span class="op">;</span></span>
+<span id="cb3-440"><a href="#cb3-440" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-441"><a href="#cb3-441" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">sep</span>   <span class="op">=</span> sep<span class="op">;</span> <span class="co">// =1 significa dx*1, =2 dignifica dx*2</span></span>
+<span id="cb3-442"><a href="#cb3-442" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">circles</span> <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb3-443"><a href="#cb3-443" aria-hidden="true" tabindex="-1"></a> }</span>
+<span id="cb3-444"><a href="#cb3-444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-445"><a href="#cb3-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-446"><a href="#cb3-446" aria-hidden="true" tabindex="-1"></a> <span class="fu">add_circles</span>() {</span>
+<span id="cb3-447"><a href="#cb3-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-448"><a href="#cb3-448" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> y <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">dy</span><span class="op">+</span><span class="kw">this</span><span class="op">.</span><span class="at">dy</span><span class="op">/</span><span class="dv">4</span><span class="op">;</span> y <span class="op">&lt;=</span> <span class="kw">this</span><span class="op">.</span><span class="at">ancho</span><span class="op">-</span><span class="kw">this</span><span class="op">.</span><span class="at">dy</span><span class="op">;</span> y <span class="op">=</span> y <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="at">dy</span><span class="op">*</span><span class="kw">this</span><span class="op">.</span><span class="at">sep</span>) {</span>
+<span id="cb3-449"><a href="#cb3-449" aria-hidden="true" tabindex="-1"></a>        <span class="kw">let</span> CircleRow <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb3-450"><a href="#cb3-450" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> ( <span class="kw">let</span> x <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">dx</span><span class="op">+</span><span class="kw">this</span><span class="op">.</span><span class="at">dx</span><span class="op">/</span><span class="dv">4</span><span class="op">;</span> x <span class="op">&lt;=</span> <span class="kw">this</span><span class="op">.</span><span class="at">alto</span> <span class="op">-</span> <span class="kw">this</span><span class="op">.</span><span class="at">dx</span><span class="op">;</span> x <span class="op">=</span> x <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="at">dx</span><span class="op">*</span><span class="kw">this</span><span class="op">.</span><span class="at">sep</span>) {</span>
+<span id="cb3-451"><a href="#cb3-451" aria-hidden="true" tabindex="-1"></a>                CircleRow<span class="op">.</span><span class="fu">push</span>(<span class="kw">new</span> <span class="fu">Stud</span>(<span class="kw">this</span><span class="op">.</span><span class="at">p5</span><span class="op">,</span> x<span class="op">,</span> y<span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">dy</span><span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">dx</span><span class="op">,</span> <span class="dv">1</span>))<span class="op">;</span></span>
+<span id="cb3-452"><a href="#cb3-452" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb3-453"><a href="#cb3-453" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="at">circles</span><span class="op">.</span><span class="fu">push</span>(CircleRow)<span class="op">;</span></span>
+<span id="cb3-454"><a href="#cb3-454" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-455"><a href="#cb3-455" aria-hidden="true" tabindex="-1"></a>    <span class="co">//return circles;</span></span>
+<span id="cb3-456"><a href="#cb3-456" aria-hidden="true" tabindex="-1"></a> }</span>
+<span id="cb3-457"><a href="#cb3-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-458"><a href="#cb3-458" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-459"><a href="#cb3-459" aria-hidden="true" tabindex="-1"></a><span class="fu">run</span>() {</span>
+<span id="cb3-460"><a href="#cb3-460" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-461"><a href="#cb3-461" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span><span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb3-462"><a href="#cb3-462" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i]<span class="op">.</span><span class="at">length</span><span class="op">;</span> j<span class="op">++</span>){</span>
+<span id="cb3-463"><a href="#cb3-463" aria-hidden="true" tabindex="-1"></a>              <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="fu">run</span>()<span class="op">;</span></span>
+<span id="cb3-464"><a href="#cb3-464" aria-hidden="true" tabindex="-1"></a>          }</span>
+<span id="cb3-465"><a href="#cb3-465" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb3-466"><a href="#cb3-466" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-467"><a href="#cb3-467" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-468"><a href="#cb3-468" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-469"><a href="#cb3-469" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-470"><a href="#cb3-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-471"><a href="#cb3-471" aria-hidden="true" tabindex="-1"></a><span class="fu">mouseMoved</span>(p5<span class="op">,</span> math){</span>
+<span id="cb3-472"><a href="#cb3-472" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">math</span> <span class="op">=</span> math<span class="op">;</span></span>
+<span id="cb3-473"><a href="#cb3-473" aria-hidden="true" tabindex="-1"></a>      <span class="kw">this</span><span class="op">.</span><span class="at">locX</span> <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">p5</span><span class="op">.</span><span class="at">mouseX</span><span class="op">;</span></span>
+<span id="cb3-474"><a href="#cb3-474" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">locY</span> <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">p5</span><span class="op">.</span><span class="at">mouseY</span><span class="op">;</span></span>
+<span id="cb3-475"><a href="#cb3-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-476"><a href="#cb3-476" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span><span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb3-477"><a href="#cb3-477" aria-hidden="true" tabindex="-1"></a>      <span class="co">//  console.log(i);</span></span>
+<span id="cb3-478"><a href="#cb3-478" aria-hidden="true" tabindex="-1"></a>       <span class="co">// console.log(this.locX);</span></span>
+<span id="cb3-479"><a href="#cb3-479" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i]<span class="op">.</span><span class="at">length</span><span class="op">;</span> j<span class="op">++</span>){</span>
+<span id="cb3-480"><a href="#cb3-480" aria-hidden="true" tabindex="-1"></a>    <span class="co">//      m = this.circles[i][j];</span></span>
+<span id="cb3-481"><a href="#cb3-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-482"><a href="#cb3-482" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span>(<span class="kw">this</span><span class="op">.</span><span class="at">math</span><span class="op">.</span><span class="fu">abs</span>(<span class="kw">this</span><span class="op">.</span><span class="at">locX</span> <span class="op">-</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">posX</span>) <span class="op">&lt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">dx</span><span class="op">/</span><span class="dv">2</span> <span class="op">&amp;</span> </span>
+<span id="cb3-483"><a href="#cb3-483" aria-hidden="true" tabindex="-1"></a>               <span class="kw">this</span><span class="op">.</span><span class="at">math</span><span class="op">.</span><span class="fu">abs</span>(<span class="kw">this</span><span class="op">.</span><span class="at">locY</span> <span class="op">-</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">posY</span>) <span class="op">&lt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">dy</span><span class="op">/</span><span class="dv">2</span> </span>
+<span id="cb3-484"><a href="#cb3-484" aria-hidden="true" tabindex="-1"></a>               ){</span>
+<span id="cb3-485"><a href="#cb3-485" aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="fu">brilla</span>(<span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb3-486"><a href="#cb3-486" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb3-487"><a href="#cb3-487" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span>(<span class="kw">this</span><span class="op">.</span><span class="at">math</span><span class="op">.</span><span class="fu">abs</span>(<span class="kw">this</span><span class="op">.</span><span class="at">locX</span> <span class="op">-</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">posX</span>) <span class="op">&gt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">dx</span><span class="op">/</span><span class="dv">2</span> <span class="op">||</span></span>
+<span id="cb3-488"><a href="#cb3-488" aria-hidden="true" tabindex="-1"></a>               <span class="kw">this</span><span class="op">.</span><span class="at">math</span><span class="op">.</span><span class="fu">abs</span>(<span class="kw">this</span><span class="op">.</span><span class="at">locY</span> <span class="op">-</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">posY</span>) <span class="op">&gt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="at">dy</span><span class="op">/</span><span class="dv">2</span> </span>
+<span id="cb3-489"><a href="#cb3-489" aria-hidden="true" tabindex="-1"></a>               ){</span>
+<span id="cb3-490"><a href="#cb3-490" aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="at">circles</span>[i][j]<span class="op">.</span><span class="fu">brilla</span>(<span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb3-491"><a href="#cb3-491" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb3-492"><a href="#cb3-492" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb3-493"><a href="#cb3-493" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-494"><a href="#cb3-494" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb3-495"><a href="#cb3-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-496"><a href="#cb3-496" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-497"><a href="#cb3-497" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-498"><a href="#cb3-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-499"><a href="#cb3-499" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImltcG9ydCB7cDV9IGZyb20gXCJAdG1jdy9wNVwiO1xubWF0aCA9IHJlcXVpcmUoXCJtYXRoanNcIik7XG5NYXR0ZXIgPSByZXF1aXJlKFwibWF0dGVyLWpzXCIpO1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiIFxuXG5wNShza2V0Y2ggPT4ge1xubGV0IGFsdG8gPSA3MDA7XG5sZXQgYW5jaG8gPSAxMDAwO1xubGV0IGR4ID0gNDA7XG5sZXQgZHkgPSA0MDtcbmxldCBzZXAgPSAxLjU7XG5cbmxldCBwb3NHcm91bmRYPTI1O1xubGV0IHBvc0dyb3VuZFk9NDUwO1xuXG5sZXQgYW5jaG9CYXJyYSA9IDUwMDtcbmxldCBhbHRvQmFycmEgPSAxMDA7XG5cblxubGV0IGNpcmN1bG9zO1xuXG52YXIgRW5naW5lID0gTWF0dGVyLkVuZ2luZSxcbiAvLyBSZW5kZXIgPSBNYXR0ZXIuUmVuZGVyLCAvLyBVc28gbGEgbGliIHA1alxuICAgIFdvcmxkID0gTWF0dGVyLldvcmxkLFxuICAgIEJvZGllcyA9IE1hdHRlci5Cb2RpZXMsXG4gICAgQ29tcG9zaXRlID0gTWF0dGVyLkNvbXBvc2l0ZSxcbiAgICBDb21tb24gPSBNYXR0ZXIuQ29tbW9uLFxuICAgIFN2ZyA9IE1hdHRlci5TdmcsXG4gICAgQm9keSA9IE1hdHRlci5Cb2R5LFxuICAgIFZlcnRpY2VzID0gTWF0dGVyLlZlcnRpY2VzO1xuICAgIFxuICAgIC8vIEVOR0lORVxudmFyIGVuZ2luZTtcbnZhciB3b3JsZDtcbnZhciBncm91bmQ7XG52YXIgY2lyY2xlO1xuXG4gbGV0IHBvc19pbmlfaSA9IDc7XG4gIGxldCBwb3NfaW5pX2ogPSAyO1xuXG5cbmxldCBmaWxhcyA9ICAxMDtcbmxldCBjb2x1bW5hcyA9IDEyIDsgXG5cbnZhciBnYWx0b25fYm9hcmRfMTtcbnZhciBnYWx0b25fYm9hcmRfMjtcbnZhciBnYWx0b25fYm9hcmRfMztcblxuXG52YXIgZ2FsdG9uX2JvYXJkPVtdO1xuICBcbiAgc2tldGNoLnNldHVwID0gZnVuY3Rpb24oKSB7XG4gICAgc2tldGNoLmNyZWF0ZUNhbnZhcyhhbmNobywgYWx0byk7XG4gICAgXG4gICAgIC8vc3lzdGVtID0gbmV3IFBhcnRpY2xlU3lzdGVtKHNrZXRjaCwgc2tldGNoLmNyZWF0ZVZlY3Rvcihza2V0Y2gud2lkdGgvMiwgNTApKTtcbiAgICAvL2NpcmN1bG9zID0gbmV3IEdyaWRfY2lyY2xlcyhza2V0Y2gsYWx0bywgYW5jaG8sIGR4LCBkeSwgc2VwKTtcbiAgICBcbiAgICBjaXJjdWxvcyA9IG5ldyBHcmlkX2NpcmNsZXNfdjIoc2tldGNoLGZpbGFzLGNvbHVtbmFzLCBhbmNobywgYWx0byk7XG4gICAgY2lyY3Vsb3MuYWRkX2NpcmNsZXMoKTtcbiAgICBcbiAgICBcbiAgIC8vIGNvbnNvbGUubG9nKCdDaXJjdWxvczo6JyxjaXJjdWxvcy5jaXJjbGVzWzBdWzBdLmopO1xuXG5cbiAgLy8gIGNvbnNvbGUubG9nKCdDaXJjdWxvczo6JyxjaXJjdWxvcy5ubTJ4eSgxLDEpWzBdKTtcblxuICAgLy8gRW5naW5lXG4gICBcdGVuZ2luZSA9IEVuZ2luZS5jcmVhdGUoKTtcblxuICAgLy9cdGVuZ2luZS5ncmF2aXR5Lng9MDtcbiAgIGVuZ2luZS5ncmF2aXR5LnkgPSAwLjk7XG5cblx0IHdvcmxkICA9IGVuZ2luZS53b3JsZDsgXG4gXHQgTWF0dGVyLlJ1bm5lci5ydW4oZW5naW5lKTsgLy8gRW5naW5lLnJ1bihlbmdpbmUpXG5cdFxuXHQgZ3JvdW5kID0gTWF0dGVyLkJvZGllcy5yZWN0YW5nbGUocG9zR3JvdW5kWCwgcG9zR3JvdW5kWSwgYW5jaG9CYXJyYSwgYWx0b0JhcnJhLCB7IGlzU3RhdGljOiB0cnVlLCBhbmdsZTogMCB9KTtcblx0IGNpcmNsZSA9IE1hdHRlci5Cb2RpZXMuY2lyY2xlKDUyMCwgMCwgMTUsIHsgaXNTdGF0aWM6IGZhbHNlLCBpbmVydGlhOiBJbmZpbml0eSwgZnJpY3Rpb246IDAuMDEsIHJlc3RpdHV0aW9uOiAwLjIsIGZyaWN0aW9uQWlyOiAwLCBmcmljdGlvblN0YXRpYzogMCB9KTtcblxuXHQgXG5cdCAvLyBHQUxUT04gQk9BUkRcblx0IFxuXHQgXHQvLyBnYWx0b25fYm9hcmRfMSA9IE1hdHRlci5Cb2RpZXMuY2lyY2xlKDM5MCwgOTAsIDIwLCB7IGlzU3RhdGljOiB0cnVlIH0pO1xuXHQgXHQvLyBnYWx0b25fYm9hcmRfMiA9IE1hdHRlci5Cb2RpZXMuY2lyY2xlKDMwMCwgMTUwLCAyMCwgeyBpc1N0YXRpYzogdHJ1ZSB9KTtcblx0IFx0IC8vZ2FsdG9uX2JvYXJkXzMgPSBNYXR0ZXIuQm9kaWVzLmNpcmNsZSg0NzAsIDE1MCwgMjAsIHsgaXNTdGF0aWM6IHRydWUgfSk7XG5cblxuICAgICBcbiAgICAgZm9yKGxldCBsaW5lYXNfbnVtPTA7IGxpbmVhc19udW08NTsgbGluZWFzX251bSsrKXtcbiAgICAgICAgICBsZXQgeSA9IDA7XG4gICAgICAgICAvLyBsZXQgZ2FsdG9uX2JvYXJkX3RlbXA9W107XG4gICAgICAgIGZvcihsZXQgZG90c194ID0gcG9zX2luaV9pLWxpbmVhc19udW07IGRvdHNfeCA8PSAocG9zX2luaV9pK2xpbmVhc19udW0pOyBkb3RzX3grKyl7XG4gICAgICAgICAgbGV0IGRvdHNfeT0gcG9zX2luaV9qICsgbGluZWFzX251bTtcbiAgICAgICAgICBnYWx0b25fYm9hcmQucHVzaChNYXR0ZXIuQm9kaWVzLmNpcmNsZShjaXJjdWxvcy5ubTJ4eShkb3RzX3gsZG90c195KVswXSxjaXJjdWxvcy5ubTJ4eShkb3RzX3gsZG90c195KVsxXSwyMCx7aXNTdGF0aWM6IHRydWUgfSkpO1xuICAgICAgICAgIHk9eSsxO1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgIC8vICAgZ2FsdG9uX2JvYXJkLnB1c2goZ2FsdG9uX2JvYXJkX3RlbXApO1xuICAgICAgICBcbiAgICAgfVxuICAgICBcbiAgICBcblxuXHQgIC8vIGNvbnNvbGUubG9nKGdhbHRvbl9ib2FyZCk7XG5cdCBcblx0IHZhciBvYmplY3RzID0gZ2FsdG9uX2JvYXJkLmNvbmNhdChncm91bmQpO1xuICAgICBvYmplY3RzID0gb2JqZWN0cy5jb25jYXQoY2lyY2xlKTtcblx0IFxuXHQgXG5cdCAvLyBjaXJjbGUgPSBNYXR0ZXIuQm9kaWVzLmNpcmNsZSg1NTAsIDAsIDQwLCB7IGlzU3RhdGljOiBmYWxzZSB9KTtcblx0XG5cblxuICAgIC8vICBjb25zb2xlLmxvZyhncm91bmQpO1xuICAgIEVuZ2luZS5ydW4oZW5naW5lKTtcbiAgICBcbiAgICBcbiAgICBcbiAgICAvL1dvcmxkLmFkZCh3b3JsZCxbZ3JvdW5kLCBjaXJjbGUsZ2FsdG9uX2JvYXJkXzEsZ2FsdG9uX2JvYXJkXzIsZ2FsdG9uX2JvYXJkXzNdKTtcbiAgICBXb3JsZC5hZGQod29ybGQsb2JqZWN0cyApO1xuXG5cbiAgIFxuICB9O1xuICBcbiAgXG4gIFxuICBza2V0Y2guZHJhdyA9IGZ1bmN0aW9uKCkge1xuICBcbiAgICAvLyBVc2UgZGVncmVlcy5cbiAvLyBza2V0Y2guYW5nbGVNb2RlKERFR1JFRVMpO1xuICBcbiAgICBza2V0Y2guYmFja2dyb3VuZCgnbGlnaHRncmF5Jyk7XG4gIC8vICBzeXN0ZW0uYWRkUGFydGljbGUoKTtcbiAgICAvL3N5c3RlbS5ydW4oKTtcbiAgICBcblx0XG5cdCAgICBcdCAvLyAgICAgICBjb25zb2xlLmxvZygnc3Nzc3NzcycpO1xuXHQgICAgXHRcdGNpcmN1bG9zLnJ1bigpO1xuXHQgICAgXHRcdGNpcmN1bG9zLm1vdXNlTW92ZWQoc2tldGNoLG1hdGgpOyBcdFxuXHQgICAgXHRcdFxuXHQgICAgXHRcdFxuXHQgICAgXHRcdFxuXHQgICAgXHRcdFxuXHQgLy8gICBjb25zb2xlLmxvZyhcIkdST1VORCA+Pj4gKFwiLHNrZXRjaC5yb3VuZChncm91bmQucG9zaXRpb24ueCwwKSxcIixcIiAsIHNrZXRjaC5yb3VuZChncm91bmQucG9zaXRpb24ueSwwKSxcIilcIik7XG5cblx0ICAgLy8gXHQgICAgY29uc29sZS5sb2coXCJDSVJDVUxPID4+PiAoXCIsc2tldGNoLnJvdW5kKGNpcmNsZS5wb3NpdGlvbi54LDApLFwiLFwiICxza2V0Y2gucm91bmQoY2lyY2xlLnBvc2l0aW9uLnksMCksXCIpXCIpO1xuXG5cdCAvL2dyb3VuZFxuIFx0XG4gLy9cdGNvbnNvbGUubG9nKGdyb3VuZC5wb3NpdGlvbi54KTtcbiBcdHNrZXRjaC5wdXNoKCk7XG4gXHRza2V0Y2gudHJhbnNsYXRlKGdyb3VuZC5wb3NpdGlvbi54LGdyb3VuZC5wb3NpdGlvbi55KTtcbiBcdHNrZXRjaC5yb3RhdGUoMCk7XG4gXHRza2V0Y2guZmlsbCgwLDgwLDI1MCwyMDApO1xuICBza2V0Y2guc3Ryb2tlKDAsODAsMjUwLDIwMCk7XG4gICBcdHNrZXRjaC5yZWN0TW9kZShza2V0Y2guQ0VOVEVSKTtcbiBcdHNrZXRjaC5yZWN0KDAsMCxhbmNob0JhcnJhLGFsdG9CYXJyYSk7XG4gXHRza2V0Y2gucG9wKCk7XG4gXHRcbiBcdCAvL2NpcmNsZVxuIFx0IFxuIFx0c2tldGNoLnB1c2goKTtcbiBcdHNrZXRjaC50cmFuc2xhdGUoY2lyY2xlLnBvc2l0aW9uLngsY2lyY2xlLnBvc2l0aW9uLnkgKTtcbiBcdHNrZXRjaC5yZWN0TW9kZShza2V0Y2guQ0VOVEVSKTtcbiBcdHNrZXRjaC5maWxsKDAsODAsMjUwLDIwMCk7XG4gIHNrZXRjaC5zdHJva2UoMCw4MCwyNTAsMjAwKTtcbiBcdHNrZXRjaC5jaXJjbGUoMCwwLDMwKTtcbiBcdHNrZXRjaC5wb3AoKTtcbiBcdFxuIFx0XG4gXHRcblxuIFx0Ly9HQUxUT05cbiBcdFxuIFxuICAgIFxuXG4gICAgIGZvcihsZXQgbGluZWFzX251bT0wOyBsaW5lYXNfbnVtPDU7IGxpbmVhc19udW0rKyl7XG4gICAgICAgICAgbGV0IHk9MDtcbiAgICAgICAgZm9yKGxldCBkb3RzX3ggPSBwb3NfaW5pX2ktbGluZWFzX251bTsgZG90c194IDw9IChwb3NfaW5pX2krbGluZWFzX251bSk7IGRvdHNfeCsrKXtcbiAgICAgICAgICBsZXQgZG90c195PXBvc19pbmlfaitsaW5lYXNfbnVtO1xuICAgICAgICAvLyAgZ2FsdG9uX2JvYXJkW2xpbmVhc19udW1dW3ldID0gTWF0dGVyLkJvZGllcy5jaXJjbGUoY2lyY3Vsb3Mubm0yeHkoZG90c194LGRvdHNfeSlbMF0sY2lyY3Vsb3Mubm0yeHkoZG90c194LGRvdHNfeSlbMV0sIDIwLHsgaXNTdGF0aWM6IHRydWUgfSk7XG4gICAgICAgICAgXG4gICAgICAgICAgc2tldGNoLnB1c2goKTtcbiAgICAgICAgICBza2V0Y2gudHJhbnNsYXRlKGNpcmN1bG9zLm5tMnh5KGRvdHNfeCxkb3RzX3kpWzBdLGNpcmN1bG9zLm5tMnh5KGRvdHNfeCxkb3RzX3kpWzFdICk7XG4gICAgICAgIFx0c2tldGNoLnJlY3RNb2RlKHNrZXRjaC5DRU5URVIpO1xuICAgICAgICAgIHNrZXRjaC5maWxsKCdvcmFuZ2UnKTtcbiAgICAgICAgICBza2V0Y2guc3Ryb2tlKDAsMjAsMjUwLDIwMCk7XG4gXHQgICAgICAgIHNrZXRjaC5jaXJjbGUoMCwwLDMwKTtcbiBcdCAgICAgICAgc2tldGNoLnBvcCgpO1xuICAgIFxuICAgICAgICAgIHk9eSsxO1xuICAgICAgICAgIFxuICAgICAgICB9XG4gICAgIH1cbiBcdFxuIFx0XG4gXHQgLypcbiBcdHNrZXRjaC5wdXNoKCk7XG4gXHRza2V0Y2gudHJhbnNsYXRlKGdhbHRvbl9ib2FyZF8xLnBvc2l0aW9uLngsZ2FsdG9uX2JvYXJkXzEucG9zaXRpb24ueSApO1xuIFx0c2tldGNoLnJlY3RNb2RlKHNrZXRjaC5DRU5URVIpO1xuIFx0c2tldGNoLmZpbGwoJ3JlZCcpO1xuICBza2V0Y2guc3Ryb2tlKDAsODAsMjUwLDIwMCk7XG4gXHRza2V0Y2guY2lyY2xlKDAsMCw0MCk7XG4gXHRza2V0Y2gucG9wKCk7XG4gXHRcbiBcdFxuIFx0c2tldGNoLnB1c2goKTtcbiBcdHNrZXRjaC50cmFuc2xhdGUoZ2FsdG9uX2JvYXJkXzIucG9zaXRpb24ueCxnYWx0b25fYm9hcmRfMi5wb3NpdGlvbi55ICk7XG4gXHRza2V0Y2gucmVjdE1vZGUoc2tldGNoLkNFTlRFUik7XG4gXHRza2V0Y2guZmlsbCgncmVkJyk7XG4gIHNrZXRjaC5zdHJva2UoMCw4MCwyNTAsMjAwKTtcbiBcdHNrZXRjaC5jaXJjbGUoMCwwLDQwKTtcbiBcdHNrZXRjaC5wb3AoKTtcbiBcdFxuIFx0XG4gXHRza2V0Y2gucHVzaCgpO1xuIFx0c2tldGNoLnRyYW5zbGF0ZShnYWx0b25fYm9hcmRfMy5wb3NpdGlvbi54LGdhbHRvbl9ib2FyZF8zLnBvc2l0aW9uLnkgKTtcbiBcdHNrZXRjaC5yZWN0TW9kZShza2V0Y2guQ0VOVEVSKTtcbiBcdHNrZXRjaC5maWxsKCdyZWQnKTtcbiAgc2tldGNoLnN0cm9rZSgwLDgwLDI1MCwyMDApO1xuIFx0c2tldGNoLmNpcmNsZSgwLDAsNDApO1xuIFx0c2tldGNoLnBvcCgpO1xuIFx0Ki9cbiBcdFxuIC8vXHRjb25zb2xlLmxvZyhjaXJjbGUucG9zaXRpb24ueSk7XG4gXHRcbiBcdFxuICBFbmdpbmUudXBkYXRlKGVuZ2luZSk7XG5cdCAgICAgICAgXG5cdH1cblxufSlcblxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiXG5jbGFzcyBTdHVkIHtcbmNvbnN0cnVjdG9yKHA1LCBwb3NYLCBwb3NZLCBkeCwgZHksIHZhbHVlKSB7XG5cdHRoaXMucG9zWCAgPSBwb3NYIDtcblx0dGhpcy5wb3NZICA9IHBvc1k7XG5cdHRoaXMuZHggICAgPSBkeDtcblx0dGhpcy5keSAgICA9IGR5O1xuXHR0aGlzLnZhbHVlID0gdmFsdWU7XG5cdHRoaXMucDUgPSBwNTtcbn1cblxucnVuKCkge1xuICAgIHRoaXMuZGlzcGxheSgpO1xufVxuXG5kaXNwbGF5KCkge1xuXHRcdFx0XHR0aGlzLnA1LnN0cm9rZSgnYmxhY2snKTtcblx0XHRcdFx0dGhpcy5wNS5zdHJva2VXZWlnaHQodGhpcy52YWx1ZSk7XG5cdFx0XHRcdHRoaXMucDUuZmlsbCgnd2hpdGUnKTtcblx0XHRcdFx0dGhpcy5wNS5jaXJjbGUodGhpcy5wb3NYICwgdGhpcy5wb3NZLCB0aGlzLmR4KTtcbn1cblxuYnJpbGxhKG5pdmVsKXtcbnRoaXMudmFsdWUgPSBuaXZlbDtcblxufVxuXG5pc0RlYWQoKSB7XG4gICAgcmV0dXJuIDA7XG4gIH1cblxufVxuXG5cblxuY2xhc3MgU3R1ZF92MiB7XG5jb25zdHJ1Y3RvcihwNSwgcG9zWCwgcG9zWSxpLGosIGR4LCBkeSwgdmFsdWUpIHtcblx0dGhpcy5wb3NYICA9IHBvc1ggO1xuXHR0aGlzLnBvc1kgID0gcG9zWTtcblx0dGhpcy5pID0gaTtcblx0dGhpcy5qID0gajtcblx0dGhpcy5keCAgICA9IGR4O1xuXHR0aGlzLmR5ICAgID0gZHk7XG5cdHRoaXMudmFsdWUgPSB2YWx1ZTtcblx0dGhpcy5wNSA9IHA1O1xufVxuXG5ydW4oKSB7XG4gICAgdGhpcy5kaXNwbGF5KCk7XG59XG5cbmRpc3BsYXkoKSB7XG5cdFx0XHRcdHRoaXMucDUuc3Ryb2tlKCdibGFjaycpO1xuXHRcdFx0XHR0aGlzLnA1LnN0cm9rZVdlaWdodCh0aGlzLnZhbHVlKTtcblx0XHRcdFx0dGhpcy5wNS5maWxsKCd3aGl0ZScpO1xuXHRcdFx0XHR0aGlzLnA1LmNpcmNsZSh0aGlzLnBvc1ggLCB0aGlzLnBvc1ksIHRoaXMuZHgpO1xufVxuXG5cblxuXG5icmlsbGEobml2ZWwpe1xudGhpcy52YWx1ZSA9IG5pdmVsO1xuXG59XG5cbmlzRGVhZCgpIHtcbiAgICByZXR1cm4gMDtcbiAgfVxuXG59XG5cblxuXG5jbGFzcyBHcmlkX2NpcmNsZXNfdjIge1xuXG4gY29uc3RydWN0b3IocDUsZmlsYXMsY29sdW1uYXMsYW5jaG8sIGFsdG8pIHtcblx0XG5cdHRoaXMucDUgICAgPSBwNTtcblx0dGhpcy5maWxhcyA9IGZpbGFzLFxuXHR0aGlzLmNvbHVtbmFzID0gY29sdW1uYXM7XG5cdFxuXHR0aGlzLnNlcFg9YW5jaG8qMC4wNTtcblx0dGhpcy5zZXBZPWFsdG8qMC4wNjtcblxuXHR0aGlzLmFuY2hvID0gYW5jaG8tIHRoaXMuc2VwWCoyO1xuXHR0aGlzLmFsdG8gID0gYWx0byAtIHRoaXMuc2VwWSoyO1xuXHRcblx0dGhpcy5kZWx0YVggPSB0aGlzLnA1LnJvdW5kKHRoaXMuYW5jaG8vdGhpcy5jb2x1bW5hcyk7XG5cdHRoaXMuZGVsdGFZID0gdGhpcy5wNS5yb3VuZCh0aGlzLmFsdG8vdGhpcy5maWxhcyk7XG5cdFxuXG5cblx0dGhpcy5jaXJjbGVzID0gW107XG5cdH1cblxuXG4gYWRkX2NpcmNsZXMoKSB7XG5cdFxuXHRmb3IgKGxldCBpID0gMDsgaSA8IHRoaXMuY29sdW1uYXMgOyBpPSBpKzEpIHtcbiAgICBcdGxldCBDaXJjbGVSb3cgPSBbXTtcblx0XHRcdGZvciAoIGxldCBqID0gMDsgaiA8IHRoaXMuZmlsYXMgOyBqPSBqKzEpIHtcblx0XHRcdCAgbGV0IHBvc1ggPSB0aGlzLnNlcFggKyB0aGlzLmRlbHRhWCppO1xuXHRcdFx0ICBsZXQgcG9zWSA9IHRoaXMuc2VwWSArIHRoaXMuZGVsdGFZKmo7XG5cdFx0XHQgIFxuXHRcdC8vXHQgIFx0Y29uc29sZS5sb2coJ0RlbHRhWCcsIHBvc1gpO1xuLy9cdGNvbnNvbGUubG9nKCdEZWx0YVknLCBwb3NZKTtcblx0XHRcdFx0Q2lyY2xlUm93LnB1c2gobmV3IFN0dWRfdjIodGhpcy5wNSxwb3NYLCBwb3NZLGkrMSxqKzEsIHRoaXMuZGVsdGFYKjAuNDUsIHRoaXMuZGVsdGFZKjAuNDUsIDEpKTtcblx0XHRcdH1cblx0XHR0aGlzLmNpcmNsZXMucHVzaChDaXJjbGVSb3cpO1xuXHR9XG5cdFxuXHRcblx0Ly9yZXR1cm4gY2lyY2xlcztcbiB9XG5cblx0XG5ydW4oKSB7XG5cbiAgICAgIGZvciAobGV0IGkgPSAwOyBpIDwgdGhpcy5jaXJjbGVzLmxlbmd0aDsgaSsrKSB7XG4gICAgXHQgICAgZm9yIChsZXQgaiA9IDA7IGogPCB0aGlzLmNpcmNsZXNbaV0ubGVuZ3RoOyBqKyspe1xuICAgIFx0ICBcdCAgdGhpcy5jaXJjbGVzW2ldW2pdLnJ1bigpO1xuICAgICAgXHQgIH1cbiAgICBcdH1cbiAgICBcdHJldHVybiAxO1xuICAgIFxuICB9XG4gIFxuICBcbiAgbm0yeHkoaSxqKXtcbiAgaT1pLTE7XG4gIGo9ai0xO1xucmV0dXJuIFt0aGlzLmNpcmNsZXNbaV1bal0ucG9zWCx0aGlzLmNpcmNsZXNbaV1bal0ucG9zWV07XG59XG5cbiAgXG5cbm1vdXNlTW92ZWQocDUsIG1hdGgpe1xuICAgIHRoaXMubWF0aCA9IG1hdGg7XG5cdCAgdGhpcy5sb2NYID0gdGhpcy5wNS5tb3VzZVg7XG4gICAgdGhpcy5sb2NZID0gdGhpcy5wNS5tb3VzZVk7XG5cblx0Zm9yIChsZXQgaSA9IDA7IGkgPCB0aGlzLmNpcmNsZXMubGVuZ3RoOyBpKyspIHtcblx0ICAvLyAgY29uc29sZS5sb2coaSk7XG5cdCAgIC8vIGNvbnNvbGUubG9nKHRoaXMubG9jWCk7XG4gICAgXHRmb3IgKGxldCBqID0gMDsgaiA8IHRoaXMuY2lyY2xlc1tpXS5sZW5ndGg7IGorKyl7XG4gICAgLy9cdFx0bSA9IHRoaXMuY2lyY2xlc1tpXVtqXTtcblxuICAgICAgIFx0XHRpZih0aGlzLm1hdGguYWJzKHRoaXMubG9jWCAtIHRoaXMuY2lyY2xlc1tpXVtqXS5wb3NYKSA8IHRoaXMuY2lyY2xlc1tpXVtqXS5keC8yICYgXG4gICAgICAgXHRcdCAgIHRoaXMubWF0aC5hYnModGhpcy5sb2NZIC0gdGhpcy5jaXJjbGVzW2ldW2pdLnBvc1kpIDwgdGhpcy5jaXJjbGVzW2ldW2pdLmR5LzIgXG4gICAgICAgXHRcdCAgICl7XG4gICAgICAgXHRcdFx0dGhpcy5jaXJjbGVzW2ldW2pdLmJyaWxsYSgyKTtcbiAgIFx0XHRcdH1cbiAgIFx0XHRcdGlmKHRoaXMubWF0aC5hYnModGhpcy5sb2NYIC0gdGhpcy5jaXJjbGVzW2ldW2pdLnBvc1gpID4gdGhpcy5jaXJjbGVzW2ldW2pdLmR4LzIgfHxcbiAgIFx0XHRcdCAgIHRoaXMubWF0aC5hYnModGhpcy5sb2NZIC0gdGhpcy5jaXJjbGVzW2ldW2pdLnBvc1kpID4gdGhpcy5jaXJjbGVzW2ldW2pdLmR5LzIgXG4gICBcdFx0XHQgICApe1xuICAgICAgIFx0XHRcdHRoaXMuY2lyY2xlc1tpXVtqXS5icmlsbGEoMCk7XG4gICBcdFx0XHR9XG4gICBcdFx0fVxuXHR9XG5cdHJldHVybiBmYWxzZTtcblxufVxuICBcblxufVxuXG5cblxuXG5cblxuXG5cblxuXG5cbmNsYXNzIEdyaWRfY2lyY2xlcyB7XG5cbiBjb25zdHJ1Y3RvcihwNSxhbmNobywgYWx0bywgZHgsIGR5LCBzZXAgKSB7XG5cdFxuXHR0aGlzLnA1ICAgID0gcDU7XG5cdFxuXHR0aGlzLmFuY2hvID0gYW5jaG87XG5cdHRoaXMuYWx0byAgPSBhbHRvO1xuXHRcblx0dGhpcy5kZWx0YVggPSBkeFxuXHR0aGlzLmRlbHRhWSA9IGR5XG5cdFxuXHRcblx0XG5cdFxuXHRcblx0dGhpcy5keCAgICA9IGR4O1xuXHR0aGlzLmR5ICAgID0gZHk7XG5cdFxuXHR0aGlzLnNlcCAgID0gc2VwOyAvLyA9MSBzaWduaWZpY2EgZHgqMSwgPTIgZGlnbmlmaWNhIGR4KjJcblx0dGhpcy5jaXJjbGVzID0gW107XG4gfVxuXG5cbiBhZGRfY2lyY2xlcygpIHtcblxuICBmb3IgKGxldCB5ID0gdGhpcy5keSt0aGlzLmR5LzQ7IHkgPD0gdGhpcy5hbmNoby10aGlzLmR5OyB5ID0geSArIHRoaXMuZHkqdGhpcy5zZXApIHtcbiAgICBcdGxldCBDaXJjbGVSb3cgPSBbXTtcblx0XHRcdGZvciAoIGxldCB4ID0gdGhpcy5keCt0aGlzLmR4LzQ7IHggPD0gdGhpcy5hbHRvIC0gdGhpcy5keDsgeCA9IHggKyB0aGlzLmR4KnRoaXMuc2VwKSB7XG5cdFx0XHRcdENpcmNsZVJvdy5wdXNoKG5ldyBTdHVkKHRoaXMucDUsIHgsIHksIHRoaXMuZHksIHRoaXMuZHgsIDEpKTtcblx0XHRcdH1cblx0XHR0aGlzLmNpcmNsZXMucHVzaChDaXJjbGVSb3cpO1xuXHR9XG5cdC8vcmV0dXJuIGNpcmNsZXM7XG4gfVxuXG5cdFxucnVuKCkge1xuXG4gICAgICBmb3IgKGxldCBpID0gMDsgaSA8IHRoaXMuY2lyY2xlcy5sZW5ndGg7IGkrKykge1xuICAgIFx0ICAgIGZvciAobGV0IGogPSAwOyBqIDwgdGhpcy5jaXJjbGVzW2ldLmxlbmd0aDsgaisrKXtcbiAgICBcdCAgXHQgIHRoaXMuY2lyY2xlc1tpXVtqXS5ydW4oKTtcbiAgICAgIFx0ICB9XG4gICAgXHR9XG4gICAgXHRyZXR1cm4gMTtcbiAgICBcbiAgfVxuICBcblxubW91c2VNb3ZlZChwNSwgbWF0aCl7XG4gICAgdGhpcy5tYXRoID0gbWF0aDtcblx0ICB0aGlzLmxvY1ggPSB0aGlzLnA1Lm1vdXNlWDtcbiAgICB0aGlzLmxvY1kgPSB0aGlzLnA1Lm1vdXNlWTtcblxuXHRmb3IgKGxldCBpID0gMDsgaSA8IHRoaXMuY2lyY2xlcy5sZW5ndGg7IGkrKykge1xuXHQgIC8vICBjb25zb2xlLmxvZyhpKTtcblx0ICAgLy8gY29uc29sZS5sb2codGhpcy5sb2NYKTtcbiAgICBcdGZvciAobGV0IGogPSAwOyBqIDwgdGhpcy5jaXJjbGVzW2ldLmxlbmd0aDsgaisrKXtcbiAgICAvL1x0XHRtID0gdGhpcy5jaXJjbGVzW2ldW2pdO1xuXG4gICAgICAgXHRcdGlmKHRoaXMubWF0aC5hYnModGhpcy5sb2NYIC0gdGhpcy5jaXJjbGVzW2ldW2pdLnBvc1gpIDwgdGhpcy5jaXJjbGVzW2ldW2pdLmR4LzIgJiBcbiAgICAgICBcdFx0ICAgdGhpcy5tYXRoLmFicyh0aGlzLmxvY1kgLSB0aGlzLmNpcmNsZXNbaV1bal0ucG9zWSkgPCB0aGlzLmNpcmNsZXNbaV1bal0uZHkvMiBcbiAgICAgICBcdFx0ICAgKXtcbiAgICAgICBcdFx0XHR0aGlzLmNpcmNsZXNbaV1bal0uYnJpbGxhKDIpO1xuICAgXHRcdFx0fVxuICAgXHRcdFx0aWYodGhpcy5tYXRoLmFicyh0aGlzLmxvY1ggLSB0aGlzLmNpcmNsZXNbaV1bal0ucG9zWCkgPiB0aGlzLmNpcmNsZXNbaV1bal0uZHgvMiB8fFxuICAgXHRcdFx0ICAgdGhpcy5tYXRoLmFicyh0aGlzLmxvY1kgLSB0aGlzLmNpcmNsZXNbaV1bal0ucG9zWSkgPiB0aGlzLmNpcmNsZXNbaV1bal0uZHkvMiBcbiAgIFx0XHRcdCAgICl7XG4gICAgICAgXHRcdFx0dGhpcy5jaXJjbGVzW2ldW2pdLmJyaWxsYSgwKTtcbiAgIFx0XHRcdH1cbiAgIFx0XHR9XG5cdH1cblx0cmV0dXJuIGZhbHNlO1xuXG59XG4gIFxuXG59XG5cblxuXG5cblxuXG5cblxuIn1dfQ==
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

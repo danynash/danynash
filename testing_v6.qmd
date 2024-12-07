@@ -1,0 +1,446 @@
+```{ojs}
+//| echo: false  
+import {p5} from "@tmcw/p5";
+math = require("mathjs");
+Matter = require("matter-js");
+```
+
+```{ojs}
+//| echo: false  
+ 
+
+p5(sketch => {
+let alto = 700;
+let ancho = 1000;
+let dx = 40;
+let dy = 40;
+let sep = 1.5;
+
+let posGroundX=25;
+let posGroundY=600;
+
+let anchoBarra = 2000;
+let altoBarra = 100;
+
+let system;
+let circulos;
+
+var Engine = Matter.Engine,
+ // Render = Matter.Render, // Uso la lib p5j
+    World = Matter.World,
+    Bodies = Matter.Bodies,
+    Composite = Matter.Composite,
+    Common = Matter.Common,
+    Svg = Matter.Svg,
+    Body = Matter.Body,
+    Vertices = Matter.Vertices;
+    
+    // ENGINE
+var engine;
+var world;
+var ground;
+var circle;
+
+ let pos_ini_i = 10;
+  let pos_ini_j = 3;
+
+
+let filas =  16;
+let columnas = 19 ; 
+
+var galton_board_1;
+var galton_board_2;
+var galton_board_3;
+
+
+var galton_board=[];
+var par;
+var particulas=[];
+  
+  sketch.setup = function() {
+    sketch.createCanvas(ancho, alto);
+    
+     //system = new ParticleSystem(sketch,sketch.createVector(sketch.width/2, 50));
+     
+     
+     
+     for(let n=1; n<=100; n++){
+        par = Matter.Bodies.circle(480, 30, 5, 
+                  {isStatic: false, inertia: Infinity,
+                    friction: 0.00,  restitution: 0.4, frictionAir: 0, 
+                    frictionStatic: 0 }
+                    );
+       Body.setVelocity(par, { x: math.random()*0.01, y: math.random()*0.01 });  
+       
+       particulas.push(par);
+      }
+     
+     console.log(particulas);
+     
+     
+    
+    circulos = new Grid_circles_v2(sketch,filas,columnas, ancho, alto);
+    circulos.add_circles();
+    
+    
+   // Engine
+   	engine = Engine.create();
+
+   //	engine.gravity.x=0;
+   engine.gravity.y = 0.4;
+
+	 world  = engine.world; 
+ 	 Matter.Runner.run(engine); // Engine.run(engine)
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+	
+	 ground = Matter.Bodies.rectangle(posGroundX, posGroundY, anchoBarra, altoBarra, { isStatic: true, angle: 0 });
+	 circle = Matter.Bodies.circle(480, 30, circulos.deltaX*0.55/4, { isStatic: false, inertia: Infinity, friction: 0.00, restitution: 0.4, frictionAir: 0, frictionStatic: 0 });
+
+  Body.setVelocity(circle, { x: 0.1, y: 0.0 });
+ 
+	 
+	 // GALTON BOARD
+     for(let lineas_num=0; lineas_num< 9; lineas_num++){
+          let y = 0;
+         // let galton_board_temp=[];
+        for(let dots_x = pos_ini_i-lineas_num; dots_x <= (pos_ini_i+lineas_num); dots_x++){
+          let dots_y= pos_ini_j + lineas_num;
+          galton_board.push(Matter.Bodies.circle(circulos.nm2xy(dots_x,dots_y)[0],circulos.nm2xy(dots_x,dots_y)[1],circulos.deltaX*0.55/2,{isStatic: true }));
+          y=y+1;
+        }
+        
+     }
+     
+     
+// AGREGANDO OBJETOS AL MUNDO     
+  var objects = galton_board.concat(ground);
+  objects = objects.concat(circle);
+  
+  for(let n=1; n<=100; n++){
+       objects = objects.concat(particulas[n-1]);
+     }
+
+
+
+  Engine.run(engine);
+    
+    
+//World.add(world,[ground, circle,galton_board_1,galton_board_2,galton_board_3]);
+    World.add(world,objects);
+
+  };
+  
+  sketch.draw = function() {
+  
+    // Use degrees.
+ // sketch.angleMode(DEGREES);
+  
+    sketch.background('#F9F9F9');
+   
+    
+		circulos.run();
+		circulos.mouseMoved(sketch,math); 	
+		
+		
+		
+			sketch.drawingContext.shadowOffsetX = 0;
+  sketch.drawingContext.shadowOffsetY = 0;
+  sketch.drawingContext.shadowBlur = 0;
+  sketch.drawingContext.shadowColor = '#DBDBDB';
+		
+	// Ground	
+ 	sketch.push();
+ 	sketch.translate(ground.position.x,ground.position.y);
+ 	sketch.rotate(0);
+ 	sketch.fill(0,80,250,200);
+  sketch.stroke(0,80,250,200);
+   	sketch.rectMode(sketch.CENTER);
+ 	sketch.rect(0,0,anchoBarra,altoBarra);
+ 	sketch.pop();
+ 	
+ 	 //circle
+ 	 
+ 	sketch.push();
+ 	sketch.translate(circle.position.x,circle.position.y );
+ 	sketch.rectMode(sketch.CENTER);
+ 	sketch.fill(0,80,250,200);
+  sketch.stroke(0,80,250,200);
+ 	sketch.circle(0,0,circulos.deltaX*0.55/2);
+ 	sketch.pop();
+ 	
+ 	
+ 	//GALTON draw
+
+     for(let lineas_num=0; lineas_num<9; lineas_num++){
+          let y=0;
+        for(let dots_x = pos_ini_i-lineas_num; dots_x <= (pos_ini_i+lineas_num); dots_x++){
+          let dots_y=pos_ini_j+lineas_num;
+
+          sketch.push();
+          sketch.translate(circulos.nm2xy(dots_x,dots_y)[0],circulos.nm2xy(dots_x,dots_y)[1] );
+        	sketch.rectMode(sketch.CENTER);
+          sketch.fill('orange');
+          sketch.stroke(0,20,250,200);
+ 	        sketch.circle(0,0,circulos.deltaX*0.55);
+ 	        sketch.pop();
+    
+          y=y+1;
+          
+        }
+     }
+     
+
+ 	 for(let n=1; n<=100; n++){
+      
+    sketch.push();
+ 	  sketch.translate(particulas[n-1].position.x,particulas[n-1].position.y );
+ 	  sketch.rectMode(sketch.CENTER);
+ 	  sketch.fill(0,80,250,200);
+    sketch.stroke(0,80,250,200);
+ 	  sketch.circle(0,0,10);
+ 	  sketch.pop();
+      
+      
+     }
+ 	
+ 	
+  Engine.update(engine);
+ 
+	        
+	}
+
+})
+
+```
+
+```{ojs}
+//| echo: false  
+
+
+class Stud_v2 {
+constructor(p5, posX, posY,i,j, dx, dy, value) {
+	this.posX  = posX ;
+	this.posY  = posY;
+	this.i = i;
+	this.j = j;
+	this.dx    = dx;
+	this.dy    = dy;
+	this.value = value;
+	this.p5 = p5;
+}
+
+run() {
+    this.display();
+}
+
+display() {
+
+	this.p5.drawingContext.shadowOffsetX = 0;
+  this.p5.drawingContext.shadowOffsetY = 4;
+  this.p5.drawingContext.shadowBlur = 7;
+  this.p5.drawingContext.shadowColor = '#DBDBDB';
+  
+		this.p5.stroke('#E8E8E8');
+		this.p5.strokeWeight(this.value);
+		this.p5.fill('DBDBDB');
+		this.p5.circle(this.posX , this.posY, this.dx);
+		
+
+}
+
+brilla(nivel){
+  this.value = nivel;
+}
+
+isDead() {
+    return 0;
+  }
+
+}
+
+
+
+class Grid_circles_v2 {
+
+   constructor(p5,filas,columnas,ancho, alto) {
+  	
+  	this.p5    = p5;
+  	this.filas = filas,
+  	this.columnas = columnas;
+  	
+  	this.sepX=ancho*0.05;
+  	this.sepY=alto*0.06;
+  
+  	this.ancho = ancho- this.sepX*2;
+  	this.alto  = alto - this.sepY*2;
+  	
+  	this.deltaX = this.p5.round(this.ancho/this.columnas);
+  	this.deltaY = this.p5.round(this.alto/this.filas);
+  
+  	this.circles = [];
+  	}
+  
+  
+   add_circles() {
+  	
+  	for (let i = 0; i < this.columnas ; i= i+1) {
+      	let CircleRow = [];
+  			for ( let j = 0; j < this.filas ; j= j+1) {
+  			  let posX = this.sepX + this.deltaX*i;
+  			  let posY = this.sepY + this.deltaY*j;
+  			  
+  		//	  	console.log('DeltaX', posX);
+  //	console.log('DeltaY', posY);
+  				CircleRow.push(new Stud_v2(this.p5,posX, posY,i+1,j+1, this.deltaX*0.55, this.deltaY*0.55, 1));
+  			}
+  		this.circles.push(CircleRow);
+  	}
+  	
+  	
+  	//return circles;
+   }
+  
+  	
+  run() {
+    for (let i = 0; i < this.circles.length; i++) {
+  	    for (let j = 0; j < this.circles[i].length; j++){
+  	  	  this.circles[i][j].run();
+    	  }
+  	}
+  	  return 1;
+    }
+    
+  nm2xy(i,j){
+    i=i-1;
+    j=j-1;
+    return [this.circles[i][j].posX,this.circles[i][j].posY];
+  }
+
+  
+mouseMoved(p5, math){
+      this.math = math;
+      this.locX = this.p5.mouseX;
+      this.locY = this.p5.mouseY;
+    
+    for (let i = 0; i < this.circles.length; i++) {
+      //  console.log(i);
+       // console.log(this.locX);
+      	for (let j = 0; j < this.circles[i].length; j++){
+      //		m = this.circles[i][j];
+    
+         		if(this.math.abs(this.locX - this.circles[i][j].posX) < this.circles[i][j].dx/2 & 
+         		   this.math.abs(this.locY - this.circles[i][j].posY) < this.circles[i][j].dy/2 
+         		   ){
+         			this.circles[i][j].brilla(2);
+     			}
+     			if(this.math.abs(this.locX - this.circles[i][j].posX) > this.circles[i][j].dx/2 ||
+     			   this.math.abs(this.locY - this.circles[i][j].posY) > this.circles[i][j].dy/2 
+     			   ){
+         			this.circles[i][j].brilla(0);
+     			}
+     		}
+    }
+    return false;
+    
+}
+
+
+}
+
+```
+
+
+
+
+```{ojs}
+//| echo: false  
+// A simple Particle class
+class Particle {
+  constructor(p5, position) {
+    this.p5 = p5;
+    this.acceleration = this.p5.createVector(0, 0.05);
+    this.velocity = this.p5.createVector(this.p5.random(-1, 1), this.p5.random(-1, 0));
+    this.position = position.copy();
+    this.lifespan = 255;
+  }
+  run() {
+    this.update();
+    this.display();
+  }
+  // Method to update position
+  update() {
+    this.velocity.add(this.acceleration);
+    this.position.add(this.velocity);
+    this.lifespan -= 2;
+  }
+  // Method to display
+  display() {
+    this.p5.stroke(200, this.lifespan);
+    this.p5.strokeWeight(2);
+    this.p5.fill(127, this.lifespan);
+    this.p5.ellipse(this.position.x, this.position.y, 12, 12);
+  }
+  // Is the particle still useful?
+  isDead() {
+    return this.lifespan < 0;
+  }
+}
+
+
+class ParticleSystem {
+  constructor(p5, position) {
+    this.p5 = p5;
+    this.origin = position.copy();
+    this.particles = [];
+  }
+  addParticle() {
+    this.particles.push(new Particle(this.p5, this.origin));
+  }
+  run() {
+    this.particles = this.particles.filter(particle => {
+      particle.run();
+      return !particle.isDead();
+    });
+  }
+ // return(this.particles);
+}
+
+
+class addParticleWorld{
+  constructor(p5, matter, position){
+    this.p5 = p5;
+    this.matter = matter;
+    this.position = position.copy();
+    this.circle = this.matter.Bodies.circle(this.position.x, this.position.y, 10, { isStatic: false, inertia: Infinity, friction: 0.00, restitution: 0.4, frictionAir: 0, frictionStatic: 0 });
+    this.matter.Body.setVelocity(this.circle, { x: 0.0, y: 0.0 });
+    //this.acceleration = this.p5.createVector(0, 0.05);
+    //this.velocity = this.p5.createVector(this.p5.random(-1, 1), this.p5.random(-1, 0));
+    
+  }
+  
+  display() {
+  this.p5.push();
+ 	this.p5.translate(this.circle.position.x,this.circle.position.y );
+ 	this.p5.rectMode(this.p5.CENTER);
+ 	this.p5.fill(0,80,250,200);
+  this.p5.stroke(0,80,250,200);
+ 	this.p5.circle(0,0,20);
+ 	this.p5.pop();
+    
+    
+  }
+  
+  
+  
+  
+  
+}
+
+
+```

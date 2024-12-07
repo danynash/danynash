@@ -71,20 +71,48 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-non-publishing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-description','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-non-publishing'] = new List('listing-non-publishing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-footnote .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-footnote'] = new List('listing-footnote', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -161,6 +189,10 @@ window.Quarto = {
 <span class="menu-text">My Research</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./publications.html"> 
+<span class="menu-text">Selected Publications</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./tutorials.html"> 
 <span class="menu-text">Tutorials</span></a>
   </li>  
@@ -175,11 +207,11 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -188,7 +220,7 @@ window.Quarto = {
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -200,45 +232,51 @@ window.Quarto = {
 </header>
 
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
+<p>Welcome to my research page, where I explore education, data analytics, and discipline-specific learning. My work spans diverse areas, including Learning Analytics, physics education, Higher Education, linguistics, multimodality, and LEGO-based learning, among others. Feel free to explore my reflections, projects, and publications! 😁</p>
+<div id="listing-non-publishing" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1656388800000" data-listing-file-modified-sort="1731637632652" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="5">
-<a href="./Myresearch/01-on-going-research/index.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1687924800000" data-listing-file-modified-sort="1731897418693" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="40" data-listing-word-count-sort="7943">
+<a href="./Myresearch/03-Learning-Analytics-predictive-models-student-perfomance/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<p class="card-img-top">
+<img src="./Myresearch/03-Learning-Analytics-predictive-models-student-perfomance/Image/LA.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-Learning Statistics is all about trandusction
+Learning Analytics and academic performance prediction models
 </h5>
+<div class="listing-reading-time card-text text-muted">
+40 min
+</div>
+<div class="card-text listing-description">
+<p>A review of predictive models of academic performance or at-risk students.</p>
+<em>Imagen creada con IA</em>.
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+Jun 28, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-date-sort="1656388800000" data-listing-file-modified-sort="1731896947699" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
+<a href="./Myresearch/01-on-going-research/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./Myresearch/01-on-going-research/Image/test.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Learning Statistics is all about transduction
+</h5>
+<div class="listing-reading-time card-text text-muted">
+1 min
+</div>
 <div class="card-text listing-description">
 A Qualitative Analysis of Semiotic Modes in Building Statistical Knowledge
 </div>
@@ -254,7 +292,7 @@ Jun 28, 2022
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1656388800000" data-listing-file-modified-sort="1731637496067" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1445">
+<div class="g-col-1" data-index="2" data-listing-date-sort="1656388800000" data-listing-file-modified-sort="1731810929551" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1445">
 <a href="./Myresearch/02-on-going-research-RR-lab-scientific-abilities/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
@@ -262,6 +300,9 @@ Jun 28, 2022
 <h5 class="no-anchor card-title listing-title">
 What is learned in physics laboratories in higher education?
 </h5>
+<div class="listing-reading-time card-text text-muted">
+8 min
+</div>
 <div class="card-text listing-description">
 International literature review on what is learned in introductory physics laboratory courses
 </div>
@@ -281,7 +322,50 @@ Jun 28, 2022
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div></main> <!-- /main -->
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Copyrights
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>The documents provided on this page are made available to facilitate the timely dissemination of academic and technical works for non-commercial purposes. All copyrights and associated rights remain the property of the respective authors or copyright holders, even as these works are shared here in electronic format. Users who copy or utilize this content are expected to adhere to the terms and restrictions stipulated by the authors’ copyrights. These works may not be republished without the explicit permission of the copyright holder.</p>
+</div>
+</div>
+</div>
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-footnote">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1731895385456" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="thumbnail">
+<p><a href="./foonote/index.html" class="no-external"></a></p><a href="./foonote/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./foonote/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<div class="listing-description">
+<a href="./foonote/index.html" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./foonote/index.html" class="no-external"></a></p><a href="./foonote/index.html" class="no-external">
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

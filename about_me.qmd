@@ -1,6 +1,10 @@
 ---
 title: "About me"
 page-layout: full
+about: 
+  template: jolla
+  image-shape: round
+  image-width: 17em
 ---
 
 I studied Physics at the Universidad de Chile (UCH), completed master's degrees in Physics (UCH) and Education (Pontificia Universidad Católica de Chile), and recently finished my Ph.D. in Education in Contemporary Humanism from Pontificia Universidad Católica de Chile and the Australian Catholic University. I'm also the co-founder of [Trayectics](https://trayectics.com), a professional development service for teachers focused on enhancing school assessment processes to support better pedagogical decisions.

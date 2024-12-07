@@ -4,7 +4,7 @@ listing:
   contents: "tutoriales/*/index.qmd"
   feed: true
   sort: "date desc"
-  type: grid
+  type: default
   categories: true
   sort-ui: true
   filter-ui: true

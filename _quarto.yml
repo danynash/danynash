@@ -3,16 +3,18 @@ project:
   output-dir: docs
   resources:
     - CNAME
-
-
+    
 website:
   title: "danynash"
+  back-to-top-navigation: true
+  sidebar: true
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about_me.qmd
       - myresearch.qmd
+      - publications.qmd
       - tutorials.qmd
 format:
   html:
@@ -20,6 +22,7 @@ format:
     css: styles.css
     toc: true
     page-layout: full
+
 
 editor: visual
 

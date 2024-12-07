@@ -1,0 +1,14 @@
+---
+title: "Selected Publications"
+listing:
+  - id: publishing
+    contents: "Myresearch-published/*/index.qmd"
+    feed: true
+    type: default
+    fields: [image, title,author,  reading-time]
+page-layout: full
+---
+
+A selection of academic publications that Dany López González has authored or co-authored.
+
+

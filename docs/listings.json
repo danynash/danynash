@@ -1,15 +1,24 @@
 [
   {
-    "listing": "/tutorials.html",
+    "listing": "/publications.html",
     "items": [
-      "/tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html"
+      "/Myresearch-published/02-LEGO-based/index.html",
+      "/Myresearch-published/01-Mentorias/index.html"
     ]
   },
   {
     "listing": "/myresearch.html",
     "items": [
+      "/Myresearch/03-Learning-Analytics-predictive-models-student-perfomance/index.html",
       "/Myresearch/01-on-going-research/index.html",
-      "/Myresearch/02-on-going-research-RR-lab-scientific-abilities/index.html"
+      "/Myresearch/02-on-going-research-RR-lab-scientific-abilities/index.html",
+      "/foonote/index.html"
+    ]
+  },
+  {
+    "listing": "/tutorials.html",
+    "items": [
+      "/tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html"
     ]
   }
 ]

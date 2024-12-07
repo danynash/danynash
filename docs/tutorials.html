@@ -78,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -161,6 +161,10 @@ window.Quarto = {
 <span class="menu-text">My Research</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./publications.html"> 
+<span class="menu-text">Selected Publications</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link active" href="./tutorials.html" aria-current="page"> 
 <span class="menu-text">Tutorials</span></a>
   </li>  
@@ -204,7 +208,7 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
      <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
@@ -230,35 +234,37 @@ window.Quarto = {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1656388800000" data-listing-file-modified-sort="1731637425187" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="44" data-listing-word-count-sort="8718">
-<a href="./tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="tutoriales/01-Matricual-Sies-DescriptiveAnalysis/00Figuras/ExtraccionDeDatos.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-SiES data analysis - 1st year enrollment
-</h5>
-<div class="card-text listing-description">
-The public database of the Chilean Higher Education Information Service (SiES) is used to analyze the first-year enrollment rate.
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1656388800000" data-listing-file-modified-sort="1731899495260" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="44" data-listing-word-count-sort="8717">
+<div class="thumbnail">
+<p><a href="./tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html" class="no-external"></a></p><a href="./tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html" class="no-external">
+<p><img src="./tutoriales/01-Matricual-Sies-DescriptiveAnalysis/imageTutorial/test.png" class="thumbnail-image"></p>
+</a><p><a href="./tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html" class="no-external"></a></p>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html" class="no-external">SiES data analysis - 1st year enrollment</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html" class="no-external"></a>
 </div>
+<div class="listing-description">
+<a href="./tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html" class="no-external">The public database of the Chilean Higher Education Information Service (SiES) is used to analyze the first-year enrollment rate.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html" class="no-external">
 <div class="listing-date">
 Jun 28, 2022
 </div>
-</div>
-</div>
-</div>
 </a>
+</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div></main> <!-- /main -->
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

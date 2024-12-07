@@ -1,0 +1,13 @@
+---
+title: "(2024) LEGO-Based Physics Lab: The Potential of LEGO Bricks for Modeling in Physics"
+description: "This article shows the potential of LEGO bricks for modeling in physics, particularly focusing on phenomena typically covered in introductory laboratory courses."
+date: "2024-08-01"
+---
+
+# Abstract
+
+In this article, I show the potential of LEGO bricks for modeling in physics, particularly focusing on phenomena typically covered in introductory laboratory courses. I illustrate how LEGO bricks can be used to represent parabolic trajectories, free-body diagrams (FBDs), and oscillation graphs. Additionally, I demonstrate how LEGO bricks can be used to design and assemble various experimental setups, with a special emphasis on modeling the modified Atwood machine and two spring-coupled masses. Furthermore, I demonstrate how to use LEGO bricks to map the electric potential of two-point charges for modeling equipotential curves in conjunction with their 3D representation. These demonstrative examples can be applied to several topics covered in university-level physics laboratory courses, such as kinematics, mechanics, and electromagnetism. By doing so, LEGO bricks can effectively support inquiry-based learning and multiple representations, thus reinforcing students\' comprehension of physics concepts while fostering their modeling abilities, creativity, and motivation in the subject.
+
+## More info here
+
+Dany López González; LEGO-Based Physics Lab: The Potential of LEGO Bricks for Modeling in Physics. *Phys. Teach.* 1 September 2024; 62 (6): 435--439. <https://doi.org/10.1119/5.0146220>

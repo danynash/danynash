@@ -1,15 +1,16 @@
 ---
-title: "Learning Statistics is all about trandusction"
+title: "Learning Statistics is all about transduction"
 description: "A Qualitative Analysis of Semiotic Modes in Building Statistical Knowledge"
 date: "2022-06-28"
+image: Image/test.jpg
 ---
 
 ::: panel-tabset
 ## Español
 
-En construcción
+{{< include Spanish.qmd >}}
 
 ## English
 
-Under Construction
+{{< include English.qmd >}}
 :::

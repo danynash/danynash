@@ -1,0 +1,13 @@
+---
+title: "(2024) La mentoría desde mentores y mentoreados. Una revisión sistemática de literatura"
+description: "Revisión sistemática de literatura que profundiza en la complejidad de las mentorías. En este documento se analizan y contrastan las perspectivas de mentores y mentoreados en escuelas de distintas partes del mundo"
+date: "2024-07-15"
+---
+
+# Abstract
+
+Los programas de mentorías constituyen una de las políticas más utilizadas para apoyar a los profesores noveles, considerando las altas tasas de deserción que se producen durante los primeros años. El propósito de esta revisión sistemática de literatura consiste en profundizar en la complejidad de las mentorías, al analizar y contrastar las perspectivas de mentores y mentoreados en escuelas de distintas partes del mundo. Se analizan 47 artículos empíricos, publicados entre 2008-2024, a partir de un análisis temático. Los resultados abordan temáticas destacadas por ambos actores: (a) características esperadas del mentor y del mentoreado, (b) saberes y prácticas, (c) necesidad del apoyo de los directivos y de la comunidad, y (d) desarrollo profesional en la mentoría. Si bien existen propósitos compartidos de la mentoría, se observan diferencias que permiten ampliar la concepción de este proceso hacia una práctica situada en la escuela, que requiere del apoyo de directivos y colegas para avanzar en un desarrollo profesional sostenido tanto para mentores como para mentoreados. Este artículo busca contribuir, a partir de una perspectiva internacional comparada, a la construcción de un marco dinámico y multifacético que permita entregar información útil para programas de mentoría, desarrollados a nivel internacional, y para futuras investigaciones en el área.
+
+## More info here
+
+Salas-Aguayo, M., Medina-Morales, L., & López, D. (2024). La mentoría desde mentores y mentoreados. Una revisión sistemática de literatura. Profesorado (Granada), 28(2), 89--110. [doi link](https://doi.org/10.30827/profesorado.v28i2.29664)

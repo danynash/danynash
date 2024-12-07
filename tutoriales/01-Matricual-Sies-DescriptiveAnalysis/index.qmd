@@ -2,6 +2,7 @@
 title: "SiES data analysis - 1st year enrollment"
 description: "The public database of the Chilean Higher Education Information Service (SiES) is used to analyze the first-year enrollment rate."
 date: "2022-06-28"
+image: imageTutorial/test.png
 ---
 
 ::: panel-tabset
@@ -91,7 +92,6 @@ En este tutorial vamos a emplear los datos de SiES para replicar algunas tablas 
 ```{r echo=FALSE, out.width = "500px", fig.align='center'}
 knitr::include_graphics('00Figuras/Tabla_replica_01.png')
 ```
-
 
 \newpage
 
@@ -205,7 +205,6 @@ codebook <- readxl::read_excel("../../../DDBB_danynash_page/Codeboook.xlsx",
 
 ```
 
-
 ```{r ,echo=TRUE, eval=FALSE}
 # Ejecutar el siguiente codigo para aquellas persons que usan Mac
 
@@ -220,8 +219,6 @@ codebook <- readxl::read_excel("01BasedeDatos/Codeboook.xlsx",
 
 
 ```
-
-
 
 -   Si `R` **no** reclama por problemas de encoding, puede eliminar la opción `fileEncoding="latin1"` en el código anterior. Utilice el siguiente código para cargar la base de datos de matricula.
 
@@ -592,7 +589,8 @@ knitr::kable(mat_evol.sexo.02[,c(1:7, ncol(mat_evol.sexo.02))],
 
 ### Opción 2: Análisis integrado
 
-Este es otro ejemplo que expresa el potencial que tiene la conversión de una tabla desde el formato `Wide` a `Long` (o viceversa). Usaremos esta técnica para análizar simulatenamente un conjunto de variables, como lo es el caso de de la variable `sexo`. Básicamente el análisis comienza con la selección de las columnas de interés: en este caso `year_new` `matriculados_mujer_programa` y `matriculados_hombre_programa`. Esta tabla filtrada corresponde a una tabla en formato `Wide`. Nos aprovecharemos de esto para convertir esta tabla en formato `Long` (vea apéndice) usando la función `tidyr::gather()`. De esta forma, integraremos en una sola columna la información del sexo (ya sea mujer u homber), y la denominaremos `Sexo`. Por su parte, en otra columna que denominamos `matricula_total`, guardamos la cantidad de matriculados según sexo. Finalmente, calculamos la suma total de los matriculados, los que se encontrarán agrupados por `year_new` y `Sexo`. Finalmente, con la función `mutate()` lo que hacemos es `recodificar` la columna `Sexo` usando como nuevas categorias `Hombres` y `Mujeres`. 
+Este es otro ejemplo que expresa el potencial que tiene la conversión de una tabla desde el formato `Wide` a `Long` (o viceversa). Usaremos esta técnica para análizar simulatenamente un conjunto de variables, como lo es el caso de de la variable `sexo`. Básicamente el análisis comienza con la selección de las columnas de interés: en este caso `year_new` `matriculados_mujer_programa` y `matriculados_hombre_programa`. Esta tabla filtrada corresponde a una tabla en formato `Wide`. Nos aprovecharemos de esto para convertir esta tabla en formato `Long` (vea apéndice) usando la función `tidyr::gather()`. De esta forma, integraremos en una sola columna la información del sexo (ya sea mujer u homber), y la denominaremos `Sexo`. Por su parte, en otra columna que denominamos `matricula_total`, guardamos la cantidad de matriculados según sexo. Finalmente, calculamos la suma total de los matriculados, los que se encontrarán agrupados por `year_new` y `Sexo`. Finalmente, con la función `mutate()` lo que hacemos es `recodificar` la columna `Sexo` usando como nuevas categorias `Hombres` y `Mujeres`.
+
 ```{r tidy=FALSE,echo=TRUE,message=FALSE}
 
 library(dplyr)
@@ -613,7 +611,6 @@ mat_evol.sexo <- db  %>%
 ```
 
 A continuación se muestra el resultado guardado en `mat_evol.sexo`, luego de ejecutar elcódigo anterior
-
 
 ```{r tidy=FALSE,echo=FALSE,message=FALSE}
 
@@ -871,6 +868,7 @@ knitr::kable(mat_evol.region.02.NS[,c(1:7, ncol(mat_evol.region.02))],
 ```
 
 Volvemos a usar el ordenamiento `orden_region_1` y construimos un gráfico ordenandos las regiones según su ubicación geográfica.
+
 ```{r tidy=FALSE,echo=TRUE,eval=TRUE,message=FALSE, fig.align='center'}
 
 mat_evol.region %>% 
@@ -905,12 +903,9 @@ mat_evol.region %>%
 
 ```
 
-
 \newpage
 
 # 10. Evolución de la Matrícula Total por tipo de institución
-
-
 
 Procesamos nuestros datos de forma análoga a como lo hicimos en la **sección 6.1**. Como primera tarea para procesar los datos, vamos a escribir un pseudo-código que reflejará el flujo lógico por medio del cual se irá trabajando la base de datos del SiES para obtener el resultado deseado. El pseudo código para este caso quedará expresado por la siguiente secuencia
 
@@ -980,9 +975,6 @@ mat_evol.institucion_class %>%
 
 ```
 
-
-
-
 \newpage
 
 # A.1 Apéndice
@@ -995,8 +987,6 @@ Puede consultar la siguiente referencia para indagar sobre lo que significa un `
 
 Notemos que usamos un lenguaje específico (o metalenguaje) para referirnos a algunos elementos de nuestro set de datos. En la imagen de abajo se exponen tres conceptos para expresar elementos estructurales relevantes de un set de datos[^1] (Wickham, 2014) :
 
-[^1]: Aquí usamos un metalenguaje que proviene del trabajo desarrollo por Wickham en la construcción de la libreria *tidy* como una forma estándar de asignar un significado a la estructura de un conjunto de datos. Para mayores detalles vea Wickham, H. (2014). Tidy Data. Journal of Statistical Software 59 (10). DOl: 10.18637/jss. v059.i10
-
 ```{r echo=FALSE, out.width = "400px", fig.align='center', fig.cap=''}
 knitr::include_graphics('00Figuras/Fig01-Value-observaciones-variables.png')
 ```
@@ -1008,10 +998,6 @@ knitr::include_graphics('00Figuras/Fig01-Value-observaciones-variables.png')
 ### A.1.2 Datos estructurados en formato Wide y Long
 
 Un conjunto de datos[^2] puede representarse en dos formatos o estructuras diferentes[^3], `wide` (ancho) y `long` (largo):
-
-[^2]: En `R` tipicamente este conjunto de datos queda capturado por un `dataframe`. Puede consultar el [**link**](https://bookdown.org/jboscomendoza/r-principiantes4/data-frames.html) para mayores detalles sobre lo que es un `dataframe`.
-
-[^3]: Convertir un conjunto de datos en formato `long` o `wide` es lo que también se conoce como **tablas pivotes**.
 
 -   Un formato/estructura `wide` contiene valores que **no** se repiten en una columna de interés.
 
@@ -1029,10 +1015,13 @@ knitr::include_graphics('00Figuras/tidyr-pivot_wider_longer.gif')
 
 En algunas ocasiones dependiendo del tipo de análisis que realicemos, vamos a estructurar nuestros datos en uno de los dos formatos. Por ejemplo, usualmente cuando queremos hacer test de `ANOVA` o gráficar un set de 2 variables que tienen diferentes categorias como posibles valores, usaremos el formato `long` para hacerlo. Por otra parte, el formato `wide` es bastante útil para crear, transformar o limpiar variables. En general, transitamos desde una estructura a otra de forma iterativa para cumplir propósitos específicos.
 
-
-
-
 ## English
 
 Under Construction
 :::
+
+[^1]: Aquí usamos un metalenguaje que proviene del trabajo desarrollo por Wickham en la construcción de la libreria *tidy* como una forma estándar de asignar un significado a la estructura de un conjunto de datos. Para mayores detalles vea Wickham, H. (2014). Tidy Data. Journal of Statistical Software 59 (10). DOl: 10.18637/jss. v059.i10
+
+[^2]: En `R` tipicamente este conjunto de datos queda capturado por un `dataframe`. Puede consultar el [**link**](https://bookdown.org/jboscomendoza/r-principiantes4/data-frames.html) para mayores detalles sobre lo que es un `dataframe`.
+
+[^3]: Convertir un conjunto de datos en formato `long` o `wide` es lo que también se conoce como **tablas pivotes**.

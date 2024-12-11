@@ -1,0 +1,13 @@
+---
+title: "(2022) Chilean University Students’ Digital Learning Technology Usage Patterns and Approaches to Learning"
+description: "The aim of this qualitative study is to understand the approaches to learning and the use of educational resources by university students."
+date: "2022-02-08"
+---
+
+# Abstract
+
+This study aims to explore Chilean students’ digital technology usage patterns and approaches to learning.We conducted this study in two stages. We worked with one semester learning management systems (LMS), library, and students’ records data in the first one. We performed a k-means cluster analysis to identify groups with similar usage patterns. In the second stage, we invited students from emerging clusters to participate in group interviews. Thematic analysis was employed to analyze them. Three groups were identified: 1) digital library users/high performers, who adopted deeper approaches to learning, obtained higher marks, and used learning resources to integrate materials and expand understanding; 2) LMS and physical library users/mid-performers, who adopted mainly strategic approaches, obtained marks close to average, and used learning resources for studying in an organized manner to get good marks; and 3) lower users of LMS and library/mid-low performers, who adopted mainly a surface approach, obtained mid-to-lower-than-average marks, and used learning resources for minimum content understanding. We demonstrated the importance of combining learning analytics data with qualitative methods to make sense of digital technology usage patterns: approaches to learning are associated with learning resources use. Practical recommendations are presented.
+
+## More info here
+
+González, C., López, D., Calle-Arango, L., Montenegro, H., & Clasing, P. (2022). Chilean University Students' Digital Learning Technology Usage Patterns and Approaches to Learning. In ECNU Review of Education (Vol. 5, Issue 1, pp. 37–64). SAGE Publications. <https://doi.org/10.1177/20965311211073538>

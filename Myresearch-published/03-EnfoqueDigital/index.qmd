@@ -1,0 +1,13 @@
+---
+title: "(2024) Enfoques de aprendizaje y uso de recursos educativos físicos y digitales en educación superior"
+description: "The aim of this qualitative study is to understand the approaches to learning and the use of educational resources by university students."
+date: "2024-08-22"
+---
+
+# Abstract
+
+The aim of this qualitative study is to understand the approaches to learning and the use of educational resources by university students. Twelve group interviews were conducted with the participation of 41 students from a private Chilean university. Phenomenography and thematic analysis were used for the analysis. Learning approaches emerged in a range from passing with minimal effort to understanding or expanding and deepening the content. Digital technologies were used to obtain academic and administrative information (logistical use); or to search for information, communicate, or collaborate with peers (learning use). Learning approaches are associated with the use of educational resources. When deeper approaches are adopted, they tend to be used to expand or deepen content; whereas when shallower approaches are adopted, they tend to be used to facilitate the goal of passing. Practical implications and implications for future research are discussed.
+
+## More info here
+
+González, C., López, D., Calle-Arango, L., & Montenegro, H. (2024). Enfoques de aprendizaje y uso de recursos educativos físicos y digitales en educación superior. Revista Colombiana de Educación, 92, 49--71. <https://doi.org/10.17227/rce.num92-16833>

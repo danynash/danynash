@@ -1,0 +1,13 @@
+---
+title: "(2021) Mobility of Chilean teachers: Influence of demographic variables, school's characteristics and working conditions"
+description: "This  research  focuses  on  the  school  factors  that  cause  the  mobility  of  Chilean  teachers  using  data  from  the  Teacher  Suitability  Survey  in  order  to  follow  the  teachers  from 2007 to 2018."
+date: "2021-04-12"
+---
+
+# Abstract
+
+Research on teacher mobility shows high teacher turnover rates during the first years of their professional practice which directly affect schools’ effectiveness,  student  learning,  and  educational  equity.  This  research  focuses  on  the  school  factors  that  cause  the  mobility  of  Chilean  teachers  using  data  from  the  Teacher  Suitability  Survey  in  order  to  follow  the  teachers  from 2007 to 2018. We also used a multilevel event history model to study the relationship between school characteristics and teacher mobility. Our results indicate that the schools with the highest turnover rates are subsidized  schools,  rural  schools,  and  those  with  the  highest  concentration  of  vulnerable  students.  Therefore,  it  is  important  to  take  these  factors  into  consideration for the formulation of public policies focused on the retention of teachers.
+
+## More info here
+
+Díaz Sacco, A., López González, D., Salas Aguayo, M., & Carrasco Ogaz, D. (2021). Movilidad de profesores chilenos. In Perfiles Educativos (Mobility of Chilean teachers: Influence of demographic variables, school's characteristics and working conditions) (Vol. 43, Issue 172). Universidad Nacional Autonoma de Mexico. <https://doi.org/10.22201/iisue.24486167e.2021.172.59514>

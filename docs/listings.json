@@ -1,8 +1,12 @@
 [
   {
-    "listing": "/tutorials.html",
+    "listing": "/publications.html",
     "items": [
-      "/tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html"
+      "/Myresearch-published/05-Movilidad/index.html",
+      "/Myresearch-published/04-ECNU/index.html",
+      "/Myresearch-published/03-EnfoqueDigital/index.html",
+      "/Myresearch-published/02-LEGO-based/index.html",
+      "/Myresearch-published/01-Mentorias/index.html"
     ]
   },
   {
@@ -16,10 +20,9 @@
     ]
   },
   {
-    "listing": "/publications.html",
+    "listing": "/tutorials.html",
     "items": [
-      "/Myresearch-published/02-LEGO-based/index.html",
-      "/Myresearch-published/01-Mentorias/index.html"
+      "/tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html"
     ]
   }
 ]

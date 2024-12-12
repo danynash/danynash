@@ -3,6 +3,9 @@ title: "The Galton Board"
 description: "Galton's board study using LEGO bricks to understand the concept of normal distribution."
 date: "2024-11-28"
 image: Image/Galton.png
+filters:
+  - lightbox
+lightbox: auto
 ---
 
 Click on the inside of the simulation to interact.
@@ -643,3 +646,14 @@ class addParticleWorld{
 ```
 
 Simulation created with  [P5js](https://p5js.org/) and [Matter-js](https://brm.io/matter-js/).
+
+For consistency, a LEGO grid identical to the one used in the simulation has been employed
+
+
+![](Image/01Plinkoo_2.png){group="elsewhere"}
+
+You can compare the simulation results with the empirical data presented below.
+
+![](Image/Asset 3-20.jpg){group="elsewhere"}
+
+Under construction ...

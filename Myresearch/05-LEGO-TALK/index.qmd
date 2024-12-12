@@ -8,7 +8,7 @@ filters:
 lightbox: auto
 ---
 
-Haz click en la figura para ver la presentación! 😁
+Click on the picture to see the presentation! 😁
 
 :::{layout="[[1],[1,1,1]]"}
 

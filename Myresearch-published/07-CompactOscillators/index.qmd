@@ -1,0 +1,13 @@
+---
+title: "(2017) Compact modes in quasi one dimensional coupled magnetic oscillators"
+description: "In this work we study analytically and numerically the spectrum and localization properties of three quasi-one-dimensional (ribbons) split-ring resonator arrays."
+date: "2017"
+---
+
+# Abstract
+
+In this work we study analytically and numerically the spectrum and localization properties of three quasi-one-dimensional (ribbons) split-ring resonator arrays which possess magnetic flatbands, namely, the stub, Lieb and kagome lattices, and how their spectra are affected by the presence of perturbations that break the delicate geometrical interference needed for a magnetic flatband to exist. We find that the stub and Lieb ribbons are stable against the three types of perturbations considered here, while the kagome ribbon is, in general, unstable. When losses are incorporated, all flatbands remain dispersionless but become complex, with the kagome ribbon exhibiting the highest loss rate. The stability of flatband modes of certain split-ring resonator arrays suggests that they could be used as components of future stable magnetic storage devices.
+
+## More info here
+
+López-González, D., & Molina, M. I. (2017). Compact modes in quasi one dimensional coupled magnetic oscillators. In Journal of Physics: Condensed Matter (Vol. 29, Issue 47, p. 475801). IOP Publishing. <https://doi.org/10.1088/1361-648x/aa90f0>

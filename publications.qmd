@@ -4,11 +4,10 @@ listing:
   - id: publishing
     contents: "Myresearch-published/*/index.qmd"
     feed: true
+    sort: "date desc"
     type: default
     fields: [image, title,author,  reading-time]
 page-layout: full
 ---
 
 A selection of academic publications that Dany López González has authored or co-authored.
-
-

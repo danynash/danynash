@@ -1,0 +1,13 @@
+---
+title: "(2017) Flat-band light dynamics in Stub photonic lattices"
+description: "In this paper a photonic Stub lattice is experimentally studied and its localized linear states originating from an isolated Flat Band in the center of the linear spectrum are excited."
+date: "2017"
+---
+
+# Abstract
+
+We experimentally study a Stub photonic lattice and excite their localized linear states originated from an isolated Flat Band at the center of the linear spectrum. By exciting these modes in different regions of the lattice, we observe that they do not diffract across the system and remain well trapped after propagating along the crystal. By using their wave nature, we are able to combine – in phase and out of phase – two neighbor states into a coherent superposition. These observations allow us to propose a novel setup for performing three different all-optical logical operations such as OR, AND, and XOR, positioning Flat Band systems as key setups to perform all-optical operations at any level of power.
+
+## More info here
+
+Real, B., Cantillano, C., López-González, D., Szameit, A., Aono, M., Naruse, M., Kim, S.-J., Wang, K., & Vicencio, R. A. (2017). Flat-band light dynamics in Stub photonic lattices. In Scientific Reports (Vol. 7, Issue 1). Springer Science and Business Media LLC. <https://doi.org/10.1038/s41598-017-15441-2>

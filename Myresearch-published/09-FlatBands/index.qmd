@@ -1,0 +1,13 @@
+---
+title: "(2016) Linear and nonlinear compact modes in quasi-one-dimensional flatband systems"
+description: "This paper examines analytically and numerically the spectral properties of three quasi-one-dimensional lattices, namely the kagome, Lieb and stub lattices, which are characterized by flat bands in their spectra."
+date: "2017"
+---
+
+# Abstract
+
+We examine analytically and numerically the spectral properties of three quasi-one-dimensional lattices, namely, kagome, Lieb, and stub lattices, which are characterized for having flatbands in their spectrum. It is observed that the degenerate eigenmodes modes of these flatbands form a Starklike ladder where each mode is shifted by one lattice site. Their combination can give rise to compact modes that do not diffract due to a geometrical phase cancellation. For all three cases we computed the stability of the fundamental band mode against perturbation of their amplitude and phase, the effect of possible anisotropy of the couplings, and the presence of small random perturbations of the coupling. For the Lieb and stub ribbon, the compact mode turns out to be quite robust and the flatband survives, while for the kagome ribbon, the compact mode is destroyed and the flatband is lost. When adding nonlinear effects, the compact mode turns out to be also a nonlinear eigenvector, with a power curve that is proportional to the eigenvalue and exists for any eigenvalue, in marked contrast to the usual case of discrete solitons, which can exist only outside the linear bands. These properties look promising for a future design of a robust system for long-distance propagation of information.
+
+## More info here
+
+López-González, D., & Molina, M. I. (2016). Linear and nonlinear compact modes in quasi-one-dimensional flatband systems. In Physical Review A (Vol. 93, Issue 4). American Physical Society (APS). <https://doi.org/10.1103/physreva.93.043847>

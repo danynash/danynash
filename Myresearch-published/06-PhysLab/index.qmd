@@ -1,0 +1,13 @@
+---
+title: "(2018) Study of a variable mass Atwood’s machine using a smartphone"
+description: "Article in which the use of mobile phones in physics laboratories is implemented."
+date: "2018-03-01"
+---
+
+# Abstract
+
+The Atwood machine was invented in 1784 by George Atwood and this system has been widely studied both theoretically and experimentally over the years. Nowadays, it is commonplace that many experimental physics courses include both Atwood’s machine and variable mass to introduce more complex concepts in physics. To study the dynamics of the masses that compose the variable Atwood’s machine, laboratories typically use a smart pulley. Now, the first work that introduced a smartphone as data acquisition equipment to study the acceleration in the Atwood’s machine was the one by M. Monteiro et al. Since then, there has been no further information available on the usage of smartphones in variable mass systems. This prompted us to do a study of this kind of system by means of data obtained with a smartphone and to show the practicality of using smartphones in complex experimental situations.
+
+## More info here
+
+Lopez, D., Caprile, I., Corvacho, F., & Reyes, O. (2018). Study of a variable mass Atwood’s machine using a smartphone. In The Physics Teacher (Vol. 56, Issue 3, pp. 182–183). American Association of Physics Teachers (AAPT). <https://doi.org/10.1119/1.5025303>

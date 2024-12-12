@@ -1,0 +1,13 @@
+---
+title: "(2015) Photorefractive writing and probing of anisotropic linear and nonlinear lattices"
+description: "We study experimentally the writing of one- and two-dimensional photorefractive lattices, focusing on the often overlooked transient regime"
+date: "2015"
+---
+
+# Abstract
+
+We study experimentally the writing of one- and two-dimensional photorefractive lattices, focusing on the often overlooked transient regime. Our measurements agree well with theory, in particular concerning the ratio of the drift to diffusion terms. We then study the transverse dynamics of coherent waves propagating in the lattices, in a few novel and simple configurations. For defocusing linear waves with broad transverse spectrum, we remark that both the intensity distributions in real space ('discrete diffraction') and Fourier space ('Brillouin zone spectroscopy') reflect the Bragg planes and band structure. For nonlinear waves, we observe modulational instability and discrete solitons formation in time domain. We discuss also the non-ideal effects inherent to the photo-induction technique: anisotropy, residual nonlinearity, diffusive term, non-stationarity.
+
+## More info here
+
+Allio, R., Guzmán-Silva, D., Cantillano, C., Morales-Inostroza, L., Lopez-Gonzalez, D., Etcheverry, S., Vicencio, R. A., & Armijo, J. (2015). Photorefractive writing and probing of anisotropic linear and nonlinear lattices. In Journal of Optics (Vol. 17, Issue 2, p. 025101). IOP Publishing. <https://doi.org/10.1088/2040-8978/17/2/025101>

@@ -1,0 +1,13 @@
+---
+title: "(2016) Transport of localized and extended excitations in chains embedded with randomly distributed linear and nonlinear $n$-mers"
+description: "This paper examines the transport of extended and localized excitations in one-dimensional linear chains populated by linear and nonlinear symmetric identical $n$-mers (with $n= 3, 4, 5$, and $6$), randomly distributed."
+date: "2016"
+---
+
+# Abstract
+
+We examine the transport of extended and localized excitations in one-dimensional linear chains populated by linear and nonlinear symmetric identical $n$-mers (with $n= 3, 4, 5$, and $6$), randomly distributed. First, we examine the transmission of plane waves across a single linear $n$-mer, paying attention to its resonances, and looking for parameters that allow resonances to merge. Within this parameter regime we examine the transmission of plane waves through a disordered and nonlinear segment composed by $n$-mers randomly placed inside a linear chain. It is observed that nonlinearity tends to inhibit the transmission, which decays as a power law at long segment lengths. This behavior still holds when the $n$-mer parameters do not obey the resonance condition. On the other hand, the mean square displacement exponent of an initially localized excitation does not depend on nonlinearity at long propagation distances $z$, and shows a superdiffusive behavior $\sim z^{1.8}$ for all $n$-mers, when parameters obey the resonance merging condition; otherwise the exponent reverts back to the random dimer model value $\sim z^{1.5}$.
+
+## More info here
+
+Dany López-González, Mario I. Molina. (2016). Transport of localized and extended excitations in chains embedded with randomly distributed linear and nonlinear n-mers. In Physical Review E (Vol. 93, Issue 3). American Physical Society (APS). <https://doi.org/10.1103/physreve.93.032205>

@@ -1,17 +1,59 @@
 [
   {
-    "objectID": "Myresearch-published/02-LEGO-based/index.html",
-    "href": "Myresearch-published/02-LEGO-based/index.html",
-    "title": "(2024) LEGO-Based Physics Lab: The Potential of LEGO Bricks for Modeling in Physics",
+    "objectID": "Myresearch-published/08-ExpPhysics/index.html",
+    "href": "Myresearch-published/08-ExpPhysics/index.html",
+    "title": "(2017) Flat-band light dynamics in Stub photonic lattices",
     "section": "",
-    "text": "In this article, I show the potential of LEGO bricks for modeling in physics, particularly focusing on phenomena typically covered in introductory laboratory courses. I illustrate how LEGO bricks can be used to represent parabolic trajectories, free-body diagrams (FBDs), and oscillation graphs. Additionally, I demonstrate how LEGO bricks can be used to design and assemble various experimental setups, with a special emphasis on modeling the modified Atwood machine and two spring-coupled masses. Furthermore, I demonstrate how to use LEGO bricks to map the electric potential of two-point charges for modeling equipotential curves in conjunction with their 3D representation. These demonstrative examples can be applied to several topics covered in university-level physics laboratory courses, such as kinematics, mechanics, and electromagnetism. By doing so, LEGO bricks can effectively support inquiry-based learning and multiple representations, thus reinforcing students' comprehension of physics concepts while fostering their modeling abilities, creativity, and motivation in the subject.\n\n\nDany López González; LEGO-Based Physics Lab: The Potential of LEGO Bricks for Modeling in Physics. Phys. Teach. 1 September 2024; 62 (6): 435–439. https://doi.org/10.1119/5.0146220"
+    "text": "We experimentally study a Stub photonic lattice and excite their localized linear states originated from an isolated Flat Band at the center of the linear spectrum. By exciting these modes in different regions of the lattice, we observe that they do not diffract across the system and remain well trapped after propagating along the crystal. By using their wave nature, we are able to combine – in phase and out of phase – two neighbor states into a coherent superposition. These observations allow us to propose a novel setup for performing three different all-optical logical operations such as OR, AND, and XOR, positioning Flat Band systems as key setups to perform all-optical operations at any level of power.\n\n\nReal, B., Cantillano, C., López-González, D., Szameit, A., Aono, M., Naruse, M., Kim, S.-J., Wang, K., & Vicencio, R. A. (2017). Flat-band light dynamics in Stub photonic lattices. In Scientific Reports (Vol. 7, Issue 1). Springer Science and Business Media LLC. https://doi.org/10.1038/s41598-017-15441-2"
   },
   {
-    "objectID": "Myresearch-published/02-LEGO-based/index.html#more-info-here",
-    "href": "Myresearch-published/02-LEGO-based/index.html#more-info-here",
-    "title": "(2024) LEGO-Based Physics Lab: The Potential of LEGO Bricks for Modeling in Physics",
+    "objectID": "Myresearch-published/08-ExpPhysics/index.html#more-info-here",
+    "href": "Myresearch-published/08-ExpPhysics/index.html#more-info-here",
+    "title": "(2017) Flat-band light dynamics in Stub photonic lattices",
     "section": "",
-    "text": "Dany López González; LEGO-Based Physics Lab: The Potential of LEGO Bricks for Modeling in Physics. Phys. Teach. 1 September 2024; 62 (6): 435–439. https://doi.org/10.1119/5.0146220"
+    "text": "Real, B., Cantillano, C., López-González, D., Szameit, A., Aono, M., Naruse, M., Kim, S.-J., Wang, K., & Vicencio, R. A. (2017). Flat-band light dynamics in Stub photonic lattices. In Scientific Reports (Vol. 7, Issue 1). Springer Science and Business Media LLC. https://doi.org/10.1038/s41598-017-15441-2"
+  },
+  {
+    "objectID": "Myresearch-published/06-PhysLab/index.html",
+    "href": "Myresearch-published/06-PhysLab/index.html",
+    "title": "(2018) Study of a variable mass Atwood’s machine using a smartphone",
+    "section": "",
+    "text": "The Atwood machine was invented in 1784 by George Atwood and this system has been widely studied both theoretically and experimentally over the years. Nowadays, it is commonplace that many experimental physics courses include both Atwood’s machine and variable mass to introduce more complex concepts in physics. To study the dynamics of the masses that compose the variable Atwood’s machine, laboratories typically use a smart pulley. Now, the first work that introduced a smartphone as data acquisition equipment to study the acceleration in the Atwood’s machine was the one by M. Monteiro et al. Since then, there has been no further information available on the usage of smartphones in variable mass systems. This prompted us to do a study of this kind of system by means of data obtained with a smartphone and to show the practicality of using smartphones in complex experimental situations.\n\n\nLopez, D., Caprile, I., Corvacho, F., & Reyes, O. (2018). Study of a variable mass Atwood’s machine using a smartphone. In The Physics Teacher (Vol. 56, Issue 3, pp. 182–183). American Association of Physics Teachers (AAPT). https://doi.org/10.1119/1.5025303"
+  },
+  {
+    "objectID": "Myresearch-published/06-PhysLab/index.html#more-info-here",
+    "href": "Myresearch-published/06-PhysLab/index.html#more-info-here",
+    "title": "(2018) Study of a variable mass Atwood’s machine using a smartphone",
+    "section": "",
+    "text": "Lopez, D., Caprile, I., Corvacho, F., & Reyes, O. (2018). Study of a variable mass Atwood’s machine using a smartphone. In The Physics Teacher (Vol. 56, Issue 3, pp. 182–183). American Association of Physics Teachers (AAPT). https://doi.org/10.1119/1.5025303"
+  },
+  {
+    "objectID": "Myresearch-published/04-ECNU/index.html",
+    "href": "Myresearch-published/04-ECNU/index.html",
+    "title": "(2022) Chilean University Students’ Digital Learning Technology Usage Patterns and Approaches to Learning",
+    "section": "",
+    "text": "This study aims to explore Chilean students’ digital technology usage patterns and approaches to learning.We conducted this study in two stages. We worked with one semester learning management systems (LMS), library, and students’ records data in the first one. We performed a k-means cluster analysis to identify groups with similar usage patterns. In the second stage, we invited students from emerging clusters to participate in group interviews. Thematic analysis was employed to analyze them. Three groups were identified: 1) digital library users/high performers, who adopted deeper approaches to learning, obtained higher marks, and used learning resources to integrate materials and expand understanding; 2) LMS and physical library users/mid-performers, who adopted mainly strategic approaches, obtained marks close to average, and used learning resources for studying in an organized manner to get good marks; and 3) lower users of LMS and library/mid-low performers, who adopted mainly a surface approach, obtained mid-to-lower-than-average marks, and used learning resources for minimum content understanding. We demonstrated the importance of combining learning analytics data with qualitative methods to make sense of digital technology usage patterns: approaches to learning are associated with learning resources use. Practical recommendations are presented.\n\n\nGonzález, C., López, D., Calle-Arango, L., Montenegro, H., & Clasing, P. (2022). Chilean University Students’ Digital Learning Technology Usage Patterns and Approaches to Learning. In ECNU Review of Education (Vol. 5, Issue 1, pp. 37–64). SAGE Publications. https://doi.org/10.1177/20965311211073538"
+  },
+  {
+    "objectID": "Myresearch-published/04-ECNU/index.html#more-info-here",
+    "href": "Myresearch-published/04-ECNU/index.html#more-info-here",
+    "title": "(2022) Chilean University Students’ Digital Learning Technology Usage Patterns and Approaches to Learning",
+    "section": "",
+    "text": "González, C., López, D., Calle-Arango, L., Montenegro, H., & Clasing, P. (2022). Chilean University Students’ Digital Learning Technology Usage Patterns and Approaches to Learning. In ECNU Review of Education (Vol. 5, Issue 1, pp. 37–64). SAGE Publications. https://doi.org/10.1177/20965311211073538"
+  },
+  {
+    "objectID": "Myresearch-published/011-ExpPhysics-2/index.html",
+    "href": "Myresearch-published/011-ExpPhysics-2/index.html",
+    "title": "(2015) Photorefractive writing and probing of anisotropic linear and nonlinear lattices",
+    "section": "",
+    "text": "We study experimentally the writing of one- and two-dimensional photorefractive lattices, focusing on the often overlooked transient regime. Our measurements agree well with theory, in particular concerning the ratio of the drift to diffusion terms. We then study the transverse dynamics of coherent waves propagating in the lattices, in a few novel and simple configurations. For defocusing linear waves with broad transverse spectrum, we remark that both the intensity distributions in real space (‘discrete diffraction’) and Fourier space (‘Brillouin zone spectroscopy’) reflect the Bragg planes and band structure. For nonlinear waves, we observe modulational instability and discrete solitons formation in time domain. We discuss also the non-ideal effects inherent to the photo-induction technique: anisotropy, residual nonlinearity, diffusive term, non-stationarity.\n\n\nAllio, R., Guzmán-Silva, D., Cantillano, C., Morales-Inostroza, L., Lopez-Gonzalez, D., Etcheverry, S., Vicencio, R. A., & Armijo, J. (2015). Photorefractive writing and probing of anisotropic linear and nonlinear lattices. In Journal of Optics (Vol. 17, Issue 2, p. 025101). IOP Publishing. https://doi.org/10.1088/2040-8978/17/2/025101"
+  },
+  {
+    "objectID": "Myresearch-published/011-ExpPhysics-2/index.html#more-info-here",
+    "href": "Myresearch-published/011-ExpPhysics-2/index.html#more-info-here",
+    "title": "(2015) Photorefractive writing and probing of anisotropic linear and nonlinear lattices",
+    "section": "",
+    "text": "Allio, R., Guzmán-Silva, D., Cantillano, C., Morales-Inostroza, L., Lopez-Gonzalez, D., Etcheverry, S., Vicencio, R. A., & Armijo, J. (2015). Photorefractive writing and probing of anisotropic linear and nonlinear lattices. In Journal of Optics (Vol. 17, Issue 2, p. 025101). IOP Publishing. https://doi.org/10.1088/2040-8978/17/2/025101"
   },
   {
     "objectID": "Myresearch-published/03-EnfoqueDigital/index.html",
@@ -88,7 +130,7 @@
     "href": "publications.html",
     "title": "Selected Publications",
     "section": "",
-    "text": "A selection of academic publications that Dany López González has authored or co-authored.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(2021) Mobility of Chilean teachers: Influence of demographic variables, school’s characteristics and working conditions\n\n\n\n\n\n\n\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\n\n(2022) Chilean University Students’ Digital Learning Technology Usage Patterns and Approaches to Learning\n\n\n\n\n\n\n\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\n\n(2024) Enfoques de aprendizaje y uso de recursos educativos físicos y digitales en educación superior\n\n\n\n\n\n\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n(2024) LEGO-Based Physics Lab: The Potential of LEGO Bricks for Modeling in Physics\n\n\n\n\n\n\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n(2024) La mentoría desde mentores y mentoreados. Una revisión sistemática de literatura\n\n\n\n\n\n\n\n\n2 min\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "A selection of academic publications that Dany López González has authored or co-authored.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(2024) Enfoques de aprendizaje y uso de recursos educativos físicos y digitales en educación superior\n\n\n\n\n\n\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n(2024) LEGO-Based Physics Lab: The Potential of LEGO Bricks for Modeling in Physics\n\n\n\n\n\n\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n(2024) La mentoría desde mentores y mentoreados. Una revisión sistemática de literatura\n\n\n\n\n\n\n\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\n\n(2022) Chilean University Students’ Digital Learning Technology Usage Patterns and Approaches to Learning\n\n\n\n\n\n\n\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\n\n(2021) Mobility of Chilean teachers: Influence of demographic variables, school’s characteristics and working conditions\n\n\n\n\n\n\n\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\n\n(2018) Study of a variable mass Atwood’s machine using a smartphone\n\n\n\n\n\n\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n(2017) Compact modes in quasi one dimensional coupled magnetic oscillators\n\n\n\n\n\n\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n(2017) Flat-band light dynamics in Stub photonic lattices\n\n\n\n\n\n\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\n(2016) Linear and nonlinear compact modes in quasi-one-dimensional flatband systems\n\n\n\n\n\n\n\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\n\n(2016) Transport of localized and extended excitations in chains embedded with randomly distributed linear and nonlinear \\(n\\)-mers\n\n\n\n\n\n\n\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\n\n(2015) Photorefractive writing and probing of anisotropic linear and nonlinear lattices\n\n\n\n\n\n\n\n\n1 min\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "index.html",
@@ -196,17 +238,59 @@
     "text": "Díaz Sacco, A., López González, D., Salas Aguayo, M., & Carrasco Ogaz, D. (2021). Movilidad de profesores chilenos. In Perfiles Educativos (Mobility of Chilean teachers: Influence of demographic variables, school’s characteristics and working conditions) (Vol. 43, Issue 172). Universidad Nacional Autonoma de Mexico. https://doi.org/10.22201/iisue.24486167e.2021.172.59514"
   },
   {
-    "objectID": "Myresearch-published/04-ECNU/index.html",
-    "href": "Myresearch-published/04-ECNU/index.html",
-    "title": "(2022) Chilean University Students’ Digital Learning Technology Usage Patterns and Approaches to Learning",
+    "objectID": "Myresearch-published/07-CompactOscillators/index.html",
+    "href": "Myresearch-published/07-CompactOscillators/index.html",
+    "title": "(2017) Compact modes in quasi one dimensional coupled magnetic oscillators",
     "section": "",
-    "text": "This study aims to explore Chilean students’ digital technology usage patterns and approaches to learning.We conducted this study in two stages. We worked with one semester learning management systems (LMS), library, and students’ records data in the first one. We performed a k-means cluster analysis to identify groups with similar usage patterns. In the second stage, we invited students from emerging clusters to participate in group interviews. Thematic analysis was employed to analyze them. Three groups were identified: 1) digital library users/high performers, who adopted deeper approaches to learning, obtained higher marks, and used learning resources to integrate materials and expand understanding; 2) LMS and physical library users/mid-performers, who adopted mainly strategic approaches, obtained marks close to average, and used learning resources for studying in an organized manner to get good marks; and 3) lower users of LMS and library/mid-low performers, who adopted mainly a surface approach, obtained mid-to-lower-than-average marks, and used learning resources for minimum content understanding. We demonstrated the importance of combining learning analytics data with qualitative methods to make sense of digital technology usage patterns: approaches to learning are associated with learning resources use. Practical recommendations are presented.\n\n\nGonzález, C., López, D., Calle-Arango, L., Montenegro, H., & Clasing, P. (2022). Chilean University Students’ Digital Learning Technology Usage Patterns and Approaches to Learning. In ECNU Review of Education (Vol. 5, Issue 1, pp. 37–64). SAGE Publications. https://doi.org/10.1177/20965311211073538"
+    "text": "In this work we study analytically and numerically the spectrum and localization properties of three quasi-one-dimensional (ribbons) split-ring resonator arrays which possess magnetic flatbands, namely, the stub, Lieb and kagome lattices, and how their spectra are affected by the presence of perturbations that break the delicate geometrical interference needed for a magnetic flatband to exist. We find that the stub and Lieb ribbons are stable against the three types of perturbations considered here, while the kagome ribbon is, in general, unstable. When losses are incorporated, all flatbands remain dispersionless but become complex, with the kagome ribbon exhibiting the highest loss rate. The stability of flatband modes of certain split-ring resonator arrays suggests that they could be used as components of future stable magnetic storage devices.\n\n\nLópez-González, D., & Molina, M. I. (2017). Compact modes in quasi one dimensional coupled magnetic oscillators. In Journal of Physics: Condensed Matter (Vol. 29, Issue 47, p. 475801). IOP Publishing. https://doi.org/10.1088/1361-648x/aa90f0"
   },
   {
-    "objectID": "Myresearch-published/04-ECNU/index.html#more-info-here",
-    "href": "Myresearch-published/04-ECNU/index.html#more-info-here",
-    "title": "(2022) Chilean University Students’ Digital Learning Technology Usage Patterns and Approaches to Learning",
+    "objectID": "Myresearch-published/07-CompactOscillators/index.html#more-info-here",
+    "href": "Myresearch-published/07-CompactOscillators/index.html#more-info-here",
+    "title": "(2017) Compact modes in quasi one dimensional coupled magnetic oscillators",
     "section": "",
-    "text": "González, C., López, D., Calle-Arango, L., Montenegro, H., & Clasing, P. (2022). Chilean University Students’ Digital Learning Technology Usage Patterns and Approaches to Learning. In ECNU Review of Education (Vol. 5, Issue 1, pp. 37–64). SAGE Publications. https://doi.org/10.1177/20965311211073538"
+    "text": "López-González, D., & Molina, M. I. (2017). Compact modes in quasi one dimensional coupled magnetic oscillators. In Journal of Physics: Condensed Matter (Vol. 29, Issue 47, p. 475801). IOP Publishing. https://doi.org/10.1088/1361-648x/aa90f0"
+  },
+  {
+    "objectID": "Myresearch-published/010-Nmer/index.html",
+    "href": "Myresearch-published/010-Nmer/index.html",
+    "title": "(2016) Transport of localized and extended excitations in chains embedded with randomly distributed linear and nonlinear \\(n\\)-mers",
+    "section": "",
+    "text": "We examine the transport of extended and localized excitations in one-dimensional linear chains populated by linear and nonlinear symmetric identical \\(n\\)-mers (with \\(n= 3, 4, 5\\), and \\(6\\)), randomly distributed. First, we examine the transmission of plane waves across a single linear \\(n\\)-mer, paying attention to its resonances, and looking for parameters that allow resonances to merge. Within this parameter regime we examine the transmission of plane waves through a disordered and nonlinear segment composed by \\(n\\)-mers randomly placed inside a linear chain. It is observed that nonlinearity tends to inhibit the transmission, which decays as a power law at long segment lengths. This behavior still holds when the \\(n\\)-mer parameters do not obey the resonance condition. On the other hand, the mean square displacement exponent of an initially localized excitation does not depend on nonlinearity at long propagation distances \\(z\\), and shows a superdiffusive behavior \\(\\sim z^{1.8}\\) for all \\(n\\)-mers, when parameters obey the resonance merging condition; otherwise the exponent reverts back to the random dimer model value \\(\\sim z^{1.5}\\).\n\n\nDany López-González, Mario I. Molina. (2016). Transport of localized and extended excitations in chains embedded with randomly distributed linear and nonlinear n-mers. In Physical Review E (Vol. 93, Issue 3). American Physical Society (APS). https://doi.org/10.1103/physreve.93.032205"
+  },
+  {
+    "objectID": "Myresearch-published/010-Nmer/index.html#more-info-here",
+    "href": "Myresearch-published/010-Nmer/index.html#more-info-here",
+    "title": "(2016) Transport of localized and extended excitations in chains embedded with randomly distributed linear and nonlinear \\(n\\)-mers",
+    "section": "",
+    "text": "Dany López-González, Mario I. Molina. (2016). Transport of localized and extended excitations in chains embedded with randomly distributed linear and nonlinear n-mers. In Physical Review E (Vol. 93, Issue 3). American Physical Society (APS). https://doi.org/10.1103/physreve.93.032205"
+  },
+  {
+    "objectID": "Myresearch-published/09-FlatBands/index.html",
+    "href": "Myresearch-published/09-FlatBands/index.html",
+    "title": "(2016) Linear and nonlinear compact modes in quasi-one-dimensional flatband systems",
+    "section": "",
+    "text": "We examine analytically and numerically the spectral properties of three quasi-one-dimensional lattices, namely, kagome, Lieb, and stub lattices, which are characterized for having flatbands in their spectrum. It is observed that the degenerate eigenmodes modes of these flatbands form a Starklike ladder where each mode is shifted by one lattice site. Their combination can give rise to compact modes that do not diffract due to a geometrical phase cancellation. For all three cases we computed the stability of the fundamental band mode against perturbation of their amplitude and phase, the effect of possible anisotropy of the couplings, and the presence of small random perturbations of the coupling. For the Lieb and stub ribbon, the compact mode turns out to be quite robust and the flatband survives, while for the kagome ribbon, the compact mode is destroyed and the flatband is lost. When adding nonlinear effects, the compact mode turns out to be also a nonlinear eigenvector, with a power curve that is proportional to the eigenvalue and exists for any eigenvalue, in marked contrast to the usual case of discrete solitons, which can exist only outside the linear bands. These properties look promising for a future design of a robust system for long-distance propagation of information.\n\n\nLópez-González, D., & Molina, M. I. (2016). Linear and nonlinear compact modes in quasi-one-dimensional flatband systems. In Physical Review A (Vol. 93, Issue 4). American Physical Society (APS). https://doi.org/10.1103/physreva.93.043847"
+  },
+  {
+    "objectID": "Myresearch-published/09-FlatBands/index.html#more-info-here",
+    "href": "Myresearch-published/09-FlatBands/index.html#more-info-here",
+    "title": "(2016) Linear and nonlinear compact modes in quasi-one-dimensional flatband systems",
+    "section": "",
+    "text": "López-González, D., & Molina, M. I. (2016). Linear and nonlinear compact modes in quasi-one-dimensional flatband systems. In Physical Review A (Vol. 93, Issue 4). American Physical Society (APS). https://doi.org/10.1103/physreva.93.043847"
+  },
+  {
+    "objectID": "Myresearch-published/02-LEGO-based/index.html",
+    "href": "Myresearch-published/02-LEGO-based/index.html",
+    "title": "(2024) LEGO-Based Physics Lab: The Potential of LEGO Bricks for Modeling in Physics",
+    "section": "",
+    "text": "In this article, I show the potential of LEGO bricks for modeling in physics, particularly focusing on phenomena typically covered in introductory laboratory courses. I illustrate how LEGO bricks can be used to represent parabolic trajectories, free-body diagrams (FBDs), and oscillation graphs. Additionally, I demonstrate how LEGO bricks can be used to design and assemble various experimental setups, with a special emphasis on modeling the modified Atwood machine and two spring-coupled masses. Furthermore, I demonstrate how to use LEGO bricks to map the electric potential of two-point charges for modeling equipotential curves in conjunction with their 3D representation. These demonstrative examples can be applied to several topics covered in university-level physics laboratory courses, such as kinematics, mechanics, and electromagnetism. By doing so, LEGO bricks can effectively support inquiry-based learning and multiple representations, thus reinforcing students' comprehension of physics concepts while fostering their modeling abilities, creativity, and motivation in the subject.\n\n\nDany López González; LEGO-Based Physics Lab: The Potential of LEGO Bricks for Modeling in Physics. Phys. Teach. 1 September 2024; 62 (6): 435–439. https://doi.org/10.1119/5.0146220"
+  },
+  {
+    "objectID": "Myresearch-published/02-LEGO-based/index.html#more-info-here",
+    "href": "Myresearch-published/02-LEGO-based/index.html#more-info-here",
+    "title": "(2024) LEGO-Based Physics Lab: The Potential of LEGO Bricks for Modeling in Physics",
+    "section": "",
+    "text": "Dany López González; LEGO-Based Physics Lab: The Potential of LEGO Bricks for Modeling in Physics. Phys. Teach. 1 September 2024; 62 (6): 435–439. https://doi.org/10.1119/5.0146220"
   }
 ]

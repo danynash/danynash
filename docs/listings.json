@@ -2,11 +2,17 @@
   {
     "listing": "/publications.html",
     "items": [
-      "/Myresearch-published/05-Movilidad/index.html",
-      "/Myresearch-published/04-ECNU/index.html",
       "/Myresearch-published/03-EnfoqueDigital/index.html",
       "/Myresearch-published/02-LEGO-based/index.html",
-      "/Myresearch-published/01-Mentorias/index.html"
+      "/Myresearch-published/01-Mentorias/index.html",
+      "/Myresearch-published/04-ECNU/index.html",
+      "/Myresearch-published/05-Movilidad/index.html",
+      "/Myresearch-published/06-PhysLab/index.html",
+      "/Myresearch-published/07-CompactOscillators/index.html",
+      "/Myresearch-published/08-ExpPhysics/index.html",
+      "/Myresearch-published/09-FlatBands/index.html",
+      "/Myresearch-published/010-Nmer/index.html",
+      "/Myresearch-published/011-ExpPhysics-2/index.html"
     ]
   },
   {

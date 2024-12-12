@@ -2,6 +2,7 @@
 title: "What is learned in physics laboratories in higher education?"
 description: "International literature review on what is learned in introductory physics laboratory courses"
 date: "2022-06-28"
+image: Image/lab_physics.png
 ---
 
 ::: panel-tabset
@@ -156,9 +157,6 @@ Finalmente, entre una de las limitantes metodológicas que tiene este estudio, s
 -   Wilcox, B. R., & Lewandowski, H. J. (2017b). Improvement or selection? A longitudinal analysis of students’ views about experimental physics in their lab courses. Physical Review Physics Education Research, 13(2), 1–5. <https://doi.org/10.1103/PhysRevPhysEducRes.13.023101>
 -   Zhang, C.-L., Hou, Z.-Y., Si, Y.-C., Wen, X.-Q., & Tang, L. (2018). Application of Peer Instruction in the experiment of measuring the effective mass of spring. European Journal of Physics, 38(6), 0–9.
 
-:::
-
-::: panel-tabset
 ## English
 
 Under Construction

@@ -1,5 +1,22 @@
 [
   {
+    "listing": "/tutorials.html",
+    "items": [
+      "/tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html"
+    ]
+  },
+  {
+    "listing": "/myresearch.html",
+    "items": [
+      "/Myresearch/04-Galton-Board/index.html",
+      "/Myresearch/01-on-going-research/index.html",
+      "/Myresearch/03-Learning-Analytics-predictive-models-student-perfomance/index.html",
+      "/Myresearch/05-LEGO-TALK/index.html",
+      "/Myresearch/02-on-going-research-RR-lab-scientific-abilities/index.html",
+      "/foonote/index.html"
+    ]
+  },
+  {
     "listing": "/publications.html",
     "items": [
       "/Myresearch-published/03-EnfoqueDigital/index.html",
@@ -13,22 +30,6 @@
       "/Myresearch-published/09-FlatBands/index.html",
       "/Myresearch-published/010-Nmer/index.html",
       "/Myresearch-published/011-ExpPhysics-2/index.html"
-    ]
-  },
-  {
-    "listing": "/myresearch.html",
-    "items": [
-      "/Myresearch/04-Galton-Board/index.html",
-      "/Myresearch/01-on-going-research/index.html",
-      "/Myresearch/03-Learning-Analytics-predictive-models-student-perfomance/index.html",
-      "/Myresearch/02-on-going-research-RR-lab-scientific-abilities/index.html",
-      "/foonote/index.html"
-    ]
-  },
-  {
-    "listing": "/tutorials.html",
-    "items": [
-      "/tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html"
     ]
   }
 ]

@@ -1,0 +1,72 @@
+---
+title: "LEGO-based physics lab"
+description: "Here I show the potential of LEGO(R) bricks for modeling in physics."
+date: "2023-10-23"
+image: Image/LEGO.png
+filters:
+  - lightbox
+lightbox: auto
+---
+
+Haz click en la figura para ver la presentación! 😁
+
+:::{layout="[[1],[1,1,1]]"}
+
+![](pdf/00Presentacion-31.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion-32.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion-33.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 34.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 35.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 36.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 37.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 38.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 39.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 40.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 41.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 42.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 43.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 44.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 45.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 46.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 47.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 48.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 49.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 50.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 51.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 52.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 53.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 54.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 55.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 56.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 57.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 58.jpg){group="elsewhere"}
+
+![](pdf/00Presentacion 60.jpg){group="elsewhere"}
+:::

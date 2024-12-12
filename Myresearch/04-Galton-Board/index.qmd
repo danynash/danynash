@@ -5,9 +5,7 @@ date: "2024-11-28"
 image: Image/Galton.png
 ---
 
-
-Under construction...
-
+Click on the inside of the simulation to interact.
 
 ```{ojs}
 //| echo: false  
@@ -643,3 +641,5 @@ class addParticleWorld{
 
 
 ```
+
+Simulation created with  [P5js](https://p5js.org/) and [Matter-js] (https://brm.io/matter-js/).

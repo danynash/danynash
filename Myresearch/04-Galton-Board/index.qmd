@@ -1,7 +1,7 @@
 ---
 title: "The Galton Board"
 description: "Galton's board study using LEGO bricks to understand the concept of normal distribution."
-date: "2023-06-28"
+date: "2024-11-28"
 image: Image/Galton.png
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Learning Analytics and academic performance prediction models"
-description: "A review of predictive models of academic performance or at-risk students.\n \n *Imagen creada con IA*."
-date: "2023-06-28"
+description: "A review of predictive models of academic performance or at-risk students.\n \n *Image created with AI*."
+date: "2024-06-28"
 image: Image/LA.png
 ---
 
@@ -34,7 +34,7 @@ El propósito de esta revisión bibliográfica es examinar estudios empíricos q
 Se realizó la búsqueda en dos bases de datos: Web of Science (WOS) y Journal of Learning Analytics (JLA). Las palabras claves para realizar esta búsqueda fueron: Learning Analytics, performance, risk, academic success y predict. En la @tbl-Tabla_1 se encuentra el detalle del código de búsqueda que se utilizó para la base de datos WOS y JAL.
 
 | Base de datos | Código de Búsqueda                                                                                                                                                                              |
-|--------------------|----------------------------------------------------|
+|----------------------|--------------------------------------------------|
 | WOS           | TS=("Learning" NEAR/0 "Analytics" AND predict\* AND (performance\* OR \*risk OR "academic" NEAR/0 "success" ) and dt=article AND wc=(EDUCATION EDUCATIONAL RESEARCH EDUCATION) AND PY=2013-2018 |
 | JLA           | performance\* OR "academic success"OR risk\* OR success                                                                                                                                         |
 
@@ -123,7 +123,7 @@ Se pueden identificar diversos objetivos de investigación en los manuscritos an
 Uno de los factores relevantes en LA lo conforman los métodos o herramientas de Minería de Datos. Estas herramientas permiten realizar procesos de descripción e inferencias de los datos educacionales que se recopilan. El uso de estos métodos varía enormemente dentro de la comunidad de LA, y su aplicabilidad en la predicción de rendimiento académico depende de diversos factores, tales como, el número de la muestra a analizar, el tipo de datos que se está analizando, la cantidad de datos que se desean procesar y analizar, requisitos previos que requiere una determinada muestra para aplicar cierto algoritmo, entre otros (Romero & Ventura, 2010). Por las razones comentadas anteriormente, es relevante evidenciar en la literatura qué métodos se han utilizado en la predicción de rendimiento académico dentro del diseño de LA. Los resultados que se expondrán en esta sección responderían explícitamente a la pregunta de investigación número 1. En la @tbl-table3 se muestra un resumen de los métodos o algoritmos utilizados por las investigaciones analizadas.
 
 | Métodos                                                                            | Estudios                                                                                                                                                                                                                                             |
-|--------------------|----------------------------------------------------|
+|----------------------|--------------------------------------------------|
 | Análisis de correlaciones                                                          | (Zacharis, 2015);(Jo, Kim, & Yoon, 2015);(You, 2016);(de Barba, Kennedy, & Ainley, 2016);(Ellis et al., 2018);(Hart & Ganley, 2017);(Pardo, Han, & Ellis, 2017);(Choi, Lam, Li, & Wong, 2018);(Saqr, Fors, & Tedre, 2018);(Junco & Clem, 2015)       |
 | Regresión lineal múltiple                                                          | (Zacharis, 2015);(Jo, Kim, & Yoon, 2015);(Gašević, Dawson, Rogers, & Gasevic, 2016);(You, 2016);(Hart & Ganley, 2017);(Pardo, Han, & Ellis, 2017);(T Lu et al., 2018);(Choi, Lam, Li, & Wong, 2018);(Saqr, Fors, & Tedre, 2018);(Junco & Clem, 2015) |
 | Regresión logística                                                                | (Zacharis, 2015);(Gašević, Dawson, Rogers, & Gasevic, 2016);(Marbouti, Diefes-Dux, & Madhavan, 2016);(Choi, Lam, Li, & Wong, 2018);(Saqr, Fors, & Tedre, 2018);(Casey & Azcona, 2017)                                                                |

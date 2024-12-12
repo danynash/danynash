@@ -1,7 +1,7 @@
 ---
 title: "Learning Statistics is all about transduction"
 description: "A Qualitative Analysis of Semiotic Modes in Building Statistical Knowledge"
-date: "2022-06-28"
+date: "2024-10-28"
 image: Image/test.jpg
 ---
 

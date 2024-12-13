@@ -637,22 +637,15 @@ class addParticleWorld{
   
 }
 
-
-
-
-
-
-
 ```
 
 Simulation created with  [P5js](https://p5js.org/) and [Matter-js](https://brm.io/matter-js/).
 
-For consistency, a LEGO grid identical to the one used in the simulation has been employed
-
+To empirically model Galton's board, here I used a LEGO grid:
 
 ![](Image/01Plinkoo_2.png){group="elsewhere"}
 
-You can compare the simulation results with the empirical data presented below.
+You can compare the simulation with the empirical data presented below.
 
 ![](Image/Asset 3-20.jpg){group="elsewhere"}
 

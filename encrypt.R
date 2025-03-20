@@ -3,7 +3,7 @@ command <- c(
   "staticrypt",  # The command to run the Staticrypt package, which encrypts static HTML files with a password
   "./docs/tutoriales/*",  # Specifies the path to the files to encrypt (all files in the _output directory)
   "-r",  # Recursive flag to process files in subdirectories
-  "-d", "./docs/tutoriales",  # Sets the output directory for the encrypted files to the same _output directory
+  "-d", "./docs/tutoriales/",  # Sets the output directory for the encrypted files to the same _output directory
   "-p", '"Password"',  # Specifies the password to encrypt the files
   "--short",  # Generates a short URL-friendly hash
   "--template-color-primary", '"#6667AB"',  # Sets the primary color for the template

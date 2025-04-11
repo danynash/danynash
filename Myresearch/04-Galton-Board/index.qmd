@@ -112,7 +112,7 @@ sketch.mouseClicked = function() {
      
      
      
-     for(let n=1; n<=300; n++){
+     for(let n=1; n<=30; n++){
        par = new addParticleWorld(sketch, Matter, sketch.createVector(480, 50),math.random()*0.001,math.random()*0.001)
        particulas.push(par);
       }
@@ -178,7 +178,7 @@ sketch.mouseClicked = function() {
 
   
   
-  for(let n=1; n<=300; n++){
+  for(let n=1; n<=30; n++){
        objects = objects.concat(particulas[n-1].get_body());
      }
 
@@ -639,7 +639,7 @@ class addParticleWorld{
 
 ```
 
-Simulation created with  [P5js](https://p5js.org/) and [Matter-js](https://brm.io/matter-js/).
+Simulation created with [P5js](https://p5js.org/) and [Matter-js](https://brm.io/matter-js/).
 
 To empirically model Galton's board, here I used a LEGO grid:
 
@@ -647,6 +647,6 @@ To empirically model Galton's board, here I used a LEGO grid:
 
 You can compare the simulation with the empirical data presented below.
 
-![](Image/Asset 3-20.jpg){group="elsewhere"}
+![](Image/Asset%203-20.jpg){group="elsewhere"}
 
 Under construction ...

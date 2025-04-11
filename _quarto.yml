@@ -17,6 +17,7 @@ website:
       - myresearch.qmd
       - publications.qmd
       - tutorials.qmd
+      - lessons.qmd
 format:
   html:
     theme: Spacelab

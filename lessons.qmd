@@ -1,0 +1,12 @@
+---
+title: "Lessons"
+listing:
+  contents: "lessons/*/index.qmd"
+  feed: true
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: true
+  filter-ui: true
+page-layout: full
+---

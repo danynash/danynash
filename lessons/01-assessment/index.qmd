@@ -327,7 +327,7 @@ Ahora ya estamos en condiciones de responder a las preguntas de esta evaluación
 
 ## Pregunta 1.1
 
-Realice una tabla con estadísticos descriptivo. Puede guiarse por APA 7, vea ejemplo a continuación para reportar.
+Realice una tabla con estadísticos descriptivo. Puede guiarse por APA 7, vea el ejemplo [**en este link**](https://apastyle.apa.org/style-grammar-guidelines/tables-figures/sample-tables) para reportar.
 
 ## Pregunta 1.2
 
@@ -372,7 +372,7 @@ Según el dilema planteado, plantee la hipótesis nula y la hipótesis alternati
 
 ## Pregunta 2.2:
 
-Realice una prueba que permita evidenciar si existen diferencias significativas entre el puntaje promedio del `juez_1` y el `juez_2`. Reporte sus resultados en una tabla y junto a la tabla el reporte verbal. Puede guiarse por la norma APA 7 en el título que indica [`Sample results of several t tests table`](https://apastyle.apa.org/style-grammar-guidelines/tables-figures/sample-tables). Para el reporte, utilice el usado en la [`Clase 5, p.13`](https://cursos.canvas.uc.cl/courses/73437/modules/items/2048324) del curso.
+Realice una prueba que permita evidenciar si existen diferencias significativas entre el puntaje promedio del `juez_1` y el `juez_2`. Reporte sus resultados en una tabla y junto a la tabla el reporte verbal. Puede guiarse por la norma APA 7 en el título que indica [`Sample results of several t tests table`](https://apastyle.apa.org/style-grammar-guidelines/tables-figures/sample-tables). Para el reporte, utilice el usado en la [`Clase 4, p.64`](https://cursos.canvas.uc.cl/courses/87358/files/12121774?module_item_id=2517697) del curso.
 
 Para realizar este paso, tiene que que primero filtrar la tabla `db_juez_long` para los casos respectivo y luego utilizar la prueb `t` vista en clases. Puede usar el siguiente código para filtar la base de datos y luego realizar la prueba `t`.
 
@@ -404,7 +404,7 @@ En base a los resultados obtenidos, indique si rechaza la hipótesis nula y junt
 
 ## Pregunta 2.4:
 
-Realice ahora un test de ANOVA y reporte sus resultados en una tabla y verbalmente. Utilice como referencia la tabla ANOVA usada en [`Clase 5`](https://cursos.canvas.uc.cl/courses/73437/modules/items/2048324) del curso.
+Realice ahora un test de ANOVA y reporte sus resultados en una tabla y verbalmente. Utilice como referencia la tabla ANOVA y el report usado en [`Clase 5, p. 41 y p.43 `](https://cursos.canvas.uc.cl/courses/87358/files/12181305?module_item_id=2530476) del curso.
 
 # Sección 3: Comparación de media entre tres jueces
 
@@ -447,3 +447,4 @@ knitr::include_graphics('./Images/tidyr-pivot_wider_longer.gif')
 ```
 
 En algunas ocasiones dependiendo del tipo de análisis que realicemos, vamos a estructurar nuestros datos en uno de los dos formatos. Por ejemplo, usualmente cuando queremos hacer test de `ANOVA` o gráficar un set de 2 variables que tienen diferentes categorias como posibles valores, usaremos el formato `long` para hacerlo. Por otra parte, el formato `wide` es bastante útil para crear, transformar o limpiar variables. En general, transitamos desde una estructura a otra de forma iterativa para cumplir propósitos específicos.
+

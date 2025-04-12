@@ -135,140 +135,140 @@
   {
     "objectID": "lessons/01-assessment/index.html",
     "href": "lessons/01-assessment/index.html",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "",
     "text": "Aplicar prueba T y ANOVA a un problema educativo por medio del análisis de datos educacionales.\nReporte de estadísticos descriptivos\nConstrucción de hipótesis nula y alternativa.\nAnálisis critico de la evidencia estadística"
   },
   {
     "objectID": "lessons/01-assessment/index.html#general",
     "href": "lessons/01-assessment/index.html#general",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "General",
     "text": "General\n\nEstudiantes de primer año de universidad que asisten a cursos de laboratorios de física.\nCohortes numerosas \\(N\\sim 300\\) estudiantes distribuidos en 12 secciones de 30-40 estudiantes.\nContexto de alta competencia.\nEl promedio de notas en física de cada estudiante estudiante tiene un alto impacto en la trayectoria académica que siguen los estudiantes, en tanto es un curso obligatorio que deben aprobar. Por lo tanto, las notas tienen alta consecuencia.\nEn general, los recursos invertidos en para la revisión de evaluaciones son limitados."
   },
   {
     "objectID": "lessons/01-assessment/index.html#evaluación-de-tareas-auténticas",
     "href": "lessons/01-assessment/index.html#evaluación-de-tareas-auténticas",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "Evaluación de tareas auténticas",
     "text": "Evaluación de tareas auténticas\nEl informe de laboratorio es una tarea auténtica que se les solicita escribir a estudiantes luego de realizar una actividad experimental.\n\nTípicamente se solicita en carreras de ciencias naturales e ingeniería (Lic. en Física, Lic. en Química, Lic. en Biología y carreras de Ingeniería en general).\nLa redacción del informe implica por parte de las y los estudiantes un alto dominio de escritura especializada, dominio que es desafiante para estudiantes que se encuentran en su primer año de universidad.\nNo hay demasiada evidencia empírica sobre una enseñanza explicita de la escritura de informes de laboratorios en contextos de laboratorios.\nLa evaluación del informe de laboratorio de física involucra, en general, un 80% de la nota final de un estudiante.\n\nPodemos ver un extracto de un informe a continuación\n\nCode#knitr::include_graphics('./Images/Informe.pdf')\nknitr::include_graphics('./Images/Informe.png')"
   },
   {
     "objectID": "lessons/01-assessment/index.html#proceso-de-evaluación",
     "href": "lessons/01-assessment/index.html#proceso-de-evaluación",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "Proceso de evaluación",
     "text": "Proceso de evaluación\nEn general, el número de docentes (o correctores) asignados para la revisión de informes de laboratorios varía según los recursos habilitados por una respectiva unidad académica o facultad. Del mismo modo, también varía la cantidad de informes de laboratorios que se les solicita a las y los estudiantes escribir. En algunos contextos, se solicita escribir 2 informes de laboratorios durante el semestre, y para su revisión se cuenta con 12 docentes (o correctores). La distribución de estos informes en general es aleatoria u otro tipo de asignación definida por un coordinador. Para esta evaluación, se considera un proceso de puntuación de informes. Cada docente asigna un puntaje en una escala de 1 a 7 (escala de puntuación tradicional en el sistema Chileno) según la calidad que presenta un informe de laboratorio. Este proceso se ve reflejado en el siguiente diagrama para el caso de tres docentes (o jueces).\n\nCode#knitr::include_graphics('./Images/Informe.pdf')\nknitr::include_graphics('./Images/Puntajes_.png')"
   },
   {
     "objectID": "lessons/01-assessment/index.html#dilema-educativo",
     "href": "lessons/01-assessment/index.html#dilema-educativo",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "Dilema educativo",
     "text": "Dilema educativo\nAnte el clima de desconfianza en el contexto descrito y las altas consecuencias que tiene para cada estudiante el puntaje que asigna un docente a su informe, se desea explorar si :\n\nLos puntajes asignados (notas) a los informes de laboratorios difieren según el docente.\n\nPor lo tanto, en caso de existir diferencias entre las puntuaciones que los docentes asignan a un informe, esta diferencia tendría altas consecuencias. Esta situación se resume en el siguiente diagrama.\n\nCode#knitr::include_graphics('./Images/Informe.pdf')\nknitr::include_graphics('./Images/Diagrama.png')"
   },
   {
     "objectID": "lessons/01-assessment/index.html#etapa-0-elementos-previos",
     "href": "lessons/01-assessment/index.html#etapa-0-elementos-previos",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "Etapa 0: Elementos previos",
     "text": "Etapa 0: Elementos previos\nEsta etapa consiste en incluir elementos previos que necesarios para ejecutar códigos en R. Para el presente taller vamos a emplear algunas librerias fundamentales para procesar inicialmente nuestros datos, como la librería readxl,dplyr, tidyr y ggplot2 Para que los códigos incluídos como guías de este taller funcionen es necesario que las librerías recomendadas sean instaladas primero, una vez que se instalan no se deben volver a instalar.\nEsta librería, la podemos llamar e instalar empleando las siguientes línea de código:\n\n#--------------------------------------\n# instalar librerias\n#--------------------------------------\n\n#install.packages('readxl') # borrar el símbolo # para ejecutar código\n#install.packages('dplyr') # borrar el símbolo # para ejecutar código\n#install.packages('tidyr') # borrar el símbolo # para ejecutar código\n#install.packages('ggplot2') # borrar el símbolo # para ejecutar código\n\n#------------------------------------------------------------------------------\n#  cargar librarias\n#------------------------------------------------------------------------------\n\nlibrary(readxl)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(ggplot2)\n\n#------------------------------------------------------------------------------\n#  Opcioes especiales\n#------------------------------------------------------------------------------\n\n# Evita la notacion cientifica\noptions(scipen=999)"
   },
   {
     "objectID": "lessons/01-assessment/index.html#etapa-0-ruta-de-trabajo",
     "href": "lessons/01-assessment/index.html#etapa-0-ruta-de-trabajo",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "Etapa 0: Ruta de trabajo",
     "text": "Etapa 0: Ruta de trabajo\nEn esta sección daremos detalles sobre cómo establecer el lugar (carpeta) donde se ubican nuestras bases de datos y archivos. Se recomienda que siempre se trabaje en la misma carpeta (por ejemplo una carpeta que lleve por nombre taller01), de tal forma de centralizar la ubicación de sus datos, código y outputs.\nPor ejemplo, imaginemos que creo mi carpeta de trabajo de nombre taller01. Dentro de la carpeta taller01 se encuentra la base de datos y el código R. Esta carpeta se encuentra dentro de otra carpeta de nombre talleres la que a su vez se encuentra en la carpeta Magister la que a su vez se encuentra alojada dentro de mi carpeta Dropbox. Luego\n\nEn un computador con windows la RUTA de mi carpeta taller1 sería:\n\nC:/Dropbox/Magister/talleres/taller01\nOriginalmente en Windows su ruta se encontrará con el backslash , como se muestra a continuación:\n\\(C:\\backslash Users\\backslash DL\\backslash Dropbox\\backslash Magister\\backslash talleres\\backslash taller01\\)\npor lo que para usarla en R, deberá cambiar \\(\\backslash\\) por /.\n-En un computador con Mac la RUTA de mi carpeta taller1 sería:\nUsers/Dropbox/Magister/talleres/taller01\n\nDeben declarar su directorio con el comando a continuación:\n\n\nsetwd(dir = \"Users/Dropbox/Magister/talleres/taller01\")\n\nDe esta manera R sabrá que su directorio de trabajo (“working directory” = wd) estará fijo"
   },
   {
     "objectID": "lessons/01-assessment/index.html#etapa-1-abrir-los-datos",
     "href": "lessons/01-assessment/index.html#etapa-1-abrir-los-datos",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "Etapa 1: Abrir los datos",
     "text": "Etapa 1: Abrir los datos\n\nVamos a abrir los datos que se encuentran en formato xlsx. Vamos a emplear a la libreria readxl para que R pueda leer estos datos.\n\n\n\n\n\n\n\nNota\n\n\n\nEn general en R tendremos que usar diferentes funciones y librerias para abrir archivos en diferentes formatos.\n\n\n\n#---------------------------------------------------------------\n# Cargando datos\n#---------------------------------------------------------------\n\n# Dato Jueces\ndb &lt;- readxl::read_excel(\"./DDBB/BaseDatosJueces.xlsx\",\n                         sheet='PuntajesInformes', na=c(\"\"), col_names = TRUE)\n\nLa base de datos se muestra a continuación para los primeros 10 registros.\n\n\n\n\n\nInforme\nJuez_1\nJuez_2\nJuez_3\n\n\n\nInforme_1\n4.0\n6.0\n6.5\n\n\ninforme_2\n5.7\n6.5\n6.0\n\n\nInforme_3\n4.3\n6.5\n6.0\n\n\nInforme_4\n4.6\n3.5\n4.0\n\n\nInforme_5\n3.6\n5.0\n5.0\n\n\nInforme_6\n5.2\n5.5\n5.0\n\n\nInforme_7\n2.7\n3.0\n4.5\n\n\nInforme_8\n3.7\n5.0\n5.0\n\n\nInforme_9\n4.1\n4.5\n6.0\n\n\nInforme_10\n4.3\n6.0\n5.8"
   },
   {
     "objectID": "lessons/01-assessment/index.html#etapa-2-preparar-datos",
     "href": "lessons/01-assessment/index.html#etapa-2-preparar-datos",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "Etapa 2: Preparar datos",
     "text": "Etapa 2: Preparar datos\nLa tabla anterior se encuentra en formato wide, por lo que ahora la convertimos en formato long. Vea [Apéndice A.1.1]\n\ndb_juez_long &lt;- db %&gt;% \n  tidyr::pivot_longer(\n  cols = Juez_1:Juez_3,\n  names_to = 'juez',\n  values_to = 'puntaje'\n)\n\nAnteriormente usamos la libería dplyr y tidyr para crear una tabla en formato long. La función pivot_longer proviene de la libreria tidyr. En este código, es relevante el operardor %&gt;% (conocido como pipe), el que tiene como función recibir un dataframe para luego procesarlo.\nLa base de datos en formato long se muestra para los primeros 10 registros.\n\n\n\n\n\nInforme\njuez\npuntaje\n\n\n\nInforme_1\nJuez_1\n4.0\n\n\nInforme_1\nJuez_2\n6.0\n\n\nInforme_1\nJuez_3\n6.5\n\n\ninforme_2\nJuez_1\n5.7\n\n\ninforme_2\nJuez_2\n6.5\n\n\ninforme_2\nJuez_3\n6.0\n\n\nInforme_3\nJuez_1\n4.3\n\n\nInforme_3\nJuez_2\n6.5\n\n\nInforme_3\nJuez_3\n6.0\n\n\nInforme_4\nJuez_1\n4.6\n\n\n\n\n\n\nAhora ya estamos en condiciones de responder a las preguntas de esta evaluación. Para ello, utilizaremos la base de datos en formato long."
   },
   {
     "objectID": "lessons/01-assessment/index.html#pregunta-1.1",
     "href": "lessons/01-assessment/index.html#pregunta-1.1",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "Pregunta 1.1",
-    "text": "Pregunta 1.1\nRealice una tabla con estadísticos descriptivo. Puede guiarse por APA 7, vea ejemplo a continuación para reportar."
+    "text": "Pregunta 1.1\nRealice una tabla con estadísticos descriptivo. Puede guiarse por APA 7, vea el ejemplo en este link para reportar."
   },
   {
     "objectID": "lessons/01-assessment/index.html#pregunta-1.2",
     "href": "lessons/01-assessment/index.html#pregunta-1.2",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "Pregunta 1.2",
     "text": "Pregunta 1.2\nRealice un gráfico de caja y bigotes (o boxplot) con los puntajes en el eje vertical y los jueces ordenados en el eje horizontal. Puede usar el siguiente código\n\nlibrary(ggplot2)\n\np &lt;- ggplot(db_juez_long, aes(x=juez, y=puntaje, fill=juez)) + \n  geom_boxplot()+\n  theme_bw() +\n  theme(\n    text = element_text(size = 15),\n    axis.text.x = element_text(color = \"black\",angle = 0, hjust = 0.5),\n    #  text = element_text(size = 15),\n    axis.text.y = element_text(color = \"black\",angle = 0, hjust = 0.5),\n    legend.position = \"none\"\n  ) +\n  labs( x = \"\",\n        y = \"Puntaje\") +\n  ylim(c(1,7))\n\np &lt;- p + scale_fill_manual(values=c( \"#E69F00\", \"#56B4E9\",\"gray\"))\np &lt;- p + stat_summary(fun.y=mean, geom=\"point\", shape=23, size=6)"
   },
   {
     "objectID": "lessons/01-assessment/index.html#pregunta-1.3",
     "href": "lessons/01-assessment/index.html#pregunta-1.3",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "Pregunta 1.3",
     "text": "Pregunta 1.3\nDescriba la tabla descriptiva y el gráfico. Luego indique entre qué jueces considera que podría existir diferencias significativas en sus medias."
   },
   {
     "objectID": "lessons/01-assessment/index.html#pregunta-2.1",
     "href": "lessons/01-assessment/index.html#pregunta-2.1",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "Pregunta 2.1:",
     "text": "Pregunta 2.1:\nSegún el dilema planteado, plantee la hipótesis nula y la hipótesis alternativa."
   },
   {
     "objectID": "lessons/01-assessment/index.html#pregunta-2.2",
     "href": "lessons/01-assessment/index.html#pregunta-2.2",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "Pregunta 2.2:",
-    "text": "Pregunta 2.2:\nRealice una prueba que permita evidenciar si existen diferencias significativas entre el puntaje promedio del juez_1 y el juez_2. Reporte sus resultados en una tabla y junto a la tabla el reporte verbal. Puede guiarse por la norma APA 7 en el título que indica Sample results of several t tests table. Para el reporte, utilice el usado en la Clase 5, p.13 del curso.\nPara realizar este paso, tiene que que primero filtrar la tabla db_juez_long para los casos respectivo y luego utilizar la prueb t vista en clases. Puede usar el siguiente código para filtar la base de datos y luego realizar la prueba t.\n\n#-----------------------\n# Filtrar tabla\n#----------------------\ndb_juez_long_j1_j2 &lt;- db_juez_long %&gt;% \n                      filter (juez %in% c(\"Juez_1\",\"Juez_2\")) \n  \n\n#---------------------------------\n# Realice prueba t a continuacion\n#---------------------------------\n  \n# escriba codigo aqui usando la base db_juez_long_j1_j2"
+    "text": "Pregunta 2.2:\nRealice una prueba que permita evidenciar si existen diferencias significativas entre el puntaje promedio del juez_1 y el juez_2. Reporte sus resultados en una tabla y junto a la tabla el reporte verbal. Puede guiarse por la norma APA 7 en el título que indica Sample results of several t tests table. Para el reporte, utilice el usado en la Clase 4, p.64 del curso.\nPara realizar este paso, tiene que que primero filtrar la tabla db_juez_long para los casos respectivo y luego utilizar la prueb t vista en clases. Puede usar el siguiente código para filtar la base de datos y luego realizar la prueba t.\n\n#-----------------------\n# Filtrar tabla\n#----------------------\ndb_juez_long_j1_j2 &lt;- db_juez_long %&gt;% \n                      filter (juez %in% c(\"Juez_1\",\"Juez_2\")) \n  \n\n#---------------------------------\n# Realice prueba t a continuacion\n#---------------------------------\n  \n# escriba codigo aqui usando la base db_juez_long_j1_j2"
   },
   {
     "objectID": "lessons/01-assessment/index.html#pregunta-2.3",
     "href": "lessons/01-assessment/index.html#pregunta-2.3",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "Pregunta 2.3:",
     "text": "Pregunta 2.3:\nEn base a los resultados obtenidos, indique si rechaza la hipótesis nula y junto con su nivel de confianza."
   },
   {
     "objectID": "lessons/01-assessment/index.html#pregunta-2.4",
     "href": "lessons/01-assessment/index.html#pregunta-2.4",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "Pregunta 2.4:",
-    "text": "Pregunta 2.4:\nRealice ahora un test de ANOVA y reporte sus resultados en una tabla y verbalmente. Utilice como referencia la tabla ANOVA usada en Clase 5 del curso."
+    "text": "Pregunta 2.4:\nRealice ahora un test de ANOVA y reporte sus resultados en una tabla y verbalmente. Utilice como referencia la tabla ANOVA y el report usado en Clase 5, p. 41 y p.43 del curso."
   },
   {
     "objectID": "lessons/01-assessment/index.html#pregunta-3.1",
     "href": "lessons/01-assessment/index.html#pregunta-3.1",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "Pregunta 3.1:",
     "text": "Pregunta 3.1:\nRealice ahora un test de ANOVA y reporte sus resultados en una tabla."
   },
   {
     "objectID": "lessons/01-assessment/index.html#pregunta-3.2",
     "href": "lessons/01-assessment/index.html#pregunta-3.2",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "Pregunta 3.2:",
     "text": "Pregunta 3.2:\n¿Qué interpretación tiene para este caso la tabla ANOVA representada anteriormente? Discuta y presente sus ideas.\n\n\n\n\n\n\nNota\n\n\n\nEsta pregunta será evaluada de manera formativa. Se entregará una explicación detallada por parte del docente dando cuenta de la interpretación e implicancias que tiene realizar un ANOVA para tres niveles. Lo importante es que pueda discutir e interpretar, en base a lo visto en clases, qué estaría expresando la tabla ANOVA y qué inferencias es posible realizar."
   },
   {
     "objectID": "lessons/01-assessment/index.html#a.1.1-datos-estructurados-en-formato-wide-y-long",
     "href": "lessons/01-assessment/index.html#a.1.1-datos-estructurados-en-formato-wide-y-long",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "A.1.1 Datos estructurados en formato Wide y Long",
     "text": "A.1.1 Datos estructurados en formato Wide y Long\nUn conjunto de datos1 puede representarse en dos formatos o estructuras diferentes2, wide (ancho) y long (largo):\n\nUn formato/estructura wide contiene valores que no se repiten en una columna de interés.\nUn formato/estructura long contiene valores que sí se repiten en una columna de interés\n\nPor ejemplo, considere los dos conjuntos de datos siguientes, ambos contienen exactamente los mismos valores pero se estructuran en formatos diferentes:\n\n\n\n\nCreación propia.\n\n\n\nEn algunas ocasiones dependiendo del tipo de análisis que realicemos, vamos a estructurar nuestros datos en uno de los dos formatos. Por ejemplo, usualmente cuando queremos hacer test de ANOVA o gráficar un set de 2 variables que tienen diferentes categorias como posibles valores, usaremos el formato long para hacerlo. Por otra parte, el formato wide es bastante útil para crear, transformar o limpiar variables. En general, transitamos desde una estructura a otra de forma iterativa para cumplir propósitos específicos."
   },
   {
     "objectID": "lessons/01-assessment/index.html#footnotes",
     "href": "lessons/01-assessment/index.html#footnotes",
-    "title": "Prueba t - ANOVA",
+    "title": "Evaluación 01 - Prueba t - ANOVA",
     "section": "Footnotes",
     "text": "Footnotes\n\nEn R tipicamente este conjunto de datos queda capturado por un dataframe. Puede consultar el link para mayores detalles sobre lo que es un dataframe.↩︎\nConvertir un conjunto de datos en formato long o wide es lo que también se conoce como tablas pivotes.↩︎"
   },
@@ -354,7 +354,7 @@
     "href": "lessons.html",
     "title": "Lessons",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nPrueba t - ANOVA\n\n\nEDU3826\n\n\n\n\n\n\n\n\nDany Lopez (dxlopez@ul.cl) - José Luis Pérez (josel.perez@uc.cl)\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nEvaluación 01 - Prueba t - ANOVA\n\n\nEDU3826\n\n\n\n\n\n\n\n\nDany Lopez (dxlopez@ul.cl) - José Luis Pérez (josel.perez@uc.cl)\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "testing_03-ElectricPotential.html",

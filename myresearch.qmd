@@ -13,20 +13,13 @@ listing:
 page-layout: full
 ---
 
-
-
 Welcome to my research page, where I explore education, data analytics, and discipline-specific learning. My work spans diverse areas, including Learning Analytics, physics education, Higher Education, linguistics, multimodality, and LEGO-based learning, among others. Feel free to explore my reflections, projects, and publications! 😁
 
-
-:::{#non-publishing}
+::: {#non-publishing}
 :::
-
 
 ::: {.callout-important collapse="false"}
 ### Copyrights
 
 The documents provided on this page are made available to facilitate the timely dissemination of academic and technical works for non-commercial purposes. All copyrights and associated rights remain the property of the respective authors or copyright holders, even as these works are shared here in electronic format. Users who copy or utilize this content are expected to adhere to the terms and restrictions stipulated by the authors' copyrights. These works may not be republished without the explicit permission of the copyright holder.
 :::
-
-
-

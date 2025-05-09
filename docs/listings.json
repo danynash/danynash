@@ -1,8 +1,20 @@
 [
   {
-    "listing": "/tutorials.html",
+    "listing": "/lessons.html",
     "items": [
-      "/tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html"
+      "/lessons/01-assessment/index.html",
+      "/lessons/02-LinearRegression1V/index.html"
+    ]
+  },
+  {
+    "listing": "/myresearch.html",
+    "items": [
+      "/Myresearch/04-Galton-Board/index.html",
+      "/Myresearch/01-on-going-research/index.html",
+      "/Myresearch/03-Learning-Analytics-predictive-models-student-perfomance/index.html",
+      "/Myresearch/05-LEGO-TALK/index.html",
+      "/Myresearch/02-on-going-research-RR-lab-scientific-abilities/index.html",
+      "/foonote/index.html"
     ]
   },
   {
@@ -22,20 +34,9 @@
     ]
   },
   {
-    "listing": "/myresearch.html",
+    "listing": "/tutorials.html",
     "items": [
-      "/Myresearch/04-Galton-Board/index.html",
-      "/Myresearch/01-on-going-research/index.html",
-      "/Myresearch/03-Learning-Analytics-predictive-models-student-perfomance/index.html",
-      "/Myresearch/05-LEGO-TALK/index.html",
-      "/Myresearch/02-on-going-research-RR-lab-scientific-abilities/index.html",
-      "/foonote/index.html"
-    ]
-  },
-  {
-    "listing": "/lessons.html",
-    "items": [
-      "/lessons/01-assessment/index.html"
+      "/tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html"
     ]
   }
 ]

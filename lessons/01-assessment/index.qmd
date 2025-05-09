@@ -231,7 +231,6 @@ por lo que para usarla en `R`, deberá cambiar $\backslash$ por /.
 setwd(dir = "Users/Dropbox/Magister/talleres/taller01")
 ```
 
-
 De esta manera `R` sabrá que su directorio de trabajo ("working directory" = wd) estará fijo
 
 ## Etapa 1: Abrir los datos
@@ -404,7 +403,7 @@ En base a los resultados obtenidos, indique si rechaza la hipótesis nula y junt
 
 ## Pregunta 2.4:
 
-Realice ahora un test de ANOVA y reporte sus resultados en una tabla y verbalmente. Utilice como referencia la tabla ANOVA y el report usado en [`Clase 5, p. 41 y p.43 `](https://cursos.canvas.uc.cl/courses/87358/files/12181305?module_item_id=2530476) del curso.
+Realice ahora un test de ANOVA y reporte sus resultados en una tabla y verbalmente. Utilice como referencia la tabla ANOVA y el report usado en [`Clase 5, p. 41 y p.43`](https://cursos.canvas.uc.cl/courses/87358/files/12181305?module_item_id=2530476) del curso.
 
 # Sección 3: Comparación de media entre tres jueces
 
@@ -447,4 +446,3 @@ knitr::include_graphics('./Images/tidyr-pivot_wider_longer.gif')
 ```
 
 En algunas ocasiones dependiendo del tipo de análisis que realicemos, vamos a estructurar nuestros datos en uno de los dos formatos. Por ejemplo, usualmente cuando queremos hacer test de `ANOVA` o gráficar un set de 2 variables que tienen diferentes categorias como posibles valores, usaremos el formato `long` para hacerlo. Por otra parte, el formato `wide` es bastante útil para crear, transformar o limpiar variables. En general, transitamos desde una estructura a otra de forma iterativa para cumplir propósitos específicos.
-

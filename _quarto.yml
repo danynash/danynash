@@ -9,6 +9,7 @@ website:
   title: "danynash"
   back-to-top-navigation: true
   sidebar: true
+  google-analytics: "G-M437T2YZW3"
   navbar:
     left:
       - href: index.qmd

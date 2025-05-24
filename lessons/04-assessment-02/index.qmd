@@ -315,7 +315,7 @@ Ahora ajustaremos los siguientes modelos lineales para abordar por completo el p
 
 ### Pregunta 2.1:
 
-Ajuste los cuatro modelos anteriores. Reporte estos resultados en una tabla. Para el reporte de la tabla, utilice el formato APA [**ver aquí**](https://cursos.canvas.uc.cl/courses/87358/modules/items/2560455)
+Ajuste los cuatro modelos anteriores. Reporte estos resultados en una tabla. Para el reporte de la tabla, utilice el formato APA [**ver aquí**](https://apastyle.apa.org/style-grammar-guidelines/tables-figures/sample-tables#regression)
 
 Utilice el siguiente código para ajustar los modelos
 

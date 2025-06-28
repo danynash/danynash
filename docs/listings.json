@@ -1,22 +1,8 @@
 [
   {
-    "listing": "/lessons.html",
+    "listing": "/tutorials.html",
     "items": [
-      "/lessons/01-assessment/index.html",
-      "/lessons/02-LinearRegression1V/index.html",
-      "/lessons/03-MultipleLinearRegression/index.html",
-      "/lessons/04-assessment-02/index.html"
-    ]
-  },
-  {
-    "listing": "/myresearch.html",
-    "items": [
-      "/Myresearch/04-Galton-Board/index.html",
-      "/Myresearch/01-on-going-research/index.html",
-      "/Myresearch/03-Learning-Analytics-predictive-models-student-perfomance/index.html",
-      "/Myresearch/05-LEGO-TALK/index.html",
-      "/Myresearch/02-on-going-research-RR-lab-scientific-abilities/index.html",
-      "/foonote/index.html"
+      "/tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html"
     ]
   },
   {
@@ -36,9 +22,24 @@
     ]
   },
   {
-    "listing": "/tutorials.html",
+    "listing": "/myresearch.html",
     "items": [
-      "/tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html"
+      "/Myresearch/04-Galton-Board/index.html",
+      "/Myresearch/01-on-going-research/index.html",
+      "/Myresearch/03-Learning-Analytics-predictive-models-student-perfomance/index.html",
+      "/Myresearch/05-LEGO-TALK/index.html",
+      "/Myresearch/02-on-going-research-RR-lab-scientific-abilities/index.html",
+      "/foonote/index.html"
+    ]
+  },
+  {
+    "listing": "/lessons.html",
+    "items": [
+      "/lessons/01-assessment/index.html",
+      "/lessons/02-LinearRegression1V/index.html",
+      "/lessons/03-MultipleLinearRegression/index.html",
+      "/lessons/04-assessment-02/index.html",
+      "/lessons/05-assessment-03/index.html"
     ]
   }
 ]

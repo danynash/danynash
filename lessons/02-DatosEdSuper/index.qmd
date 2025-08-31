@@ -1,0 +1,13 @@
+---
+title: "<strong>EDU3842</strong> <br> <br> Análisis de datos para la Toma de decisiones en Educación Superior"
+image: image/EdSuper_1.png
+listing:
+  contents: "activities/*/index.qmd"
+  feed: true
+  sort: "date desc"
+  type: default
+  categories: false
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+---

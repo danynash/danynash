@@ -71,20 +71,48 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-non-publishing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-non-publishing'] = new List('listing-non-publishing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-footnote .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-footnote'] = new List('listing-footnote', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -192,11 +220,11 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -205,7 +233,7 @@ window.Quarto = {
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -221,149 +249,55 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
+<div class="quarto-listing quarto-listing-container-grid" id="listing-non-publishing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1756609370865" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="./lessons/01-DatosAvanzados/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./lessons/01-DatosAvanzados/image/linear_regres.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>EDU23826</strong> <br> <br> Análisis de datos Avanzado para la Toma de decisiones en Educación
+</h5>
 </div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1756609882053" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="./lessons/02-DatosEdSuper/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./lessons/02-DatosEdSuper/image/EdSuper_1.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>EDU3842</strong> <br> <br> Análisis de datos para la Toma de decisiones en Educación Superior
+</h5>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><div class="quarto-listing quarto-listing-container-default" id="listing-footnote">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1746832646797" data-listing-reading-time-sort="15" data-listing-word-count-sort="2827">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1731895385456" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
 <div class="thumbnail">
-<p><a href="./lessons/01-assessment/index.html" class="no-external"></a></p><a href="./lessons/01-assessment/index.html" class="no-external">
-<p><img src="./lessons/01-assessment/imageProfile/distri.png" class="thumbnail-image"></p>
-</a><p><a href="./lessons/01-assessment/index.html" class="no-external"></a></p>
+<p><a href="./foonote/index.html" class="no-external"></a></p><a href="./foonote/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./foonote/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./lessons/01-assessment/index.html" class="no-external">Evaluación 01 - Prueba t - ANOVA</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./lessons/01-assessment/index.html" class="no-external">EDU3826</a>
-</div>
 <div class="listing-description">
-<a href="./lessons/01-assessment/index.html" class="no-external">Este taller forma parte del primero de tres informes que deben entregarse como evaluación formal del curso.</a>
+<a href="./foonote/index.html" class="no-external"></a>
 </div>
 </div>
 <div class="metadata">
-<p><a href="./lessons/01-assessment/index.html" class="no-external"></a></p><a href="./lessons/01-assessment/index.html" class="no-external">
-<div class="listing-author">
-Dany Lopez (dxlopez@ul.cl) - José Luis Pérez (josel.perez@uc.cl)
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1746832956658" data-listing-reading-time-sort="19" data-listing-word-count-sort="3771">
-<div class="thumbnail">
-<p><a href="./lessons/02-LinearRegression1V/index.html" class="no-external"></a></p><a href="./lessons/02-LinearRegression1V/index.html" class="no-external">
-<p><img src="./lessons/02-LinearRegression1V/imageProfile/linear_regres.png" class="thumbnail-image"></p>
-</a><p><a href="./lessons/02-LinearRegression1V/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./lessons/02-LinearRegression1V/index.html" class="no-external">Formativa 03: Aplicación Regresión lineal simple</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./lessons/02-LinearRegression1V/index.html" class="no-external">EDU3826</a>
-</div>
-<div class="listing-description">
-<a href="./lessons/02-LinearRegression1V/index.html" class="no-external">Sabemos que de manera genérica, un modelo lineal simple queda expresado de la siguiente forma <span class="math display">\[Y=\beta_0 + \beta_1 X +\varepsilon.\]</span></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./lessons/02-LinearRegression1V/index.html" class="no-external"></a></p><a href="./lessons/02-LinearRegression1V/index.html" class="no-external">
-<div class="listing-author">
-Dany Lopez (dxlopez@ul.cl) - José Luis Pérez (josel.perez@uc.cl)
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1747442715187" data-listing-reading-time-sort="13" data-listing-word-count-sort="2505">
-<div class="thumbnail">
-<p><a href="./lessons/03-MultipleLinearRegression/index.html" class="no-external"></a></p><a href="./lessons/03-MultipleLinearRegression/index.html" class="no-external">
-<p><img src="./lessons/03-MultipleLinearRegression/imageProfile/linear_regres.png" class="thumbnail-image"></p>
-</a><p><a href="./lessons/03-MultipleLinearRegression/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./lessons/03-MultipleLinearRegression/index.html" class="no-external">Formativa 04: Aplicación Regresión lineal Múltiple</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./lessons/03-MultipleLinearRegression/index.html" class="no-external">EDU3826</a>
-</div>
-<div class="listing-description">
-<a href="./lessons/03-MultipleLinearRegression/index.html" class="no-external">Sabemos que de manera genérica, un modelo de regresión lineal múltiple queda expresado de la siguiente forma <span class="math display">\[Y=\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \ldots + \beta_{k-1}…</span></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./lessons/03-MultipleLinearRegression/index.html" class="no-external"></a></p><a href="./lessons/03-MultipleLinearRegression/index.html" class="no-external">
-<div class="listing-author">
-Dany Lopez (dxlopez@ul.cl) - José Luis Pérez (josel.perez@uc.cl)
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1748059247672" data-listing-reading-time-sort="12" data-listing-word-count-sort="2298">
-<div class="thumbnail">
-<p><a href="./lessons/04-assessment-02/index.html" class="no-external"></a></p><a href="./lessons/04-assessment-02/index.html" class="no-external">
-<p><img src="./lessons/04-assessment-02/imageProfile/linear_reg_mul.png" class="thumbnail-image"></p>
-</a><p><a href="./lessons/04-assessment-02/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./lessons/04-assessment-02/index.html" class="no-external">Evaluación 02 - Regresión Lineal Múltiple</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./lessons/04-assessment-02/index.html" class="no-external">EDU3826</a>
-</div>
-<div class="listing-description">
-<a href="./lessons/04-assessment-02/index.html" class="no-external">Este informe forma parte del segundo de tres informes que deben entregarse como evaluación formal del curso.</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./lessons/04-assessment-02/index.html" class="no-external"></a></p><a href="./lessons/04-assessment-02/index.html" class="no-external">
-<div class="listing-author">
-Dany Lopez (dxlopez@ul.cl) - José Luis Pérez (josel.perez@uc.cl)
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-listing-file-modified-sort="1751080686024" data-listing-reading-time-sort="23" data-listing-word-count-sort="4521">
-<div class="thumbnail">
-<p><a href="./lessons/05-assessment-03/index.html" class="no-external"></a></p><a href="./lessons/05-assessment-03/index.html" class="no-external">
-<p><img src="./lessons/05-assessment-03/imageProfile/linear_log.png" class="thumbnail-image"></p>
-</a><p><a href="./lessons/05-assessment-03/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./lessons/05-assessment-03/index.html" class="no-external">Evaluación 03 - Regresión Logística</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./lessons/05-assessment-03/index.html" class="no-external">EDU3826</a>
-</div>
-<div class="listing-description">
-<a href="./lessons/05-assessment-03/index.html" class="no-external">Este informe forma parte del tercer y último informe que debe entregarse como evaluación formal del curso.</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./lessons/05-assessment-03/index.html" class="no-external"></a></p><a href="./lessons/05-assessment-03/index.html" class="no-external">
-<div class="listing-author">
-Dany Lopez (dxlopez@ul.cl) - José Luis Pérez (josel.perez@uc.cl)
-</div>
+<p><a href="./foonote/index.html" class="no-external"></a></p><a href="./foonote/index.html" class="no-external">
 </a>
 </div>
 </div>

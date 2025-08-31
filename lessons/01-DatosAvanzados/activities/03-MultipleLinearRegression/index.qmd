@@ -1,0 +1,379 @@
+---
+title: "Formativa 04: Aplicación Regresión lineal Múltiple"
+image: imageProfile/linear_regres.png
+subtitle: "EDU3826"
+toc: true
+toc-expand: true
+toc-title: Contenido
+author:
+  - name: Dany Lopez (dxlopez@ul.cl) - José Luis Pérez (josel.perez@uc.cl)
+date-modified: May 17, 2024
+from: markdown+emoji
+format:
+  html:
+    code-overflow: wrap
+    code-line-numbers: true
+    code-annotations: below
+    code-link: true
+    embed-resources: true
+    grid:
+      sidebar-width: 250px
+      body-width: 950px
+      margin-width: 400px
+      gutter-width: 1.5rem
+mainfont: Avenir Next
+monofont: Source Code Pro
+monofontoptions: 
+  - Scale = 1.
+---
+
+```{r, echo = FALSE, eval = TRUE, include = FALSE}
+
+#---------------------------------------------------------------
+# settings
+#---------------------------------------------------------------
+
+# start time
+start_time <- Sys.time()
+
+# hide messages from dplyr
+suppressPackageStartupMessages(library(dplyr))
+
+# hide NA from knitr table
+options(knitr.kable.NA = '')
+
+# suppress dplyr group warnings
+options(dplyr.summarise.inform = FALSE)
+
+# center figures
+knitr::opts_chunk$set(echo = TRUE, fig.align="center")
+
+#---------------------------------------------------------------
+# load example data
+#---------------------------------------------------------------
+
+# load('rasch_example.RData')
+
+```
+
+# Objetivo
+
+- Aplicar modelos de regresión lineal múltiple para responder a preguntas de investigación
+- Interpretar los coeficientes ajustado de un modelo de regresión lineal múltiple
+
+
+# Descripción
+
+Sabemos que de manera genérica, un modelo de regresión lineal múltiple queda expresado de la siguiente forma $$Y=\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \ldots + \beta_{k-1} X_{k-1} + \beta_k X_k  +\varepsilon$$
+
+En el que
+
+- $Y$ es la variable dependiente (por ejemplo, rendimiento académico).
+- $X_j$ es la variable independiente $j$. De manera general, en el modelo se encuentran $k$ variables independientes. 
+- $\beta_0$  es el intercepto (constante).
+- $\beta_j$ es el coeficiente de la variable independiente $X_j$ (pendiente).
+- $\varepsilon$ es el término de error.
+
+Si denotamos por $\hat Y = \beta_0 + (\sum \beta_j X_j)$ al valor predicho por el modelo, entonces la ecuación anterior se puede escribir como 
+
+$$Y=\hat Y +\varepsilon.$$
+Es decir, existe una desviación o error $\varepsilon$ en la predicción  $\hat Y$ al compararlo con el valor observado $Y$.
+
+Con el objetivo de comprender y situar la interpretación de los coeficienes en regresiones que incluyan más de una variable independiente, a continuación se describe el contexto educativo.
+
+# Contexto Educativo
+
+## Descripción 
+
+Los datos utilizados provienen de un estudio cuyo objetivo fue analizar la relación entre el conocimiento disciplinar, las habilidades de análisis de datos experimentales y la calidad de los informes de laboratorio elaborados por estudiantes de primer año de universidad. La motivación central de esta investigación radica en comprender de qué manera el conocimiento disciplinar y las habilidades de análisis de datos contribuyen a explicar la calidad de dichos informes. Abordar este fenómeno permite generar evidencia empírica para orientar decisiones pedagógicas contextualizadas que reconozcan la escritura como una competencia fundamental en la formación científica universitaria, sobre todo en el contexto de la formación experimental.
+
+El conocimiento disciplinar ($X_1$) se evaluó mediante un instrumento compuesto por 26 ítems de selección múltiple centrados en contenidos de mecánica. Los puntajes estimados usando Teoría Clásica de Test, es decir, como la suma del total de preguntas contestadas correctamente. De manera análoga, la habilidad para analizar e interpretar datos experimentales ($X_2$) se midió utilizando 5 ítems por medio de Teoría Clásica de Test. En cuanto a la variable dependiente, la calidad de los informes de laboratorio ($Y$) se evaluó en una escala continua de 1 a 100 puntos, utilizando puntajes derivados de un modelo de Crédito Parcial. Esta medición se basó en un mapa de constructo; sin embargo, en el presente análisis se trabajará únicamente con los puntajes continuos, y no con los niveles de desempeño cualitativos asociados. En términos generales, un puntaje de 100 en esta escala indica un informe que evidencia una alta consistencia e integración de lenguajes verbal, visual y matemático, construye conocimiento físico alineado con modelos científicos, y comunica críticamente la relación entre la evidencia empírica y los marcos conceptuales que la sustentan.
+
+
+# Abordaje del problema
+
+Observemos que el fenómeno anterior se puede abordar por medio de las  tres preguntas fundamentales del curso:
+
+ + ¿Están relacionadas dos variables?
+ + ¿Cuál es la dirección de la relación entre dos variables?
+ + ¿Cuál es la fuerza de la relación entre dos variables?
+
+La primera pregunta la responderemos realizando una inspección visual a los datos
+
+
+::: {.callout-note title="Nota"}
+
+- Notemos que Vik (2014) responde a la primera pregunta por medio de un análisis de varianza entre un modelo nulo y un modelo aumentado. En esta actividad no haremos este ejercicio ya que el foco está en la interpretación de los coeficientes estimados en un modelo de regresión lineal múltiple. 
+
+:::
+
+La segunda y tercera pregunta se responderá por medio de un modelo de regresión lineal múltiple, y de manera complementaria, por medio de un análisis de correlaciones.
+
+::: {.callout-note title="Nota"}
+
+- Con el propósito de ofrecer una perspectiva más abarcadora, esta actividad formativa incorpora análisis de correlación. No obstante, dichos análisis no se abordan en profundidad, ya que el foco principal se encuentra en la interpretación de los coeficientes estimados en un modelo de regresión lineal múltiple.
+
+:::
+
+A continuación se encuentra el flujo de trabajo por medio del cual se responderá a las tres preguntas.
+
+# Flujo de trabajo
+
+- La gran mayoria de los procedimientos involucrados en análisis de datos involucra ciertas etapas estables que responden a propósitos especificos. En conjunto, estas etapas logran cumplir el propósito general de un problema de investigación.  
+
+- Estos pasos son:
+  + *Etapa 1: Abrir/Crear* los datos
+  + *Etapa 2: Inspección de datos y ajuste de modelos* 
+  + *Etapa 3: Formateo * de resultados
+  + *Etapa 4: Reporte* de resultados
+
+- Para el caso especifico en que queramos usar R, debemos agregar una etapa previa a las anteriores, *cargar librerias*. Llamaremos a esta etapa **Etapa 0**. Partiremos describiendo esta etapa para luego explorar las siguientes.
+
+
+## Etapa 0: Elementos previos
+
+Esta etapa consiste en incluir elementos previos que necesarios para ejecutar códigos en *R*. Para el presente taller vamos a emplear algunas librerias fundamentales para procesar inicialmente nuestros datos, como la librería `GGally` y `ggplot2` **Para que los códigos incluídos como guías de este taller funcionen es necesario que las librerías recomendadas sean instaladas primero, una vez que se instalan no se deben volver a instalar.**
+
+Estas librerías, las podemos llamar e instalar empleando las siguientes línea de código:
+
+```{r echo = TRUE, warning=FALSE, eval = FALSE}
+#--------------------------------------
+# instalar librerias
+#--------------------------------------
+
+#install.packages('ggplot2') # borrar el símbolo # para ejecutar código
+
+#------------------------------------------------------------------------------
+#  cargar librarias
+#------------------------------------------------------------------------------
+
+library(ggplot2)
+library(GGally)
+
+#------------------------------------------------------------------------------
+#  Opcioes especiales
+#------------------------------------------------------------------------------
+
+# Evita la notacion cientifica
+options(scipen=999)
+
+```
+
+
+## Etapa 1: Lectura de de datos
+
+- Vamos leer los datos que se encuentran en formato `csv`.
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+
+# Crear la base de datos
+data <- read.csv2("./DDBB/report_data.csv", sep=",", dec=".")
+```
+
+A continuación  se muestran  los primeros 10 registros.
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(data[1:10,],
+             align = "c",
+             format.args = list(big.mark = ",")) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+
+## Etapa 2: Inspección de datos y  ajuste de modelos
+
+Antes de ajustar nuestro modelo lineal múltiple, vamos a inspeccionar los datos. Para ello hareamos un gráfico de dispersión que muestre visualmente la relación entre:
+
++ El conocimiento en Mecánica de las y los estudiantes con la calidad de los reportes que escriben 
++ La habilidad para análizar datos de las y los estudiantescon con la calidad de los reportes que escriben 
+
+
+A continuación se muestran los resultados
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+library(ggplot2)
+# Crear un gráfico de dispersión con la línea de regresión
+ggplot(data, aes(x = knowledge , y = quality_report)) +
+  geom_point() +
+  labs(title = "Relación entre Puntajes sobre conocimiento en Mecánica y Calidad de Informes",
+       x = "Puntajesconocimiento sobre Mecánica",
+       y = "Calidad de Informes")
+
+ggplot(data, aes(x = skill_data, y = quality_report)) +
+  geom_point() +
+  labs(title = "Relación entre Análisis de Datos y Calidad de Informes",
+       x = "Puntajes en Análisis de Datos",
+       y = "Calidad de Informes")
+
+```
+
+En ambos gráficos se aprecia una relación positiva. Por una parte, a medida que aumentan los puntajes de conocimiento disciplinar, también aumenta la calidad de los informes que escriben las y los estudiantes. De manera similar, se observa que un mayor puntaje en la habilidad para analizar e interpretar datos experimentales se asocia con una mejor calidad en los informes. A continuación, examinaremos si estas relaciones son estadísticamente significativas por medio de un análisis de correlaciones (ver nota abajo sobre este tipo de análisis).
+
+::: {.callout-note title="Nota"}
+
+- Como paso previo al ajuste de un modelo de regresión lineal múltiple, es habitual realizar un análisis bivariado entre las variables mediante coeficientes de correlación. Tal como se comentó en clases, una correlación es equivalente a un modelo de regresión lineal simple. Esta evidencia preliminar servirá como base para ajustar un modelo de regresión lineal múltiple, que permita incorporar de manera simultánea los efectos de diversas variables explicativas.
+
+:::
+
+### Análisis de correlación
+
+A continuación se muestran los resultados del análisis de correlaciones. En este caso, dado que las tres variabls de interés son medidas con puntajes continuos, utilizamos la correlación tipo `pearson`.
+
+```{r , echo=TRUE, warning=FALSE,  message=FALSE}
+#| code-fold: false
+#| 
+# Cargar librería para análisis de correlación
+library(GGally)
+
+# Visualizar la matriz de correlación
+ggpairs(data, columns = 2:4, title = "Matriz de Correlación de Variables")
+
+```
+
+La matriz de correlación se muestra a continuación
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+#| code-fold: false
+library(kableExtra)
+library(tidyr)
+library(dplyr)
+
+
+f <-corrtable::correlation_matrix(data[, c("knowledge","skill_data", "quality_report")], use = 'lower')
+
+knitr::kable(f)   %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+
+
+La correlación entre los puntajes de conocimiento en mecánica  y la calidad de los informes de laboratorio es positiva aunque débil ($r(141)=.214, p<.05$). De manera similar, se observa una correlación positiva y débil entre el conocimiento disciplinar en mecánica con la habilidad de los estudiantes para analizar e interpretar datos ($r(141)=.185, p<.005$). Finalmente, la correlación entre los puntajes de habilidades para analizar e interpretar datos con los puntajes de  calidad de los informes de laboratorio es positiva, débil aunque no estadísticamente significativa ($r(141)=.164, p=.052$).
+
+
+::: {.callout-note title="Nota"}
+
+
+- Correlación nula: $0.00 <|r|<0.10$
+- Correlación débil: $0.10 <|r|<0.30$
+- Correlación modearada: $0.30 <|r|<0.50$
+- Correlación fuerte: $0.50 <|r|<1.00$
+
+:::
+
+### Ajuste modelo regresión lineal múltiple
+
+
+Ahora ajustaremos el siguiente modelo lineal para comprender los efectos que tiene el conocimiento disciplinar y habilidades de datos en la calidad del informe. Para ello, especificamos el siguiente modelo:
+
+$$\text{Calidad Informe}= \beta_0 + \beta_1 \text{Knowledge} +  \beta_2 \text{Skill Data} + \varepsilon$$
+Ajustamos el modelo anterior a los datos.   El resultado (*ouput*) usando la función `summary()`se muestra a continuación:
+
+
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+#| 
+# Ajustar el modelo de regresión lineal
+model <- lm(quality_report ~ knowledge+ skill_data , data = data)
+# Resumen del modelo
+summary(model)
+```
+
+
+## Etapa 3: Formateo de resultados
+
+
+Podemos mostrar el output de manera más amigable a continuación
+
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+#| 
+#sjPlot::tab_model(model,show.se = TRUE, show.stat = TRUE)
+library(knitr)
+library(xtable)
+library(broom)
+
+ lm(quality_report ~ knowledge+ skill_data , data = data) %>%
+tidy() %>%
+  mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercepto", "Knowledge", "Skill Data")
+  ) %>%
+kable(col.names = c("Predictores", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3),
+    align = c("l", "r", "r", "r", "r"))
+
+```
+
+
+
+
+Con los resultados, el modelo de regresión múltiple con dos covariabls queda de la siguiente forma
+
+
+$$\text{Calidad Informe}= 43.29 + 1.07\ \text{Knowledge} +  1.68\ \text{Skill Data} + \varepsilon$$
+
+## Etapa 4: Reporte de resultados
+
+Se observa una relación positiva y estadísticamente significativa entre las variables predictoras y la calidad de los informes de laboratorio, $F(2, 138) = 4.55$, $p < .05$. En particular, los puntajes en la prueba de conocimiento disciplinar predicen significativamente la calidad de los informes, $\beta_1 = 1.07$, $p < .05$. En contraste, el efecto de la habilidad para analizar e interpretar datos no fue estadísticamente significativo, $\beta_2 = 1.68$, $p = .128$. El modelo explica aproximadamente el $5\%$ de la variabilidad en la calidad de los informes ($R^2 = 0.048$).
+
+
+### Interpretación de los resultados
+
+Se estimó un modelo de regresión lineal múltiple para explicar los puntajes de calidad de informes de laboratorio, utilizando como variables predictoras los puntajes obtenidos en una prueba de conocimiento disciplinar en mecánica y en una prueba de habilidad para analizar e interpretar datos experimentales. El modelo resultó estadísticamente significativo, $F(2, 138) = 4.55$, $p = .012$, con un coeficiente de determinación  ajustado $R^2 = 0.048$, lo que indica que aproximadamente el 5% de la variabilidad en la calidad de los informes puede ser explicada por estas dos variables.
+
+- El intercepto ($\beta_0 = 43.29$) representa el valor esperado de la calidad del informe cuando ambos puntajes (conocimiento y habilidad) son igual a cero. En una escala de 0 a 100 puntos, este valor sugiere que un estudiante que no obtiene puntaje en ninguna de las pruebas tendría una calidad de informe estimada en aproximadamente 43.29 puntos.
+
+- El coeficiente asociado al conocimiento disciplinar ($\beta_1 = 1.07$, $p < .05$) indica una relación positiva y estadísticamente significativa entre esta variable y la calidad de los informes. En promedio, un aumento de un punto en el puntaje de conocimiento disciplinar se asocia con un incremento de $1.07$ puntos en la calidad del informe, manteniendo constante el puntaje en habilidad para analizar e interpretar datos.
+
+- El coeficiente asociado a la habilidad para analizar e interpretar datos ($\beta_2 = 1.68$, $p = .128$) indica que, al mantener constante el conocimiento disciplinar, un aumento de un punto en dicha habilidad se asocia con un incremento promedio de 1.68 puntos en la calidad del informe. No obstante, este efecto no es estadísticamente significativo, por lo que no se puede rechazar la hipótesis nula ($H_0 : \beta_2 = 0$). 
+
+- El coeficiente de determinación ($R^2$) de 0.048 indica que aproximadamente un 5% de la variabilidad en la calidad puede ser explicada por el modelo propuesto.
+
+
+
+
+# Ejemplo de Reportes: Publicaciones
+
+## Artículos de investigación que reportan evidencia de regresión lineal múltiple
+
+- Ellis, R. A., Han, F., & Pardo A. (2017). Improving Learning Analytics – Combining Observational and Self-Report Data on Student Learning. Educational Technology & Society, 20 (3), 158–169. https://www.jstor.org/stable/26196127
+
+
+```{r echo=FALSE, out.width = "500px", fig.align='center', fig.cap='Página portada.'}
+knitr::include_graphics('./Images/Improving.png')
+```
+
+
+```{r echo=FALSE, out.width = "500px", fig.align='center', fig.cap='Extracto de reporte de resultados.'}
+knitr::include_graphics('./Images/Improving-2.png')
+```
+

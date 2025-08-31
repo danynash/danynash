@@ -1,0 +1,448 @@
+---
+title: "Evaluación 01 - Prueba t - ANOVA"
+image: imageProfile/distri.png
+subtitle: "EDU3826"
+toc: true
+toc-expand: true
+toc-title: Contenido
+author:
+  - name: Dany Lopez (dxlopez@ul.cl) - José Luis Pérez (josel.perez@uc.cl)
+date-modified: April 10, 2024
+from: markdown+emoji
+format:
+  html:
+    code-overflow: wrap
+    code-line-numbers: true
+    code-annotations: below
+    code-link: true
+    embed-resources: true
+    grid:
+      sidebar-width: 250px
+      body-width: 950px
+      margin-width: 400px
+      gutter-width: 1.5rem
+mainfont: Avenir Next
+monofont: Source Code Pro
+monofontoptions: 
+  - Scale = 1.
+---
+
+```{r, echo = FALSE, eval = TRUE, include = FALSE}
+
+#---------------------------------------------------------------
+# settings
+#---------------------------------------------------------------
+
+# start time
+start_time <- Sys.time()
+
+# hide messages from dplyr
+suppressPackageStartupMessages(library(dplyr))
+
+# hide NA from knitr table
+options(knitr.kable.NA = '')
+
+# suppress dplyr group warnings
+options(dplyr.summarise.inform = FALSE)
+
+# center figures
+knitr::opts_chunk$set(echo = TRUE, fig.align="center")
+
+#---------------------------------------------------------------
+# load example data
+#---------------------------------------------------------------
+
+# load('rasch_example.RData')
+
+```
+
+# Objetivo
+
+-   Aplicar prueba T y ANOVA a un problema educativo por medio del análisis de datos educacionales.
+-   Reporte de estadísticos descriptivos
+-   Construcción de hipótesis nula y alternativa.
+-   Análisis critico de la evidencia estadística
+
+# Instrucciones de entrega
+
+-   Este taller forma parte del primero de tres informes que deben entregarse como evaluación formal del curso.
+
+-   Este taller se sitúa dentro de un contexto educativo que se explica al principio. En base a este contexto, se presentan luego una seria de preguntas que deben ser contestadas.
+
+-   Como puede observar, esta evaluación está diseñado para trabajarlo en *R*. Sin embargo, también puede realizar los análisis de datos en BlueSky Statistics.
+
+-   Este informe se debe realizar en grupos de **tres personas** y se debe contestar completamente a cada pregunta planteada. También existe la posibilidad de que pueda trabajar con datos de su TFE, aunque requiere aprobación del cuerpo docente.
+
+-   El formato de entrega debe ser en *word* y en *pdf*, y debe incluir sus nombres y correos electrónicos. Si lo desea, también puede usar *LaTeX*, *Rmarkdown* o *Quarto* si así lo prefiere.
+
+-   La entrega deberá realizar en el buzón de tareas de *canvas* y tiene como fecha límite el día: *incluir día*
+
+-   Perte de esta evaluación se trabajará en clases, y el resto deberá resolverlo por su cuenta. Sin embargo, estará disponible el foro de Canvas para que pueda plantear dudas en caso de que las tenga.
+
+Mucho éxito :grin:
+
+# Contexto Educativo
+
+## General
+
+-   Estudiantes de primer año de universidad que asisten a cursos de laboratorios de física.
+-   Cohortes numerosas $N\sim 300$ estudiantes distribuidos en 12 secciones de 30-40 estudiantes.
+-   Contexto de *alta competencia*.
+-   El promedio de notas en física de cada estudiante estudiante tiene un alto impacto en la trayectoria académica que siguen los estudiantes, en tanto es un curso obligatorio que deben aprobar. Por lo tanto, las *notas tienen alta consecuencia*.
+-   En general, los recursos invertidos en para la revisión de evaluaciones son limitados.
+
+## Evaluación de tareas auténticas
+
+El informe de laboratorio es una tarea auténtica que se les solicita escribir a estudiantes luego de realizar una actividad experimental.
+
+-   Típicamente se solicita en carreras de ciencias naturales e ingeniería (Lic. en Física, Lic. en Química, Lic. en Biología y carreras de Ingeniería en general).
+-   La redacción del informe implica por parte de las y los estudiantes un alto dominio de escritura especializada, dominio que es desafiante para estudiantes que se encuentran en su primer año de universidad.
+-   No hay demasiada evidencia empírica sobre una enseñanza explicita de la escritura de informes de laboratorios en contextos de laboratorios.
+-   La evaluación del informe de laboratorio de física involucra, en general, un *80% de la nota final* de un estudiante.
+
+Podemos ver un extracto de un informe a continuación
+
+```{r , echo=FALSE, warning=FALSE, out.width = "205%",out.height = "100" ,fig.align="center"}
+#| code-fold: true
+#knitr::include_graphics('./Images/Informe.pdf')
+#knitr::include_graphics('./Images/Informe.png')
+
+```
+
+```{r , echo=TRUE, warning=FALSE ,fig.align="center"}
+#| code-fold: true
+#knitr::include_graphics('./Images/Informe.pdf')
+knitr::include_graphics('./Images/Informe.png')
+
+```
+
+## Proceso de evaluación
+
+En general, el número de docentes (o correctores) asignados para la revisión de informes de laboratorios varía según los recursos habilitados por una respectiva unidad académica o facultad. Del mismo modo, también varía la cantidad de informes de laboratorios que se les solicita a las y los estudiantes escribir. En algunos contextos, se solicita escribir 2 informes de laboratorios durante el semestre, y para su revisión se cuenta con 12 docentes (o correctores). La distribución de estos informes en general es aleatoria u otro tipo de asignación definida por un coordinador. Para esta evaluación, se considera un proceso de puntuación de informes. Cada docente asigna un puntaje en una escala de 1 a 7 (escala de puntuación tradicional en el sistema Chileno) según la calidad que presenta un informe de laboratorio. Este proceso se ve reflejado en el siguiente diagrama para el caso de tres docentes (o jueces).
+
+```{r , echo=TRUE, warning=FALSE ,out.width="90%",fig.align="left"}
+#| code-fold: true
+#knitr::include_graphics('./Images/Informe.pdf')
+knitr::include_graphics('./Images/Puntajes_.png')
+
+```
+
+## Dilema educativo
+
+Ante el clima de desconfianza en el contexto descrito y las altas consecuencias que tiene para cada estudiante el puntaje que asigna un docente a su informe, se desea explorar si :
+
+-   Los puntajes asignados (notas) a los informes de laboratorios difieren según el docente.
+
+Por lo tanto, en caso de existir diferencias entre las puntuaciones que los docentes asignan a un informe, esta diferencia tendría altas consecuencias. Esta situación se resume en el siguiente diagrama.
+
+```{r , echo=TRUE, warning=FALSE ,out.width="150%",fig.align="left"}
+#| code-fold: true
+#knitr::include_graphics('./Images/Informe.pdf')
+knitr::include_graphics('./Images/Diagrama.png')
+
+```
+
+# Abordaje del problema
+
+Dialogemos en 10 minutos alternativas para enfrentar este dilema.
+
+# Propuesta
+
+-   Para abordar el dilema propuesto anteriormente, vamos a emplear datos recolectados en un programa universitario relacionado con la evaluación de informes de laboratorios de física. En particular, se tiene una base de datos que incluye la puntuación asignada por tres docentes a una muestra de 134 informes de laboratorios de física que escribien estudiantes de primer año que asisten a cursos de laboratorios de física.
+
+::: {.callout-note title="Nota"}
+El uso de los datos que haremos aquí para realizar pruebas t y ANOVA solo tiene fines pedagógicos. Los datos que aquí se utilizan tuvieron un fin diferente relacionado con la medición de la calidad de informes de laboratorios de física para evaluar habilidades de comunicación de estudiantes de primer año de universidad.
+:::
+
+# Flujo típico de trabajo
+
+-   La gran mayoria de los procedimientos involucrados en análisis de datos involucra etapas estables En conjunto, estas etapas logran cumplir el propósito general de un problema de investigación. Estas etapas son:
+
+    -   *Etapa 1: Abrir* los datos
+    -   *Etapa 2: Preparar* los datos
+    -   *Etapa 3: Calcular* cifras
+    -   *Etapa 4: Formatear* resultados
+    -   *Etapa 5: Mostrar* resultados
+
+-   En particular, en este informe estaremos interesados en la etapa *Calcular* y *Mostrar*. Para ello, deberemos transitar por las etapas previas, aunque este no sea el foco de la actividad. A continuación se presentarán los códigos para *abrir* y *preparar* datos, y *formatear* resultados según corresponda.
+
+-   Para el caso especifico en que queramos usar R, debemos agregar una etapa previa a las anteriores, *cargar librerias*. Llamaremos a esta etapa **Etapa 0**. Partiremos describiendo esta etapa para luego explorar las siguientes.
+
+## Etapa 0: Elementos previos
+
+Esta etapa consiste en incluir elementos previos que necesarios para ejecutar códigos en *R*. Para el presente taller vamos a emplear algunas librerias fundamentales para procesar inicialmente nuestros datos, como la librería `readxl`,`dplyr`, `tidyr` y `ggplot2` **Para que los códigos incluídos como guías de este taller funcionen es necesario que las librerías recomendadas sean instaladas primero, una vez que se instalan no se deben volver a instalar.**
+
+Esta librería, la podemos llamar e instalar empleando las siguientes línea de código:
+
+```{r echo = TRUE, warning=FALSE, eval = FALSE}
+
+
+#--------------------------------------
+# instalar librerias
+#--------------------------------------
+
+#install.packages('readxl') # borrar el símbolo # para ejecutar código
+#install.packages('dplyr') # borrar el símbolo # para ejecutar código
+#install.packages('tidyr') # borrar el símbolo # para ejecutar código
+#install.packages('ggplot2') # borrar el símbolo # para ejecutar código
+
+#------------------------------------------------------------------------------
+#  cargar librarias
+#------------------------------------------------------------------------------
+
+library(readxl)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+
+#------------------------------------------------------------------------------
+#  Opcioes especiales
+#------------------------------------------------------------------------------
+
+# Evita la notacion cientifica
+options(scipen=999)
+
+```
+
+## Etapa 0: Ruta de trabajo
+
+En esta sección daremos detalles sobre cómo establecer el lugar (carpeta) donde se ubican nuestras bases de datos y archivos. Se recomienda que **siempre se trabaje en la misma carpeta** (por ejemplo una carpeta que lleve por nombre `taller01`), de tal forma de centralizar la ubicación de sus datos, código y outputs.
+
+Por ejemplo, imaginemos que creo mi carpeta de trabajo de nombre **taller01**. Dentro de la carpeta **`taller01`** se encuentra la base de datos y el código *R*. Esta carpeta se encuentra dentro de otra carpeta de nombre *talleres* la que a su vez se encuentra en la carpeta *Magister* la que a su vez se encuentra alojada dentro de mi carpeta *Dropbox*. Luego
+
+-   En un computador con windows la **RUTA** de mi carpeta **taller1** sería:
+
+`C:/Dropbox/Magister/talleres/taller01`
+
+Originalmente en Windows su ruta se encontrará con el backslash , como se muestra a continuación:
+
+$C:\backslash Users\backslash DL\backslash Dropbox\backslash Magister\backslash talleres\backslash taller01$
+
+por lo que para usarla en `R`, deberá cambiar $\backslash$ por /.
+
+-En un computador con Mac la **RUTA** de mi carpeta **taller1** sería:
+
+`Users/Dropbox/Magister/talleres/taller01`
+
+-   Deben declarar su directorio con el comando a continuación:
+
+```{r eval=FALSE, include=TRUE}
+
+setwd(dir = "Users/Dropbox/Magister/talleres/taller01")
+```
+
+De esta manera `R` sabrá que su directorio de trabajo ("working directory" = wd) estará fijo
+
+## Etapa 1: Abrir los datos
+
+-   Vamos a abrir los datos que se encuentran en formato *xlsx*. Vamos a emplear a la libreria `readxl` para que R pueda leer estos datos.
+
+::: {.callout-note title="Nota"}
+En general en `R` tendremos que usar diferentes funciones y librerias para abrir archivos en diferentes formatos.
+:::
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+
+#---------------------------------------------------------------
+# Cargando datos
+#---------------------------------------------------------------
+
+# Dato Jueces
+db <- readxl::read_excel("./DDBB/BaseDatosJueces.xlsx",
+                         sheet='PuntajesInformes', na=c(""), col_names = TRUE)
+
+
+```
+
+La base de datos se muestra a continuación para los primeros 10 registros.
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(db[1:10,],
+             align = "c",
+             format.args = list(big.mark = ",")) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+## Etapa 2: Preparar datos
+
+La tabla anterior se encuentra en formato `wide`, por lo que ahora la convertimos en formato `long`. Vea \[`Apéndice A.1.1`\]
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+
+db_juez_long <- db %>% 
+  tidyr::pivot_longer(
+  cols = Juez_1:Juez_3,
+  names_to = 'juez',
+  values_to = 'puntaje'
+)
+
+
+```
+
+Anteriormente usamos la libería `dplyr` y `tidyr` para crear una tabla en formato `long`. La función `pivot_longer` proviene de la libreria `tidyr`. En este código, es relevante el operardor `%>%` (conocido como `pipe`), el que tiene como función recibir un `dataframe` para luego procesarlo.
+
+La base de datos en formato `long` se muestra para los primeros 10 registros.
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(db_juez_long[1:10,],
+             align = "c",
+             format.args = list(big.mark = ",")) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+Ahora ya estamos en condiciones de responder a las preguntas de esta evaluación. Para ello, utilizaremos la base de datos en formato `long`.
+
+# Sección 1: Descriptivos
+
+## Pregunta 1.1
+
+Realice una tabla con estadísticos descriptivo. Puede guiarse por APA 7, vea el ejemplo [**en este link**](https://apastyle.apa.org/style-grammar-guidelines/tables-figures/sample-tables) para reportar.
+
+## Pregunta 1.2
+
+Realice un gráfico de caja y bigotes (o boxplot) con los puntajes en el eje vertical y los jueces ordenados en el eje horizontal. Puede usar el siguiente código
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+library(ggplot2)
+
+p <- ggplot(db_juez_long, aes(x=juez, y=puntaje, fill=juez)) + 
+  geom_boxplot()+
+  theme_bw() +
+  theme(
+    text = element_text(size = 15),
+    axis.text.x = element_text(color = "black",angle = 0, hjust = 0.5),
+    #  text = element_text(size = 15),
+    axis.text.y = element_text(color = "black",angle = 0, hjust = 0.5),
+    legend.position = "none"
+  ) +
+  labs( x = "",
+        y = "Puntaje") +
+  ylim(c(1,7))
+
+p <- p + scale_fill_manual(values=c( "#E69F00", "#56B4E9","gray"))
+p <- p + stat_summary(fun.y=mean, geom="point", shape=23, size=6)  
+
+
+
+```
+
+## Pregunta 1.3
+
+Describa la tabla descriptiva y el gráfico. Luego indique entre qué jueces considera que podría existir diferencias significativas en sus medias.
+
+# Sección 2: Comparación de media entre dos jueces
+
+Para la realización de esta sección, solo considere los puntajes asignados por el $Juez_1$ y por el $Juez_2$.
+
+## Pregunta 2.1:
+
+Según el dilema planteado, plantee la hipótesis nula y la hipótesis alternativa.
+
+## Pregunta 2.2:
+
+Realice una prueba que permita evidenciar si existen diferencias significativas entre el puntaje promedio del `juez_1` y el `juez_2`. Reporte sus resultados en una tabla y junto a la tabla el reporte verbal. Puede guiarse por la norma APA 7 en el título que indica [`Sample results of several t tests table`](https://apastyle.apa.org/style-grammar-guidelines/tables-figures/sample-tables). Para el reporte, utilice el usado en la [`Clase 4, p.64`](https://cursos.canvas.uc.cl/courses/87358/files/12121774?module_item_id=2517697) del curso.
+
+Para realizar este paso, tiene que que primero filtrar la tabla `db_juez_long` para los casos respectivo y luego utilizar la prueb `t` vista en clases. Puede usar el siguiente código para filtar la base de datos y luego realizar la prueba `t`.
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+
+
+#-----------------------
+# Filtrar tabla
+#----------------------
+db_juez_long_j1_j2 <- db_juez_long %>% 
+                      filter (juez %in% c("Juez_1","Juez_2")) 
+  
+
+#---------------------------------
+# Realice prueba t a continuacion
+#---------------------------------
+  
+# escriba codigo aqui usando la base db_juez_long_j1_j2
+
+
+
+
+```
+
+## Pregunta 2.3:
+
+En base a los resultados obtenidos, indique si rechaza la hipótesis nula y junto con su nivel de confianza.
+
+## Pregunta 2.4:
+
+Realice ahora un test de ANOVA y reporte sus resultados en una tabla y verbalmente. Utilice como referencia la tabla ANOVA y el report usado en [`Clase 5, p. 41 y p.43`](https://cursos.canvas.uc.cl/courses/87358/files/12181305?module_item_id=2530476) del curso.
+
+# Sección 3: Comparación de media entre tres jueces
+
+Para la realización de esta sección, considere los puntajes asignados por los tres jueces. Para ello, deberá utilizar la base de datos de nombre `db_juez_long`.
+
+## Pregunta 3.1:
+
+Realice ahora un test de ANOVA y reporte sus resultados en una tabla.
+
+## Pregunta 3.2:
+
+¿Qué interpretación tiene para este caso la tabla ANOVA representada anteriormente? Discuta y presente sus ideas.
+
+::: {.callout-note title="Nota"}
+Esta pregunta será evaluada de manera formativa. Se entregará una explicación detallada por parte del docente dando cuenta de la interpretación e implicancias que tiene realizar un ANOVA para tres niveles. Lo importante es que pueda discutir e interpretar, en base a lo visto en clases, qué estaría expresando la tabla ANOVA y qué inferencias es posible realizar.
+:::
+
+# Apéndice
+
+## A.1.1 Datos estructurados en formato Wide y Long
+
+Un conjunto de datos[^1] puede representarse en dos formatos o estructuras diferentes[^2], `wide` (ancho) y `long` (largo):
+
+[^1]: En `R` tipicamente este conjunto de datos queda capturado por un `dataframe`. Puede consultar el [**link**](https://bookdown.org/jboscomendoza/r-principiantes4/data-frames.html) para mayores detalles sobre lo que es un `dataframe`.
+
+[^2]: Convertir un conjunto de datos en formato `long` o `wide` es lo que también se conoce como **tablas pivotes**.
+
+-   Un formato/estructura `wide` contiene valores que **no** se repiten en una columna de interés.
+
+-   Un formato/estructura `long` contiene valores que **sí** se repiten en una columna de interés
+
+Por ejemplo, considere los dos conjuntos de datos siguientes, ambos contienen exactamente los mismos valores pero se estructuran en formatos diferentes:
+
+```{r echo=FALSE, out.width = "400px", fig.align='center', fig.cap='Creación propia.'}
+knitr::include_graphics('./Images/Fig02-Long-Wide.png')
+```
+
+```{r eval=FALSE,echo=FALSE, out.width = "400px", fig.align='center', fig.cap='fuente John Spencer, “Tidy Data and How to Get It'}
+knitr::include_graphics('./Images/tidyr-pivot_wider_longer.gif')
+```
+
+En algunas ocasiones dependiendo del tipo de análisis que realicemos, vamos a estructurar nuestros datos en uno de los dos formatos. Por ejemplo, usualmente cuando queremos hacer test de `ANOVA` o gráficar un set de 2 variables que tienen diferentes categorias como posibles valores, usaremos el formato `long` para hacerlo. Por otra parte, el formato `wide` es bastante útil para crear, transformar o limpiar variables. En general, transitamos desde una estructura a otra de forma iterativa para cumplir propósitos específicos.

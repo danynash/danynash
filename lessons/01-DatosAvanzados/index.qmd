@@ -1,0 +1,15 @@
+---
+title: "<strong>EDU23826</strong> <br> <br> Análisis de datos Avanzado para la Toma de decisiones en Educación"
+image: image/linear_regres.png
+author:
+  - name: Dany Lopez (dxlopez@ul.cl) <br> José Luis Pérez (josel.perez@uc.cl)
+listing:
+  contents: "activities/*/index.qmd"
+  feed: true
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: true
+  filter-ui: true
+page-layout: full
+---

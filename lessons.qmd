@@ -1,12 +1,14 @@
 ---
 title: "Lessons"
 listing:
-  contents: "lessons/*/index.qmd"
-  feed: true
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: true
-  filter-ui: true
+  - id: non-publishing
+    contents: "lessons/*/index.qmd"
+    feed: true
+    sort: "date desc"
+    type: grid
+    fields: [image, date, title]
+  - id: footnote
+    contents: "foonote/"
+    feed: false
 page-layout: full
 ---

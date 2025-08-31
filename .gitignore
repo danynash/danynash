@@ -8,3 +8,19 @@
 .quarto
 
 /.quarto/
+
+encrypt_.r
+encrypt.r
+
+testing_01-ElectricPotential.qmd
+testing_02-ElectricPotential.qmd
+testing_03-ElectricPotential.qmd
+testing_04-ElectricPotential.qmd
+testing_05-ElectricPotential.qmd
+testing_v2.qmd
+testing_v3.qmd
+testing_v4.qmd
+testing_v5.qmd
+testing_v6.qmd
+testing_v7.qmd
+testing.qmd

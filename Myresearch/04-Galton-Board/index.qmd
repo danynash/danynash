@@ -1,6 +1,6 @@
 ---
 title: "The Galton Board"
-description: "Mapping Electric Potential Field."
+description: "Normal curve"
 date: "2025-01-03"
 image: Image/Galton.png
 filters:

@@ -2,9 +2,9 @@
 command_advance <- c(
   "npx",  # Calls the Node Package Executor (npx) to run a package
   "staticrypt",  # The command to run the Staticrypt package, which encrypts static HTML files with a password
-  "./docs/lessons_/01-DatosAvanzados/*",  # Specifies the path to the files to encrypt (all files in the _output directory)
+  "./docs/lessons/01-DatosAvanzados/*",  # Specifies the path to the files to encrypt (all files in the _output directory)
   "-r",  # Recursive flag to process files in subdirectories
-  "-d", "./docs/lessons_/01-DatosAvanzados/",  # Sets the output directory for the encrypted files to the same _output directory
+  "-d", "./docs/lessons/01-DatosAvanzados/",  # Sets the output directory for the encrypted files to the same _output directory
   "-p", '"GLM2025i_Acces0Restringi00"',  # Specifies the password to encrypt the files
   "--short",  # Generates a short URL-friendly hash
   "--template-color-primary", '"#6667AB"',  # Sets the primary color for the template
@@ -17,9 +17,9 @@ command_advance <- c(
 command_Sup <- c(
   "npx",  # Calls the Node Package Executor (npx) to run a package
   "staticrypt",  # The command to run the Staticrypt package, which encrypts static HTML files with a password
-  "./docs/lessons_/02-DatosEdSuper/*",  # Specifies the path to the files to encrypt (all files in the _output directory)
+  "./docs/lessons/02-DatosEdSuper/*",  # Specifies the path to the files to encrypt (all files in the _output directory)
   "-r",  # Recursive flag to process files in subdirectories
-  "-d", "./docs/lessons_/02-DatosEdSuper/",  # Sets the output directory for the encrypted files to the same _output directory
+  "-d", "./docs/lessons/02-DatosEdSuper/",  # Sets the output directory for the encrypted files to the same _output directory
   "-p", '"GLM20_25ii"',  # Specifies the password to encrypt the files
   "--short",  # Generates a short URL-friendly hash
   "--template-color-primary", '"#6667AB"',  # Sets the primary color for the template

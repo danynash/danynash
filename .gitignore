@@ -9,6 +9,7 @@
 
 /.quarto/
 
+encrypt_.r
 encrypt.r
 
 testing_01-ElectricPotential.qmd

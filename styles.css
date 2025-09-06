@@ -1,1 +1,46 @@
 /* css styles */
+
+
+.title {
+  color: #000000;
+/*   font-family: Arial;
+ font-style: italic;
+   font-size: 100px;
+  font-variant: small-caps; */
+  
+}
+
+.header-section-number { color: #000 !important; }
+
+/* Base pill */
+.pill{
+  display:inline-block;
+  padding:0.05rem 0.25rem;
+  border-radius:0.01rem;
+  font-weight:600;
+  line-height:1;
+  margin:0 0.02rem;
+  white-space:nowrap;
+}
+
+/* Colors (tune as needed) */
+.cyan{background:#4694CD;color:#ffffff;}
+.gray{background:#D2D2D2;color:#2b2b2b;}
+.black{background:#000000;color:#ffffff;}
+.yellow{background:#F4C145;color:#2b2b2b;}
+.magenta{background:#D82E89;color:#ffffff;}
+.green{background:#6FB557;color:#0b0b0b;}
+.red{background:#C93D32;color:#ffffff;}
+.spacegray{background:#5B5859;color:#ffffff;} /* “space gray” */
+
+
+.table-hover > tbody > tr:hover { 
+  background-color: #D2D2D2;
+}
+
+.panel-tabset .nav-item {
+  font-size: 14px;
+/* font-style: italic*/
+}
+
+

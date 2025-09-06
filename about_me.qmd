@@ -7,6 +7,6 @@ about:
   image-width: 17em
 ---
 
-I studied Physics at the Universidad de Chile (UCH), completed master's degrees in Physics (UCH) and Education (Pontificia Universidad Católica de Chile), and recently finished my Ph.D. in Education in Contemporary Humanism from Pontificia Universidad Católica de Chile and the Australian Catholic University. I'm also the co-founder of [Trayectics](https://trayectics.com), a professional development service for teachers focused on enhancing school assessment processes to support better pedagogical decisions.
+I studied Physics at the Universidad de Chile (UCH), completed master's degrees in Physics (UCH) and Education (Pontificia Universidad Católica de Chile), and recently finished my Ph.D. in Education in Contemporary Humanism from Pontificia Universidad Católica de Chile and the Australian Catholic University. I'm also the co-founder of [Trayectics](https://trayectics.com){.pill .cyan}, a professional development service for teachers focused on enhancing school assessment processes to support better pedagogical decisions.
 
 My interests are interdisciplinary, centered on educational issues, with a particular focus on applying mixed methods in educational research. I'm especially interested in developing assessment tools to measure scientific competencies in higher education and in advancing teacher professional development at both the school and system levels.

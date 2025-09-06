@@ -2,6 +2,8 @@
 title: "Evaluación 03 - Regresión Logística"
 image: imageProfile/linear_log.png
 subtitle: "EDU3826"
+title-block-banner: "#f0f3f5"
+title-block-banner-color: "black"
 toc: true
 toc-expand: true
 toc-title: Contenido

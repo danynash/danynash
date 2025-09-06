@@ -2,6 +2,9 @@
 title: "Actividad Formativa 01"
 image: imageProfile/constructs.png
 subtitle: "Definición de constructos en Educación Superior"
+title-block-banner: "#f0f3f5"
+title-block-banner-color: "black"
+number-sections: true
 toc: true
 toc-expand: true
 toc-title: Contenido
@@ -57,13 +60,15 @@ knitr::opts_chunk$set(echo = TRUE, fig.align="center")
 
 ```
 
-# 1. Objetivo de aprendizaje
+# Objetivo de aprendizaje
 
 Al finalizar la actividad, cada estudiante definirá un constructo, atributo o variable latente relacionada con Ed. Superior. Además, indagará sobre la estructura de su constructo y formulará al menos dos indicadores pertinentes según el constructo a medir, explicando los retos de su medición.
 
 Mucho éxito :grin:
 
-# 2. Objetivo pedagógico
+# Objetivo pedagógico
+
+
 
 Fomentar la reflexión individual, el trabajo colaborativo en parejas y la discusión productiva. De esta forma, se espera fomentar la participación y la comprensión sobre aproximaciones a la medición de constructos en educación superior.
 
@@ -73,11 +78,11 @@ Fomentar la reflexión individual, el trabajo colaborativo en parejas y la discu
 Para la realización de esta entrega puede utilizar diversas fuentes de información, como, por ejemplo, artículos de investigación, documentos institucionales, libros o handbooks. También puede utilizar herramientas tecnológicas basadas en Inteligencia Artificial (como ChatGPT). En caso de utilizar herramientas de Inteligencia Artificial, debe entregar como anexo las consultas que realizó, el output obtenido por la herramienta y una breve descripción (en no más de 50 palabras) de cómo utilizó esta información para la elaboración de las respuestas. Dicho lo anterior, es su responsabilidad resguardar la calidad de la información que interpreta y utiliza usando tecnologías de Inteligencia Artificial, para ello, se sugiere altamente que sea lo más crítica y critico posible triangulando información desde diversas fuentes
 :::
 
-# 3. Evidencias de aprendizaje
+# Evidencias de aprendizaje
 
 Hoja de trabajo que incluye: 1) la identificación, 2) definición, 3) estructura y 4) indicadores preliminares de un constructo de interés relacionado con Ed. Superior. Además, se registra información relacionada con los desafíos asociado a la medición de un constructo educacional.
 
-# 4. Materiales
+# Materiales
 
 -   **Si el trabajo es presencial:**
     -   Hoja de trabajo impresa (una por persona), post-it.
@@ -86,19 +91,19 @@ Hoja de trabajo que incluye: 1) la identificación, 2) definición, 3) estructur
     -   Documento Word para que estudiantes puedan describir sus definiciones
     -   Google Docs para que los estudiantes puedan subir sus tareas a modo de que puedan ser proyectadas por el docente
 
-# 5. Actividades
+# Actividades
 
-## 5.1 Actividad Individual (20 min)
+## Actividad Individual (20 min)
 
-a)  Identifica un constructo, variable o atributo de interés en Educación Superior que desees investigar. Explica brevemente por qué es relevante para tu estudio.
+[A)]{.pill .cyan}  Identifica un constructo, variable o atributo de interés en Educación Superior que desees investigar. Explica brevemente por qué es relevante para tu estudio.
 
-b)  Formula una definición conceptual clara y coherente del atributo seleccionado. Puedes apoyarte en tu conocimiento y/o en literatura especializada; si utilizas fuentes, cítalas. No se requiere una definición extensa, sino precisa y alineada con el constructo.
+[B)]{.pill .cyan}  Formula una definición conceptual clara y coherente del atributo seleccionado. Puedes apoyarte en tu conocimiento y/o en literatura especializada; si utilizas fuentes, cítalas. No se requiere una definición extensa, sino precisa y alineada con el constructo.
 
-c)  Examina la estructura del atributo. Indica si se compone o puede organizarse en dimensiones y, cuando corresponda, subdimensiones. Identifícalas y justifica brevemente su pertinencia.
+[C)]{.pill .cyan} Examina la estructura del atributo. Indica si se compone o puede organizarse en dimensiones y, cuando corresponda, subdimensiones. Identifícalas y justifica brevemente su pertinencia.
 
-d)  Propone al menos dos indicadores observables para medir el atributo. Para cada indicador, especifica qué mide y, de ser posible, su forma tentativa de medición (escala, unidad o fuente de datos).
+[D)]{.pill .cyan}  Propone al menos dos indicadores observables para medir el atributo. Para cada indicador, especifica qué mide y, de ser posible, su forma tentativa de medición (escala, unidad o fuente de datos).
 
-e)  Entrega tu trabajo en la plataforma indicada por el cuerpo docente (se compartirá un enlace de Google Docs durante la sesión). Puedes orientarte con el ejemplo disponible a continuación:
+[E)]{.pill .cyan} Entrega tu trabajo en la plataforma indicada por el cuerpo docente (se compartirá un enlace de Google Docs durante la sesión). Puedes orientarte con el ejemplo disponible a continuación:
 
 ```{r , echo=FALSE, warning=FALSE ,fig.align="center"}
 
@@ -107,10 +112,10 @@ knitr::include_graphics('./Images/Tabla_esp.png')
 
 ```
 
-## 5.2 Actividad en parejas (15 min)
+## Actividad en parejas (15 min)
 
 Organícense en parejas para compartir el trabajo desarrollado. Cada estudiante ofrece retroalimentación oral a su par, centrada en aclarar definiciones, precisar la delimitación conceptual del constructo, revisar la organización en dimensiones y subdimensiones, y verificar la pertinencia de los indicadores. También, cada pareja debe reflexionar y compartir sus experiencias al realizar la actividad, de tal modo que puedan identificar fortalezas y desafíos al enfrentar la tarea. Luego, redacten en conjunto un texto breve (3--4 líneas) que describa los principales desafíos enfrentados en la actividad, ya sea en la medición, en la definición o delimitación conceptual, en la estructuración del atributo o en la selección de indicadores, y las decisiones adoptadas para resolverlos. Finalmente, suban el texto a la plataforma Google Docs mediante el enlace que el cuerpo docente entregará durante la sesión.
 
-## 5.3 Actividad grupal (10 min)
+## Actividad grupal (10 min)
 
 En conjunto y guiado por el cuerpo docente, se comparten las experiencias registradas por las parejas.

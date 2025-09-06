@@ -9,8 +9,8 @@
 
 /.quarto/
 
-encrypt_.r
-encrypt.r
+encrypt_.R
+encrypt.R
 
 testing_01-ElectricPotential.qmd
 testing_02-ElectricPotential.qmd

@@ -1,0 +1,99 @@
+---
+title: "Actividad Formativa 02"
+image: imageProfile/question.png
+subtitle: "Transcripción de datos de cuestionarios"
+title-block-banner: "#f0f3f5"
+title-block-banner-color: "black"
+number-sections: true
+toc: true
+toc-expand: true
+toc-title: Contenido
+author:
+  - name: Dany Lopez (dxlopez@ul.cl) - Ximena Catalán (xrcatala@uc.cl)
+date-modified: August 30, 2025
+from: markdown+emoji
+format:
+  html:
+    code-overflow: wrap
+    code-line-numbers: true
+    code-annotations: below
+    code-link: true
+    embed-resources: true
+    grid:
+      sidebar-width: 250px
+      body-width: 950px
+      margin-width: 400px
+      gutter-width: 1.5rem
+  pdf: default
+mainfont: Avenir Next
+monofont: Avenir Next
+monofontoptions: 
+  - Scale = 1.
+---
+
+```{r, echo = FALSE, eval = TRUE, include = FALSE}
+
+#---------------------------------------------------------------
+# settings
+#---------------------------------------------------------------
+
+# start time
+start_time <- Sys.time()
+
+# hide messages from dplyr
+suppressPackageStartupMessages(library(dplyr))
+
+# hide NA from knitr table
+options(knitr.kable.NA = '')
+
+# suppress dplyr group warnings
+options(dplyr.summarise.inform = FALSE)
+
+# center figures
+knitr::opts_chunk$set(echo = TRUE, fig.align="center")
+
+#---------------------------------------------------------------
+# load example data
+#---------------------------------------------------------------
+
+# load('rasch_example.RData')
+
+```
+
+# Objetivo 
+
+- Transcripción de respuestas de cuestionario
+- Construcción de base de datos
+- Inspección preliminar de estadística descriptiva
+
+
+# Formato de entrega
+
+ Para esta evaluación, deberá entregar dos archivos. El primero corresponde a un archivo EXCEL y el segundo a un archivo de texto con las respuestas a las preguntas que se plantean en este documento. Ambos documentos deben ser entregados en el buzón de tareas [**aqui**](https://cursos.canvas.uc.cl/courses/93302/assignments/535213). 
+ 
+# Contexto 
+
+El módulo Aprendizaje del cuestionario VOCES se aplicó a 30 estudiantes de primer año de diversas carreras de una universidad privada. Se espera analizar las respuestas de los estudiantes luego de que se aplicó el cuestionario. Como primer paso, se deben transcribir o digitar las respuestas de los estudiantes a una base de datos. En este caso, a usted le encomendaron la tarea de registrar las respuestas en un archivo EXCEL. Para ello, deberá realizar las actividades que se describen a continuación:
+
+```{r , echo=FALSE, warning=FALSE ,fig.align="center"}
+
+#knitr::include_graphics('./Images/Informe.pdf')
+knitr::include_graphics('./Images/Tabla_esp.png')
+
+```
+
+Definición extraída de: González, C., López, D., Calle-Arango, L., Montenegro, H., & Clasing, P. (2022). Chilean University Students’ Digital Learning Technology Usage Patterns and Approaches to Learning. ECNU Review of Education, 5(1), 37-64. https://doi-org.pucdechile.idm.oclc.org/10.1177/20965311211073538
+
+# Actividad
+
+
+[A)]{.pill .cyan} Se tiene un set de cuestionarios que respondieron 30 estudiantes. Transcribe la información en una base de datos en EXCEL con el objetivo de que pueda servir para realizar análisis estadísticos posteriores. Este formato EXCEL debe entregar al buzón de tareas. A continuación se muestra un ejemplo de los dayos
+
+```{r , echo=FALSE, warning=FALSE ,fig.align="center"}
+
+knitr::include_graphics('./Images/Folio_XXX01.png')
+
+```
+
+
+

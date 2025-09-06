@@ -2,6 +2,8 @@
 title: "Evaluación 02 - Regresión Lineal Múltiple"
 image: imageProfile/linear_reg_mul.png
 subtitle: "EDU3826"
+title-block-banner: "#f0f3f5"
+title-block-banner-color: "black"
 toc: true
 toc-expand: true
 toc-title: Contenido

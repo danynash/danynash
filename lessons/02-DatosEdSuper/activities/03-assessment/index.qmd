@@ -1,0 +1,914 @@
+---
+title: "Actividad Formativa 03"
+image: imageProfile/uni.png
+subtitle: "Análisis de datos de cuestionario (univariado)"
+title-block-banner: "#f0f3f5"
+title-block-banner-color: "black"
+number-sections: true
+toc: true
+toc-expand: true
+toc-title: Contenido
+author:
+  - name: Dany Lopez (dxlopez@ul.cl) - Ximena Catalán (xrcatala@uc.cl)
+date-modified: September 6, 2025
+from: markdown+emoji
+format:
+  html:
+    code-overflow: wrap
+    code-line-numbers: true
+    code-annotations: below
+    code-link: true
+    embed-resources: true
+    grid:
+      sidebar-width: 250px
+      body-width: 950px
+      margin-width: 400px
+      gutter-width: 1.5rem
+  pdf: default
+mainfont: Avenir Next
+monofont: Avenir Next
+monofontoptions: 
+  - Scale = 1.
+---
+
+```{r, echo = FALSE, eval = TRUE, include = FALSE}
+
+#---------------------------------------------------------------
+# settings
+#---------------------------------------------------------------
+
+# start time
+start_time <- Sys.time()
+
+# hide messages from dplyr
+suppressPackageStartupMessages(library(dplyr))
+
+# hide NA from knitr table
+options(knitr.kable.NA = '')
+
+# suppress dplyr group warnings
+options(dplyr.summarise.inform = FALSE)
+
+# center figures
+knitr::opts_chunk$set(echo = TRUE, fig.align="center")
+
+#---------------------------------------------------------------
+# load example data
+#---------------------------------------------------------------
+
+# load('rasch_example.RData')
+
+```
+
+# Objetivo
+
+Este material tiene como propósito proporcionar una guía para desarrollar análisis univariado de distintos tipos de ítems de cuestionarios utilizados en Educación Superior. Se trabajará con el cuestionario que utilizó para transcribir las respuestas de estudiantes [ver aqui](https://danynash.com/lessons/02-DatosEdSuper/activities/02-assessment/). En particular, usaremos los ítems de *caracterización* (CA01--CA04) y con los ocho ítems tipo Likert del módulo *Aprendizaje* (AP01--AP08). 
+
+Esta guía está pensada para que la pueda desarrollar en clases y también como material de estudio complementario fuera del horario oficial de clases.
+
+<!-- La guía está andamiada para que usted pueda **replicar** los análisis con sus propios datos. -->
+
+::: {.callout-important title="Importante"}
+
+Esta guía está preparada para abordar los análisis utilizando EXCEL en conjunto con BlueSky (opción 1), y también utilizando el lenguaje R (opción 2). Sugerimos que aquellas personas que están comenzando en esta área que vean los ejemplos de la opción 1, y aquellas personas que ya cuentan con experiencia en análisis en R, que opten por la opción 2.
+
+:::
+
+# Introducción
+
+## Resumen tipo de ítems
+
+Ya vimos que los ítems pueden medirse en escalas **nominales** (categorías sin orden), **ordinales** (categorías con orden) o **numéricas** (intervalo/razón). Es importante que la **codificación** de respuestas de los ítems respete el nivel de medición. Como ya vimos, en ítems ordinales (por ejemplo, Likert) es recomendable que sea explicito cuál serán las **etiquetas textuales** que se usarán y en caso de utilizar alguna codificación númerica, es crucial que se declare el **orden** de las categorías (por ejemplo, por medio de un diccionario).
+
+En todos los casos, en la siguiente tabla se entrega un resumen de los tipos de ítems, su escala de medición, codificación recomendada, los típicos análisis estadísticos usados. La última columna muestra las **Actividades** asociadas a cada ítems que se verán más abajo (ver [Actividades Prácticas](#sec-actividadPractica)). Note que no todos los ítems presentan actividades en virtud del tiempo destinado en clases. Si desea ahondar en estos aspectos, consulte al equipo docente. 
+
+| Tipo de ítem | Nivel de medición | Codificación recomendada | Análisis univariado típicos | Pruebas estadísticas frecuentes | Actividad sugerida |
+|---|---|---|---|---|---|
+| Dicotómico | Nominal (binario) | 0/1 o Sí/No consistentes | tabla n–%, barras | Binomial exacta o z‑prop; chi‑cuadrado/Fisher  | [Act. 1](#sec-Itembinario) |
+| Selección única | Nominal (k factores) | Factor/etiquetas | tabla n–%, barras | Prueba $\chi^2$ o Fisher  | [Act. 2](#sec-ItemMultiple) |
+| Múltiples respuestas | Nominal multidimensional | Una columna por alternativa (0/1) | % por persona y por respuesta | Proporciones por alternativa | - |
+| Likert (5 puntos) | Ordinal | Factor ordenado (1–5) + etiquetas | distribución factores, barras apiladas al 100% | Wilcoxon 1‑muestra; Mann–Whitney/Kruskal–Wallis; $\chi^2$ multidimensional | [Act. 3](#sec-Itemlikert) |
+| Escala numérica | Intervalo/Razón | Numérica | media, mediana, DE, Q1–Q3, histograma, caja | t de 1 muestra; t Welch/ANOVA; Wilcoxon/M‑Whitney/K‑Wallis  | - |
+
+: Tabla resumen de items {.striped .hover}
+
+
+## Análisis cuantítativo de ítems
+
+El análisis cuantitativo de ítems con distinta tipología requiere determinar procedimientos acordes al nivel de medición y al objetivo de la indagación. En un primer nivel, tenemos el [análisis univariado]{.pill .yellow}, que describe cada ítem por separado de manera tal de caracterizar su distribución. En ítems dicotómicos y nominales se reportan frecuencias y porcentajes. En ítems ordinales tipo Likert se examinan además de la distribución por categorías, promedios, mediana y/o rangos (aunque para la estimación de promedios y mediana se requiere una justificación acorde). En items numéricos se resumen tendencia central y dispersión (promedio, desviación estándar, rango, curtosis, entre otros). 
+
+Por su parte, el [análisis bivariado]{.pill .yellow} estudia relaciones entre dos variables, y los métodos estadísticos para realizarlo varía según la tipología de las variables. Entre variables categóricas se emplean tablas de contingencia con pruebas de contrastes como pruebas $\chi^2$ o Fisher y medidas de asociación como el coeficiente $\phi$,  $V$ de Cramér u *odds ratio*. Entre ítems ordinales o numéricas se usan correlaciones (tipo Pearson y/ Spearman) y comparaciones de grupos mediante pruebas adecuadas a los supuestos (por ejemplo, prueba t, ANOVA, entre otros). En este tipo de análisis, las visualizaciones ayudan a comunicar estos resultados, por ejemplo, gráficos de barras y/o de barras apiladas para categóricas, histogramas, *boxplot* para ítems numéricas, y gráficos de dispersión o de líneas para relaciones continuas u ordinales. Este último aspecto lo veremos al final de la unidad I.
+
+Cuando el interés es [relacional entre múltiples variables]{.pill .yellow}, se consideran modelos que integran varios predictores y controlan covariables. Según el caso, pueden usarse modelos lineales o generalizados (lineal tradicional para respuestas continuas, logísticos para respuestas dicotómicas, multinomiales para Likert). También, se emplean análisis factoriales para comprender la estructura subyacente de un un set de ítems, y enfoques específicos para mediciones de atributos latentes (por ejemplo, modelos de respuesta al ítem y/o teória clásica de medición).
+
+En esta guía, comenzaremos por los análisis más básicos, pero al mismo tiempo, muy fundamentales para comprender nuestros datos. El foco de la actividad estará en el [análisis univariado]{.pill .yellow} de ítems, para luego en las siguientes semanas, inicialr con posteriores análisis bivariados y relacionales. Como ya dijimos anteriormente, el [análisis univariado]{.pill .yellow}  consiste en describir un caso en términos de una única variable, es decir, la distribución de los atributos que lo componen. Por ejemplo:
+
+-  Si se midiera el **sexo**, observaríamos **cuántos** de los sujetos son **hombres** y cuántos son **mujeres**.
+
+- Al consultar a una persona si es la **primera en estudiar en su familia**, observaríamos cuántos de los sujetos son los primeros estudiantes en ingresar a la universidad y cuántos no son los primeros en su familia en estudiar en la universidad.
+
+
+
+
+# Actividades prácticas {#sec-actividadPractica}
+
+
+A continuación se propone una actividad de análisis univariado en dos entornos complementarios, Excel y R, orientada a describir la distribución de variables categóricas, ordinales, de múltiples respuestas y numéricas. El objetivo es producir una tabla clara junto con un breve texto interpretativo. Para realizar estas actividades, usaremos el cuestionario con el que se transcribieron las respuestas de 30 estudiantes. Comenzaremos describiendo algunos de los ítems del módulo de caracterízación para luego análizar los ítems del módulo de Aprendizaje. A continuación se describe la base de datos con la que se realizarán los análisis univariados.
+
+
+## Descripción de los datos
+
+Los datos que usaremos provienen del módulo de Aprendizaje del cuestionario VOCES que se aplicó a 30 estudiantes de primer año de diversas carreras de una universidad privada. 
+
+A continuación se muestran los primeros 10 registros de la base de datos que utilizaremos para realizar los análisis univariados. 
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: true
+
+
+db <- readxl::read_excel('./01BasedeDatos/01_database.xlsx',
+                          sheet='Base_datos',col_names =T, na=c(""," ")
+                         )
+
+codebook <- readxl::read_excel("./01BasedeDatos/01_database.xlsx",
+                                 sheet='Diccionario',col_names =T, na=c(""," ")
+                               )
+
+```
+
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(db[1:10,],
+             align = "c"
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+También se adjunta el `diccionario` para comprender el significado de las columnas y las escalas de medición de cada ítem.
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(codebook,
+             align = "l"
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = TRUE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                ) %>%
+            scroll_box(width = "100%", height = "400px")
+
+```
+<br>
+
+También, si lo deseas puedes mirar el video (@fig-basedatos) donde se explica la base de datos y su diccionario.
+
+::: {#fig-basedatos}
+
+{{< video https://youtu.be/BTeLsLwsM9g width="700" height="400" >}}
+
+Explicación base de datos y diccionario.
+
+:::
+
+
+
+## Análisis de la Sección Caracterización
+
+### Análisis Item CA01 {#sec-ItemMultiple}
+
+ Elabore una tabla de frecuencias para el ítem `CA01` que incluya la frecuencia y porcentajes por categoría de respuesta. Indique cuántos de los sujetos eran del género masculino,  y cuántos del género femenino, y cuántos prefirieron no indicaron. Una vez generada la tabla con esta variable, describa las tendencias que observa.
+
+```{r , echo=FALSE, warning=FALSE ,fig.align="center"}
+
+#knitr::include_graphics('./Images/Folio_XXX01.png')
+
+```
+
+
+::: panel-tabset
+
+# En Excel
+
+Notará que puede ser complejo realizar explicaciones que permitan replicar los análisis en Excel. Vea el video y la explicación para replicar los resultados.
+
+::: {#fig-basedatos}
+
+{{< video https://youtu.be/WjIuFNUY_D4 width="700" height="400" >}}
+
+ Análisis univariado en Excel.
+
+:::
+
+# En R 
+
+
+#### Forma 1
+
+
+
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+
+tabla_CA01 <- table(db$CA01)
+tabla_CA01 <- prop.table(tabla_CA01)
+tabla_CA01 <-round(tabla_CA01,2)*100 
+tabla_CA01 <-as.data.frame.array(tabla_CA01,2)
+
+tabla_CA01$Genero <- rownames(tabla_CA01) 
+names(tabla_CA01) <- c("Porcentaje","Genero")
+
+
+
+```
+
+
+#### Forma 2
+
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+library(dplyr)
+
+tabla_sexo <- db %>%
+             dplyr::select(CA01) %>%
+             dplyr::group_by(CA01) %>%
+             dplyr::summarise(frecuencia = n()) %>%
+             dplyr::mutate(total     = sum(frecuencia),
+                          porcentaje = round(frecuencia/total*100,2)) %>%
+             dplyr::select(CA01, frecuencia, porcentaje)  
+
+
+
+
+
+```
+
+La tabla se muestra a continuación
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(tabla_sexo,
+             align = "c"
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+
+
+:::
+
+
+
+
+### Análisis Item CA04 {#sec-Itembinario}
+
+ Elabore una tabla de frecuencias para el ítem `CA04` que incluya la frecuencia y porcentajes por categoría de respuesta. Indique cuántos de los sujetos son las primeras personas en sus familias en estudiar en la universidad,  y cuántos no. Una vez generada la tabla con esta variable, describa las tendencias que observa.
+
+```{r , echo=FALSE, warning=FALSE ,fig.align="center"}
+
+#knitr::include_graphics('./Images/Folio_XXX01.png')
+
+```
+
+
+::: panel-tabset
+
+# En Excel
+
+Notará que puede ser complejo realizar explicaciones que permitan replicar los análisis en Excel. Vea el video y la explicación para replicar los resultados.
+
+::: {#fig-basedatos}
+
+{{< video https://youtu.be/S41v5JEHay0 width="700" height="400" >}}
+
+ Análisis univariado en Excel.
+
+:::
+
+# En R 
+Ahora indicaremos cuántos de los sujetos son las primeras personas en sus familias en estudiar en la universidad, y cuántos no. El código es exactamente idéntico al usado en el caso anterior para el ítem `CA01`. En este caso, solo deberemos cambiar `CA01` por `CA04` que es el código asociado al ítem de interés.
+
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+library(dplyr)
+
+tabla_primeraPersona <- db %>%
+                     dplyr::select(CA04) %>%
+                     dplyr::group_by(CA04) %>%
+                     dplyr::summarise(frecuencia = n()) %>%
+                     dplyr::mutate(total     = sum(frecuencia),
+                                  porcentaje = round(frecuencia/total*100,2)) %>%
+                     dplyr::select(CA04, frecuencia, porcentaje)  
+
+
+
+
+
+```
+
+La tabla se muestra a continuación
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(tabla_primeraPersona,
+             align = "c"
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+
+
+:::
+
+
+## Análisis de la Sección Aprendizaje
+
+### Interpretación cualitativa de los ítems
+
+Responda las siguientes preguntas:
+
+
+
+
+**A) ** ¿Qué significa que un individuo seleccione: Completamente en [desacuerdo]{.pill .magenta} en el ítem *AP01*  y Completamente de acuerdo en el ítem `AP05`? Utilice la información del cuestionario del módulo de Aprendizaje junto con la tabla de especificaciones para responder a esta pregunta.
+
+
+**B) **¿Qué significa que un individuo seleccione: Completamente de [acuerdo]{.pill .cyan} en los ítems *AP01, AP02, AP03 y AP04* y  Completamente en [desacuerdo]{.pill .magenta} en los ítems *AP05, AP06, AP07 y AP08*? Utilice la información del cuestionario del módulo de Aprendizaje junto con la tabla de especificaciones para reportar este caso.
+
+
+
+### Análisis Item AP01 {#sec-Itemlikert}
+
+ Indique la proporción de sujetos que manifiestan distintos niveles de acuerdo con la siguiente afirmación: "He tenido problemas para encontrarle sentido a las cosas que tengo que estudiar. Elabore una tabla de frecuencias para el ítem `AP01` que incluya la frecuencia y porcentajes por categoría de respuesta. Una vez generada la tabla con esta variable, describa las tendencias que observa.
+
+
+```{r , echo=FALSE, warning=FALSE ,fig.align="center"}
+
+#knitr::include_graphics('./Images/Folio_XXX01.png')
+
+```
+
+
+::: panel-tabset
+
+# En Excel
+
+Notará que puede ser complejo realizar explicaciones que permitan replicar los análisis en Excel. Vea el video y la explicación para replicar los resultados.
+
+::: {#fig-basedatos}
+
+{{< video https://youtu.be/grPsNCvui-s width="700" height="400" >}}
+
+ Análisis univariado en Excel.
+
+:::
+
+# En R
+
+Ahora indicaremos  la proporción de sujetos que manifiestan distintos niveles de acuerdo con la siguiente afirmación:
+*"He tenido problemas para encontrarle sentido a las cosas que tengo que estudiar*. En este caso, al código usado solo deberemos cambiar `CA04` por `AP01` 
+
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+library(dplyr)
+
+tabla_itemAP01 <- db %>%
+                     dplyr::select(AP01) %>%
+                     dplyr::group_by(AP01) %>%
+                     dplyr::summarise(frecuencia = n()) %>%
+                     dplyr::mutate(total     = sum(frecuencia),
+                                  porcentaje = round(frecuencia/total*100,2)) %>%
+                     dplyr::select(AP01, frecuencia, porcentaje)  
+
+
+```
+
+La tabla se muestra a continuación
+
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(tabla_itemAP01,
+             align = "c"
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+
+Podemos optimizar un poco más este código. Sería ideal que en la columna `AP01` apareciera el enunciado del ítem, y que los niveles de la escala Likert, en vez de que aparezca de manera numérica, que aparezca la categoría que expresa cada nivel (que ya sabemos que estos números en realidad son solo etiquetas; note que esto aplica si solo si las digitación de la escala Likert se hace de manera numérica y no digitando explicitamente cada nivel en su forma original). Es decir nos gustaría hacer la siguiente conversión: 
+
++ `1 = Totalmente en Deacuerdo`
++ `2 = En desacuerdo`
++ `3 = Ni de acuerdo ni en Desacuerdo` 
++ `4 = De acuerdo` 
++ `5 = Completamente de acuerdo`
+
+Podemos crear un `dataframe` con esta información para luego utilizarla en la tabla que construimos anteriormente. 
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+library(dplyr)
+
+conversion_likert <- data.frame( likert_numero = c(1,
+                                                   2,
+                                                   3,
+                                                   4,
+                                                   5,
+                                                   'NA'),
+                                 likert_texto = c('Totalmente en Desacuerdo',
+                                                  'En desacuerdo',
+                                                  'Ni de acuerdo ni en Desacuerdo',
+                                                  'De acuerdo',
+                                                  'Completamente de acuerdo',
+                                                  'Respuesta perdida')
+                                )
+
+
+```
+
+La construcción del `dataframe` se llama `conversion_likert` y se muestra a continuación
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(conversion_likert,
+             align = c("c","l")
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+Entonces, ahora reemplazamos los valores numéricos de la escala Likert por su grado de acuerdo correspondiente. Para ello, utilizamos la función `left_join()`
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+library(dplyr)
+
+tabla_itemAP01.editado <- tabla_itemAP01 %>%
+                          dplyr::left_join(. ,conversion_likert, 
+                                             by=join_by(AP01 == likert_numero)) %>%
+                           dplyr::arrange(AP01) %>%
+                          select(likert_texto, frecuencia, porcentaje)
+
+
+```
+La tabla queda de la siguiente forma
+
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(tabla_itemAP01.editado,
+             align = c("l","c","c")
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+
+Finalmente, si quisieramos incluir el enunciado del ítem (*He tenido problemas para encontrarle sentido a las
+cosas que tengo que estudiar*) en vez de `likert_texto`, nos aprovecharemos de la información que se encuentra en nuestro `diccionario`. Veremos que en nuestro diccionario, la columna `Pregunta` tiene la información del enunciado para cada ítem. Luego, el siguiente código extrae el enunciado del ítem (Pregunta) y la reemplaza en la tabla construida anteriormente.
+
+
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+library(dplyr)
+
+names(tabla_itemAP01.editado)[1] <- codebook %>% 
+                                    dplyr::filter(item_codigo=='AP01') %>%
+                                    dplyr::select(Pregunta)
+
+```
+La tabla finalmente queda de la siguiente forma
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(tabla_itemAP01.editado,
+             align = c("l","c","c")
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+
+
+
+:::
+
+
+
+
+
+### Análisis Items AP01-AP08
+
+¿Qué proporción de respuestas se seleccionó en cada categoría para cada ítem del módulo Aprendizaje? Para responder a la pregunta, presente *una sola tabla* que exprese los recuentos y porcentajes por categoría de respuesta para cada uno de los ítems que compone el módulo. Notará que ahora lo que se le solicita es que realice múltiples análisis univariados para luego resumir toda la información en una sola tabla ¿Cómo organizaría la información? 
+
+
+```{r , echo=FALSE, warning=FALSE ,fig.align="center"}
+
+#knitr::include_graphics('./Images/Folio_XXX01.png')
+
+```
+
+
+::: panel-tabset
+
+# En Excel
+
+Este ejercicio puede resolverse aplicando el mismo procedimiento utilizado en el ítem AP01 y repitiéndolo para cada ítem.
+
+
+# En Excel y Bluesky
+
+El enfoque únicamente con Excel, salvo que se disponga de `Power Query`, puede resultar laborioso. A continuación se presenta una forma más automatizada de aplicar el mismo procedimiento, generalizable a un número indefinido de ítems del mismo tipo. Para ello, usamos como herramienta secundaria el software [BlueSky Statistics]{.pill .cyan}
+
+::: {#fig-basedatos}
+{{< video https://youtu.be/Yj6KVqEj5G4 width="700" height="400" >}}
+
+ Análisis univariado múltiple ítems en Excel y en BlueSky.
+:::
+
+# En R 
+
+
+- Procesamiento de datos
+
++ Convertimos la base de `wide` a `long`
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+library(dplyr)
+
+# Extraemos los codigos de los items del modulo Aprendizaje
+items  <- codebook %>% 
+                dplyr::filter(Dimension=='Aprendizaje') %>%
+                dplyr::select(item_codigo)
+  
+
+# Convertimos todos los items AP01-AP08 double a caracter (dado que tenemos NA en AP01 codificado como caracter) 
+
+db  <- db %>% dplyr::mutate_if(is.double, as.character)
+
+# Convertimos tabla de WIDE a LONG
+db_long<-tidyr::pivot_longer(db, 
+                             cols = items$item_codigo, 
+                             names_to = 'items',
+                             values_to = 'valores'
+                            )
+
+
+
+```
+
+- Estadística descriptiva
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+library(dplyr)
+
+tabla_resumen <- db_long %>% 
+                dplyr::select(items, valores) %>%
+                dplyr::group_by(items, valores) %>%
+                  dplyr::summarise(frecuencia = n()) %>% 
+                dplyr::ungroup() %>%
+                dplyr::group_by(items) %>%
+                  dplyr::mutate(total = sum(frecuencia),
+                              porcentaje = round(frecuencia/total*100,2)
+                              ) %>%
+                dplyr::ungroup() %>%
+                dplyr::select(items, valores, porcentaje) %>%
+                tidyr::pivot_wider(., names_from  = 2,
+                                      values_from = 3)
+```
+
+
+El resultado es el siguiente
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(tabla_resumen,
+             align = "c",
+             format.args = list(decimal.mark = ".")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+
+Sin embargo, hay un par de aspectos en la tabla que pueden mejorarse. Por ejemplo, sería ideal que en la columna `items` apareciera el enunciado del ítem, y que los niveles de la escala Likert en vez de que aparezca de manera numérica que aparezca la categoría que expresa cada nivel (que ya sabemos que estos números en realidad son solo etiquetas; note que esto aplica si solo si las digitación de la escala Likert se hace de manera numérica y no digitando explicitamente cada nivel en su forma original). Es decir nos gustaría hacer la siguiente conversión: 
+
++ `1 = Totalmente en Deacuerdo`
++ `2 = En desacuerdo`
++ `3 = Ni de acuerdo ni en Desacuerdo` 
++ `4 = De acuerdo` 
++ `5 = Completamente de acuerdo`
+
+
+
+Una manera de hacer lo anterior podría ser exportar en `Excel` (o en texto plano) la tabla de resumen para luego reemplazar manualmente el nombre de los ítems y sus categorías. Sin embargo, lo anterior podría generar un error humano o amenazar la replicabilidad de los resultados (recuerde que lo ideal es siempre dejar un registro de todo el flujo de análisis de datos, por lo que al usar `R` podemos dejar un registro de todo este flujo). Otra forma más robusta y que que alinea con la replicabilidad de los resultados se consigue utilizando nuestro `diccionario`. Veamos cómo integrar la información del diccionario en nuestro código. 
+
+Comenzaremos mostrando cómo cambiar el nombre de los ítems `AP01, AP02,..., AP07, AP08` por los enunciados respectivos. A continuación se explican las líneas extras que se agregaron para incluir el enunciado en vez de los códigos `AP01, AP02,..., AP07, AP08`. Lo ideal es volver un poco atrás e incoporar la informacion del ítem en la tabla LONG que creamos. Luego
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+library(dplyr)
+
+db_long_expand<-db_long %>% 
+                  dplyr::left_join(                                       # <1>
+                             codebook[, c("item_codigo", "Pregunta")],    # <2>
+                              by = join_by(items == item_codigo),         # <3>
+                             keep = FALSE) %>%                            # <4>
+                    dplyr::relocate(Pregunta,                             # <5> 
+                                    .before  = items)       
+```
+
+La tabla Long se ve así
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(db_long_expand[1:4,],
+             #align = "c",
+             format.args = list(decimal.mark = ".")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+```
+
+Y ahora, considerar solo las dos columnas `Pregunta` y `Valores` para generar la tabla
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+library(dplyr)
+
+tabla_resumen_v2<-db_long_expand %>% 
+                  dplyr::select(Pregunta, valores) %>%
+                  dplyr::group_by(Pregunta, valores) %>%
+                    dplyr::summarise(frecuencia = n()) %>% 
+                  dplyr::ungroup() %>%
+                  dplyr::group_by(Pregunta) %>%
+                    dplyr::mutate(total = sum(frecuencia),
+                                porcentaje = round(frecuencia/total*100,2)
+                                ) %>%
+                  dplyr::ungroup() %>%
+                  dplyr::select(Pregunta, valores, porcentaje) %>%
+                  tidyr::pivot_wider(., names_from  = 2,
+                                        values_from = 3)
+
+   
+```
+
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(tabla_resumen_v2,
+             #align = "c",
+             format.args = list(decimal.mark = ".")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                ) %>%
+  column_spec(1, width = "10cm")
+
+```
+
+Finalmente, si ahora quisieramos incorporar la siguiente conversión:
+
++ `1 = Totalmente en Deacuerdo`
++ `2 = En desacuerdo`
++ `3 = Ni de acuerdo ni en Desacuerdo` 
++ `4 = De acuerdo` 
++ `5 = Completamente de acuerdo`
+
+necesitamos invertir un poco más de esfuerzos para lograr una total replicabilidad y automatización de nuestros análisis. Necesitamos, por lo tanto, un tabla que contenga esta información. Esta tabla, por tanto, requiere que incluyamos más información a nuestro diccionario, lo que se logra incoporando una nueva hoja en nuestro EXCEL con la especificación de la escala de medición. Lo que se muestra a continuación:
+
+
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: true
+escala_med <- readxl::read_excel('./01BasedeDatos/01_database.xlsx',
+                          sheet='Escala_medicion_diccionario',col_names =T, na=c(""," ")
+                         )
+
+
+
+```
+
+A continuación, se muestra la tabla con la información necesaria para hacer la conversión
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(escala_med,
+             align = "c"
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+
+Note que podríamos tener dos tipos diferentes de escalas likert de `acuerdo/desacuerdo`. Una que tenga `4` niveles y otra que tenga `5` niveles. Para este cuestionario, usaremos la que tiene `5` niveles. 
+
+
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+library(dplyr)
+
+escala_med_4nivel <- escala_med %>%
+                    dplyr::filter( escala_medicion=='Acuerdo-Desacuerdo' & numero_niveles== 5) %>%
+                    dplyr::select(nivel_item_numero, nivel_item_texto)
+```
+
+
+
+Luego, usamos esta información para cambiar el nombre de las columnas de la tabla resumen
+
+```{r , echo=TRUE, warning=FALSE}
+
+names(tabla_resumen_v2)[2:(length(tabla_resumen_v2)-1)] <- escala_med_4nivel$nivel_item_texto
+   
+```
+
+La tabla final, se muestra a continuación
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(tabla_resumen_v2,
+             #align = "c",
+             format.args = list(decimal.mark = ".")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                ) %>%
+  column_spec(1, width = "10cm")
+
+```
+
+
+De esta forma, solo tendríamos que editar nuestro diccionario y/o la especificación de la escala de medición que se encuentra en nuestro `diccionario`, y no el código. Lo que aquí se construyó fue un sistema en el cual el diccionario se integra con la base de datos por medio del código. Luego, con este sistema es posible levantar una infraestructura de datos estandarizado en elque cada una de las partes (`código` `+` `diccionario` + `base de datos`),se integran armonicamente. Una gran ventaja de esta aproximación enfocado en el análisis de custionarario, es que cualquier modificación o ajuste que se quiera hacer al `diccionario` no implica  alterar en absoluto el código para generar los resultados. En esa línea, este paradigma funciona `por componentes` o de manera `modular` lo que hace más fácil identificar en qué lugar (o `módulo`) podriamos llegar a tener potenciales errores que arreglar. Dos desvetajas de esta aproximación son: 1) puede resultar poco intuitivo  si no se encuentra familiarizado con una programación orientada a componentes; 2) que necesita de manera obligatoria saber cómo se organizan y estructuran sus ítems en su cuestionario, que se soluciona una vez que se tiene la `tabla de especicaciones`.
+
+
+
+:::
+

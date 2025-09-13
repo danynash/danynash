@@ -1,21 +1,17 @@
 [
   {
-    "listing": "/lessons.html",
+    "listing": "/lessons/02-DatosEdSuper/index.html",
     "items": [
-      "/lessons/01-DatosAvanzados/index.html",
-      "/lessons/02-DatosEdSuper/index.html",
-      "/foonote/index.html"
+      "/lessons/02-DatosEdSuper/activities/01-assessment/index.html",
+      "/lessons/02-DatosEdSuper/activities/02-assessment/index.html",
+      "/lessons/02-DatosEdSuper/activities/03-assessment/index.html",
+      "/lessons/02-DatosEdSuper/activities/04-assessment/index.html"
     ]
   },
   {
-    "listing": "/myresearch.html",
+    "listing": "/tutorials.html",
     "items": [
-      "/Myresearch/04-Galton-Board/index.html",
-      "/Myresearch/01-on-going-research/index.html",
-      "/Myresearch/03-Learning-Analytics-predictive-models-student-perfomance/index.html",
-      "/Myresearch/05-LEGO-TALK/index.html",
-      "/Myresearch/02-on-going-research-RR-lab-scientific-abilities/index.html",
-      "/foonote/index.html"
+      "/tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html"
     ]
   },
   {
@@ -35,17 +31,22 @@
     ]
   },
   {
-    "listing": "/tutorials.html",
+    "listing": "/myresearch.html",
     "items": [
-      "/tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html"
+      "/Myresearch/04-Galton-Board/index.html",
+      "/Myresearch/01-on-going-research/index.html",
+      "/Myresearch/03-Learning-Analytics-predictive-models-student-perfomance/index.html",
+      "/Myresearch/05-LEGO-TALK/index.html",
+      "/Myresearch/02-on-going-research-RR-lab-scientific-abilities/index.html",
+      "/foonote/index.html"
     ]
   },
   {
-    "listing": "/lessons/02-DatosEdSuper/index.html",
+    "listing": "/lessons.html",
     "items": [
-      "/lessons/02-DatosEdSuper/activities/01-assessment/index.html",
-      "/lessons/02-DatosEdSuper/activities/02-assessment/index.html",
-      "/lessons/02-DatosEdSuper/activities/03-assessment/index.html"
+      "/lessons/01-DatosAvanzados/index.html",
+      "/lessons/02-DatosEdSuper/index.html",
+      "/foonote/index.html"
     ]
   },
   {

@@ -1,0 +1,627 @@
+---
+title: "Actividad Formativa 04"
+image: figures/profile/portada.png
+subtitle: "Análisis de datos de cuestionario (Bivariado)"
+title-block-banner: "#f0f3f5"
+title-block-banner-color: "black"
+number-sections: true
+toc: true
+toc-expand: true
+toc-title: Contenido
+author:
+  - name: Dany Lopez (dxlopez@ul.cl) - Ximena Catalán (xrcatala@uc.cl)
+date-modified: September 13, 2025
+from: markdown+emoji
+format:
+  html:
+    code-overflow: wrap
+    code-line-numbers: true
+    code-annotations: below
+    code-link: true
+    embed-resources: true
+    grid:
+      sidebar-width: 250px
+      body-width: 950px
+      margin-width: 400px
+      gutter-width: 1.5rem
+  pdf: default
+mainfont: Avenir Next
+monofont: Avenir Next
+monofontoptions: 
+  - Scale = 1.
+---
+
+```{r, echo = FALSE, eval = TRUE, include = FALSE}
+
+#---------------------------------------------------------------
+# settings
+#---------------------------------------------------------------
+
+# start time
+start_time <- Sys.time()
+
+# hide messages from dplyr
+suppressPackageStartupMessages(library(dplyr))
+
+# hide NA from knitr table
+options(knitr.kable.NA = '')
+
+# suppress dplyr group warnings
+options(dplyr.summarise.inform = FALSE)
+
+# center figures
+knitr::opts_chunk$set(echo = TRUE, fig.align="center")
+
+#---------------------------------------------------------------
+# load example data
+#---------------------------------------------------------------
+
+# load('rasch_example.RData')
+
+```
+
+# Objetivo
+
+Este material tiene como propósito proporcionar una guía para desarrollar análisis bivariado de ítems de cuestionarios utilizados en Educación Superior. Extenderemos los análisis realizados en la [actividad práctica anterior](https://danynash.com/lessons/02-DatosEdSuper/activities/03-assessment/).  Para ello, se trabajará nuevamente con el cuestionario que utilizó para transcribir las respuestas de estudiantes [ver aqui](https://danynash.com/lessons/02-DatosEdSuper/activities/02-assessment/). Para realizar análisis bivariado, usaremos los ocho ítems tipo Likert del módulo *Aprendizaje* (AP01--AP08) y trataremos de relacionarlos con los ítems de caracterización. 
+
+Esta guía está pensada para que la pueda desarrollar en clases y también como material de estudio complementario fuera del horario oficial de clases.
+
+<!-- La guía está andamiada para que usted pueda **replicar** los análisis con sus propios datos. -->
+
+::: {.callout-important title="Importante"}
+
+Esta guía está preparada para abordar los análisis utilizando EXCEL en conjunto con BlueSky (opción 1), y también utilizando el lenguaje R (opción 2). Sugerimos que aquellas personas que están comenzando en esta área que vean los ejemplos de la opción 1, y aquellas personas que ya cuentan con experiencia en análisis en R, que opten por la opción 2.
+
+:::
+
+# Introducción
+
+## Análisis cuantítativo de ítems
+
+El análisis cuantitativo de ítems con distinta tipología requiere determinar procedimientos acordes al nivel de medición y al objetivo de la indagación. En un primer nivel, tenemos el [análisis univariado]{.pill .cyan}, que describe cada ítem por separado de manera tal de caracterizar su distribución. En ítems dicotómicos y nominales se reportan frecuencias y porcentajes. En ítems ordinales tipo Likert se examinan además de la distribución por categorías, promedios, mediana y/o rangos (aunque para la estimación de promedios y mediana se requiere una justificación acorde). En items numéricos se resumen tendencia central y dispersión (promedio, desviación estándar, rango, curtosis, entre otros). 
+
+Por su parte, el [análisis bivariado]{.pill .yellow} estudia relaciones entre dos variables, y los métodos estadísticos para realizarlo varía según la tipología de las variables. Cuando el interés es [relacional entre múltiples variables]{.pill .magenta}, se consideran modelos que integran varios predictores y controlan covariables. Según el caso, pueden usarse modelos lineales o generalizados (lineal tradicional para respuestas continuas, logísticos para respuestas dicotómicas, multinomiales para Likert). También, se emplean análisis factoriales para comprender la estructura subyacente de un un set de ítems, y enfoques específicos para mediciones de atributos latentes (por ejemplo, modelos de respuesta al ítem y/o teória clásica de medición).
+
+A modo de resumen, a continuación se muestra una tabla que resume los tres tipos de análisis de datos descrito anteriormente En la práctica, usualmente se implementan estos tres tipos de análisis o combinaciones de algunas de ellas.
+
+
+```{r echo=FALSE, out.width = "900px", fig.align='center', fig.cap='Creación propia.'}
+knitr::include_graphics('./figures/content/Analisis.png')
+```
+
+
+
+## Análisis bivariado de ítems
+
+Con el análisis bivariado ya estamos en condiciones de explorar asociació entre variables e incluso, responder preguntar de investigación que aborden como tema central la relación entre dos variables.
+
+### Introducción general
+
+El análisis bivariado estudia la relación entre dos variables medidas en una muestra. En cuestionarios, cada variable suele ser un ítem con categorías como "sí/no", escalas tipo Likert, respuestas nominales o continuas. Este análisis permite responder si existe relación entre dos ítems, cuál es su dirección y magnitud, y si la evidencia es consistente con una asociación no debida al azar. En Educación Superior se usa para comprender diversos constructos, por ejemplo: vínculos entre indicadores de docencia, experiencia estudiantil y bienestar, o entre carga de trabajo y estrés académico. 
+
+### Tipos de preguntas de investigación que aborda
+
+Las preguntas típicas que se responden con análisis bivariado se formulan en términos de asociación y contraste. Una primera clase plantea preguntas so bre si existe relación entre dos ítems y con qué fuerza, por ejemplo entre satisfacción con la enseñanza y percepción de aprendizaje. Una segunda clase contrasta perfiles de respuesta entre dos categorías, por ejemplo si quienes declaran haber asistido a tutorías muestran respuestas de forma distinta respecto de quienes no asistieron. Una tercera clase examina la dirección y el patrón de cambio entre categorías ordenadas, por ejemplo si a medida que aumenta el acuerdo con presentar una mayor carga académica también muestran un aumenta en el nivel de estrés experimentado. En todos los casos, el foco está en una relación entre dos variables y no en múltiples variables a la vez.
+
+### Procedimiento recomendado para efectuar análisis bivariado 
+
+[Paso 1 (análisis univariado)]{.pill .yellow}: Primero se identifica el tipo  y la escala de medición de cada ítem y, en caso de aplicar, se explicita el tratamiento de valores perdidos. Luego se construye la tabla de frecuencias, tablas de tendencia central u otro tipo de representación que permita commprender la distribución de cada ítem por separado.
+
+[Paso 2:]{.pill .yellow} Se selecciona el formato de presentación y las medidas de asociación según el nivel de medición. En caso de aplicar, también se seleccionan las pruebas estadísticas necesarias. Después se visualizan los resultados para una mayor interpretación de la relación (esto se verá en el módulo de Visualización de ítems más adelante).
+
+[Paso 3:]{.pill .yellow} Se reporta e interpreta la relación observada, la mgnitud de la asociación (si aplica) y las pruebas estadísticas (si aplica).
+
+
+# Actividades prácticas {#sec-actividadPractica}
+
+
+A continuación se propone una actividad de análisis bivariado en dos entornos complementarios, Excel y R, orientada a describir la distribución entre una variables categóricas con una variable ordinal. El objetivo es producir una tabla clara junto con un breve texto interpretativo como ilustración de lo que tendrá que realizar en su investigación en caso de enfrentarse al mismo desafio. Para realizar estas actividades, usaremos el cuestionario con el que se transcribieron las respuestas de 30 estudiantes. Comenzaremos describiendo algunos de los ítems del módulo de caracterízación para luego análizar los ítems del módulo de Aprendizaje. A continuación se describe la base de datos con la que se realizarán los análisis univariados.
+
+
+## Descripción de los datos
+
+Los datos que usaremos provienen del módulo de Aprendizaje del cuestionario VOCES que se aplicó a 30 estudiantes de primer año de diversas carreras de una universidad privada. 
+
+A continuación se muestran los primeros 10 registros de la base de datos que utilizaremos para realizar los análisis univariados. 
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: true
+
+
+db <- readxl::read_excel('./02_data/01_database.xlsx',
+                          sheet='Base_datos',col_names =T, na=c(""," ")
+                         )
+
+codebook <- readxl::read_excel("./02_data/01_database.xlsx",
+                                 sheet='Diccionario',col_names =T, na=c(""," ")
+                               )
+
+```
+
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(db[1:10,],
+             align = "c"
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+También se adjunta el `diccionario` para comprender el significado de las columnas y las escalas de medición de cada ítem.
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(codebook,
+             align = "l"
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = TRUE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                ) %>%
+            scroll_box(width = "100%", height = "400px")
+
+```
+<br>
+
+También, si lo deseas puedes mirar el video (@fig-basedatos) donde se explica la base de datos y su diccionario.
+
+::: {#fig-basedatos}
+
+{{< video https://youtu.be/BTeLsLwsM9g width="700" height="400" >}}
+
+Explicación base de datos y diccionario.
+
+:::
+
+
+
+## Análisis Bivariado
+
+### Análisis ítem AP01 según Sexo (CA01)
+
+Caracterice la proporción de sujetos que manifiestan distintos niveles de acuerdo con la afirmación “He tenido problemas para encontrarle sentido a las cosas que tengo que estudiar” (ítem AP01), diferenciando los resultados según género (CA01). Presente los resultados en una tabla que resuma la distribución y luego describa las principales tendencias observadas. 
+
+```{r , echo=FALSE, warning=FALSE ,fig.align="center"}
+
+#knitr::include_graphics('./Images/Folio_XXX01.png')
+
+```
+
+
+::: panel-tabset
+
+# En Excel
+
+Notará que puede ser complejo realizar explicaciones que permitan replicar los análisis en Excel. Vea el video y la explicación para replicar los resultados.
+
+::: {#fig-basedatos}
+
+{{< video https://youtu.be/YpmNabPQbmE width="700" height="400" >}}
+
+ Análisis univariado en Excel.
+
+:::
+
+# En R 
+
+
+Ahora interesa caracterizar la proporción de sujetos según el sexo (ítem `CA01`) que manifiestan distintos niveles de acuerdo con la siguiente afirmación: *He tenido problemas para encontrarle sentido a las cosas que tengo que estudiar* (ítem `AP01`).
+
+En este caso, Sexo (`CA01`) actúa como variable independiente y el ítem `AP01` como dependiente. Es decir, queremos inspeccionar si existe alguna diferencia en los niveles de acuerdo reportados para el ítem `AP01` en función del sexo de los individuos.
+
+
+
+
+## Forma 1 (usando funcion `table`)
+
+Este método funciona muy bien solo para tablas bivariadas, es decir, para realizar tablas de contigencia entre dos ítems. Este es un método rápido pero es poco flexible si quisieramos hacer una tabla cruzada para todos los ítems de la dimensión aprendizaje según sexo. El código se muestra a continuación:
+
+```{r , echo=TRUE, warning=FALSE, message=FALSE}
+#| code-fold: false
+library(dplyr)
+
+tabla_1 <- table(db$AP01, db$CA01)
+tabla_1 <- prop.table(tabla_1,2)
+tabla_1 <- round(tabla_1,2)*100 
+tabla_1 <- as.data.frame.matrix(tabla_1)
+
+tabla_1$AP01 <- as.character(rownames(tabla_1))
+
+```
+Ejecutando el código anterior, se observa la siguiente tabla:
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(tabla_1,
+             align = "c"
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+
+Podemos optimizar un poco más este código. Sería ideal que en la columna `AP01` aparecieran los niveles de la escala Likert. Es decir nos gustaría hacer la siguiente conversión: 
+
++ `1 = Totalmente en Deacuerdo`
++ `2 = En desacuerdo`
++ `3 = Ni de acuerdo ni en Desacuerdo` 
++ `4 = De acuerdo` 
++ `5 = Completamente de acuerdo`
++ `NA = Respuesta perdida`
+
+Podemos crear un `dataframe` con esta información para luego utilizarla en la tabla que construimos anteriormente. 
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+library(dplyr)
+
+conversion_likert <- data.frame( likert_numero = c('1',
+                                                   '2',
+                                                   '3',
+                                                   '4',
+                                                   '5',
+                                                   'NA'),
+                                 likert_texto = c('Totalmente en Desacuerdo',
+                                                  'En desacuerdo',
+                                                  'Ni de acuerdo ni en Desacuerdo',
+                                                  'De acuerdo',
+                                                  'Completamente de acuerdo',
+                                                  'Respuesta perdida')
+                                )
+
+
+```
+
+La construcción del `dataframe` se llama `conversion_likert` y se muestra a continuación
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(conversion_likert,
+             align = c("c","l")
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+Entonces, ahora reemplazamos los valores numéricos de la escala Likert por su grado de acuerdo correspondiente. Para ello, utilizamos la función `left_join()`. Una vez que hacemos esta unión entre tablas, eliminamos la columna `AP01`.
+```{r , echo=TRUE, warning=FALSE}
+
+library(dplyr)
+
+
+tabla_1 <- tabla_1 %>%
+                    dplyr::left_join(. ,conversion_likert, 
+                                      by=join_by(AP01 == likert_numero)) %>%
+                    dplyr::arrange(AP01) %>%
+                    relocate(., likert_texto, .before = 1) %>%
+                    dplyr::select(-c(AP01))
+
+```
+La tabla se ve de la siguiente forma
+
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(tabla_1,
+             align = "c"
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+
+
+
+## Forma 2 (usando libreria `dplyr` y `tidyr`)
+
+Esta opción es más compleja que la versión anterior, pero mucho más flexible. Usamos la librería `dplyr` para realizar el proceso. Antes se usar esta librería, vamos a escribir un pseudo-código para explicar de manera funcional cómo realizar el procesamiento de los datos. Este pseudocóigo expresa un flujo lógico por medio del cual se realizan acciones a la base de datos para obtener un resultado deseado. El pseudo código para este caso quedará expresado por la siguiente secuencia
+
+#### Pseudo código:
+
+> [Usa la base de datos]{.pill .cyan} de nombre `db` [%LUEGO%]{.pill .magenta} \
+> [Selecciona las columnas]{.pill .cyan} `AP01` y `CA01`  [%LUEGO%]{.pill .magenta}\
+> [Agrupa por]{.pill .cyan} `AP01` y `CA01`  [%LUEGO%]{.pill .magenta} \
+> [Calcula la frecuencia total]{.pill .cyan} de casos  [%LUEGO%]{.pill .magenta}\
+> [desagrupa]{.pill .cyan}   [%LUEGO%]{.pill .magenta}\
+> [Agrupa por]{.pill .cyan} `CA01`  [%LUEGO%]{.pill .magenta}\
+> [construye la columna]{.pill .cyan} de nombre `total`  [%LUEGO%]{.pill .magenta} \
+> [construye otra columna]{.pill .cyan} de nombre `porcentaje`   [%LUEGO%]{.pill .magenta}\
+> [selecciona las variables]{.pill .cyan} de nombre `AP01`, `CA01` y `porcentaje` [%LUEGO%]{.pill .magenta}\
+
+
+
+
+El pseudo-código anterior se traduce entonces en un código funcional que luego puede usarse como referencia para la implementación de funciones que provienen de la libreria `dplyr`. Para ello, se resaltó en color azul todos los procesos que se traducen en funciones usando la libreria `dplyr`. Por ejemplo, el proceso [Selecciona columna]{.pill .cyan} se traduce en la función (o código) [select()]{.pill .cyan} en la libreria `dplyr`. De forma análogca, el proceso [Agrupa por]{.pill .cyan}se traduce en la función (o código) [group_by()]{.pill .cyan} en la libreria `dplyr`.
+
+Note además que el operador [%LUEGO%]{.pill .magenta} expresa el flujo lógico en el procesamiento de los datos, y corresponde a la función lógica que se verá expresada por el símbolo `pipe` [%>%]{.pill .magenta}. El pseudo-código presentado tiene como función devolver una tabla en formato `Long`, luego de haber [seleccionado, agrupado]{.pill .cyan} y [calculado]{.pill .cyan}. Este flujo se traduce en una tabla que es guardada en una entidad de nombre `tabla_AP01_sexo`.
+
+Aplicamos el pseudo código anterior para implementar un código en `R` usando la libreria `dplyr`.Este código ejecutará los procesos para analizar nuestros datos.
+
+```{r , echo=TRUE, warning=FALSE, message=FALSE}
+#| code-fold: false
+library(dplyr)
+
+tabla_AP01_sexo <- db %>%
+             dplyr::select(AP01,CA01) %>%
+             dplyr::group_by(AP01, CA01) %>%
+             dplyr::summarise(frecuencia = n()) %>%
+             dplyr::ungroup() %>%
+             dplyr::group_by(CA01) %>%
+             dplyr::mutate(total     = sum(frecuencia),
+                          porcentaje = round(frecuencia/total*100,2)) %>%
+             dplyr::select(AP01,CA01, porcentaje)  
+
+
+```
+
+La tabla se muestra a continuación
+
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(tabla_AP01_sexo,
+             align = "c"
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+
+La tabla anterior necesitamos convertirla a un formato `wide`. Para ello, utilizamos la función `pivot_wider()`
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+library(dplyr)
+
+tabla_AP01_sexo_w <- tidyr::pivot_wider(tabla_AP01_sexo,
+                                      names_from = CA01,
+                                      values_from = porcentaje) 
+
+```
+
+El resultado queda
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(tabla_AP01_sexo_w,
+             align = "c"
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+De manera similar al ejemplo univariado, cambiamos los valores de la escala likert por su respectivo nivel de acuerdo.
+
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+library(dplyr)
+library(tidyr)
+
+tabla_AP01_sexo_w <-tabla_AP01_sexo_w %>%
+                    dplyr::left_join(. ,conversion_likert, 
+                                      by=join_by(AP01 == likert_numero)) %>%
+                    dplyr::arrange(AP01) %>%
+                    relocate(., likert_texto, .before = AP01) %>%
+                    dplyr::select(-c(AP01)) %>%
+                    dplyr::mutate(across(everything(), ~replace_na(.x, 0))) #reemplaza NA por 0
+
+
+names(tabla_AP01_sexo_w)[1] <- codebook %>% 
+                                    dplyr::filter(item_codigo=='AP01') %>%
+                                    dplyr::select(Pregunta)
+
+
+```
+
+El resultado final se ve a continuación.
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(tabla_AP01_sexo_w,
+             align = "c"
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+
+En un solo código, toda la instrucción anterior quedaría
+
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: false
+library(dplyr)
+
+
+
+ enunciado_P01<-  codebook %>% 
+            dplyr::filter(item_codigo=='AP01') %>%
+            dplyr::select(Pregunta) %>%
+            pull(.)
+
+
+tabla_sexo_P01 <- db %>%
+               dplyr::select(AP01,CA01) %>%
+               dplyr::group_by(AP01, CA01) %>%
+               dplyr::summarise(frecuencia = n()) %>%
+               dplyr::ungroup() %>%
+               dplyr::group_by(CA01) %>%
+               dplyr::mutate(total     = sum(frecuencia),
+                              porcentaje = round(frecuencia/total*100,2)) %>%
+               dplyr::select(AP01,CA01, porcentaje)   %>%
+  # Convertir a formato WIDE
+              tidyr::pivot_wider(.,
+                              names_from = CA01,
+                              values_from = porcentaje) %>%
+  # Convertir escalas numericas con sus categorias en texto
+            dplyr::left_join(. ,conversion_likert, 
+                              by=join_by(AP01 == likert_numero)) %>%
+            dplyr::arrange(AP01) %>%
+            relocate(., likert_texto, .before = AP01) %>%
+            dplyr::select(-c(AP01)) %>%
+            dplyr::mutate(across(everything(), ~replace_na(.x, 0))) %>%
+  # Incluimos el enunciado y cambiamos nombre de las columnas
+            dplyr::rename_with(~c(enunciado_P01,"Femenino","Masculino"), c(likert_texto,F,M))
+  
+
+```
+
+Las respuesta vacias deberían considerarse en un `0%`.
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(tabla_sexo_P01,
+             align = c("l","c","c","c")
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = FALSE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                )
+
+```
+
+
+
+
+:::
+
+
+### Análisis ítems AP01-AP08 según Sexo (CA01)
+
+Ahora interesa caracterizar la proporción de sujetos que manifiestan distintos niveles de acuerdo cada uno de los ítems de las dimensiones Aprendizaje Superficial (`AP01-AP04`) y Aprendizaje Profundo (`AP05-AP08`), diferenciando los resultados según género (CA01). Presente los resultados en una tabla que resuma la distribución y luego describa las principales tendencias observadas. 
+
+
+```{r , echo=FALSE, warning=FALSE ,fig.align="center"}
+
+#knitr::include_graphics('./Images/Folio_XXX01.png')
+
+```
+
+
+::: panel-tabset
+
+# En Excel
+
+Se entregará la solución el día 22 de septiembre.
+
+# En R 
+
+Se entregará la solución el día 22 de septiembre.
+
+:::
+
+
+

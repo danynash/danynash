@@ -1,0 +1,13 @@
+frontend:
+  phases:
+    preBuild:   # nada antes de construir
+      commands: []
+    build:
+      commands:
+        - mkdir -p build                 # carpeta donde se copiará el sitio
+        - cp -R docs/* build/            # copia todo de docs a build/
+  artifacts:
+    baseDirectory: build                 # Amplify usará esta carpeta como salida
+    files:
+      - '**/*'
+  cache: {}

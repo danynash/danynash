@@ -1,0 +1,1307 @@
+---
+title: "Actividad Clase 02"
+image: imageProfile/distri.png
+subtitle: "Ley Grandes números y Teorema del limite central"
+title-block-banner: "#f0f3f5"
+title-block-banner-color: "black"
+number-sections: true
+toc: true
+toc-expand: true
+toc-title: Contenido
+author:
+  - name: Dany Lopez (dxlopez@ul.cl) - José Luis Pérez (josel.perez@uc.cl)
+date-modified: September 13, 2025
+from: markdown+emoji
+format:
+  html:
+    code-overflow: wrap
+    code-line-numbers: true
+    code-annotations: below
+    code-link: true
+    embed-resources: true
+    grid:
+      sidebar-width: 250px
+      body-width: 950px
+      margin-width: 400px
+      gutter-width: 1.5rem
+mainfont: Avenir Next
+monofont: Avenir Next
+monofontoptions: 
+  - Scale = 1.
+---
+
+
+```{=html}
+<style>
+  :root {
+    --app-blue: #2fa2db;
+    --app-blue-dark: #1f8fc7;
+    --tab-gray: #d9d9d9;
+    --panel-border: #8d8d8d;
+    --button-yellow: #f5c555;
+    --button-yellow-dark: #e5b23c;
+    --sample-shift: 42px;
+    --sample-button-height: 42px;
+    --legend-lift: 68px;
+    --ink: #1d1d1d;
+    --muted: #707070;
+    --paper: #ffffff;
+    --soft-gray: #f4f4f4;
+    --line-blue: #d3e7f9;
+  }
+
+  body {
+    margin: 0;
+    padding: 16px 0 24px;
+    font-family: "Avenir Next", "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: #ffffff;
+  }
+
+  header#title-block-header,
+  .quarto-title-block,
+  h1.title {
+    display: none !important;
+  }
+
+  main.content,
+  .page-columns,
+  #quarto-content {
+    max-width: none;
+  }
+
+  .sampling-app {
+    max-width: 1180px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid #d7d7d7;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+  }
+
+  .app-topbar {
+    padding: 0;
+    background: #f0f0f0;
+    border-bottom: 1px solid #d5d5d5;
+  }
+
+  .app-title {
+    display: inline-block;
+    padding: 9px 18px;
+    background: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .app-body {
+    display: block;
+  }
+
+  .app-sidebar {
+    width: 236px;
+    background: linear-gradient(180deg, #42a9de 0%, #3098d4 100%);
+    color: #ffffff;
+    padding: 16px 12px;
+  }
+
+  .sidebar-panel {
+    display: none;
+    min-height: 100%;
+  }
+
+  .sidebar-panel.active {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .sidebar-title {
+    margin: 8px 0 2px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .app-main {
+    flex: 1;
+    background: #ffffff;
+  }
+
+  .tab-strip {
+    display: flex;
+    gap: 2px;
+    padding: 0 0 0 6px;
+    background: #ffffff;
+    border-bottom: 1px solid #cfcfcf;
+  }
+
+  .tab-btn {
+    border: 0;
+    border-radius: 8px 8px 0 0;
+    background: var(--tab-gray);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 12px 18px 10px;
+    cursor: pointer;
+  }
+
+  .tab-btn.active {
+    background: var(--app-blue);
+  }
+
+  .tab-panel {
+    display: none;
+    padding: 16px 16px 12px;
+  }
+
+  .tab-panel.active {
+    display: block;
+  }
+
+  .instructions h2 {
+    margin: 0 0 8px;
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .instructions {
+    width: min(100%, 980px);
+    margin: 0 auto;
+  }
+
+  .instructions p {
+    margin: 0 0 6px;
+    font-size: 14px;
+    line-height: 1.45;
+    max-width: none;
+  }
+
+  .workspace {
+    display: grid;
+    width: min(100%, 980px);
+    margin: 18px auto 0;
+    grid-template-columns: 160px minmax(0, 1fr);
+    column-gap: 24px;
+    row-gap: 0;
+    align-items: start;
+  }
+
+  .size-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 58px;
+    transform: translateY(calc(-1.5 * var(--sample-button-height)));
+  }
+
+  .size-panel h3 {
+    margin: var(--sample-shift) 0 calc(var(--sample-button-height) / 3);
+    font-size: 21px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .size-buttons {
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    min-height: 450px;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .size-buttons-shifted {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 0;
+  }
+
+  .size-buttons-final {
+    margin-top: 16px;
+  }
+
+  .size-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 146px;
+    min-height: var(--sample-button-height);
+    border: 0;
+    border-radius: 10px;
+    background: var(--button-yellow);
+    color: #5e4611;
+    padding: 8px 12px;
+    font-size: 17px;
+    line-height: 1.1;
+    font-style: italic;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+
+  .size-btn:hover,
+  .size-btn.is-selected {
+    background: var(--button-yellow-dark);
+    transform: translateY(-1px);
+  }
+
+  .size-footnote {
+    margin-top: 12px;
+    width: 146px;
+    font-size: 10px;
+    line-height: 1.25;
+    color: #7e7e7e;
+  }
+
+  .viz-panel {
+    min-width: 0;
+  }
+
+  .viz-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .toolbar-main {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+
+  .m-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px 4px 4px;
+    border-radius: 9px;
+    border: 2px solid #bcbcbc;
+    background: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    color: #222222;
+    white-space: nowrap;
+  }
+
+  .toolbar-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+    margin-left: auto;
+  }
+
+  .tool-btn {
+    border: 0;
+    border-radius: 10px;
+    background: #f1f1f1;
+    color: #404040;
+    padding: 9px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.08);
+    white-space: nowrap;
+  }
+
+  .tool-btn:hover {
+    background: #e4e4e4;
+  }
+
+  .m-stepper {
+    display: inline-flex;
+    align-items: stretch;
+    border: 2px solid #bcbcbc;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  .step-btn {
+    border: 0;
+    background: #fdfdfd;
+    color: #c6c6c6;
+    width: 18px;
+    height: 14px;
+    padding: 0;
+    font-size: 11px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .step-btn:hover {
+    color: #8e8e8e;
+  }
+
+  .m-stepper-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid #d2d2d2;
+  }
+
+  .m-stepper-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    padding: 0 6px;
+  }
+
+  #m-input {
+    width: 26px;
+    border: 0;
+    background: transparent;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1d1d1d;
+    outline: none;
+    padding: 0;
+  }
+
+  #m-input::-webkit-outer-spin-button,
+  #m-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .parameter-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid #bababa;
+    border-radius: 8px;
+    background: #ffffff;
+    padding: 6px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #3d3d3d;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  .parameter-toggle input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .toggle-check {
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    border: 2px solid #efc7d6;
+    background: #ffffff;
+    position: relative;
+    flex: none;
+  }
+
+  .parameter-toggle input:checked + .toggle-check::after {
+    content: "✓";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: #DA5A86;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .toggle-copy {
+    line-height: 1.2;
+  }
+
+  .toggle-copy small {
+    display: block;
+    margin-top: 1px;
+    font-size: 9px;
+    color: #7d7d7d;
+  }
+
+  .chart-card {
+    border: 2px solid var(--panel-border);
+    background: #ffffff;
+    min-height: 472px;
+  }
+
+  #means-chart {
+    display: block;
+    width: 100%;
+    height: 472px;
+  }
+
+  .chart-frame {
+    fill: #ffffff;
+    stroke: none;
+  }
+
+  .row-guide {
+    stroke: rgba(0, 0, 0, 0.07);
+    stroke-width: 1;
+  }
+
+  .sample-dot {
+    fill: rgba(148, 148, 148, 0.45);
+  }
+
+  .grand-dot {
+    fill: #000000;
+  }
+
+  .population-line {
+    stroke: #DA5A86;
+    stroke-width: 7;
+    stroke-linecap: round;
+    opacity: 0.7;
+  }
+
+  .axis-line {
+    stroke: #6e6e6e;
+    stroke-width: 1.3;
+  }
+
+  .axis-tick {
+    stroke: #6e6e6e;
+    stroke-width: 1.1;
+  }
+
+  .axis-label {
+    fill: #5f5f5f;
+    font-size: 13px;
+    font-family: "Avenir Next", "Segoe UI", sans-serif;
+  }
+
+  .empty-chart-note {
+    fill: #8d8d8d;
+    font-size: 18px;
+    font-family: "Avenir Next", "Segoe UI", sans-serif;
+  }
+
+  .legend-row {
+    display: grid;
+    width: min(100%, 980px);
+    margin: calc(-1 * var(--legend-lift)) auto 0;
+    grid-template-columns: repeat(2, max-content);
+    gap: 18px 42px;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 16px 12px;
+  }
+
+  .legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #5f5f5f;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .legend-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(160, 160, 160, 0.45);
+  }
+
+  .legend-dot.black {
+    background: #000000;
+  }
+
+  .download-btn {
+    border: 0;
+    border-radius: 10px;
+    background: var(--app-blue);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 9px 12px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .download-btn:hover {
+    background: var(--app-blue-dark);
+  }
+
+  .placeholder-panel {
+    min-height: 520px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(180deg, #fbfbfb 0%, #f2f6f9 100%);
+  }
+
+  .placeholder-card {
+    width: min(100%, 520px);
+    border: 2px dashed #b9c7d2;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.88);
+    padding: 24px 26px;
+    text-align: center;
+  }
+
+  .placeholder-card h3 {
+    margin: 0 0 8px;
+    font-size: 28px;
+  }
+
+  .placeholder-card p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #5f5f5f;
+  }
+
+  .question-section {
+    padding: 16px 18px 22px;
+  }
+
+  .question-section h2 {
+    margin: 0 0 6px;
+    font-size: 34px;
+  }
+
+  .question-section p {
+    margin: 0 0 14px;
+    font-size: 16px;
+    font-style: italic;
+    color: #555555;
+  }
+
+  .answer-card {
+    border-radius: 16px;
+    background: linear-gradient(180deg, #f8f8f8 0%, #f3f3f3 100%);
+    border: 1px solid #e2e2e2;
+    padding: 14px 18px 18px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  }
+
+  .answer-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #4f4f4f;
+  }
+
+  #reflection-input {
+    width: 100%;
+    min-height: 182px;
+    resize: vertical;
+    border: 0;
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 28px,
+        var(--line-blue) 28px,
+        var(--line-blue) 30px
+      );
+    line-height: 30px;
+    padding: 2px 0;
+    font-size: 15px;
+    font-family: "Avenir Next", "Segoe UI", sans-serif;
+    color: #2e2e2e;
+    outline: none;
+  }
+
+  @media (max-width: 1080px) {
+    .app-body {
+      flex-direction: column;
+    }
+
+    .app-sidebar {
+      width: auto;
+    }
+  }
+
+  @media (max-width: 860px) {
+    .instructions,
+    .workspace {
+      grid-template-columns: 1fr;
+      width: 100%;
+    }
+
+    .size-panel h3,
+    .instructions h2 {
+      font-size: 24px;
+    }
+
+    .size-panel {
+      padding-top: 0;
+    }
+
+    .size-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      min-height: unset;
+      gap: 12px;
+      justify-content: initial;
+      height: auto;
+      width: 100%;
+      align-items: stretch;
+    }
+
+    .size-buttons-shifted,
+    .size-buttons-final {
+      display: contents;
+      margin-top: 0;
+    }
+
+    .size-panel h3 {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .tab-strip {
+      flex-wrap: wrap;
+      padding: 0 6px 6px;
+      gap: 6px;
+      border-bottom: 0;
+    }
+
+    .tab-btn {
+      border-radius: 8px;
+      width: calc(50% - 3px);
+    }
+
+    .toolbar-main {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .toolbar-actions {
+      margin-left: 0;
+    }
+
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 14px;
+    }
+
+    .size-buttons {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="sampling-app">
+  <div class="app-topbar">
+    <div class="app-title">Distribución de los promedios muestrales</div>
+  </div>
+
+  <div class="app-body">
+    <section class="app-main">
+      <div class="tab-strip">
+        <button class="tab-btn active" data-tab="grandes-numeros">Grandes numeros</button>
+        <button class="tab-btn" data-tab="muestreos-aleatorios">Muestreos aleatorios</button>
+        <button class="tab-btn" data-tab="analisis-dispersion-1">Analisis de dispersión</button>
+        <button class="tab-btn" data-tab="analisis-dispersion-2">Analisis de dispersión</button>
+      </div>
+
+      <section class="tab-panel active" data-tab-panel="grandes-numeros">
+        <div class="instructions">
+          <h2>Instrucciones</h2>
+          <p>
+            Haga click en los botones de la sección “tamaño muestral” N para observar cómo
+            varían los promedios de un número determinado de muestras de una distribución
+            normal con promedio fijo.
+          </p>
+          <p>
+            Puede cambiar el número de muestras por tamaño N mediante el control M. Cada
+            círculo gris representa el promedio de una muestra y el círculo negro corresponde
+            al promedio de todos los promedios muestrales de esa fila.
+          </p>
+        </div>
+
+        <div class="workspace">
+          <div class="size-panel">
+            <h3>Tamaño muestral</h3>
+            <div class="size-buttons">
+              <div class="size-buttons-shifted">
+                <button class="size-btn" data-sample-size="3">N = 3</button>
+                <button class="size-btn" data-sample-size="10">N = 10</button>
+                <button class="size-btn" data-sample-size="30">N = 30</button>
+                <button class="size-btn" data-sample-size="100">N = 100</button>
+                <button class="size-btn" data-sample-size="1000">N = 1000</button>
+                <button class="size-btn" data-sample-size="10000">N = 10000</button>
+              </div>
+              <div class="size-buttons-final">
+                <button class="size-btn" data-sample-size="100000">N = 100000</button>
+              </div>
+            </div>
+            <div class="size-footnote">
+              “N” indica la cantidad de individuos que entran en una muestra.
+            </div>
+          </div>
+
+          <div class="viz-panel">
+            <div class="viz-header">
+              <div class="toolbar-main">
+                <label class="parameter-toggle" for="population-mean-toggle">
+                  <input id="population-mean-toggle" type="checkbox" checked />
+                  <span class="toggle-check" aria-hidden="true"></span>
+                  <span class="toggle-copy">
+                    Parámetro poblacional
+                    <small>(promedio)</small>
+                  </span>
+                </label>
+
+                <div class="m-control">
+                  <div class="m-stepper">
+                    <div class="m-stepper-buttons">
+                      <button class="step-btn" type="button" data-step="1">▲</button>
+                      <button class="step-btn" type="button" data-step="-1">▼</button>
+                    </div>
+                    <div class="m-stepper-value">
+                      <input id="m-input" type="text" inputmode="numeric" pattern="[0-9]*" value="30" aria-label="Número de muestras" />
+                    </div>
+                  </div>
+                  <span>Número de muestras</span>
+                </div>
+
+                <div class="toolbar-actions">
+                  <button class="download-btn" id="download-csv" type="button">Descargar CSV</button>
+                  <button class="download-btn" id="download-excel" type="button">Descargar Excel</button>
+                  <button class="tool-btn" id="reset-chart" type="button">Limpiar gráfico</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="chart-card">
+              <svg id="means-chart" viewBox="0 0 760 472" preserveAspectRatio="none" aria-label="Distribución de promedios muestrales"></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="legend-row">
+          <div class="legend-item">
+            <span class="legend-dot"></span>
+            <span>Representa el promedio de una muestra.</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot black"></span>
+            <span>Representa el gran promedio, es decir, el promedio de todos los promedios muestrales.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-panel" data-tab-panel="muestreos-aleatorios">
+        <div class="placeholder-panel">
+          <div class="placeholder-card">
+            <h3>Muestreos aleatorios</h3>
+            <p>
+              La pestaña ya existe en la navegación y comparte el layout general. En el siguiente
+              paso podemos sumar aquí controles, gráficos y tablas usando la misma base visual.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-panel" data-tab-panel="analisis-dispersion-1">
+        <div class="placeholder-panel">
+          <div class="placeholder-card">
+            <h3>Análisis de dispersión 1</h3>
+            <p>
+              Queda reservado el espacio para el primer bloque de análisis. El cambio futuro puede
+              hacerse sin tocar la arquitectura de pestañas y panel lateral.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-panel" data-tab-panel="analisis-dispersion-2">
+        <div class="placeholder-panel">
+          <div class="placeholder-card">
+            <h3>Análisis de dispersión 2</h3>
+            <p>
+              Esta pestaña mantiene la misma estructura visual y está lista para recibir el siguiente
+              módulo interactivo.
+            </p>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+</div>
+
+<script>
+  const SAMPLE_SIZES = [3, 10, 30, 100, 1000, 10000, 100000];
+  const DOMAIN_MIN = 39;
+  const DOMAIN_MAX = 46;
+  const POPULATION_MEAN = 42.9;
+  const POPULATION_SD = 2.25;
+  const CASES_STORAGE_KEY = "tlc-simulacion-casos-v1";
+  const SHOW_MEAN_STORAGE_KEY = "tlc-simulacion-mostrar-promedio-v1";
+
+  const state = {
+    activeTab: "grandes-numeros",
+    selectedN: null,
+    m: 30,
+    rowResults: new Map(),
+    cases: [],
+    showPopulationMean: true
+  };
+
+  function randn() {
+    let u = 0;
+    let v = 0;
+    while (u === 0) u = Math.random();
+    while (v === 0) v = Math.random();
+    return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+  }
+
+  function average(values) {
+    if (!values.length) return 0;
+    return values.reduce((sum, value) => sum + value, 0) / values.length;
+  }
+
+  function clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+  }
+
+  function normalizeM(rawValue) {
+    const parsed = Number.parseInt(rawValue, 10);
+    if (!Number.isFinite(parsed) || parsed < 1) {
+      return 30;
+    }
+    return parsed;
+  }
+
+  function stableJitter(index, sampleSize) {
+    const seed = Math.sin((index + 1) * 12.9898 + sampleSize * 0.031) * 43758.5453;
+    return (seed - Math.floor(seed)) - 0.5;
+  }
+
+  function simulateSampleMean(sampleSize) {
+    const sd = POPULATION_SD / Math.sqrt(sampleSize);
+    const value = POPULATION_MEAN + randn() * sd;
+    return clamp(value, DOMAIN_MIN - 0.35, DOMAIN_MAX + 0.35);
+  }
+
+  function makeCase(sampleSize, m) {
+    const means = Array.from({ length: m }, () => Number(simulateSampleMean(sampleSize).toFixed(4)));
+    const grandMean = Number(average(means).toFixed(4));
+    const maxCaseNumber = state.cases.reduce((max, caseItem) => Math.max(max, caseItem.caseNumber || 0), 0);
+
+    return {
+      id: (window.crypto && window.crypto.randomUUID)
+        ? window.crypto.randomUUID()
+        : `case-${Date.now()}-${sampleSize}-${Math.random().toString(16).slice(2)}`,
+      caseNumber: maxCaseNumber + 1,
+      sampleSize,
+      numSamples: m,
+      means,
+      grandMean,
+      populationMean: POPULATION_MEAN,
+      createdAt: new Date().toISOString(),
+      populationLineVisible: state.showPopulationMean
+    };
+  }
+
+  function ensurePreviewRows() {
+    if (state.rowResults.size) return;
+
+    SAMPLE_SIZES.forEach((sampleSize) => {
+      const previewCase = {
+        id: `preview-${sampleSize}`,
+        sampleSize,
+        numSamples: state.m,
+        means: Array.from({ length: state.m }, () => Number(simulateSampleMean(sampleSize).toFixed(4))),
+        grandMean: 0,
+        populationMean: POPULATION_MEAN,
+        createdAt: null,
+        populationLineVisible: state.showPopulationMean,
+        preview: true
+      };
+
+      previewCase.grandMean = Number(average(previewCase.means).toFixed(4));
+      state.rowResults.set(sampleSize, previewCase);
+    });
+  }
+
+  function saveCases() {
+    localStorage.setItem(CASES_STORAGE_KEY, JSON.stringify(state.cases));
+  }
+
+  function loadState() {
+    try {
+      const storedCases = JSON.parse(localStorage.getItem(CASES_STORAGE_KEY) || "[]");
+      if (Array.isArray(storedCases)) {
+        state.cases = storedCases;
+      }
+    } catch (error) {
+      state.cases = [];
+    }
+
+    const storedShowMean = localStorage.getItem(SHOW_MEAN_STORAGE_KEY);
+    if (storedShowMean !== null) {
+      state.showPopulationMean = storedShowMean === "true";
+    }
+
+    let nextNumber = 1;
+    let casesChanged = false;
+    [...state.cases].reverse().forEach((caseItem) => {
+      if (!caseItem.caseNumber) {
+        caseItem.caseNumber = nextNumber;
+        casesChanged = true;
+      }
+      nextNumber = Math.max(nextNumber, (caseItem.caseNumber || 0) + 1);
+      if (typeof caseItem.populationLineVisible !== "boolean") {
+        caseItem.populationLineVisible = true;
+        casesChanged = true;
+      }
+    });
+    if (casesChanged) {
+      saveCases();
+    }
+
+    for (const caseItem of state.cases) {
+      if (!state.rowResults.has(caseItem.sampleSize)) {
+        state.rowResults.set(caseItem.sampleSize, caseItem);
+      }
+    }
+  }
+
+  function renderButtons() {
+    document.querySelectorAll(".size-btn").forEach((button) => {
+      const buttonN = Number.parseInt(button.dataset.sampleSize, 10);
+      button.classList.toggle("is-selected", state.selectedN === buttonN);
+    });
+  }
+
+  function renderMeanToggle() {
+    const toggle = document.getElementById("population-mean-toggle");
+    toggle.checked = state.showPopulationMean;
+  }
+
+  function getRowCenters(plotHeight, plotTop) {
+    const buttonArea = document.querySelector(".size-buttons");
+    const buttons = Array.from(document.querySelectorAll(".size-btn"));
+
+    if (!buttonArea || buttons.length !== SAMPLE_SIZES.length) {
+      return null;
+    }
+
+    const areaRect = buttonArea.getBoundingClientRect();
+    if (!areaRect.height) {
+      return null;
+    }
+
+    const centers = buttons.map((button) => {
+      const rect = button.getBoundingClientRect();
+      return rect.top + rect.height / 2 - areaRect.top;
+    });
+
+    const firstCenter = centers[0];
+    const lastCenter = centers[centers.length - 1];
+    const innerTop = plotTop + 10;
+    const innerHeight = Math.max(1, plotHeight - 20);
+
+    return centers.map((center) => {
+      const t = lastCenter === firstCenter ? 0.5 : clamp((center - firstCenter) / (lastCenter - firstCenter), 0, 1);
+      return innerTop + t * innerHeight;
+    });
+  }
+
+  function renderChart() {
+    const svg = document.getElementById("means-chart");
+    const width = 760;
+    const height = 472;
+    const margin = { top: 22, right: 18, bottom: 42, left: 18 };
+    const plotWidth = width - margin.left - margin.right;
+    const plotHeight = height - margin.top - margin.bottom;
+    const fallbackRowGap = plotHeight / SAMPLE_SIZES.length;
+    const rowCenters = getRowCenters(plotHeight, margin.top) || SAMPLE_SIZES.map((_, rowIndex) => margin.top + fallbackRowGap * (rowIndex + 0.5));
+    const rowGap = rowCenters.length > 1
+      ? average(rowCenters.slice(1).map((y, index) => y - rowCenters[index]))
+      : fallbackRowGap;
+    const xScale = (value) => {
+      const t = (value - DOMAIN_MIN) / (DOMAIN_MAX - DOMAIN_MIN);
+      return margin.left + clamp(t, 0, 1) * plotWidth;
+    };
+
+    const pieces = [
+      `<rect class="chart-frame" x="${margin.left}" y="${margin.top}" width="${plotWidth}" height="${plotHeight}"></rect>`
+    ];
+
+    if (state.showPopulationMean) {
+      const meanX = xScale(POPULATION_MEAN);
+      pieces.push(
+        `<line class="population-line" x1="${meanX.toFixed(2)}" y1="${(margin.top + 2).toFixed(2)}" x2="${meanX.toFixed(2)}" y2="${(height - margin.bottom).toFixed(2)}"></line>`
+      );
+    }
+
+    SAMPLE_SIZES.forEach((sampleSize, rowIndex) => {
+      const y = rowCenters[rowIndex];
+      pieces.push(
+        `<line class="row-guide" x1="${margin.left}" y1="${y.toFixed(2)}" x2="${width - margin.right}" y2="${y.toFixed(2)}"></line>`
+      );
+
+      const rowData = state.rowResults.get(sampleSize);
+      if (!rowData) return;
+
+      rowData.means.forEach((meanValue, meanIndex) => {
+        const jitter = stableJitter(meanIndex, sampleSize) * Math.min(18, rowGap * 0.28);
+        pieces.push(
+          `<circle class="sample-dot" cx="${xScale(meanValue).toFixed(2)}" cy="${(y + jitter).toFixed(2)}" r="7.2"></circle>`
+        );
+      });
+
+      pieces.push(
+        `<circle class="grand-dot" cx="${xScale(rowData.grandMean).toFixed(2)}" cy="${y.toFixed(2)}" r="10.6"></circle>`
+      );
+    });
+
+    pieces.push(
+      `<line class="axis-line" x1="${margin.left}" y1="${height - margin.bottom}" x2="${width - margin.right}" y2="${height - margin.bottom}"></line>`
+    );
+
+    for (let tick = DOMAIN_MIN; tick <= DOMAIN_MAX; tick += 1) {
+      const x = xScale(tick);
+      pieces.push(`<line class="axis-tick" x1="${x}" y1="${height - margin.bottom}" x2="${x}" y2="${height - margin.bottom + 7}"></line>`);
+      pieces.push(`<text class="axis-label" x="${x}" y="${height - 12}" text-anchor="middle">${tick}</text>`);
+    }
+
+    if (!state.rowResults.size) {
+      pieces.push(
+        `<text class="empty-chart-note" x="${width / 2}" y="${height / 2 - 10}" text-anchor="middle">Seleccione un tamaño muestral para comenzar</text>`
+      );
+    }
+
+    svg.innerHTML = pieces.join("");
+  }
+
+  function setActiveTab(tabId) {
+    state.activeTab = tabId;
+
+    document.querySelectorAll(".tab-btn").forEach((button) => {
+      button.classList.toggle("active", button.dataset.tab === tabId);
+    });
+
+    document.querySelectorAll("[data-tab-panel]").forEach((panel) => {
+      panel.classList.toggle("active", panel.dataset.tabPanel === tabId);
+    });
+
+    document.querySelectorAll("[data-sidebar-panel]").forEach((panel) => {
+      panel.classList.toggle("active", panel.dataset.sidebarPanel === tabId);
+    });
+  }
+
+  function runSample(sampleSize) {
+    const input = document.getElementById("m-input");
+    state.m = normalizeM(input.value);
+    input.value = state.m;
+
+    const caseItem = makeCase(sampleSize, state.m);
+    state.selectedN = sampleSize;
+    state.rowResults.set(sampleSize, caseItem);
+    state.cases.unshift(caseItem);
+    saveCases();
+    renderButtons();
+    renderChart();
+  }
+
+  function resetChart() {
+    const input = document.getElementById("m-input");
+    state.m = normalizeM(input.value);
+    input.value = state.m;
+    state.selectedN = null;
+    state.rowResults = new Map();
+    state.cases = [];
+    saveCases();
+    renderButtons();
+    renderChart();
+  }
+
+  function buildExportRows() {
+    const orderedCases = [...state.cases].sort((a, b) => (a.caseNumber || 0) - (b.caseNumber || 0));
+    const rows = [];
+
+    orderedCases.forEach((caseItem) => {
+      caseItem.means.forEach((meanValue, meanIndex) => {
+        rows.push({
+          case_number: caseItem.caseNumber || "",
+          case_id: caseItem.id || "",
+          created_at: caseItem.createdAt || "",
+          sample_size_n: caseItem.sampleSize,
+          num_samples_m: caseItem.numSamples,
+          mean_index: meanIndex + 1,
+          sample_mean: meanValue,
+          grand_mean: caseItem.grandMean,
+          population_mean: caseItem.populationMean,
+          population_line_visible: caseItem.populationLineVisible ? "true" : "false"
+        });
+      });
+    });
+
+    return rows;
+  }
+
+  function escapeCsv(value) {
+    const stringValue = String(value ?? "");
+    if (/[",\n]/.test(stringValue)) {
+      return `"${stringValue.replace(/"/g, "\"\"")}"`;
+    }
+    return stringValue;
+  }
+
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function triggerDownload(filename, content, mimeType) {
+    const blob = new Blob([content], { type: mimeType });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    link.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function downloadCsv() {
+    const rows = buildExportRows();
+    const headers = [
+      "case_number",
+      "case_id",
+      "created_at",
+      "sample_size_n",
+      "num_samples_m",
+      "mean_index",
+      "sample_mean",
+      "grand_mean",
+      "population_mean",
+      "population_line_visible"
+    ];
+
+    const csvLines = [
+      headers.join(","),
+      ...rows.map((row) => headers.map((header) => escapeCsv(row[header])).join(","))
+    ];
+
+    triggerDownload(
+      "simulacion-muestreos-datos.csv",
+      `\ufeff${csvLines.join("\n")}`,
+      "text/csv;charset=utf-8;"
+    );
+  }
+
+  function downloadExcel() {
+    const rows = buildExportRows();
+    const headers = [
+      "case_number",
+      "case_id",
+      "created_at",
+      "sample_size_n",
+      "num_samples_m",
+      "mean_index",
+      "sample_mean",
+      "grand_mean",
+      "population_mean",
+      "population_line_visible"
+    ];
+
+    const tableHead = headers.map((header) => `<th>${escapeHtml(header)}</th>`).join("");
+    const tableBody = rows.map((row) => {
+      const cells = headers.map((header) => `<td>${escapeHtml(row[header])}</td>`).join("");
+      return `<tr>${cells}</tr>`;
+    }).join("");
+
+    const workbookHtml = [
+      "<html>",
+      "<head>",
+      '<meta charset="utf-8" />',
+      "<style>",
+      "table { border-collapse: collapse; font-family: Arial, sans-serif; }",
+      "th, td { border: 1px solid #999; padding: 6px 8px; font-size: 12px; }",
+      "th { background: #d9eefb; }",
+      "</style>",
+      "</head>",
+      "<body>",
+      "<" + "table>",
+      "<" + "thead><tr>" + tableHead + "</tr></thead>",
+      "<" + "tbody>" + tableBody + "</tbody>",
+      "</table>",
+      "</body>",
+      "</html>"
+    ].join("");
+
+    triggerDownload(
+      "simulacion-muestreos-datos.xls",
+      `\ufeff${workbookHtml}`,
+      "application/vnd.ms-excel;charset=utf-8;"
+    );
+  }
+
+  function setShowPopulationMean(nextValue) {
+    state.showPopulationMean = nextValue;
+    localStorage.setItem(SHOW_MEAN_STORAGE_KEY, String(nextValue));
+    renderMeanToggle();
+    renderChart();
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    loadState();
+    ensurePreviewRows();
+
+    document.getElementById("m-input").value = state.m;
+
+    document.querySelectorAll(".tab-btn").forEach((button) => {
+      button.addEventListener("click", () => setActiveTab(button.dataset.tab));
+    });
+
+    document.querySelectorAll(".size-btn").forEach((button) => {
+      button.addEventListener("click", () => runSample(Number.parseInt(button.dataset.sampleSize, 10)));
+    });
+
+    document.querySelectorAll(".step-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        const input = document.getElementById("m-input");
+        const nextValue = normalizeM(input.value) + Number.parseInt(button.dataset.step, 10);
+        input.value = Math.max(1, nextValue);
+      });
+    });
+
+    document.getElementById("m-input").addEventListener("change", (event) => {
+      event.target.value = normalizeM(event.target.value);
+    });
+
+    document.getElementById("download-csv").addEventListener("click", downloadCsv);
+    document.getElementById("download-excel").addEventListener("click", downloadExcel);
+    document.getElementById("reset-chart").addEventListener("click", resetChart);
+    document.getElementById("population-mean-toggle").addEventListener("change", (event) => {
+      setShowPopulationMean(event.target.checked);
+    });
+
+    window.addEventListener("resize", () => {
+      window.requestAnimationFrame(() => renderChart());
+    });
+
+    setActiveTab(state.activeTab);
+    renderButtons();
+    renderMeanToggle();
+    renderChart();
+    window.requestAnimationFrame(() => renderChart());
+  });
+</script>
+```
+

@@ -31,6 +31,7 @@ monofontoptions:
 ---
 
 
+
 ```{=html}
 <style>
   :root {
@@ -454,6 +455,14 @@ monofontoptions:
     fill: rgba(148, 148, 148, 0.45);
   }
 
+  .sample-dot.hoverable {
+    cursor: pointer;
+  }
+
+  .sample-dot.is-hovered {
+    fill: rgba(78, 78, 78, 0.9);
+  }
+
   .grand-dot {
     fill: #000000;
   }
@@ -485,6 +494,44 @@ monofontoptions:
     fill: #8d8d8d;
     font-size: 18px;
     font-family: "Avenir Next", "Segoe UI", sans-serif;
+  }
+
+  .sample-hover-tooltip {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 60;
+    min-width: 190px;
+    max-width: 260px;
+    padding: 8px 10px;
+    border: 1px solid #2f2f2f;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 120ms ease;
+  }
+
+  .sample-hover-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .sample-hover-tooltip .tooltip-row {
+    font-size: 11px;
+    line-height: 1.3;
+    color: #2b2b2b;
+    white-space: normal;
+  }
+
+  .sample-hover-tooltip .tooltip-row + .tooltip-row {
+    margin-top: 3px;
+  }
+
+  .sample-hover-tooltip strong {
+    font-weight: 700;
   }
 
   .legend-row {
@@ -1020,7 +1067,8 @@ monofontoptions:
     left: 0;
     top: 0;
     z-index: 60;
-    min-width: 150px;
+    min-width: 230px;
+    max-width: 290px;
     padding: 8px 10px;
     border: 1px solid #2f2f2f;
     border-radius: 8px;
@@ -1038,10 +1086,10 @@ monofontoptions:
   }
 
   .ci-hover-tooltip .tooltip-row {
-    font-size: 11.5px;
+    font-size: 11px;
     line-height: 1.3;
     color: #2b2b2b;
-    white-space: nowrap;
+    white-space: normal;
   }
 
   .ci-hover-tooltip .tooltip-row + .tooltip-row {
@@ -1674,6 +1722,7 @@ monofontoptions:
     </section>
   </div>
 </div>
+<div class="sample-hover-tooltip" id="sample-hover-tooltip" aria-hidden="true"></div>
 <div class="ci-hover-tooltip" id="ci-hover-tooltip" aria-hidden="true"></div>
 
 <script>
@@ -1691,7 +1740,8 @@ monofontoptions:
     m: 30,
     rowResults: new Map(),
     cases: [],
-    showPopulationMean: true
+    showPopulationMean: true,
+    hoveredSample: null
   };
 
   const RANDOM_COLORS = {
@@ -1780,8 +1830,28 @@ monofontoptions:
     return clamp(value, DOMAIN_MIN - 0.35, DOMAIN_MAX + 0.35);
   }
 
+  function simulateSampleSummary(sampleSize, sampleNumber) {
+    const sampleValues = Array.from(
+      { length: sampleSize },
+      () => sampleNormal(POPULATION_MEAN, POPULATION_SD)
+    );
+    const mean = clamp(average(sampleValues), DOMAIN_MIN - 0.35, DOMAIN_MAX + 0.35);
+    const sd = sampleStandardDeviation(sampleValues);
+
+    return {
+      sampleNumber,
+      sampleSize,
+      mean: Number(mean.toFixed(4)),
+      sd: Number(sd.toFixed(4))
+    };
+  }
+
   function makeCase(sampleSize, m) {
-    const means = Array.from({ length: m }, () => Number(simulateSampleMean(sampleSize).toFixed(4)));
+    const sampleStats = Array.from(
+      { length: m },
+      (_, index) => simulateSampleSummary(sampleSize, index + 1)
+    );
+    const means = sampleStats.map((sampleItem) => sampleItem.mean);
     const grandMean = Number(average(means).toFixed(4));
     const maxCaseNumber = state.cases.reduce((max, caseItem) => Math.max(max, caseItem.caseNumber || 0), 0);
 
@@ -1793,6 +1863,7 @@ monofontoptions:
       sampleSize,
       numSamples: m,
       means,
+      sampleStats,
       grandMean,
       populationMean: POPULATION_MEAN,
       createdAt: new Date().toISOString(),
@@ -1829,6 +1900,15 @@ monofontoptions:
       nextNumber = Math.max(nextNumber, (caseItem.caseNumber || 0) + 1);
       if (typeof caseItem.populationLineVisible !== "boolean") {
         caseItem.populationLineVisible = true;
+        casesChanged = true;
+      }
+      if (!Array.isArray(caseItem.sampleStats) && Array.isArray(caseItem.means)) {
+        caseItem.sampleStats = caseItem.means.map((meanValue, meanIndex) => ({
+          sampleNumber: meanIndex + 1,
+          sampleSize: caseItem.sampleSize,
+          mean: meanValue,
+          sd: null
+        }));
         casesChanged = true;
       }
     });
@@ -1920,8 +2000,13 @@ monofontoptions:
 
       rowData.means.forEach((meanValue, meanIndex) => {
         const jitter = stableJitter(meanIndex, sampleSize) * Math.min(18, rowGap * 0.28);
+        const isHovered = Boolean(
+          state.hoveredSample
+          && state.hoveredSample.sampleSize === sampleSize
+          && state.hoveredSample.sampleIndex === meanIndex
+        );
         pieces.push(
-          `<circle class="sample-dot" cx="${xScale(meanValue).toFixed(2)}" cy="${(y + jitter).toFixed(2)}" r="7.2"></circle>`
+          `<circle class="sample-dot hoverable${isHovered ? " is-hovered" : ""}" data-sample-size="${sampleSize}" data-sample-index="${meanIndex}" cx="${xScale(meanValue).toFixed(2)}" cy="${(y + jitter).toFixed(2)}" r="7.2"></circle>`
         );
       });
 
@@ -1947,6 +2032,97 @@ monofontoptions:
     }
 
     svg.innerHTML = pieces.join("");
+  }
+
+  function setHoveredSample(sampleSize, sampleIndex) {
+    const nextHover = Number.isInteger(sampleSize) && Number.isInteger(sampleIndex)
+      ? { sampleSize, sampleIndex }
+      : null;
+
+    const current = state.hoveredSample;
+    if (
+      (!current && !nextHover)
+      || (
+        current
+        && nextHover
+        && current.sampleSize === nextHover.sampleSize
+        && current.sampleIndex === nextHover.sampleIndex
+      )
+    ) {
+      return;
+    }
+
+    state.hoveredSample = nextHover;
+    renderChart();
+  }
+
+  function positionSampleTooltip(event) {
+    const tooltip = document.getElementById("sample-hover-tooltip");
+    if (!tooltip) return;
+    const tooltipWidth = tooltip.offsetWidth || 200;
+    const tooltipHeight = tooltip.offsetHeight || 90;
+    let left = event.clientX + 14;
+    let top = event.clientY + 14;
+
+    if (left + tooltipWidth > window.innerWidth - 12) {
+      left = event.clientX - tooltipWidth - 14;
+    }
+
+    if (top + tooltipHeight > window.innerHeight - 12) {
+      top = event.clientY - tooltipHeight - 14;
+    }
+
+    tooltip.style.left = `${Math.max(12, left)}px`;
+    tooltip.style.top = `${Math.max(12, top)}px`;
+  }
+
+  function showSampleTooltip(event, sampleSize, sampleIndex) {
+    const rowData = state.rowResults.get(sampleSize);
+    const tooltip = document.getElementById("sample-hover-tooltip");
+    const sampleMeta = rowData?.sampleStats?.[sampleIndex];
+    if (!rowData || !tooltip || !sampleMeta) return;
+
+    tooltip.innerHTML = [
+      `<div class="tooltip-row"><strong>Muestra número:</strong> ${sampleMeta.sampleNumber}</div>`,
+      `<div class="tooltip-row"><strong>Tamaño muestral:</strong> ${sampleMeta.sampleSize}</div>`,
+      `<div class="tooltip-row"><strong>Promedio:</strong> ${formatStat(sampleMeta.mean, 2)}</div>`,
+      `<div class="tooltip-row"><strong>Desv. estándar:</strong> ${sampleMeta.sd === null ? "-" : formatStat(sampleMeta.sd, 2)}</div>`
+    ].join("");
+    tooltip.classList.add("visible");
+    tooltip.setAttribute("aria-hidden", "false");
+    positionSampleTooltip(event);
+  }
+
+  function hideSampleTooltip() {
+    const tooltip = document.getElementById("sample-hover-tooltip");
+    if (!tooltip) return;
+    tooltip.classList.remove("visible");
+    tooltip.setAttribute("aria-hidden", "true");
+  }
+
+  function hideSampleHover(shouldRender = true) {
+    hideSampleTooltip();
+    if (!state.hoveredSample) return;
+    state.hoveredSample = null;
+    if (shouldRender) {
+      renderChart();
+    }
+  }
+
+  function handleSampleChartPointerMove(event) {
+    const target = event.target && typeof event.target.closest === "function"
+      ? event.target.closest(".sample-dot.hoverable[data-sample-size][data-sample-index]")
+      : null;
+
+    if (!target) {
+      hideSampleHover();
+      return;
+    }
+
+    const sampleSize = Number(target.dataset.sampleSize);
+    const sampleIndex = Number(target.dataset.sampleIndex);
+    setHoveredSample(sampleSize, sampleIndex);
+    showSampleTooltip(event, sampleSize, sampleIndex);
   }
 
   function setActiveTab(tabId) {
@@ -2054,15 +2230,14 @@ monofontoptions:
   }
 
   function updateRandomSamplingSummary() {
-    if (!randomSamplingState.samples.length) {
+    if (!randomSamplingState.sampleMeans.length) {
       randomSamplingState.pooledMean = null;
       randomSamplingState.pooledSd = null;
       return;
     }
 
-    const pooledValues = randomSamplingState.samples.flat();
-    randomSamplingState.pooledMean = average(pooledValues);
-    randomSamplingState.pooledSd = standardDeviation(pooledValues);
+    randomSamplingState.pooledMean = average(randomSamplingState.sampleMeans);
+    randomSamplingState.pooledSd = sampleStandardDeviation(randomSamplingState.sampleMeans);
   }
 
   function appendRandomSamplingSample() {
@@ -2645,6 +2820,8 @@ monofontoptions:
     const mean = average(values);
     const sd = sampleStandardDeviation(values);
     const zValue = getZCritical(ciState.confidenceLevel);
+    const theoreticalStandardError = ciState.populationSd / Math.sqrt(ciState.sampleSize);
+    const samplingDistributionSd = theoreticalStandardError;
     const scaleSd = ciState.useSampleSd ? sd : ciState.populationSd;
     const standardError = scaleSd / Math.sqrt(ciState.sampleSize);
     const margin = zValue * standardError;
@@ -2657,6 +2834,11 @@ monofontoptions:
       sampleSd: sd,
       standardError,
       useSampleSd: ciState.useSampleSd,
+      populationMean: ciState.populationMean,
+      populationSd: ciState.populationSd,
+      sampleSize: ciState.sampleSize,
+      theoreticalStandardError,
+      samplingDistributionSd,
       ciLow,
       ciHigh,
       containsMean: ciLow <= ciState.populationMean && ciState.populationMean <= ciHigh
@@ -2720,9 +2902,18 @@ monofontoptions:
     const record = ciState.sampleRecords[recordIndex];
     const tooltip = document.getElementById("ci-hover-tooltip");
     if (!record || !tooltip) return;
+    const populationMeanObserved = ciState.populationValues.length ? average(ciState.populationValues) : record.populationMean;
+    const populationSdObserved = ciState.populationValues.length ? standardDeviation(ciState.populationValues) : record.populationSd;
+    const accumulatedMeans = ciState.sampleRecords.map((sampleRecord) => sampleRecord.mean);
+    const accumulatedMeansSd = accumulatedMeans.length > 1 ? sampleStandardDeviation(accumulatedMeans) : 0;
     tooltip.innerHTML = [
       `<div class="tooltip-row"><strong>Promedio:</strong> ${formatStat(record.mean, 2)}</div>`,
-      `<div class="tooltip-row"><strong>Desv. estándar:</strong> ${formatStat(record.sampleSd, 2)}</div>`
+      `<div class="tooltip-row"><strong>Desv. estándar muestral:</strong> ${formatStat(record.sampleSd, 2)}</div>`,
+      `<div class="tooltip-row"><strong>Promedio poblacional:</strong> ${formatStat(populationMeanObserved, 2)}</div>`,
+      `<div class="tooltip-row"><strong>Desv. estándar poblacional:</strong> ${formatStat(populationSdObserved, 2)}</div>`,
+      `<div class="tooltip-row"><strong>Tamaño muestral (n):</strong> ${record.sampleSize}</div>`,
+      `<div class="tooltip-row"><strong>Error estándar (σ/√n):</strong> ${formatStat(record.theoreticalStandardError, 3)}</div>`,
+      `<div class="tooltip-row"><strong>D.E. de los promedios acumulados:</strong> ${formatStat(accumulatedMeansSd, 3)}</div>`
     ].join("");
     tooltip.classList.add("visible");
     tooltip.setAttribute("aria-hidden", "false");
@@ -2854,6 +3045,7 @@ monofontoptions:
     const input = document.getElementById("m-input");
     state.m = normalizeM(input.value);
     input.value = state.m;
+    hideSampleHover(false);
 
     const caseItem = makeCase(sampleSize, state.m);
     state.selectedN = sampleSize;
@@ -2868,6 +3060,7 @@ monofontoptions:
     const input = document.getElementById("m-input");
     state.m = normalizeM(input.value);
     input.value = state.m;
+    hideSampleHover(false);
     state.selectedN = null;
     state.rowResults = new Map();
     state.cases = [];
@@ -3039,6 +3232,12 @@ monofontoptions:
     document.getElementById("reset-chart").addEventListener("click", resetChart);
     document.getElementById("population-mean-toggle").addEventListener("change", (event) => {
       setShowPopulationMean(event.target.checked);
+    });
+
+    const meansChart = document.getElementById("means-chart");
+    meansChart.addEventListener("pointermove", handleSampleChartPointerMove);
+    meansChart.addEventListener("pointerleave", () => {
+      hideSampleHover();
     });
 
     window.addEventListener("resize", () => {

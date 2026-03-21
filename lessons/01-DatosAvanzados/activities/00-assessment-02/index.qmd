@@ -10,7 +10,7 @@ toc-expand: true
 toc-title: Contenido
 author:
   - name: Dany Lopez (dxlopez@ul.cl) - José Luis Pérez (josel.perez@uc.cl)
-date-modified: September 13, 2025
+date-modified: March 20, 2026
 from: markdown+emoji
 format:
   html:
@@ -79,13 +79,13 @@ monofontoptions:
   }
 
   .app-topbar {
-    padding: 0;
-    background: #f0f0f0;
-    border-bottom: 1px solid #d5d5d5;
+    padding: 10px 0 0;
+    background: #ffffff;
   }
 
   .app-title {
     display: inline-block;
+    margin-bottom: 8px;
     padding: 9px 18px;
     background: #ffffff;
     font-size: 22px;
@@ -534,6 +534,550 @@ monofontoptions:
     background: var(--app-blue-dark);
   }
 
+  .random-tab-shell {
+    width: min(100%, 980px);
+    margin: 0 auto;
+  }
+
+  .random-controls-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    justify-content: space-between;
+    margin: 8px 0 14px;
+  }
+
+  .random-config-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 12px;
+    flex: 1;
+    max-width: 468px;
+  }
+
+  .config-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 50px;
+    padding: 4px 10px 4px 4px;
+    border: 2px solid #c8c8c8;
+    border-radius: 9px;
+    background: #ffffff;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .config-stepper {
+    display: inline-flex;
+    align-items: stretch;
+    border: 1px solid #cfcfcf;
+    border-radius: 7px;
+    overflow: hidden;
+    background: #ffffff;
+    flex: none;
+  }
+
+  .config-stepper-buttons {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #d9d9d9;
+    background: #fbfbfb;
+  }
+
+  .config-step-btn {
+    border: 0;
+    width: 16px;
+    height: 14px;
+    padding: 0;
+    background: transparent;
+    color: #b5b5b5;
+    font-size: 10px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .config-step-btn:hover {
+    color: #868686;
+  }
+
+  .config-value-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    padding: 0 5px;
+  }
+
+  .config-input {
+    width: 30px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #262626;
+    outline: none;
+  }
+
+  .config-input::-webkit-outer-spin-button,
+  .config-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .config-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    color: #4a4a4a;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.05;
+  }
+
+  .random-action-group {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    flex: none;
+  }
+
+  .random-actions-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex: none;
+  }
+
+  .random-action-btn {
+    width: 94px;
+    min-height: 64px;
+    border: 0;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.12;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+    white-space: normal;
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.08);
+  }
+
+  .random-action-btn.once {
+    background: #a7aaac;
+  }
+
+  .random-action-btn.auto {
+    background: #f4c54d;
+  }
+
+  .random-action-btn.auto.is-running {
+    background: #e2b13a;
+  }
+
+  .random-action-btn.stop {
+    background: #b5b8ba;
+  }
+
+  .random-action-btn.clear {
+    background: #d2d5d8;
+    color: #4e565c;
+  }
+
+  .random-action-btn:disabled {
+    opacity: 0.65;
+    cursor: default;
+  }
+
+  .random-counter {
+    min-width: 176px;
+    padding: 8px 12px;
+    border: 1px solid #d1d5d8;
+    border-radius: 8px;
+    background: #f6f7f8;
+    color: #596168;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .random-panel-card {
+    border: 1px solid #d7d7d7;
+    border-radius: 9px;
+    background: #ffffff;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.04);
+  }
+
+  .random-samples-panel {
+    padding: 10px 14px 14px;
+  }
+
+  .random-panel-caption {
+    margin: 0 0 10px;
+    color: #7a7a7a;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .sample-mini-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px 14px;
+  }
+
+  .sample-mini-slot {
+    border: 1px solid #8f969b;
+    background: #ffffff;
+    aspect-ratio: 1.22 / 1;
+  }
+
+  .sample-mini-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .random-means-panel {
+    margin-top: 10px;
+    padding: 8px 14px 14px;
+  }
+
+  .random-means-title {
+    margin: 0 0 8px 32px;
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .random-means-stage {
+    position: relative;
+    border: 1px solid #868d92;
+    background: #ffffff;
+    min-height: 286px;
+  }
+
+  #random-means-chart {
+    display: block;
+    width: 100%;
+    height: 286px;
+  }
+
+  .random-summary {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    pointer-events: none;
+  }
+
+  .random-summary .population {
+    color: #DA5A86;
+  }
+
+  .random-summary .sample {
+    color: #30b8a2;
+  }
+
+  .ci-tab-shell {
+    width: min(100%, 980px);
+    margin: 0 auto;
+  }
+
+  .ci-section + .ci-section {
+    margin-top: 20px;
+  }
+
+  .ci-section-title {
+    margin: 0 0 8px;
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .ci-controls-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+
+  .ci-sample-controls-row {
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+
+  .ci-pop-controls,
+  .ci-sample-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .ci-sample-controls-row .ci-sample-controls {
+    flex: 1;
+    min-width: 0;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .ci-sample-controls-row .config-control {
+    min-height: 42px;
+    padding: 3px 8px 3px 3px;
+    gap: 6px;
+  }
+
+  .ci-sample-controls-row .config-value-wrap {
+    min-width: 30px;
+    padding: 0 4px;
+  }
+
+  .ci-sample-controls-row .config-input {
+    width: 26px;
+    font-size: 13px;
+  }
+
+  .ci-sample-controls-row .config-copy {
+    font-size: 9.5px;
+  }
+
+  .ci-control {
+    min-height: 44px;
+    background: #f5c555;
+    border-color: #dda93d;
+  }
+
+  .ci-control .config-copy {
+    color: #523e10;
+  }
+
+  .ci-select-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 4px 10px;
+    border: 2px solid #dda93d;
+    border-radius: 9px;
+    background: #f5c555;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .ci-select {
+    min-width: 110px;
+    border: 1px solid #cacaca;
+    border-radius: 7px;
+    background: #ffffff;
+    padding: 6px 30px 6px 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #333333;
+    appearance: none;
+    background-image:
+      linear-gradient(45deg, transparent 50%, #8d8d8d 50%),
+      linear-gradient(135deg, #8d8d8d 50%, transparent 50%);
+    background-position:
+      calc(100% - 18px) calc(50% - 2px),
+      calc(100% - 12px) calc(50% - 2px);
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+  }
+
+  .ci-estimator-toggle {
+    min-height: 44px;
+    padding: 7px 10px;
+    align-self: stretch;
+  }
+
+  .ci-sample-controls-row .ci-estimator-toggle {
+    min-height: 42px;
+    padding: 4px 7px;
+    gap: 5px;
+  }
+
+  .ci-sample-controls-row .toggle-check {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+  }
+
+  .ci-sample-controls-row .parameter-toggle input:checked + .toggle-check::after {
+    font-size: 18px;
+  }
+
+  .ci-estimator-toggle .toggle-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .ci-sample-controls-row .ci-estimator-toggle .toggle-copy {
+    font-size: 9px;
+    line-height: 1.05;
+  }
+
+  .ci-sample-controls-row .ci-estimator-toggle .toggle-copy small {
+    font-size: 8px;
+  }
+
+  .ci-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+
+  .ci-sample-controls-row .ci-actions {
+    flex: none;
+    margin-left: auto;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  .ci-action-group {
+    display: flex;
+    gap: 8px;
+  }
+
+  .ci-sample-controls-row .ci-action-group {
+    gap: 4px;
+  }
+
+  .ci-action-btn {
+    min-width: 92px;
+    min-height: 44px;
+    border: 0;
+    border-radius: 8px;
+    padding: 7px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.1;
+    cursor: pointer;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.08);
+  }
+
+  .ci-sample-controls-row .ci-action-btn {
+    min-width: 70px;
+    min-height: 38px;
+    padding: 5px 7px;
+    font-size: 10.5px;
+  }
+
+  .ci-action-btn.once {
+    background: #7ec8e7;
+    color: #184250;
+  }
+
+  .ci-action-btn.auto,
+  .ci-action-btn.stop {
+    background: #dfdfdf;
+    color: #4a4a4a;
+  }
+
+  .ci-action-btn:disabled {
+    opacity: 0.65;
+    cursor: default;
+  }
+
+  .ci-status {
+    font-size: 12px;
+    font-weight: 700;
+    color: #696969;
+  }
+
+  .ci-sample-controls-row .ci-status {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  .ci-chart-card {
+    border: 1px solid #767676;
+    background: #ffffff;
+  }
+
+  .ci-mean-cell {
+    cursor: pointer;
+  }
+
+  .ci-interval-record {
+    cursor: pointer;
+  }
+
+  .ci-hover-tooltip {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 60;
+    min-width: 150px;
+    padding: 8px 10px;
+    border: 1px solid #2f2f2f;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 120ms ease;
+  }
+
+  .ci-hover-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .ci-hover-tooltip .tooltip-row {
+    font-size: 11.5px;
+    line-height: 1.3;
+    color: #2b2b2b;
+    white-space: nowrap;
+  }
+
+  .ci-hover-tooltip .tooltip-row + .tooltip-row {
+    margin-top: 3px;
+  }
+
+  .ci-hover-tooltip strong {
+    font-weight: 700;
+  }
+
+  .ci-plot-label {
+    margin: 6px 0 4px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #666666;
+  }
+
+  #ci-population-chart,
+  #ci-means-hist-chart,
+  #ci-interval-chart {
+    display: block;
+    width: 100%;
+  }
+
+  #ci-population-chart {
+    height: 286px;
+  }
+
+  #ci-means-hist-chart {
+    height: 225px;
+  }
+
+  #ci-interval-chart {
+    height: 510px;
+  }
+
   .placeholder-panel {
     min-height: 520px;
     display: grid;
@@ -661,6 +1205,37 @@ monofontoptions:
     .size-panel h3 {
       margin-top: 0;
     }
+
+    .random-controls-row {
+      flex-direction: column;
+    }
+
+    .random-config-grid {
+      max-width: none;
+      width: 100%;
+    }
+
+    .random-action-group {
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .random-actions-stack {
+      width: 100%;
+      align-items: flex-start;
+    }
+
+    .sample-mini-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ci-controls-row {
+      flex-direction: column;
+    }
+
+    .ci-actions {
+      align-items: flex-start;
+    }
   }
 
   @media (max-width: 640px) {
@@ -673,7 +1248,8 @@ monofontoptions:
 
     .tab-btn {
       border-radius: 8px;
-      width: calc(50% - 3px);
+      flex: 1 1 0;
+      width: auto;
     }
 
     .toolbar-main {
@@ -696,35 +1272,79 @@ monofontoptions:
     .size-buttons {
       grid-template-columns: 1fr;
     }
+
+    .random-config-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .random-action-group {
+      flex-wrap: wrap;
+    }
+
+    .random-actions-stack {
+      width: 100%;
+    }
+
+    .random-action-btn {
+      width: calc(50% - 5px);
+      min-width: 132px;
+    }
+
+    .random-counter {
+      min-width: 0;
+      width: 100%;
+    }
+
+    .sample-mini-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .random-means-title {
+      margin-left: 0;
+      font-size: 20px;
+    }
+
+    .random-summary {
+      position: static;
+      padding: 10px 0 0;
+    }
+
+    .ci-action-group {
+      flex-wrap: wrap;
+    }
+
+    .ci-action-btn {
+      min-width: 132px;
+    }
   }
 </style>
 
 <div class="sampling-app">
   <div class="app-topbar">
-    <div class="app-title">Distribución de los promedios muestrales</div>
+    <div class="app-title">Estudio de distribuciones de promedios muestrales</div>
   </div>
 
   <div class="app-body">
     <section class="app-main">
       <div class="tab-strip">
         <button class="tab-btn active" data-tab="grandes-numeros">Grandes numeros</button>
-        <button class="tab-btn" data-tab="muestreos-aleatorios">Muestreos aleatorios</button>
-        <button class="tab-btn" data-tab="analisis-dispersion-1">Analisis de dispersión</button>
-        <button class="tab-btn" data-tab="analisis-dispersion-2">Analisis de dispersión</button>
+        <button class="tab-btn" data-tab="muestreos-aleatorios">Distribucion muestral</button>
+        <button class="tab-btn" data-tab="analisis-dispersion-1">Intervalos de confianza</button>
       </div>
 
       <section class="tab-panel active" data-tab-panel="grandes-numeros">
         <div class="instructions">
           <h2>Instrucciones</h2>
           <p>
-            Haga click en los botones de la sección “tamaño muestral” N para observar cómo
-            varían los promedios de un número determinado de muestras de una distribución
-            normal con promedio fijo.
+            Haga click en los botones de la sección “tamaño muestral” para observar cómo
+            varían los promedios de un número determinado de muestras tomados de manera
+            aleatoria de una población.
           </p>
           <p>
-            Puede cambiar el número de muestras por tamaño N mediante el control M. Cada
-            círculo gris representa el promedio de una muestra y el círculo negro corresponde
-            al promedio de todos los promedios muestrales de esa fila.
+            Puede cambiar el número total de muestras, por default se considera un conjunto
+            de 30 muestras. Cada círculo gris representa el promedio de una muestra y el
+            círculo negro corresponde al promedio de todos los promedios muestrales para un
+            tamaño muestral fijo.
           </p>
         </div>
 
@@ -801,43 +1421,260 @@ monofontoptions:
       </section>
 
       <section class="tab-panel" data-tab-panel="muestreos-aleatorios">
-        <div class="placeholder-panel">
-          <div class="placeholder-card">
-            <h3>Muestreos aleatorios</h3>
-            <p>
-              La pestaña ya existe en la navegación y comparte el layout general. En el siguiente
-              paso podemos sumar aquí controles, gráficos y tablas usando la misma base visual.
-            </p>
+        <div class="random-tab-shell">
+          <div class="random-controls-row">
+            <div class="random-config-grid">
+              <label class="config-control">
+                <span class="config-stepper">
+                  <span class="config-stepper-buttons">
+                    <button class="config-step-btn" type="button" data-config-target="random-sample-size" data-config-step="1">▲</button>
+                    <button class="config-step-btn" type="button" data-config-target="random-sample-size" data-config-step="-1">▼</button>
+                  </span>
+                  <span class="config-value-wrap">
+                    <input class="config-input" id="random-sample-size" type="text" inputmode="numeric" value="30" aria-label="Tamaño muestra" />
+                  </span>
+                </span>
+                <span class="config-copy">
+                  <span>Tamaño</span>
+                  <span>muestra</span>
+                </span>
+              </label>
+
+              <label class="config-control">
+                <span class="config-stepper">
+                  <span class="config-stepper-buttons">
+                    <button class="config-step-btn" type="button" data-config-target="random-num-samples" data-config-step="1">▲</button>
+                    <button class="config-step-btn" type="button" data-config-target="random-num-samples" data-config-step="-1">▼</button>
+                  </span>
+                  <span class="config-value-wrap">
+                    <input class="config-input" id="random-num-samples" type="text" inputmode="numeric" value="40" aria-label="Número de muestras" />
+                  </span>
+                </span>
+                <span class="config-copy">
+                  <span>Número de</span>
+                  <span>muestras</span>
+                </span>
+              </label>
+
+              <label class="config-control">
+                <span class="config-stepper">
+                  <span class="config-stepper-buttons">
+                    <button class="config-step-btn" type="button" data-config-target="random-pop-mean" data-config-step="1">▲</button>
+                    <button class="config-step-btn" type="button" data-config-target="random-pop-mean" data-config-step="-1">▼</button>
+                  </span>
+                  <span class="config-value-wrap">
+                    <input class="config-input" id="random-pop-mean" type="text" inputmode="numeric" value="42" aria-label="Promedio población" />
+                  </span>
+                </span>
+                <span class="config-copy">
+                  <span>Promedio</span>
+                  <span>Población</span>
+                </span>
+              </label>
+
+              <label class="config-control">
+                <span class="config-stepper">
+                  <span class="config-stepper-buttons">
+                    <button class="config-step-btn" type="button" data-config-target="random-pop-sd" data-config-step="1">▲</button>
+                    <button class="config-step-btn" type="button" data-config-target="random-pop-sd" data-config-step="-1">▼</button>
+                  </span>
+                  <span class="config-value-wrap">
+                    <input class="config-input" id="random-pop-sd" type="text" inputmode="numeric" value="12" aria-label="Desviación estándar población" />
+                  </span>
+                </span>
+                <span class="config-copy">
+                  <span>D.S</span>
+                  <span>Población</span>
+                </span>
+              </label>
+
+              <label class="config-control">
+                <span class="config-stepper">
+                  <span class="config-stepper-buttons">
+                    <button class="config-step-btn" type="button" data-config-target="random-auto-speed" data-config-step="1">▲</button>
+                    <button class="config-step-btn" type="button" data-config-target="random-auto-speed" data-config-step="-1">▼</button>
+                  </span>
+                  <span class="config-value-wrap">
+                    <input class="config-input" id="random-auto-speed" type="text" inputmode="numeric" value="8" aria-label="Velocidad auto" />
+                  </span>
+                </span>
+                <span class="config-copy">
+                  <span>Velocidad</span>
+                  <span>auto</span>
+                </span>
+              </label>
+            </div>
+
+            <div class="random-actions-stack">
+              <div class="random-action-group">
+                <button class="random-action-btn once" id="random-run-once" type="button">Ejecuta una vez</button>
+                  <button class="random-action-btn auto" id="random-run-auto" type="button">Ejecuta continuo</button>
+                <button class="random-action-btn stop" id="random-stop-auto" type="button">Parar ejecución</button>
+                <button class="random-action-btn clear" id="random-clear-all" type="button">Limpiar todo</button>
+              </div>
+              <div class="random-counter" id="random-sample-counter">Muestras acumuladas: 0 / 40</div>
+            </div>
+          </div>
+
+          <div class="random-panel-card random-samples-panel">
+            <p class="random-panel-caption">A continuación se muestran las últimas 10 muestras:</p>
+            <div class="sample-mini-grid" id="random-sample-grid"></div>
+          </div>
+
+          <div class="random-panel-card random-means-panel">
+            <h3 class="random-means-title">Distribución de los promedios muestrales</h3>
+            <div class="random-means-stage">
+              <svg id="random-means-chart" viewBox="0 0 760 286" preserveAspectRatio="none" aria-label="Histograma de promedios muestrales"></svg>
+              <div class="random-summary" id="random-summary"></div>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="tab-panel" data-tab-panel="analisis-dispersion-1">
-        <div class="placeholder-panel">
-          <div class="placeholder-card">
-            <h3>Análisis de dispersión 1</h3>
-            <p>
-              Queda reservado el espacio para el primer bloque de análisis. El cambio futuro puede
-              hacerse sin tocar la arquitectura de pestañas y panel lateral.
-            </p>
-          </div>
-        </div>
-      </section>
+        <div class="ci-tab-shell">
+          <section class="ci-section">
+            <h2 class="ci-section-title">Distribución de edades de la población</h2>
+            <div class="ci-controls-row">
+              <div class="ci-pop-controls">
+                <label class="config-control ci-control">
+                  <span class="config-stepper">
+                    <span class="config-stepper-buttons">
+                      <button class="config-step-btn" type="button" data-ci-config-target="ci-pop-mean" data-ci-config-step="1">▲</button>
+                      <button class="config-step-btn" type="button" data-ci-config-target="ci-pop-mean" data-ci-config-step="-1">▼</button>
+                    </span>
+                    <span class="config-value-wrap">
+                      <input class="config-input" id="ci-pop-mean" type="text" inputmode="numeric" value="30" aria-label="Promedio población IC" />
+                    </span>
+                  </span>
+                  <span class="config-copy">
+                    <span>Promedio</span>
+                    <span>Población</span>
+                  </span>
+                </label>
 
-      <section class="tab-panel" data-tab-panel="analisis-dispersion-2">
-        <div class="placeholder-panel">
-          <div class="placeholder-card">
-            <h3>Análisis de dispersión 2</h3>
-            <p>
-              Esta pestaña mantiene la misma estructura visual y está lista para recibir el siguiente
-              módulo interactivo.
-            </p>
-          </div>
+                <label class="config-control ci-control">
+                  <span class="config-stepper">
+                    <span class="config-stepper-buttons">
+                      <button class="config-step-btn" type="button" data-ci-config-target="ci-pop-sd" data-ci-config-step="1">▲</button>
+                      <button class="config-step-btn" type="button" data-ci-config-target="ci-pop-sd" data-ci-config-step="-1">▼</button>
+                    </span>
+                    <span class="config-value-wrap">
+                      <input class="config-input" id="ci-pop-sd" type="text" inputmode="numeric" value="12" aria-label="Desviación estándar población IC" />
+                    </span>
+                  </span>
+                  <span class="config-copy">
+                    <span>D.S</span>
+                    <span>Población</span>
+                  </span>
+                </label>
+
+                <label class="ci-select-control">
+                  <select class="ci-select" id="ci-distribution-type" aria-label="Tipo de distribución">
+                    <option value="normal">Normal</option>
+                    <option value="rectangular">Rectangular</option>
+                    <option value="triangular">Triangular</option>
+                  </select>
+                  <span class="config-copy">
+                    <span>Tipo de</span>
+                    <span>distribución</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="ci-chart-card">
+              <svg id="ci-population-chart" viewBox="0 0 760 286" preserveAspectRatio="none" aria-label="Distribución de la población"></svg>
+            </div>
+          </section>
+
+          <section class="ci-section">
+            <h2 class="ci-section-title">Distribución de promedios muestrales</h2>
+            <div class="ci-controls-row ci-sample-controls-row">
+              <div class="ci-sample-controls">
+                <label class="config-control ci-control">
+                  <span class="config-stepper">
+                    <span class="config-stepper-buttons">
+                      <button class="config-step-btn" type="button" data-ci-config-target="ci-sample-size" data-ci-config-step="1">▲</button>
+                      <button class="config-step-btn" type="button" data-ci-config-target="ci-sample-size" data-ci-config-step="-1">▼</button>
+                    </span>
+                    <span class="config-value-wrap">
+                      <input class="config-input" id="ci-sample-size" type="text" inputmode="numeric" value="30" aria-label="Tamaño muestral IC" />
+                    </span>
+                  </span>
+                  <span class="config-copy">
+                    <span>Tamaño</span>
+                    <span>muestral</span>
+                  </span>
+                </label>
+
+                <label class="config-control ci-control">
+                  <span class="config-stepper">
+                    <span class="config-stepper-buttons">
+                      <button class="config-step-btn" type="button" data-ci-config-target="ci-num-samples" data-ci-config-step="1">▲</button>
+                      <button class="config-step-btn" type="button" data-ci-config-target="ci-num-samples" data-ci-config-step="-1">▼</button>
+                    </span>
+                    <span class="config-value-wrap">
+                      <input class="config-input" id="ci-num-samples" type="text" inputmode="numeric" value="40" aria-label="Número de muestras IC" />
+                    </span>
+                  </span>
+                  <span class="config-copy">
+                    <span>Número de</span>
+                    <span>muestras</span>
+                  </span>
+                </label>
+
+                <label class="config-control ci-control">
+                  <span class="config-stepper">
+                    <span class="config-stepper-buttons">
+                      <button class="config-step-btn" type="button" data-ci-config-target="ci-confidence-level" data-ci-config-step="1">▲</button>
+                      <button class="config-step-btn" type="button" data-ci-config-target="ci-confidence-level" data-ci-config-step="-1">▼</button>
+                    </span>
+                    <span class="config-value-wrap">
+                      <input class="config-input" id="ci-confidence-level" type="text" inputmode="numeric" value="95" aria-label="Nivel de confianza IC" />
+                    </span>
+                  </span>
+                  <span class="config-copy">
+                    <span>Nivel de</span>
+                    <span>confianza</span>
+                  </span>
+                </label>
+
+                <label class="parameter-toggle ci-estimator-toggle" for="ci-use-sample-sd">
+                  <input id="ci-use-sample-sd" type="checkbox" />
+                  <span class="toggle-check" aria-hidden="true"></span>
+                  <span class="toggle-copy">
+                    <span>Usar D.S.</span>
+                    <small>muestral en el IC</small>
+                  </span>
+                </label>
+              </div>
+
+              <div class="ci-actions">
+                <div class="ci-action-group">
+                  <button class="ci-action-btn once" id="ci-run-once" type="button">Ejecuta una vez</button>
+                  <button class="ci-action-btn auto" id="ci-run-auto" type="button">Ejecuta continuamente</button>
+                  <button class="ci-action-btn stop" id="ci-stop-auto" type="button">Parar ejecución</button>
+                </div>
+                <div class="ci-status" id="ci-status">Muestras acumuladas: 0 / 40</div>
+              </div>
+            </div>
+
+            <div class="ci-plot-label">Promedios muestrales</div>
+            <div class="ci-chart-card">
+              <svg id="ci-means-hist-chart" viewBox="0 0 760 225" preserveAspectRatio="none" aria-label="Distribución de promedios muestrales para intervalos de confianza"></svg>
+            </div>
+
+            <div class="ci-plot-label">Intervalo de confianza</div>
+            <div class="ci-chart-card">
+              <svg id="ci-interval-chart" viewBox="0 0 760 510" preserveAspectRatio="none" aria-label="Intervalos de confianza acumulados"></svg>
+            </div>
+          </section>
         </div>
       </section>
     </section>
   </div>
 </div>
+<div class="ci-hover-tooltip" id="ci-hover-tooltip" aria-hidden="true"></div>
 
 <script>
   const SAMPLE_SIZES = [3, 10, 30, 100, 1000, 10000, 100000];
@@ -857,6 +1694,42 @@ monofontoptions:
     showPopulationMean: true
   };
 
+  const RANDOM_COLORS = {
+    population: "#DA5A86",
+    sample: "#30b8a2",
+    barFill: "#e6e6e6",
+    barStroke: "#a5abb1",
+    axis: "#676d72",
+    miniMean: "#8fc8e4"
+  };
+
+  const randomSamplingState = {
+    sampleSize: 30,
+    numSamples: 40,
+    populationMean: 42,
+    populationSd: 12,
+    autoSpeed: 8,
+    samples: [],
+    sampleMeans: [],
+    pooledMean: null,
+    pooledSd: null,
+    autoTimer: null
+  };
+
+  const ciState = {
+    populationMean: 30,
+    populationSd: 12,
+    distributionType: "normal",
+    sampleSize: 30,
+    numSamples: 40,
+    confidenceLevel: 95,
+    useSampleSd: false,
+    populationValues: [],
+    sampleRecords: [],
+    autoTimer: null,
+    hoveredRecordIndex: null
+  };
+
   function randn() {
     let u = 0;
     let v = 0;
@@ -868,6 +1741,20 @@ monofontoptions:
   function average(values) {
     if (!values.length) return 0;
     return values.reduce((sum, value) => sum + value, 0) / values.length;
+  }
+
+  function standardDeviation(values) {
+    if (values.length < 2) return 0;
+    const mean = average(values);
+    const variance = values.reduce((sum, value) => sum + (value - mean) ** 2, 0) / values.length;
+    return Math.sqrt(variance);
+  }
+
+  function sampleStandardDeviation(values) {
+    if (values.length < 2) return 0;
+    const mean = average(values);
+    const variance = values.reduce((sum, value) => sum + (value - mean) ** 2, 0) / (values.length - 1);
+    return Math.sqrt(variance);
   }
 
   function clamp(value, min, max) {
@@ -913,27 +1800,6 @@ monofontoptions:
     };
   }
 
-  function ensurePreviewRows() {
-    if (state.rowResults.size) return;
-
-    SAMPLE_SIZES.forEach((sampleSize) => {
-      const previewCase = {
-        id: `preview-${sampleSize}`,
-        sampleSize,
-        numSamples: state.m,
-        means: Array.from({ length: state.m }, () => Number(simulateSampleMean(sampleSize).toFixed(4))),
-        grandMean: 0,
-        populationMean: POPULATION_MEAN,
-        createdAt: null,
-        populationLineVisible: state.showPopulationMean,
-        preview: true
-      };
-
-      previewCase.grandMean = Number(average(previewCase.means).toFixed(4));
-      state.rowResults.set(sampleSize, previewCase);
-    });
-  }
-
   function saveCases() {
     localStorage.setItem(CASES_STORAGE_KEY, JSON.stringify(state.cases));
   }
@@ -970,11 +1836,8 @@ monofontoptions:
       saveCases();
     }
 
-    for (const caseItem of state.cases) {
-      if (!state.rowResults.has(caseItem.sampleSize)) {
-        state.rowResults.set(caseItem.sampleSize, caseItem);
-      }
-    }
+    state.rowResults = new Map();
+    state.selectedN = null;
   }
 
   function renderButtons() {
@@ -1087,6 +1950,13 @@ monofontoptions:
   }
 
   function setActiveTab(tabId) {
+    if (tabId !== "muestreos-aleatorios") {
+      stopRandomSamplingAuto();
+    }
+    if (tabId !== "analisis-dispersion-1") {
+      stopConfidenceAuto();
+    }
+
     state.activeTab = tabId;
 
     document.querySelectorAll(".tab-btn").forEach((button) => {
@@ -1100,6 +1970,884 @@ monofontoptions:
     document.querySelectorAll("[data-sidebar-panel]").forEach((panel) => {
       panel.classList.toggle("active", panel.dataset.sidebarPanel === tabId);
     });
+  }
+
+  function normalizeRandomInteger(rawValue, fallback, min, max) {
+    const parsed = Number.parseInt(rawValue, 10);
+    if (!Number.isFinite(parsed)) return fallback;
+    return clamp(parsed, min, max);
+  }
+
+  function formatStat(value, digits = 2) {
+    if (!Number.isFinite(value)) return "-";
+    return String(Number(value.toFixed(digits)));
+  }
+
+  function getAxisDigits(minValue, maxValue, divisions) {
+    const step = Math.abs(maxValue - minValue) / Math.max(1, divisions);
+    if (step >= 5) return 0;
+    if (step >= 1) return 1;
+    return 2;
+  }
+
+  const CI_AXIS_FONT_FAMILY = "Avenir Next, Segoe UI, sans-serif";
+  const CI_AXIS_FONT_SIZE = 10.5;
+  const CI_AXIS_TEXT_COLOR = "#5f5f5f";
+
+  function getFrequencyAxisStep(maxFrequency) {
+    if (maxFrequency <= 15) return 1;
+    if (maxFrequency <= 30) return 2;
+    if (maxFrequency <= 60) return 5;
+    return 10;
+  }
+
+  function getRandomPopulationDomain() {
+    const halfRange = Math.max(10, randomSamplingState.populationSd * 1.9);
+    const min = randomSamplingState.populationMean - halfRange;
+    const max = randomSamplingState.populationMean + halfRange;
+    const pad = Math.max(1.5, (max - min) * 0.03);
+    return [min - pad, max + pad];
+  }
+
+  function getRandomMeansDomain() {
+    const values = randomSamplingState.sampleMeans;
+    const meanSd = randomSamplingState.populationSd / Math.sqrt(Math.max(1, randomSamplingState.sampleSize));
+    const observedMin = values.length ? Math.min(...values) : randomSamplingState.populationMean - meanSd * 3;
+    const observedMax = values.length ? Math.max(...values) : randomSamplingState.populationMean + meanSd * 3;
+    const min = Math.min(observedMin, randomSamplingState.populationMean - meanSd * 3.6, randomSamplingState.pooledMean ?? randomSamplingState.populationMean);
+    const max = Math.max(observedMax, randomSamplingState.populationMean + meanSd * 3.6, randomSamplingState.pooledMean ?? randomSamplingState.populationMean);
+    const pad = Math.max(0.35, (max - min) * 0.08);
+    return [min - pad, max + pad];
+  }
+
+  function buildHistogram(values, binCount, minValue, maxValue) {
+    const counts = new Array(binCount).fill(0);
+    const span = Math.max(1e-9, maxValue - minValue);
+
+    values.forEach((value) => {
+      const scaled = (value - minValue) / span;
+      const index = clamp(Math.floor(scaled * binCount), 0, binCount - 1);
+      counts[index] += 1;
+    });
+
+    return counts;
+  }
+
+  function sampleNormal(mean, sd) {
+    return mean + randn() * sd;
+  }
+
+  function readRandomSamplingControls() {
+    randomSamplingState.sampleSize = normalizeRandomInteger(document.getElementById("random-sample-size").value, 30, 2, 500);
+    randomSamplingState.numSamples = normalizeRandomInteger(document.getElementById("random-num-samples").value, 40, 10, 500);
+    randomSamplingState.populationMean = normalizeRandomInteger(document.getElementById("random-pop-mean").value, 42, -200, 200);
+    randomSamplingState.populationSd = normalizeRandomInteger(document.getElementById("random-pop-sd").value, 12, 1, 80);
+    randomSamplingState.autoSpeed = normalizeRandomInteger(document.getElementById("random-auto-speed").value, 8, 1, 40);
+  }
+
+  function syncRandomSamplingControls() {
+    document.getElementById("random-sample-size").value = randomSamplingState.sampleSize;
+    document.getElementById("random-num-samples").value = randomSamplingState.numSamples;
+    document.getElementById("random-pop-mean").value = randomSamplingState.populationMean;
+    document.getElementById("random-pop-sd").value = randomSamplingState.populationSd;
+    document.getElementById("random-auto-speed").value = randomSamplingState.autoSpeed;
+  }
+
+  function updateRandomSamplingSummary() {
+    if (!randomSamplingState.samples.length) {
+      randomSamplingState.pooledMean = null;
+      randomSamplingState.pooledSd = null;
+      return;
+    }
+
+    const pooledValues = randomSamplingState.samples.flat();
+    randomSamplingState.pooledMean = average(pooledValues);
+    randomSamplingState.pooledSd = standardDeviation(pooledValues);
+  }
+
+  function appendRandomSamplingSample() {
+    readRandomSamplingControls();
+    syncRandomSamplingControls();
+
+    if (randomSamplingState.sampleMeans.length >= randomSamplingState.numSamples) {
+      stopRandomSamplingAuto();
+      renderRandomSamplingButtons();
+      return false;
+    }
+
+    const sampleValues = Array.from(
+      { length: randomSamplingState.sampleSize },
+      () => sampleNormal(randomSamplingState.populationMean, randomSamplingState.populationSd)
+    );
+
+    randomSamplingState.samples.push(sampleValues);
+    randomSamplingState.sampleMeans.push(average(sampleValues));
+    updateRandomSamplingSummary();
+
+    renderRandomSampleGrid();
+    renderRandomMeansChart();
+    renderRandomSamplingButtons();
+    return true;
+  }
+
+  function resetRandomSamplingSimulation() {
+    stopRandomSamplingAuto();
+    randomSamplingState.samples = [];
+    randomSamplingState.sampleMeans = [];
+    randomSamplingState.pooledMean = null;
+    randomSamplingState.pooledSd = null;
+    renderRandomSampleGrid();
+    renderRandomMeansChart();
+    renderRandomSamplingButtons();
+  }
+
+  function renderRandomSamplingButtons() {
+    const onceButton = document.getElementById("random-run-once");
+    const autoButton = document.getElementById("random-run-auto");
+    const stopButton = document.getElementById("random-stop-auto");
+    const counter = document.getElementById("random-sample-counter");
+    const totalSamples = randomSamplingState.sampleMeans.length;
+    const isRunning = Boolean(randomSamplingState.autoTimer);
+    const atCapacity = totalSamples >= randomSamplingState.numSamples;
+    onceButton.disabled = atCapacity;
+    autoButton.disabled = atCapacity;
+    autoButton.classList.toggle("is-running", isRunning);
+    stopButton.disabled = !isRunning;
+    counter.textContent = `Muestras acumuladas: ${totalSamples} / ${randomSamplingState.numSamples} | Velocidad: ${randomSamplingState.autoSpeed}/s`;
+  }
+
+  function buildMiniHistogramSvg(values, minDomain, maxDomain) {
+    const width = 164;
+    const height = 104;
+    const margin = { top: 6, right: 4, bottom: 16, left: 18 };
+    const plotWidth = width - margin.left - margin.right;
+    const plotHeight = height - margin.top - margin.bottom;
+    const binCount = 10;
+    const counts = buildHistogram(values, binCount, minDomain, maxDomain);
+    const maxCount = Math.max(1, ...counts);
+    const span = Math.max(1e-9, maxDomain - minDomain);
+    const xScale = (value) => margin.left + ((value - minDomain) / span) * plotWidth;
+    const binWidth = plotWidth / binCount;
+    const pieces = [
+      `<rect x="0" y="0" width="${width}" height="${height}" fill="#ffffff"></rect>`,
+      `<line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${margin.top + plotHeight}" stroke="#5f666b" stroke-width="1"></line>`,
+      `<line x1="${margin.left}" y1="${margin.top + plotHeight}" x2="${margin.left + plotWidth}" y2="${margin.top + plotHeight}" stroke="#5f666b" stroke-width="1"></line>`
+    ];
+
+    counts.forEach((count, index) => {
+      const barHeight = (count / maxCount) * (plotHeight - 4);
+      const x = margin.left + index * binWidth + 1;
+      const y = margin.top + plotHeight - barHeight;
+      pieces.push(
+        `<rect x="${x.toFixed(2)}" y="${y.toFixed(2)}" width="${Math.max(1, binWidth - 2).toFixed(2)}" height="${barHeight.toFixed(2)}" fill="#e7e7e7" stroke="#9aa1a7" stroke-width="0.8"></rect>`
+      );
+    });
+
+    const sampleMean = average(values);
+    const meanX = xScale(sampleMean);
+    pieces.push(
+      `<line x1="${meanX.toFixed(2)}" y1="${margin.top + 1}" x2="${meanX.toFixed(2)}" y2="${margin.top + plotHeight}" stroke="${RANDOM_COLORS.miniMean}" stroke-width="2"></line>`
+    );
+
+    const ticks = 4;
+    for (let tickIndex = 0; tickIndex <= ticks; tickIndex += 1) {
+      const tickValue = minDomain + ((maxDomain - minDomain) * tickIndex) / ticks;
+      const x = margin.left + (plotWidth * tickIndex) / ticks;
+      pieces.push(`<line x1="${x.toFixed(2)}" y1="${margin.top + plotHeight}" x2="${x.toFixed(2)}" y2="${(margin.top + plotHeight + 4).toFixed(2)}" stroke="#5f666b" stroke-width="0.8"></line>`);
+      pieces.push(`<text x="${x.toFixed(2)}" y="${height - 3}" text-anchor="middle" font-size="7.5" fill="#5f666b">${formatStat(tickValue, 0)}</text>`);
+    }
+
+    return `<svg class="sample-mini-svg" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none" aria-hidden="true">${pieces.join("")}</svg>`;
+  }
+
+  function renderRandomSampleGrid() {
+    const container = document.getElementById("random-sample-grid");
+    const samplesToShow = randomSamplingState.samples.slice(-10);
+
+    container.innerHTML = Array.from({ length: 10 }, (_, index) => {
+      const sampleValues = samplesToShow[index];
+      if (!sampleValues) {
+        return '<div class="sample-mini-slot"><svg class="sample-mini-svg" viewBox="0 0 164 104" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="0" width="164" height="104" fill="#ffffff"></rect></svg></div>';
+      }
+
+      const [minDomain, maxDomain] = getRandomPopulationDomain();
+      const svg = sampleValues
+        ? buildMiniHistogramSvg(sampleValues, minDomain, maxDomain)
+        : `<svg class="sample-mini-svg" viewBox="0 0 164 104" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="0" width="164" height="104" fill="#ffffff"></rect></svg>`;
+      return `<div class="sample-mini-slot">${svg}</div>`;
+    }).join("");
+  }
+
+  function renderRandomMeansChart() {
+    const svg = document.getElementById("random-means-chart");
+    const summary = document.getElementById("random-summary");
+    const width = 760;
+    const height = 286;
+    const margin = { top: 14, right: 20, bottom: 30, left: 44 };
+    const summarySpace = 160;
+    const plotWidth = width - margin.left - margin.right - summarySpace;
+    const plotHeight = height - margin.top - margin.bottom;
+    const values = randomSamplingState.sampleMeans;
+
+    if (!values.length) {
+      svg.innerHTML = `<rect x="0" y="0" width="${width}" height="${height}" fill="#ffffff"></rect>`;
+      summary.innerHTML = "";
+      return;
+    }
+
+    const [minDomain, maxDomain] = getRandomMeansDomain();
+    const binCount = Math.max(8, Math.min(12, Math.round(Math.sqrt(Math.max(1, values.length))) + 2));
+    const counts = buildHistogram(values, binCount, minDomain, maxDomain);
+    const maxCount = Math.max(1, ...counts);
+    const span = Math.max(1e-9, maxDomain - minDomain);
+    const xScale = (value) => margin.left + ((value - minDomain) / span) * plotWidth;
+    const barWidth = plotWidth / binCount;
+    const pieces = [
+      `<rect x="0" y="0" width="${width}" height="${height}" fill="#ffffff"></rect>`,
+      `<line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${margin.top + plotHeight}" stroke="${RANDOM_COLORS.axis}" stroke-width="1.1"></line>`,
+      `<line x1="${margin.left}" y1="${margin.top + plotHeight}" x2="${margin.left + plotWidth}" y2="${margin.top + plotHeight}" stroke="${RANDOM_COLORS.axis}" stroke-width="1.1"></line>`
+    ];
+
+    counts.forEach((count, index) => {
+      const barHeight = (count / maxCount) * (plotHeight - 4);
+      const x = margin.left + index * barWidth + 1.5;
+      const y = margin.top + plotHeight - barHeight;
+      pieces.push(
+        `<rect x="${x.toFixed(2)}" y="${y.toFixed(2)}" width="${Math.max(1, barWidth - 3).toFixed(2)}" height="${barHeight.toFixed(2)}" fill="${RANDOM_COLORS.barFill}" stroke="${RANDOM_COLORS.barStroke}" stroke-width="1"></rect>`
+      );
+    });
+
+    const popLineX = xScale(randomSamplingState.populationMean);
+    const sampleLineX = xScale(randomSamplingState.pooledMean ?? randomSamplingState.populationMean);
+    pieces.push(`<line x1="${popLineX.toFixed(2)}" y1="${margin.top}" x2="${popLineX.toFixed(2)}" y2="${margin.top + plotHeight}" stroke="${RANDOM_COLORS.population}" stroke-width="3"></line>`);
+    pieces.push(`<line x1="${sampleLineX.toFixed(2)}" y1="${margin.top}" x2="${sampleLineX.toFixed(2)}" y2="${margin.top + plotHeight}" stroke="${RANDOM_COLORS.sample}" stroke-width="3"></line>`);
+
+    const xTicks = 8;
+    for (let tickIndex = 0; tickIndex <= xTicks; tickIndex += 1) {
+      const tickValue = minDomain + ((maxDomain - minDomain) * tickIndex) / xTicks;
+      const x = margin.left + (plotWidth * tickIndex) / xTicks;
+      pieces.push(`<line x1="${x.toFixed(2)}" y1="${margin.top + plotHeight}" x2="${x.toFixed(2)}" y2="${(margin.top + plotHeight + 6).toFixed(2)}" stroke="${RANDOM_COLORS.axis}" stroke-width="1"></line>`);
+      pieces.push(`<text x="${x.toFixed(2)}" y="${height - 8}" text-anchor="middle" font-size="11" fill="${RANDOM_COLORS.axis}">${formatStat(tickValue, 0)}</text>`);
+    }
+
+    const yTicks = 4;
+    for (let tickIndex = 0; tickIndex <= yTicks; tickIndex += 1) {
+      const tickValue = (maxCount * tickIndex) / yTicks;
+      const y = margin.top + plotHeight - (plotHeight * tickIndex) / yTicks;
+      pieces.push(`<line x1="${(margin.left - 5).toFixed(2)}" y1="${y.toFixed(2)}" x2="${margin.left}" y2="${y.toFixed(2)}" stroke="${RANDOM_COLORS.axis}" stroke-width="1"></line>`);
+      pieces.push(`<text x="${(margin.left - 8).toFixed(2)}" y="${(y + 4).toFixed(2)}" text-anchor="end" font-size="11" fill="${RANDOM_COLORS.axis}">${formatStat(tickValue, 0)}</text>`);
+    }
+
+    svg.innerHTML = pieces.join("");
+    summary.innerHTML = [
+      `<div class="population">Promedio poblacional = ${formatStat(randomSamplingState.populationMean, 0)}</div>`,
+      `<div class="population">Desv Estan. poblacional = ${formatStat(randomSamplingState.populationSd, 1)}</div>`,
+      `<div class="sample">Desv Estan. muestral = ${formatStat(randomSamplingState.pooledSd ?? 0, 2)}</div>`,
+      `<div class="sample">Promedio muestral = ${formatStat(randomSamplingState.pooledMean ?? 0, 2)}</div>`
+    ].join("");
+  }
+
+  function stopRandomSamplingAuto() {
+    if (randomSamplingState.autoTimer) {
+      window.clearInterval(randomSamplingState.autoTimer);
+      randomSamplingState.autoTimer = null;
+    }
+    if (document.getElementById("random-run-auto")) {
+      renderRandomSamplingButtons();
+    }
+  }
+
+  function scheduleRandomSamplingAuto() {
+    if (randomSamplingState.autoTimer) {
+      window.clearInterval(randomSamplingState.autoTimer);
+    }
+
+    const intervalMs = Math.max(30, Math.round(1000 / randomSamplingState.autoSpeed));
+    randomSamplingState.autoTimer = window.setInterval(() => {
+      const appended = appendRandomSamplingSample();
+      if (!appended) {
+        stopRandomSamplingAuto();
+      }
+    }, intervalMs);
+  }
+
+  function startRandomSamplingAuto() {
+    stopRandomSamplingAuto();
+    readRandomSamplingControls();
+    syncRandomSamplingControls();
+    if (randomSamplingState.sampleMeans.length >= randomSamplingState.numSamples) {
+      renderRandomSamplingButtons();
+      return;
+    }
+
+    appendRandomSamplingSample();
+    scheduleRandomSamplingAuto();
+    renderRandomSamplingButtons();
+  }
+
+  function initializeRandomSamplingTab() {
+    document.querySelectorAll("[data-config-step]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const input = document.getElementById(button.dataset.configTarget);
+        const fallback = Number.parseInt(input.value, 10) || 0;
+        const nextValue = fallback + Number.parseInt(button.dataset.configStep, 10);
+        input.value = nextValue;
+        readRandomSamplingControls();
+        syncRandomSamplingControls();
+        if (randomSamplingState.autoTimer) {
+          scheduleRandomSamplingAuto();
+        }
+        renderRandomSamplingButtons();
+      });
+    });
+
+    [
+      ["random-sample-size", 30, 2, 500],
+      ["random-num-samples", 40, 10, 500],
+      ["random-pop-mean", 42, -200, 200],
+      ["random-pop-sd", 12, 1, 80],
+      ["random-auto-speed", 8, 1, 40]
+    ].forEach(([id, fallback, min, max]) => {
+      document.getElementById(id).addEventListener("change", (event) => {
+        event.target.value = normalizeRandomInteger(event.target.value, fallback, min, max);
+        readRandomSamplingControls();
+        syncRandomSamplingControls();
+        if (randomSamplingState.autoTimer) {
+          scheduleRandomSamplingAuto();
+        }
+        renderRandomSamplingButtons();
+      });
+    });
+
+    document.getElementById("random-run-once").addEventListener("click", () => {
+      stopRandomSamplingAuto();
+      appendRandomSamplingSample();
+    });
+    document.getElementById("random-run-auto").addEventListener("click", startRandomSamplingAuto);
+    document.getElementById("random-stop-auto").addEventListener("click", stopRandomSamplingAuto);
+    document.getElementById("random-clear-all").addEventListener("click", resetRandomSamplingSimulation);
+
+    syncRandomSamplingControls();
+    renderRandomSampleGrid();
+    renderRandomMeansChart();
+    renderRandomSamplingButtons();
+  }
+
+  function inverseNormalCDF(probability) {
+    if (probability <= 0 || probability >= 1) {
+      return 0;
+    }
+
+    const a = [-39.6968302866538, 220.946098424521, -275.928510446969, 138.357751867269, -30.6647980661472, 2.50662827745924];
+    const b = [-54.4760987982241, 161.585836858041, -155.698979859887, 66.8013118877197, -13.2806815528857];
+    const c = [-0.00778489400243029, -0.322396458041136, -2.40075827716184, -2.54973253934373, 4.37466414146497, 2.93816398269878];
+    const d = [0.00778469570904146, 0.32246712907004, 2.445134137143, 3.75440866190742];
+    const low = 0.02425;
+    const high = 1 - low;
+
+    if (probability < low) {
+      const q = Math.sqrt(-2 * Math.log(probability));
+      return (((((c[0] * q + c[1]) * q + c[2]) * q + c[3]) * q + c[4]) * q + c[5]) /
+        ((((d[0] * q + d[1]) * q + d[2]) * q + d[3]) * q + 1);
+    }
+
+    if (probability > high) {
+      const q = Math.sqrt(-2 * Math.log(1 - probability));
+      return -(((((c[0] * q + c[1]) * q + c[2]) * q + c[3]) * q + c[4]) * q + c[5]) /
+        ((((d[0] * q + d[1]) * q + d[2]) * q + d[3]) * q + 1);
+    }
+
+    const q = probability - 0.5;
+    const r = q * q;
+    return (((((a[0] * r + a[1]) * r + a[2]) * r + a[3]) * r + a[4]) * r + a[5]) * q /
+      (((((b[0] * r + b[1]) * r + b[2]) * r + b[3]) * r + b[4]) * r + 1);
+  }
+
+  function getZCritical(confidenceLevel) {
+    const alpha = 1 - confidenceLevel / 100;
+    return inverseNormalCDF(1 - alpha / 2);
+  }
+
+  function readConfidenceControls() {
+    ciState.populationMean = normalizeRandomInteger(document.getElementById("ci-pop-mean").value, 30, -200, 200);
+    ciState.populationSd = normalizeRandomInteger(document.getElementById("ci-pop-sd").value, 12, 1, 80);
+    ciState.distributionType = document.getElementById("ci-distribution-type").value || "normal";
+    ciState.sampleSize = normalizeRandomInteger(document.getElementById("ci-sample-size").value, 30, 2, 500);
+    ciState.numSamples = normalizeRandomInteger(document.getElementById("ci-num-samples").value, 40, 1, 400);
+    ciState.confidenceLevel = normalizeRandomInteger(document.getElementById("ci-confidence-level").value, 95, 80, 99);
+    ciState.useSampleSd = Boolean(document.getElementById("ci-use-sample-sd").checked);
+  }
+
+  function syncConfidenceControls() {
+    document.getElementById("ci-pop-mean").value = ciState.populationMean;
+    document.getElementById("ci-pop-sd").value = ciState.populationSd;
+    document.getElementById("ci-distribution-type").value = ciState.distributionType;
+    document.getElementById("ci-sample-size").value = ciState.sampleSize;
+    document.getElementById("ci-num-samples").value = ciState.numSamples;
+    document.getElementById("ci-confidence-level").value = ciState.confidenceLevel;
+    document.getElementById("ci-use-sample-sd").checked = ciState.useSampleSd;
+  }
+
+  function sampleConfidencePopulationValue() {
+    switch (ciState.distributionType) {
+      case "rectangular": {
+        const radius = Math.sqrt(3) * ciState.populationSd;
+        return ciState.populationMean + (Math.random() * 2 - 1) * radius;
+      }
+      case "triangular": {
+        const radius = Math.sqrt(6) * ciState.populationSd;
+        return ciState.populationMean + (Math.random() + Math.random() - 1) * radius;
+      }
+      case "normal":
+      default:
+        return ciState.populationMean + randn() * ciState.populationSd;
+    }
+  }
+
+  function getConfidencePopulationDomain() {
+    let halfRange = ciState.populationSd * 4;
+    if (ciState.distributionType === "rectangular") {
+      halfRange = Math.sqrt(3) * ciState.populationSd;
+    } else if (ciState.distributionType === "triangular") {
+      halfRange = Math.sqrt(6) * ciState.populationSd;
+    }
+
+    const pad = Math.max(1.5, halfRange * 0.08);
+    return [Math.max(0, ciState.populationMean - halfRange - pad), ciState.populationMean + halfRange + pad];
+  }
+
+  function getConfidenceSampleDomain() {
+    const theoreticalSe = ciState.populationSd / Math.sqrt(Math.max(1, ciState.sampleSize));
+    const values = ciState.sampleRecords.flatMap((record) => [record.mean, record.ciLow, record.ciHigh]);
+    const observedMin = values.length ? Math.min(...values) : ciState.populationMean - theoreticalSe * 3.5;
+    const observedMax = values.length ? Math.max(...values) : ciState.populationMean + theoreticalSe * 3.5;
+    const min = Math.min(observedMin, ciState.populationMean - theoreticalSe * 3.8);
+    const max = Math.max(observedMax, ciState.populationMean + theoreticalSe * 3.8);
+    const pad = Math.max(0.25, (max - min) * 0.08);
+    return [Math.max(0, min - pad), max + pad];
+  }
+
+  function generateConfidencePopulationValues() {
+    ciState.populationValues = Array.from({ length: 7000 }, () => sampleConfidencePopulationValue());
+  }
+
+  function renderConfidenceStatus() {
+    const runOnce = document.getElementById("ci-run-once");
+    const runAuto = document.getElementById("ci-run-auto");
+    const stopAuto = document.getElementById("ci-stop-auto");
+    const status = document.getElementById("ci-status");
+    const total = ciState.sampleRecords.length;
+    const atCapacity = total >= ciState.numSamples;
+    runOnce.disabled = atCapacity;
+    runAuto.disabled = atCapacity;
+    stopAuto.disabled = !ciState.autoTimer;
+    status.textContent = `Muestras acumuladas: ${total} / ${ciState.numSamples}`;
+  }
+
+  function renderConfidencePopulationChart() {
+    const svg = document.getElementById("ci-population-chart");
+    const width = 760;
+    const height = 286;
+    const margin = { top: 14, right: 16, bottom: 30, left: 38 };
+    const plotWidth = width - margin.left - margin.right;
+    const plotHeight = height - margin.top - margin.bottom;
+    const [minDomain, maxDomain] = getConfidencePopulationDomain();
+    const binCount = 16;
+    const counts = buildHistogram(ciState.populationValues, binCount, minDomain, maxDomain);
+    const maxCount = Math.max(1, ...counts);
+    const xScale = (value) => margin.left + ((value - minDomain) / (maxDomain - minDomain)) * plotWidth;
+    const barWidth = plotWidth / binCount;
+    const pieces = [
+      `<rect x="0" y="0" width="${width}" height="${height}" fill="#ffffff"></rect>`,
+      `<line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${margin.top + plotHeight}" stroke="#626262" stroke-width="1.1"></line>`,
+      `<line x1="${margin.left}" y1="${margin.top + plotHeight}" x2="${margin.left + plotWidth}" y2="${margin.top + plotHeight}" stroke="#626262" stroke-width="1.1"></line>`
+    ];
+
+    counts.forEach((count, index) => {
+      const heightRatio = count / maxCount;
+      const barHeight = heightRatio * (plotHeight - 4);
+      const x = margin.left + index * barWidth + 1;
+      const y = margin.top + plotHeight - barHeight;
+      pieces.push(`<rect x="${x.toFixed(2)}" y="${y.toFixed(2)}" width="${Math.max(1, barWidth - 2).toFixed(2)}" height="${barHeight.toFixed(2)}" fill="#e6e6e6" stroke="#a2a8ae" stroke-width="1"></rect>`);
+    });
+
+    for (let tickIndex = 0; tickIndex <= 8; tickIndex += 1) {
+      const tickValue = minDomain + ((maxDomain - minDomain) * tickIndex) / 8;
+      const x = margin.left + (plotWidth * tickIndex) / 8;
+      pieces.push(`<line x1="${x.toFixed(2)}" y1="${margin.top + plotHeight}" x2="${x.toFixed(2)}" y2="${(margin.top + plotHeight + 5).toFixed(2)}" stroke="#626262" stroke-width="1"></line>`);
+      pieces.push(`<text x="${x.toFixed(2)}" y="${height - 8}" text-anchor="middle" font-size="${CI_AXIS_FONT_SIZE}" font-family="${CI_AXIS_FONT_FAMILY}" fill="${CI_AXIS_TEXT_COLOR}">${formatStat(tickValue, 0)}</text>`);
+    }
+
+    for (let tickIndex = 0; tickIndex <= 5; tickIndex += 1) {
+      const ratio = tickIndex / 5;
+      const y = margin.top + plotHeight - plotHeight * ratio;
+      pieces.push(`<line x1="${(margin.left - 4).toFixed(2)}" y1="${y.toFixed(2)}" x2="${margin.left}" y2="${y.toFixed(2)}" stroke="#626262" stroke-width="1"></line>`);
+      pieces.push(`<text x="${(margin.left - 7).toFixed(2)}" y="${(y + 4).toFixed(2)}" text-anchor="end" font-size="${CI_AXIS_FONT_SIZE}" font-family="${CI_AXIS_FONT_FAMILY}" fill="${CI_AXIS_TEXT_COLOR}">${ratio.toFixed(1)}</text>`);
+    }
+
+    svg.innerHTML = pieces.join("");
+  }
+
+  function renderConfidenceMeansChart() {
+    const svg = document.getElementById("ci-means-hist-chart");
+    const width = 760;
+    const height = 225;
+    const margin = { top: 18, right: 16, bottom: 34, left: 42 };
+    const plotWidth = width - margin.left - margin.right;
+    const plotHeight = height - margin.top - margin.bottom;
+    const values = ciState.sampleRecords.map((record) => record.mean);
+    const [rawMinDomain, rawMaxDomain] = getConfidenceSampleDomain();
+    const minDomain = Math.floor(rawMinDomain);
+    const maxDomain = Math.ceil(rawMaxDomain);
+    const binCount = Math.max(1, maxDomain - minDomain);
+    const counts = buildHistogram(values, binCount, minDomain, maxDomain);
+    const yAxisMax = Math.max(10, ...counts);
+    const boxWidth = plotWidth / binCount;
+    const boxHeight = plotHeight / yAxisMax;
+    const domainSpan = Math.max(1, maxDomain - minDomain);
+    const xTickFontSize = domainSpan > 18 ? 8.5 : 10.5;
+    const yTickStep = getFrequencyAxisStep(yAxisMax);
+    svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+    svg.setAttribute("preserveAspectRatio", "none");
+    svg.style.aspectRatio = "";
+    const pieces = [
+      `<rect x="0" y="0" width="${width}" height="${height}" fill="#ffffff"></rect>`,
+      `<line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${margin.top + plotHeight}" stroke="#626262" stroke-width="1.1"></line>`,
+      `<line x1="${margin.left}" y1="${margin.top + plotHeight}" x2="${margin.left + plotWidth}" y2="${margin.top + plotHeight}" stroke="#626262" stroke-width="1.1"></line>`
+    ];
+
+    const binStacks = Array.from({ length: binCount }, () => []);
+    ciState.sampleRecords.forEach((record, recordIndex) => {
+      const scaled = (record.mean - minDomain) / Math.max(1e-9, domainSpan);
+      const binIndex = clamp(Math.floor(scaled * binCount), 0, binCount - 1);
+      binStacks[binIndex].push(recordIndex);
+    });
+
+    for (let binIndex = 0; binIndex < binCount; binIndex += 1) {
+      const x = margin.left + binIndex * boxWidth;
+      for (let rowIndex = 0; rowIndex < yAxisMax; rowIndex += 1) {
+        const y = margin.top + plotHeight - (rowIndex + 1) * boxHeight;
+        const recordIndex = binStacks[binIndex][rowIndex];
+        const filled = Number.isInteger(recordIndex);
+        const isHovered = recordIndex === ciState.hoveredRecordIndex;
+        pieces.push(
+          `<rect class="${filled ? "ci-mean-cell" : ""}" ${filled ? `data-record-index="${recordIndex}"` : ""} x="${x.toFixed(2)}" y="${y.toFixed(2)}" width="${boxWidth.toFixed(2)}" height="${boxHeight.toFixed(2)}" fill="${isHovered ? "#1f1f1f" : filled ? "#e6e6e6" : "#ffffff"}" stroke="${isHovered ? "#111111" : filled ? "#b7bec4" : "#dadfe3"}" stroke-width="${isHovered ? 1.1 : 0.8}" shape-rendering="crispEdges"></rect>`
+        );
+      }
+    }
+
+    for (let tickValue = minDomain; tickValue <= maxDomain; tickValue += 1) {
+      const x = margin.left + ((tickValue - minDomain) / domainSpan) * plotWidth;
+      pieces.push(`<line x1="${x.toFixed(2)}" y1="${margin.top + plotHeight}" x2="${x.toFixed(2)}" y2="${(margin.top + plotHeight + 5).toFixed(2)}" stroke="#626262" stroke-width="1"></line>`);
+      pieces.push(`<text x="${x.toFixed(2)}" y="${height - 8}" text-anchor="middle" font-size="${xTickFontSize}" font-family="${CI_AXIS_FONT_FAMILY}" fill="${CI_AXIS_TEXT_COLOR}">${tickValue}</text>`);
+    }
+
+    for (let tickValue = 0; tickValue <= yAxisMax; tickValue += yTickStep) {
+      const y = margin.top + plotHeight - (plotHeight * tickValue) / yAxisMax;
+      pieces.push(`<line x1="${(margin.left - 4).toFixed(2)}" y1="${y.toFixed(2)}" x2="${margin.left}" y2="${y.toFixed(2)}" stroke="#626262" stroke-width="1"></line>`);
+      pieces.push(`<text x="${(margin.left - 7).toFixed(2)}" y="${(y + 4).toFixed(2)}" text-anchor="end" font-size="${CI_AXIS_FONT_SIZE}" font-family="${CI_AXIS_FONT_FAMILY}" fill="${CI_AXIS_TEXT_COLOR}">${tickValue}</text>`);
+    }
+
+    if (yAxisMax % yTickStep !== 0) {
+      const y = margin.top;
+      pieces.push(`<line x1="${(margin.left - 4).toFixed(2)}" y1="${y.toFixed(2)}" x2="${margin.left}" y2="${y.toFixed(2)}" stroke="#626262" stroke-width="1"></line>`);
+      pieces.push(`<text x="${(margin.left - 7).toFixed(2)}" y="${(y + 4).toFixed(2)}" text-anchor="end" font-size="${CI_AXIS_FONT_SIZE}" font-family="${CI_AXIS_FONT_FAMILY}" fill="${CI_AXIS_TEXT_COLOR}">${yAxisMax}</text>`);
+    }
+
+    svg.innerHTML = pieces.join("");
+  }
+
+  function renderConfidenceIntervalChart() {
+    const svg = document.getElementById("ci-interval-chart");
+    const width = 760;
+    const height = 510;
+    const margin = { top: 16, right: 16, bottom: 34, left: 18 };
+    const plotWidth = width - margin.left - margin.right;
+    const plotHeight = height - margin.top - margin.bottom;
+    const [minDomain, maxDomain] = getConfidenceSampleDomain();
+    const span = Math.max(1e-9, maxDomain - minDomain);
+    const xScale = (value) => margin.left + ((value - minDomain) / span) * plotWidth;
+    const records = ciState.sampleRecords;
+    const rowGap = records.length ? plotHeight / records.length : plotHeight;
+    const pieces = [
+      `<rect x="0" y="0" width="${width}" height="${height}" fill="#ffffff"></rect>`,
+      `<line x1="${xScale(ciState.populationMean).toFixed(2)}" y1="${margin.top}" x2="${xScale(ciState.populationMean).toFixed(2)}" y2="${margin.top + plotHeight}" stroke="#DA5A86" stroke-width="3"></line>`,
+      `<line x1="${margin.left}" y1="${margin.top + plotHeight}" x2="${margin.left + plotWidth}" y2="${margin.top + plotHeight}" stroke="#626262" stroke-width="1.1"></line>`
+    ];
+
+    records.forEach((record, index) => {
+      const y = margin.top + rowGap * (index + 0.5);
+      const isHovered = index === ciState.hoveredRecordIndex;
+      const color = isHovered ? "#151515" : record.containsMean ? "#5aaceb" : "#8f8f8f";
+      const lowX = xScale(record.ciLow);
+      const highX = xScale(record.ciHigh);
+      const meanX = xScale(record.mean);
+      pieces.push(`<g class="ci-interval-record" data-record-index="${index}">`);
+      pieces.push(`<line x1="${lowX.toFixed(2)}" y1="${y.toFixed(2)}" x2="${highX.toFixed(2)}" y2="${y.toFixed(2)}" stroke="${color}" stroke-width="${isHovered ? 3.2 : 2.2}"></line>`);
+      pieces.push(`<line x1="${lowX.toFixed(2)}" y1="${(y - 5).toFixed(2)}" x2="${lowX.toFixed(2)}" y2="${(y + 5).toFixed(2)}" stroke="${color}" stroke-width="${isHovered ? 2.6 : 2}"></line>`);
+      pieces.push(`<line x1="${highX.toFixed(2)}" y1="${(y - 5).toFixed(2)}" x2="${highX.toFixed(2)}" y2="${(y + 5).toFixed(2)}" stroke="${color}" stroke-width="${isHovered ? 2.6 : 2}"></line>`);
+      pieces.push(`<circle cx="${meanX.toFixed(2)}" cy="${y.toFixed(2)}" r="${isHovered ? 5.8 : 4.5}" fill="${color}"></circle>`);
+      pieces.push(`</g>`);
+    });
+
+    for (let tickIndex = 0; tickIndex <= 8; tickIndex += 1) {
+      const tickValue = minDomain + ((maxDomain - minDomain) * tickIndex) / 8;
+      const x = margin.left + (plotWidth * tickIndex) / 8;
+      pieces.push(`<line x1="${x.toFixed(2)}" y1="${margin.top + plotHeight}" x2="${x.toFixed(2)}" y2="${(margin.top + plotHeight + 6).toFixed(2)}" stroke="#626262" stroke-width="1"></line>`);
+      pieces.push(`<text x="${x.toFixed(2)}" y="${height - 8}" text-anchor="middle" font-size="${CI_AXIS_FONT_SIZE}" font-family="${CI_AXIS_FONT_FAMILY}" fill="${CI_AXIS_TEXT_COLOR}">${formatStat(tickValue, 0)}</text>`);
+    }
+
+    svg.innerHTML = pieces.join("");
+  }
+
+  function stopConfidenceAuto() {
+    if (ciState.autoTimer) {
+      window.clearInterval(ciState.autoTimer);
+      ciState.autoTimer = null;
+    }
+    if (document.getElementById("ci-run-once")) {
+      renderConfidenceStatus();
+    }
+  }
+
+  function resetConfidenceSamples(stopAuto = true) {
+    if (stopAuto) {
+      stopConfidenceAuto();
+    }
+    hideConfidenceHover(false);
+    ciState.sampleRecords = [];
+    renderConfidenceMeansChart();
+    renderConfidenceIntervalChart();
+    renderConfidenceStatus();
+  }
+
+  function refreshConfidencePopulation(resetSamples = true) {
+    readConfidenceControls();
+    syncConfidenceControls();
+    generateConfidencePopulationValues();
+    renderConfidencePopulationChart();
+    if (resetSamples) {
+      resetConfidenceSamples();
+    }
+  }
+
+  function appendConfidenceSample() {
+    readConfidenceControls();
+    syncConfidenceControls();
+
+    if (ciState.sampleRecords.length >= ciState.numSamples) {
+      stopConfidenceAuto();
+      renderConfidenceStatus();
+      return false;
+    }
+
+    const values = Array.from({ length: ciState.sampleSize }, () => sampleConfidencePopulationValue());
+    const mean = average(values);
+    const sd = sampleStandardDeviation(values);
+    const zValue = getZCritical(ciState.confidenceLevel);
+    const scaleSd = ciState.useSampleSd ? sd : ciState.populationSd;
+    const standardError = scaleSd / Math.sqrt(ciState.sampleSize);
+    const margin = zValue * standardError;
+    const ciLow = mean - margin;
+    const ciHigh = mean + margin;
+
+    hideConfidenceHover(false);
+    ciState.sampleRecords.push({
+      mean,
+      sampleSd: sd,
+      standardError,
+      useSampleSd: ciState.useSampleSd,
+      ciLow,
+      ciHigh,
+      containsMean: ciLow <= ciState.populationMean && ciState.populationMean <= ciHigh
+    });
+
+    renderConfidenceMeansChart();
+    renderConfidenceIntervalChart();
+    renderConfidenceStatus();
+    return true;
+  }
+
+  function startConfidenceAuto() {
+    stopConfidenceAuto();
+    readConfidenceControls();
+    syncConfidenceControls();
+
+    if (ciState.sampleRecords.length >= ciState.numSamples) {
+      renderConfidenceStatus();
+      return;
+    }
+
+    appendConfidenceSample();
+    ciState.autoTimer = window.setInterval(() => {
+      const appended = appendConfidenceSample();
+      if (!appended) {
+        stopConfidenceAuto();
+      }
+    }, 320);
+    renderConfidenceStatus();
+  }
+
+  function setConfidenceHoveredRecord(recordIndex) {
+    const normalized = Number.isInteger(recordIndex) ? recordIndex : null;
+    if (ciState.hoveredRecordIndex === normalized) return;
+    ciState.hoveredRecordIndex = normalized;
+    renderConfidenceMeansChart();
+    renderConfidenceIntervalChart();
+  }
+
+  function positionConfidenceTooltip(event) {
+    const tooltip = document.getElementById("ci-hover-tooltip");
+    if (!tooltip) return;
+    const tooltipWidth = tooltip.offsetWidth || 160;
+    const tooltipHeight = tooltip.offsetHeight || 56;
+    let left = event.clientX + 14;
+    let top = event.clientY + 14;
+
+    if (left + tooltipWidth > window.innerWidth - 12) {
+      left = event.clientX - tooltipWidth - 14;
+    }
+
+    if (top + tooltipHeight > window.innerHeight - 12) {
+      top = event.clientY - tooltipHeight - 14;
+    }
+
+    tooltip.style.left = `${Math.max(12, left)}px`;
+    tooltip.style.top = `${Math.max(12, top)}px`;
+  }
+
+  function showConfidenceTooltip(event, recordIndex) {
+    const record = ciState.sampleRecords[recordIndex];
+    const tooltip = document.getElementById("ci-hover-tooltip");
+    if (!record || !tooltip) return;
+    tooltip.innerHTML = [
+      `<div class="tooltip-row"><strong>Promedio:</strong> ${formatStat(record.mean, 2)}</div>`,
+      `<div class="tooltip-row"><strong>Desv. estándar:</strong> ${formatStat(record.sampleSd, 2)}</div>`
+    ].join("");
+    tooltip.classList.add("visible");
+    tooltip.setAttribute("aria-hidden", "false");
+    positionConfidenceTooltip(event);
+  }
+
+  function hideConfidenceTooltip() {
+    const tooltip = document.getElementById("ci-hover-tooltip");
+    if (!tooltip) return;
+    tooltip.classList.remove("visible");
+    tooltip.setAttribute("aria-hidden", "true");
+  }
+
+  function hideConfidenceHover(shouldRender = true) {
+    hideConfidenceTooltip();
+    if (ciState.hoveredRecordIndex === null) return;
+    ciState.hoveredRecordIndex = null;
+    if (shouldRender) {
+      renderConfidenceMeansChart();
+      renderConfidenceIntervalChart();
+    }
+  }
+
+  function handleConfidenceMeansPointerMove(event) {
+    const target = event.target && typeof event.target.closest === "function"
+      ? event.target.closest(".ci-mean-cell[data-record-index]")
+      : null;
+
+    if (!target) {
+      hideConfidenceHover();
+      return;
+    }
+
+    const recordIndex = Number(target.dataset.recordIndex);
+    setConfidenceHoveredRecord(recordIndex);
+    showConfidenceTooltip(event, recordIndex);
+  }
+
+  function handleConfidenceIntervalPointerMove(event) {
+    const target = event.target && typeof event.target.closest === "function"
+      ? event.target.closest(".ci-interval-record[data-record-index]")
+      : null;
+
+    if (!target) {
+      hideConfidenceHover();
+      return;
+    }
+
+    const recordIndex = Number(target.dataset.recordIndex);
+    setConfidenceHoveredRecord(recordIndex);
+    showConfidenceTooltip(event, recordIndex);
+  }
+
+  function initializeConfidenceIntervalsTab() {
+    document.querySelectorAll("[data-ci-config-step]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const input = document.getElementById(button.dataset.ciConfigTarget);
+        const fallback = Number.parseInt(input.value, 10) || 0;
+        input.value = fallback + Number.parseInt(button.dataset.ciConfigStep, 10);
+
+        if (button.dataset.ciConfigTarget === "ci-pop-mean" || button.dataset.ciConfigTarget === "ci-pop-sd") {
+          refreshConfidencePopulation(true);
+        } else {
+          readConfidenceControls();
+          syncConfidenceControls();
+          resetConfidenceSamples();
+        }
+      });
+    });
+
+    [
+      ["ci-pop-mean", 30, -200, 200, true],
+      ["ci-pop-sd", 12, 1, 80, true],
+      ["ci-sample-size", 30, 2, 500, false],
+      ["ci-num-samples", 40, 1, 400, false],
+      ["ci-confidence-level", 95, 80, 99, false]
+    ].forEach(([id, fallback, min, max, refreshPopulation]) => {
+      document.getElementById(id).addEventListener("change", (event) => {
+        event.target.value = normalizeRandomInteger(event.target.value, fallback, min, max);
+        if (refreshPopulation) {
+          refreshConfidencePopulation(true);
+        } else {
+          readConfidenceControls();
+          syncConfidenceControls();
+          resetConfidenceSamples();
+        }
+      });
+    });
+
+    document.getElementById("ci-distribution-type").addEventListener("change", () => {
+      refreshConfidencePopulation(true);
+    });
+
+    document.getElementById("ci-use-sample-sd").addEventListener("change", () => {
+      readConfidenceControls();
+      syncConfidenceControls();
+      resetConfidenceSamples();
+    });
+
+    document.getElementById("ci-run-once").addEventListener("click", () => {
+      stopConfidenceAuto();
+      appendConfidenceSample();
+    });
+    document.getElementById("ci-run-auto").addEventListener("click", startConfidenceAuto);
+    document.getElementById("ci-stop-auto").addEventListener("click", stopConfidenceAuto);
+
+    const meansChart = document.getElementById("ci-means-hist-chart");
+    meansChart.addEventListener("pointermove", handleConfidenceMeansPointerMove);
+    meansChart.addEventListener("pointerleave", () => {
+      hideConfidenceHover();
+    });
+
+    const intervalChart = document.getElementById("ci-interval-chart");
+    intervalChart.addEventListener("pointermove", handleConfidenceIntervalPointerMove);
+    intervalChart.addEventListener("pointerleave", () => {
+      hideConfidenceHover();
+    });
+
+    readConfidenceControls();
+    syncConfidenceControls();
+    generateConfidencePopulationValues();
+    renderConfidencePopulationChart();
+    renderConfidenceMeansChart();
+    renderConfidenceIntervalChart();
+    renderConfidenceStatus();
   }
 
   function runSample(sampleSize) {
@@ -1261,7 +3009,8 @@ monofontoptions:
 
   document.addEventListener("DOMContentLoaded", () => {
     loadState();
-    ensurePreviewRows();
+    initializeRandomSamplingTab();
+    initializeConfidenceIntervalsTab();
 
     document.getElementById("m-input").value = state.m;
 
@@ -1296,6 +3045,9 @@ monofontoptions:
       window.requestAnimationFrame(() => renderChart());
     });
 
+    window.addEventListener("beforeunload", stopRandomSamplingAuto);
+    window.addEventListener("beforeunload", stopConfidenceAuto);
+
     setActiveTab(state.activeTab);
     renderButtons();
     renderMeanToggle();
@@ -1304,4 +3056,3 @@ monofontoptions:
   });
 </script>
 ```
-

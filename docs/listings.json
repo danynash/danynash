@@ -1,16 +1,27 @@
 [
   {
-    "listing": "/lessons/01-DatosAvanzados/index.html",
+    "listing": "/lessons/02-DatosEdSuper/index.html",
     "items": [
-      "/lessons/01-DatosAvanzados/activities/00-assessment-01/index.html",
-      "/lessons/01-DatosAvanzados/activities/00-assessment-02/index.html"
+      "/lessons/02-DatosEdSuper/activities/01-assessment/index.html",
+      "/lessons/02-DatosEdSuper/activities/02-assessment/index.html",
+      "/lessons/02-DatosEdSuper/activities/03-assessment/index.html",
+      "/lessons/02-DatosEdSuper/activities/04-assessment/index.html"
     ]
   },
   {
-    "listing": "/lessons.html",
+    "listing": "/tutorials.html",
     "items": [
-      "/lessons/01-DatosAvanzados/index.html",
-      "/lessons/02-DatosEdSuper/index.html",
+      "/tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html"
+    ]
+  },
+  {
+    "listing": "/myresearch.html",
+    "items": [
+      "/Myresearch/04-Galton-Board/index.html",
+      "/Myresearch/01-on-going-research/index.html",
+      "/Myresearch/03-Learning-Analytics-predictive-models-student-perfomance/index.html",
+      "/Myresearch/05-LEGO-TALK/index.html",
+      "/Myresearch/02-on-going-research-RR-lab-scientific-abilities/index.html",
       "/foonote/index.html"
     ]
   },
@@ -31,29 +42,19 @@
     ]
   },
   {
-    "listing": "/myresearch.html",
+    "listing": "/lessons.html",
     "items": [
-      "/Myresearch/04-Galton-Board/index.html",
-      "/Myresearch/01-on-going-research/index.html",
-      "/Myresearch/03-Learning-Analytics-predictive-models-student-perfomance/index.html",
-      "/Myresearch/05-LEGO-TALK/index.html",
-      "/Myresearch/02-on-going-research-RR-lab-scientific-abilities/index.html",
+      "/lessons/01-DatosAvanzados/index.html",
+      "/lessons/02-DatosEdSuper/index.html",
       "/foonote/index.html"
     ]
   },
   {
-    "listing": "/tutorials.html",
+    "listing": "/lessons/01-DatosAvanzados/index.html",
     "items": [
-      "/tutoriales/01-Matricual-Sies-DescriptiveAnalysis/index.html"
-    ]
-  },
-  {
-    "listing": "/lessons/02-DatosEdSuper/index.html",
-    "items": [
-      "/lessons/02-DatosEdSuper/activities/01-assessment/index.html",
-      "/lessons/02-DatosEdSuper/activities/02-assessment/index.html",
-      "/lessons/02-DatosEdSuper/activities/03-assessment/index.html",
-      "/lessons/02-DatosEdSuper/activities/04-assessment/index.html"
+      "/lessons/01-DatosAvanzados/activities/00-assessment-01/index.html",
+      "/lessons/01-DatosAvanzados/activities/00-assessment-02/index.html",
+      "/lessons/01-DatosAvanzados/activities/00-assessment-03/index.html"
     ]
   }
 ]

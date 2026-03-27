@@ -1,0 +1,690 @@
+---
+title: "Actividad Formativa 01"
+image: imageProfile/distri.png
+subtitle: "Teorema del Límite Central"
+title-block-banner: "#f0f3f5"
+title-block-banner-color: "black"
+number-sections: true
+toc: true
+toc-expand: true
+toc-title: Contenido
+author:
+  - name: Dany Lopez (dxlopez@ul.cl) - José Luis Pérez (josel.perez@uc.cl)
+date-modified: March 26, 2026
+from: markdown+emoji
+format:
+  html:
+    code-overflow: wrap
+    code-line-numbers: true
+    code-annotations: below
+    code-link: true
+    embed-resources: true
+    grid:
+      sidebar-width: 250px
+      body-width: 950px
+      margin-width: 400px
+      gutter-width: 1.5rem
+  pdf: default
+mainfont: Avenir Next
+monofont: Avenir Next
+monofontoptions: 
+  - Scale = 1.
+---
+
+```{r, echo = FALSE, eval = TRUE, include = FALSE}
+
+#---------------------------------------------------------------
+# settings
+#---------------------------------------------------------------
+
+# start time
+start_time <- Sys.time()
+
+# hide messages from dplyr
+suppressPackageStartupMessages(library(dplyr))
+
+# hide NA from knitr table
+options(knitr.kable.NA = '')
+
+# suppress dplyr group warnings
+options(dplyr.summarise.inform = FALSE)
+
+# center figures
+knitr::opts_chunk$set(echo = TRUE, fig.align="center")
+
+#---------------------------------------------------------------
+# load example data
+#---------------------------------------------------------------
+
+# load('rasch_example.RData')
+
+```
+
+
+
+```{r , echo=FALSE, warning=FALSE}
+#| code-fold: false
+
+#---------------------------------------------------------------
+# Cargando datos
+#---------------------------------------------------------------
+
+# Dato Jueces
+db <- readxl::read_excel("./01BasedeDatos/datos_docentes Todos grupos [filas].xlsx",
+                         sheet=1, na=c(""), col_names = TRUE)
+
+
+```
+
+
+# Contexto
+
+Suponga que se desarrolla un estudio que busca caracterizar sociodemográficamente a las y los docentes de todas las escuelas del país, incluyendo escuelas públicas, subvencionadas, privadas, y del Servicio Local de Educación Pública (SLEP). En particular, se tiene como objetivo determinar la edad promedio de los docentes que se desempeñan durante el año 2024 en las escuelas del país.
+
+Usaremos los datos de **Cargo Docente** del año 2024 proporcionada por el [**Centro de Estudios Mineduc**](https://datosabiertos.mineduc.cl/). Estos datos corresponden a la información censal de todos los docentes del sistema escolar que tienen un cargo en al menos una escuela durante el año 2024.
+
+![](./Images/Datos_Abiertos_2.png)
+
+La cantidad total de docentes con cargo en el sistema escolar equivale a 266,069. La edad promedio de la población de docentes es de $\mu =42.77$ años, con una desviación estándar de $\sigma = 11.91$ años. En un intento por verificar el rango etario promedio, se seleccionaron 400 muestras aleatorias de tamaño $N=30$ docentes cada muestra. A partir de estas 400 muestras se construyeron 10 grupos, con cada grupo compuesto por 40 muestras. Puede acceder al listado de muestras para cada grupo en el siguiente link: [ver aqui](https://www.dropbox.com/scl/fi/hxgmyg1257qsfmq2o3kse/Grupos_1-10_formatoEXCEL.zip?rlkey=s3mtg6klxzkh5z2dqpzyj983i&dl=1)
+
+Note que los datos que usaremos son los mismos que utilizamos en la primera actividad [ver detalle activdad aquí.](https://danynash.com/lessons/01-DatosAvanzados/activities/00-assessment-01/)
+
+
+
+# Actividad Introductoria
+
+## Análisis de un grupo con 40 muestras
+
+a. Identifique el número de grupo que le fue asignado en la clase 01. Si no estuvo presente en la primera clase, seleccione un grupo con el que desea trabajar. De manera similar a como lo trabajó en la primera clase, calcule el promedio de cada muestra. Puede utilizar Excel, BlueSky Statistics o R para calcular el promedio.
+
+b. Calcule ahora el promedio de todos los promedios muestrales. Puede utilizar Excel, BlueSky Statistics o R para calcular el promedio.
+
+c. Con los promedios de cada muestra ahora construya un gráfico de frecuencias. En el mismo gráfico, represente el promedio de todos los promedios (puede hacerlo dentro del gráfico marcando con un punto o una línea la ubicación del promedio).
+
+
+d. Una vez que haya graficado, observe el resultado que se obtiene y luego responda las siguientes preguntas:
+
+  1. ¿Qué representa el gráfico?
+
+ 2. ¿Entre qué rangos se concentran la mayoría de los promedios de las edades de las muestras?
+ 
+ [Nota]{.pill .magenta}: Las respuestas de esta sección fueron contestadas en clases. Recomendamos mirar la grabación de la segunda clase del curso que se encuentra en TEAMS para contestarlas.
+ 
+ **Solución**
+
+::: panel-tabset
+
+
+# Pregunta d.1)
+
+::: {.callout-tip collapse="true" title="Ver solución d.1"}
+
+El gráfico corresponde a un histograma de frecuencias, utilizado para representar la distribución de un conjunto de datos cuantitativos. A diferencia del gráfico de barras, empleado para variables cualitativas, el histograma utiliza barras contiguas cuya altura indica la frecuencia relativa (o proporción) de observaciones que se encuentran dentro de determinados subintervalos del dominio. Estos subintervalos se disponen de manera ordenada a lo largo del eje horizontal. Para mayores detalles, consulte las siguientes referencias[^2]:
+
+[1] Field, A. P., Miles, J., & Field, Z. (2012). *Discovering statistics using R*. London; Thousand Oaks, Calif.: Sage. p. 142-144)
+
+[2] Mendenhall, W., & Beaver, B. M. (2011). *Introducción a la probabilidad y estadística* (14 ed.). Brooks/Cole, p. 25.
+:::
+
+:::
+
+
+## Análisis considerando las 400 muestras
+
+Ahora incluiremos todas las muestras de todos los grupos, es decir, consideraemos la colección total de 400 muestras de tamaño $N=30$ cada una. Responda las siguientes preguntas:
+
+a. Calcule el promedio de cada una de las muestras.
+
+b. Construya un histograma de frecuencias con los 400 promedios muestrales.
+
+c. Calcule el promedio de todos los promedios (el gran promedio) y ubiquelo en el gráfico de frecuencia.
+
+d. Ahora calcule la desviación estándar de los promedios muestrales $\sigma_{\overline x}$.
+
+e. Ahora, cuente cuántos promedios muestrales se ubican a $\pm 1\sigma_{\overline x}$ en torno al gran promedio. Y ¿Cuántos promedios muestrales se ubican a $\pm 2\sigma_{\overline x}$ en torno al gran promedio?
+
+
+
+
+
+**Solución**
+
+::: panel-tabset
+
+
+# Pregunta a
+
+::: {.callout-tip collapse="true" title="Ver solución"}
+
+
+```{r , echo=FALSE, warning=FALSE}
+#| code-fold: false
+
+promedio_muestras <- db %>% 
+            dplyr::group_by(muestra) %>%
+            dplyr::summarise(promedio = mean(edad, na.rm = T))
+
+
+```
+Por definición, la media se estima por medio de la siguiente expresión:
+
+$$
+\displaystyle \overline{x} = \frac{\sum_1^n x_i}{n} = \frac{x_1 + x_2 + x_3 + x_4 + \cdots + x_{n-1} + x_n}{n}
+$$
+
+con $x_i$ la edad del docente $i$ y $n$ el número total de individuos. La expresión anterior significa que debemos sumar todos las edades en una muestra y dividir este resultado por el número total de docentes que forma parte de dicha muestra. Para ilustrar su aplicación, consideremos la muestra `m_1`. Dado que la muestra `m_1` está compuesta $n = 30$ docentes (lo mismo para todas las demás muestras), entonces la expresión para calcular el promedio queda
+
+
+$$
+\begin{aligned}
+\overline{x}_{m_1} &= \frac{\sum_1^{30} x_i}{30} \\
+             &= \frac{x_1 + x_2 + x_3 + x_4 + x_5  + \cdots + x_{26}+ x_{27} + x_{28} + x_{29} + x_{30}}{30} \\
+             &= \frac{31 + 31 + 57 + 41 + 49+ \cdots + 31 + 42+ 43 + 27 + 54}{30} \\
+             &= 42.8
+\end{aligned}
+$$
+
+
+Así, la muestra `m_1` tiene un promedio $\overline{x}_{m_1} = 42.8$. Usando entonces la misma expresión para el resto de las muestra, en la siguiente tabla se muestran todos los promedios calculados para cada muestra:
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(promedio_muestras,
+             align = "l"
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = TRUE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                ) %>%
+            scroll_box(width = "70%", height = "400px")
+
+```
+
+
+
+:::
+
+# Pregunta b
+
+::: {.callout-tip collapse="true" title="Ver solución"}
+
+
+El histograma de frecuencias de los promedios de la 400 muestras se muestra a continuación.
+
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: true
+library(ggplot2)
+
+ggplot(promedio_muestras, aes(x = as.numeric(promedio))) +                         
+   geom_histogram(binwidth=0.6, colour="#56B4E9", fill="skyblue") +            
+  labs(x="Edad",y= "Frecuencia")  +               
+  ylim(c(0,60)) +                     
+  xlim(c(36,50)) +                    
+  ggtitle("Distribución de promedios muestrales de edades de 400 muestras")  +            
+   theme_bw(base_size = 11) +         
+  geom_text(geom = "text",label="colour=red,\n fill=skyblue", x=25,y=50,col="black")  +
+  theme(
+    text = element_text(size = 13),
+    axis.text.x = element_text(color = "black",angle = 0, hjust = 0.5),
+    #  text = element_text(size = 15),
+    axis.text.y = element_text(color = "black",angle = 0, hjust = 0.5),
+    legend.position = "none"
+  )
+  
+
+
+```
+
+
+
+:::
+
+# Pregunta c
+
+::: {.callout-tip collapse="true" title="Ver solución"}
+
+
+```{r , echo=FALSE, warning=FALSE}
+#| code-fold: false
+
+gran_avg <- db %>% 
+            dplyr::summarise(promedio = mean(edad, na.rm = T))
+
+
+```
+
+El promedio de todos los promedios equivale a `r round(gran_avg,2)` años. A continuación se muestra su ubicación en el histograma construído anteriormente
+
+
+```{r , echo=TRUE, warning=FALSE}
+#| code-fold: true
+library(ggplot2)
+
+gran_avg <- db %>% 
+            dplyr::summarise(promedio = mean(edad, na.rm = T))
+
+ggplot(promedio_muestras, aes(x = as.numeric(promedio))) +                         
+   geom_histogram(binwidth=0.6, colour="#56B4E9", fill="skyblue") +      
+    geom_vline(xintercept = gran_avg$promedio ) +
+
+  labs(x="Edad",y= "Frecuencia")  +               
+  ylim(c(0,60)) +                     
+  xlim(c(36,50)) +                    
+  ggtitle("Distribución de promedios de edades de docentes de 400 muestras")  +            
+   theme_bw(base_size = 11) +         
+  geom_text(geom = "text",label="colour=red,\n fill=skyblue", x=25,y=50,col="black")  +
+  theme(
+    text = element_text(size = 13),
+    axis.text.x = element_text(color = "black",angle = 0, hjust = 0.5),
+    #  text = element_text(size = 15),
+    axis.text.y = element_text(color = "black",angle = 0, hjust = 0.5),
+    legend.position = "none"
+  ) +
+  annotate("text", x = gran_avg$promedio+2, y=55, label = paste0("Gran promedio = ", round(gran_avg$promedio,2)))
+  
+
+
+```
+:::
+
+# Pregunta d
+
+::: {.callout-tip collapse="true" title="Ver solución"}
+
+Por definición, la desviación estándar se determina utilizando la siguiente expresión:
+
+$$
+\sigma_{\overline{x}} = \sqrt{\frac{1}{n-1}\sum (x_i - \overline{x})^2}
+$$
+
+```{r , echo=FALSE, warning=FALSE}
+#| code-fold: false
+
+sd_distri <- promedio_muestras %>% 
+            dplyr::summarise(promedio = sd(promedio, na.rm = T)) %>%
+           as.numeric()
+
+
+```
+
+En este caso, como buscamos la desviación estándar de las medias muestrales, entonces $x_i$ corresponde al promedio de cada muestra ($\overline{x}_{m_1}, \overline{x}_{m_2}, \overline{x}_{m_3}, ...\overline{x}_{m_{400}}$), $n$ el número total de muestras (400 en este caso) y $\overline{x}$ el promedio de la distribución muestral (el gran promedio). Si se aplica esta expresión, la desviación estándar de la distribución de los promedios muestrales es $\sigma_{\overline{x}} =$ `r round(sd_distri,2)` años.
+:::
+
+# Pregunta e
+
+::: {.callout-tip collapse="true" title="Ver solución"}
+
+
+```{r , echo=FALSE, warning=FALSE}
+#| code-fold: false
+
+porcentaje_one_sd <- promedio_muestras %>% 
+                    dplyr::mutate(gran_promedio = gran_avg$promedio) %>%
+                    dplyr::mutate(sd_distri = sd_distri) %>%
+                    dplyr::mutate(within_one_sd = ifelse(abs(promedio - gran_promedio)<=sd_distri, 1,0)) %>% # 1=dentro ; 0=fuera
+                    dplyr::summarise(total_dentro_one_sd = sum(within_one_sd),
+                                     PERCENT_total_dentro_one_sd = total_dentro_one_sd/n())
+
+
+```
+
+Si utilizamos la distribución de la media muestral construída en esta actividad, notaremos que son `r porcentaje_one_sd$total_dentro_one_sd`  las muestras que se encuentran dentro de un rango $\pm 1\sigma_{\overline x}$ (note que una desviación estádar a la derecha del promedio toma el valor de edad $42.66 + 2.11 = 44.77$ y una desviación estándar a la izquierda del promedio toma el valor $42.66-2.11=40.55$, y si contamos la cantidad de muestras cuyos promedios están comprendidos entre este rango, notará que son `r porcentaje_one_sd$total_dentro_one_sd`. Con respecto al total, esta cantidad equivale a un `r porcentaje_one_sd$PERCENT_total_dentro_one_sd*100` $\%$ aproximadamente.
+
+
+```{r , echo=FALSE, warning=FALSE}
+#| code-fold: false
+
+porcentaje_two_sd <- promedio_muestras %>% 
+                    dplyr::mutate(gran_promedio = gran_avg$promedio) %>%
+                    dplyr::mutate(sd_distri = sd_distri) %>%
+                    dplyr::mutate(within_two_sd = ifelse(abs(promedio - gran_promedio)<=2*sd_distri, 1,0)) %>% # 1=dentro ; 0=fuera
+                    dplyr::summarise(total_dentro_two_sd = sum(within_two_sd),
+                                     PERCENT_total_dentro_two_sd = total_dentro_two_sd/n())
+
+
+```
+
+De manera análoga similar, notaremos ahora que son `r porcentaje_two_sd$total_dentro_two_sd` las muestras que se encuentran dentro de un rango $\pm 2\sigma_{\overline x}$ (note que dos desviaciones estádar a la derecha del promedio toma el valor de edad $42.66 + 2*2.11 = 46.88$ y una desviación estándar a la izquierda del promedio toma el valor $42.66-2*2.11=38.44$, y si contamos la cantidad de muestras cuyos promedios están comprendidos entre este rango, notará que son `r porcentaje_two_sd$total_dentro_two_sd` Con respecto al total, esta cantidad equivale a un `r porcentaje_two_sd$PERCENT_total_dentro_two_sd*100` $\%$ aproximadamente.
+
+:::
+
+:::
+
+
+# Actividad Aplicada 1: Teorema Límite Central
+
+A partir de las respuestas previas correspondientes a las 400 muestras, ahora interesa describir la distribución de la media muestral $\overline{x}$, entendida como el conjunto de los promedios de edad calculados para cada muestra.[^1]. Para ello:
+
+a. Indique la media de la distribución de los promedios muestrales $\overline{x}$.
+
+b. Indique la desviación estándar de la distribución de los promedios muestrales $\sigma_{\bar{x}}$.
+
+c. Aplicando el Teorema del límite central, indique qué tipo de distribución captura la distribución de la media muestral e indique sus parámetros.
+
+d. ¿Cuál es la proporción aproximada de muestras que se concentran a $\pm 1\sigma_{\bar{x}}$ en torno a la media de la distribución de los promedios muestrales ($\overline{x}$)?
+
+e. Construya ahora un intervalo en torno a la media de la distribución de los promedios muestrales. En términos simples, esto significa tomar la media muestral ($\bar{x}$) y luego sumar y restar una desviación estándar ($\sigma_{\bar{x}}$) de esta distribución. Al sumar una desviación estándar obtendrá el límite superior del intervalo, y al restarla obtendrá el límite inferior del intervalo. Este procedimiento permite determinar el margen de error en torno a la media muestral, generando así el intervalo deseado. Este intervalo se expresa en términos matemáticos de la siguiente forma:
+
+$$
+\bar{x} \pm 1 \cdot \sigma_{\bar{x}}
+$$
+
+f. ¿Cuál es aproximadamente la probabilidad cubierta (confianza) para la estimación de este intervalo? Esta es una pregunta crucial para comprender los fundamentos que están detrás en la construcción de un intervalo (de confianza).
+
+
+
+**Solución**
+
+::: panel-tabset
+
+# Pregunta a 
+::: {.callout-tip collapse="true" title="Ver solución"}
+
+Utilizando la respuesta a la pregunta 2.2c de la sección anterior, se tiene que la media de la distribución de los promedios muestrales es $\overline{x} = 42.66$ años.
+
+:::
+
+# Pregunta b
+
+::: {.callout-tip collapse="true" title="Ver solución"}
+
+Utilizando la respuesta a la pregunta 2.2d de la sección anterior, se tiene que la desviación estándar de la distribución de los promedios muestrales $\sigma_{\overline{x}} =$ 2.11 años.
+
+:::
+
+# Pregunta c
+
+::: {.callout-tip collapse="true" title="Ver solución"}
+
+Aplicando el Teorema del Límite Central (TLC), se puede afirmar que la distribución de la media muestral $\overline{x}$ puede aproximarse mediante una distribución normal con media $42.66$ y desviación estándar $2.11$. Dado que una distribución normal queda completamente determinada por estos dos parámetros, esta aproximación se expresa matemáticamente como:
+
+$$
+\overline{x} \sim \mathcal{N}(42.66,\ 2.11)
+$$
+
+
+:::
+
+# Pregunta d 
+::: {.callout-tip collapse="true" title="Ver solución"}
+
+Si utilizamos la distribución de la media muestral construída en la sección anterior, notaremos que son `r porcentaje_one_sd$total_dentro_one_sd`  las muestras que se encuentran dentro de un rango $\pm 1\sigma_{\overline x}$. En este caso, note que una desviación estádar a la derecha del promedio toma el valor de edad $42.66 + 2.11 = 44.77$ y una desviación estándar a la izquierda del promedio toma el valor $42.66-2.11=40.55$, y si contamos la cantidad de muestras cuyos promedios están comprendidos entre este rango, notará que son `r porcentaje_one_sd$total_dentro_one_sd`. Con respecto al total, esta cantidad equivale a un `r porcentaje_one_sd$PERCENT_total_dentro_one_sd*100` $\%$ aproximadamente.
+
+Ahora bien, si en lugar de haber recolectado $400$ muestras, se hubiese considerado una cantidad infinita de muestras, es decir, el caso límite en el que es posible obtener infinitas muestras, la proporción de casos dentro de una desviación estándar respecto de la media ($\pm 1\sigma_{\overline{x}}$) habría sido exactamente del $68\%$. Esta proporción corresponde a la propiedad de simetría de la distribución normal, resultado que se deriva aplicando el Teorema del Límite Central (TLC).
+
+:::
+
+# Pregunta e
+
+::: {.callout-tip collapse="true" title="Ver solución"}
+
+Para construir el intervalo, es necesario estimar sus límites inferior y superior. El límite inferior se obtiene restando una desviación estándar a la media muestral, es decir, $\overline{x} - 1 \cdot \sigma_{\overline{x}}$. Por su parte, el límite superior se estima sumando una desviación estándar a la media: $\overline{x} + 1 \cdot \sigma_{\overline{x}}$. Luego,
+
+$$
+\begin{aligned}
+\text{Límite inferior} &= \overline{x} - 1 \cdot \sigma_{\overline{x}} \\
+                        &= 42.66 - 1 \cdot 2.11 \\
+                        &= 40.55
+\end{aligned}
+$$
+
+y
+
+$$
+\begin{aligned}
+\text{Límite superior} &= \overline{x} + 1 \cdot \sigma_{\overline{x}} \\
+                        &= 42.66 + 1 \cdot 2.11 \\
+                        &= 44.77
+\end{aligned}
+$$
+
+Luego, el intervalo solicitado quedaría de la siguiente forma:
+
+$$
+[\text{Límite inferior},\ \text{Límite superior}] = [40.55, 44.77]
+$$
+
+Por lo tanto, para la distribución de la media muestral usada en este ejercicio con fines pedagógicos, la probabilidad cubierta para la estimación de este intervalo sería de un $66\%$, porcentaje que obtuvimos anteriormente en la Pregunta 2.2 e).
+:::
+
+:::
+
+
+
+# Actividad Aplicada 2: Intervalo de confianza
+
+Utilizando lo realizado en las preguntas anteriores, responda:
+
+a. ¿Dentro de qué límites se esperaría que esté el promedio poblacional, con probabilidad (cobertura) de $.95$? Considerando que si se trabaja con una distribución normal, un intervalo para la media con probabilidad de cobertura de $.95$, considera que el $95\%$ de los valores están contenidos dentro de $\pm 1.96$ desviaciones estándar con respecto a la media. Esto típicamente se conoce como la *Regla empírica*. Entonces se buscan los valores dados por
+
+$$
+L_{\text{límites}} = \bar{x} \pm Z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}
+$$
+
+donde $\bar{x}$ es la media muestral, $Z_{\alpha/2}$ es el valor 1.96, $\sigma$ la desviación estándar poblacional y $n$ el tamaño de la muestra.
+
+
+b. Construya ahora un intervalo de confianza al $95\%$ utilizando el promedio de la muestra que le fue asignada. ¿El promedio de edad de la población ($\mu = 42.77$) se encuentra dentro de este intervalo?
+
+
+
+**Solución**
+
+::: panel-tabset
+
+
+# Pregunta a
+
+::: {.callout-tip collapse="true" title="Ver solución"}
+
+Para estimar los límites del intervalo, utilizamos un intervalo de confianza del $95\%$, asumiendo que la distribución de la media muestral puede ser aproximada por una distribución normal. Esta aproximación se justifica mediante el Teorema del Límite Central (TLC). Luego, para la estimación de los límites del intervalo utilizaremos la siguiente expresión:
+
+$$
+L_{\text{límites}} = \bar{x} \pm Z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}
+$$
+
+donde,
+
+$$
+\bar{x} = 42.66, \quad Z_{\alpha/2} = 1.96, \quad \sigma = 11.91, \quad n = 30
+$$
+
+Con esto, se tiene que $\frac{\sigma}{\sqrt{n}} \approx 2.17$. Reemplazando los valores en la expresión anterior, se obtiene:
+
+$$
+\begin{aligned}
+L_{\text{límites}} &= 42.66 \pm (1.96 \cdot 2.17) \\
+                    &= 42.66 \pm 4.25
+\end{aligned}
+$$
+
+Por lo tanto, los límites del intervalo quedan:
+
+$$
+L_{\text{límites}} = [38.41, 46.91]
+$$
+
+Por lo tanto, con una probabilidad de cobertura del $95\%$, se espera que el promedio poblacional se encuentre entre $38.41$ y $46.91$ años.
+:::
+
+
+# Pregunta b
+
+::: {.callout-tip collapse="true" title="Ver solución"}
+
+
+
+```{r , echo=FALSE, warning=FALSE}
+#| code-fold: false
+
+
+#-------------------------------------------------------------------
+# confidence interval
+#-------------------------------------------------------------------
+
+media_poblacional <- 42.77
+sigma_p <- 11.91
+N<-30
+
+sampling_distribucion_of_means <- db %>% group_by(grupo, muestra) %>%
+                                  dplyr::summarise(stat_mean = mean(edad)) %>%
+                                  dplyr::mutate(standard_error = sigma_p/sqrt(N))
+
+means_with_ci <- sampling_distribucion_of_means %>%
+                dplyr::mutate(ll = stat_mean - 1.96*standard_error) %>%
+                dplyr::mutate(ul = stat_mean + 1.96*standard_error) %>%
+                dplyr::mutate(status = case_when(
+                  media_poblacional > ul ~ 'No contiene al parametro poblacional',
+                  media_poblacional < ll ~ 'No contiene al parametro poblacional',
+                  TRUE ~ 'yes'
+                )) %>%
+                dplyr::glimpse()
+
+#-------------------------------------------------------------------
+# proporcion de intervalos que capturan la media poblaciobal
+#-------------------------------------------------------------------
+
+IC_not <- means_with_ci %>% 
+          dplyr::mutate(`Intervalo Confianza` = paste0("[",round(ll,3)," , ",round(ul,3), "]"),
+                        media_poblacional = round(media_poblacional,3)) %>%
+          dplyr::select(grupo, muestra,media_poblacional,`Intervalo Confianza`, status) %>%
+          dplyr::filter(status !='yes')
+
+
+```
+
+Aquellas muestras cuyos intervalos de confianza estimados al $95\%$ que no contienen al parámetro poblacional ($\mu = 42.77$) son las siguientes: `m_251`, `m_192`, `m_282`, `m_155`,`m_175`,`m_235`,`m_305`,`m_335`,`m_316`,`m_207`,`m_237`,`m_278`,`m_239`,`m_309`,`m_290`,`m_340`. Con respecto al total de muestras, esta cantidad equivale al $\frac{16}{400}*100=4 \%$, en otras palabras, el $4\%$ de todos los intervalos de confianza estimados no contiene al promedio poblacional.   
+
+
+Para más detalles de los intervalos estimados para estas muestras, puede consultar la siguiente tabla.
+
+
+```{r tidy=FALSE,echo=FALSE,message=FALSE}
+
+library(kableExtra)
+  
+knitr::kable(IC_not,
+             align = "l"
+             #format.args = list(big.mark = ",")
+             ) %>%
+    row_spec(0, 
+            bold = T,
+            color = "white", 
+            background = "black") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                position = "center", 
+                full_width = TRUE, 
+                latex_options = "HOLD_position",
+                html_font='helvetica',
+                font_size = 8
+                ) %>%
+            scroll_box(width = "70%", height = "400px")
+
+```
+
+
+
+:::
+
+:::
+
+
+# Actividad Aplicada 3 (avanzado): Probabilidad de cobertura
+
+Utilizando la distribución de los promedios muestrales, responda:
+
+a. Calcule la probabilidad de que la media muestral $\overline{x}$ de los promedios de las edades sea mayor a 48 años. Utilice R para determinarla.
+
+b. Si su muestra aleatoria tiene una media muestral de 48 años, ¿consideraría usted que esto es poco común? ¿Qué conclusión podría sacar?
+
+
+**Solución**
+
+::: panel-tabset
+
+# Pregunta a 
+::: {.callout-tip collapse="true" title="Ver solución"}
+
+La probabilidad se calcula como el área bajo la curva normal *estándar* para valores mayores que $48$. Primero, transformamos $48$ a una puntuación $Z$:
+
+$$
+Z = \frac{\bar{x} - \mu_{\bar{x}}}{\sigma_{\bar{x}}}
+$$
+
+Sustituimos los valores:
+
+$$
+Z = \frac{48 - 42.66}{2.11} \approx 2.53
+$$
+
+Ahora, consultamos la tabla de la distribución normal estándar o utilizamos R. Típicamente, para determinar probabilidades acumuladas se usa el comando *pnorm()*. La probabilidad acumulada para $Z = 2.53$ es aproximadamente:
+
+$$
+P(Z \leq 2.53) \approx 0.994
+$$
+
+La probabilidad de que $\bar{x}$ sea mayor a $48$ es el complemento, dado que el área bajo la curva normal es 1. Entonces tenemos:
+
+$$
+P(Z > 2.53) = 1 - P(Z \leq 2.53) \approx 1 - 0.994 \approx 0.005
+$$
+
+Por lo tanto, la probabilidad de que la media muestral sea mayor a $48$ años es aproximadamente $0.005$ o $0.5\%$.
+
+
+En R tenemos:
+
+```{r, results='hide'}
+x_barra <- 48    # Valor de la media muestral
+mu_x_barra <- 42.66    # Valor del promedio de la distribución de la media muestral
+sigma_x_barra <- 2.11    # Valor de la desviación estándar de la distribución de la media muestral
+
+# Calcular la puntuación Z
+Z <- (x_barra - mu_x_barra) / sigma_x_barra
+
+# Calcular la probabilidad acumulada para Z con el comando pnorm()
+probabilidad_acumulada <- pnorm(Z)
+
+# Calcular la probabilidad de que X barra sea mayor a 48
+probabilidad_mayor <- 1 - probabilidad_acumulada
+
+# Mostrar el resultado
+probabilidad_mayor
+```
+
+:::
+
+
+# Pregunta b
+::: {.callout-tip collapse="true" title="Ver solución"}
+¿Es poco común que la media muestral sea de 48 años? Un evento se considera “poco común” si su probabilidad es muy baja, típicamente menos del $5\%$ ($P < 0.05$). En este caso, la probabilidad de obtener una media muestral mayor a $48$ es $0.5\%$, lo que es sumamente bajo.
+
+Hay evidencia suficiente para considerar que esta media muestral es poco común. Si esta media muestral fuera observada, podríamos cuestionar si es consistente con el promedio poblacional o si hay factores adicionales que están afectando los resultados.
+
+:::
+
+:::
+
+
+
+
+[^1]: Si es la primera vez que lee esta explicación podría parecer algo confusa. Veámoslo más sencillo: tenemos 40 muestras, cada una compuesta por $30$ docentes. Para cada una de estas muestras calculamos la edad promedio. Al hacer esto, obtenemos 40 promedios diferentes. Si representamos estos $40$ promedios en un histograma, obtendremos la distribución de los promedios muestrales. Lo que estamos pidiendo aquí es describir cómo es esta distribución de promedios o, más precisamente, la media general de estos 40 promedios.
+
+[^2]: Estas referencias se encuentran en Canvas, en la clase 02.
+
+[^3]: Note que el intervalo, el cual representa un rango de valores, se ha expresado en la forma $\left[\text{Valor mínimo},\ \text{Valor máximo}\right]$.
+
+
+
+

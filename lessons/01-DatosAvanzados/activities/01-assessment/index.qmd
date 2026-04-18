@@ -9,7 +9,7 @@ toc-expand: true
 toc-title: Contenido
 author:
   - name: Dany Lopez (dxlopez@ul.cl) - José Luis Pérez (josel.perez@uc.cl)
-date-modified: April 10, 2024
+date-modified: April 18, 2026
 from: markdown+emoji
 format:
   html:
@@ -206,34 +206,6 @@ options(scipen=999)
 
 ```
 
-## Etapa 0: Ruta de trabajo
-
-En esta sección daremos detalles sobre cómo establecer el lugar (carpeta) donde se ubican nuestras bases de datos y archivos. Se recomienda que **siempre se trabaje en la misma carpeta** (por ejemplo una carpeta que lleve por nombre `taller01`), de tal forma de centralizar la ubicación de sus datos, código y outputs.
-
-Por ejemplo, imaginemos que creo mi carpeta de trabajo de nombre **taller01**. Dentro de la carpeta **`taller01`** se encuentra la base de datos y el código *R*. Esta carpeta se encuentra dentro de otra carpeta de nombre *talleres* la que a su vez se encuentra en la carpeta *Magister* la que a su vez se encuentra alojada dentro de mi carpeta *Dropbox*. Luego
-
--   En un computador con windows la **RUTA** de mi carpeta **taller1** sería:
-
-`C:/Dropbox/Magister/talleres/taller01`
-
-Originalmente en Windows su ruta se encontrará con el backslash , como se muestra a continuación:
-
-$C:\backslash Users\backslash DL\backslash Dropbox\backslash Magister\backslash talleres\backslash taller01$
-
-por lo que para usarla en `R`, deberá cambiar $\backslash$ por /.
-
--En un computador con Mac la **RUTA** de mi carpeta **taller1** sería:
-
-`Users/Dropbox/Magister/talleres/taller01`
-
--   Deben declarar su directorio con el comando a continuación:
-
-```{r eval=FALSE, include=TRUE}
-
-setwd(dir = "Users/Dropbox/Magister/talleres/taller01")
-```
-
-De esta manera `R` sabrá que su directorio de trabajo ("working directory" = wd) estará fijo
 
 ## Etapa 1: Abrir los datos
 
@@ -373,7 +345,7 @@ Según el dilema planteado, plantee la hipótesis nula y la hipótesis alternati
 
 ## Pregunta 2.2:
 
-Realice una prueba que permita evidenciar si existen diferencias significativas entre el puntaje promedio del `juez_1` y el `juez_2`. Reporte sus resultados en una tabla y junto a la tabla el reporte verbal. Puede guiarse por la norma APA 7 en el título que indica [`Sample results of several t tests table`](https://apastyle.apa.org/style-grammar-guidelines/tables-figures/sample-tables). Para el reporte, utilice el usado en la [`Clase 4, p.64`](https://cursos.canvas.uc.cl/courses/87358/files/12121774?module_item_id=2517697) del curso.
+Realice una prueba que permita evidenciar si existen diferencias significativas entre el puntaje promedio del `juez_1` y el `juez_2`. Reporte sus resultados en una tabla y junto a la tabla el reporte verbal. Puede guiarse por la norma APA 7 en el título que indica [`Sample results of several t tests table`](https://apastyle.apa.org/style-grammar-guidelines/tables-figures/sample-tables). Para el reporte, utilice el usado en la [`Clase 4, p.60`](https://cursos.canvas.uc.cl/courses/101869/modules/items/3021636) del curso.
 
 Para realizar este paso, tiene que que primero filtrar la tabla `db_juez_long` para los casos respectivo y luego utilizar la prueb `t` vista en clases. Puede usar el siguiente código para filtar la base de datos y luego realizar la prueba `t`.
 
@@ -401,11 +373,11 @@ db_juez_long_j1_j2 <- db_juez_long %>%
 
 ## Pregunta 2.3:
 
-En base a los resultados obtenidos, indique si rechaza la hipótesis nula y junto con su nivel de confianza.
+En base a los resultados obtenidos,  justifique si rechaza la hipótesis nula e integre en su respuesta el nivel de confianza usado para sustentar su afirmación.
 
 ## Pregunta 2.4:
 
-Realice ahora un test de ANOVA y reporte sus resultados en una tabla y verbalmente. Utilice como referencia la tabla ANOVA y el report usado en [`Clase 5, p. 41 y p.43`](https://cursos.canvas.uc.cl/courses/87358/files/12181305?module_item_id=2530476) del curso.
+Realice ahora un test de ANOVA y reporte sus resultados en una tabla y verbalmente. Utilice como referencia la tabla ANOVA y el report usado en la Clase 5 del curso. Luego, compare los resultados de la prueba de ANOVA con los resultados de la prueba t realizada anteriormente ¿Qué puede concluir? 
 
 # Sección 3: Comparación de media entre tres jueces
 

@@ -9,7 +9,7 @@ toc-expand: true
 toc-title: Contenido
 author:
   - name: Dany Lopez (dxlopez@ul.cl) - José Luis Pérez (josel.perez@uc.cl)
-date-modified: May 17, 2024
+date-modified: May 16, 2026
 from: markdown+emoji
 format:
   html:
@@ -23,8 +23,9 @@ format:
       body-width: 950px
       margin-width: 400px
       gutter-width: 1.5rem
+  pdf: default
 mainfont: Avenir Next
-monofont: Source Code Pro
+monofont: Avenir Next
 monofontoptions: 
   - Scale = 1.
 ---

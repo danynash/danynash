@@ -9,7 +9,7 @@ toc-expand: true
 toc-title: Contenido
 author:
   - name: Dany Lopez (dxlopez@ul.cl) - José Luis Pérez (josel.perez@uc.cl)
-date-modified: May 9, 2024
+date-modified: May 15, 2026
 from: markdown+emoji
 format:
   html:
@@ -23,8 +23,9 @@ format:
       body-width: 950px
       margin-width: 400px
       gutter-width: 1.5rem
+  pdf: default
 mainfont: Avenir Next
-monofont: Source Code Pro
+monofont: Avenir Next
 monofontoptions: 
   - Scale = 1.
 ---
@@ -88,10 +89,10 @@ Con el objetivo de comprender y situar la interpretación de los coeficienes $\b
 
 Lo anterior se resume en la siguiente tabla, vea que ambos casos involucra $Y$ medida en una escala numérica.
 
-| Caso   | Escala Medición variable dependiente ($Y$) | Escala Medición variable explicativa ($X$) |     |
-|------------|:-----------------------|-----------------------:|:----------:|
-| Caso 1 | Numérica                                   |                                   Numérica |     |
-| Caso 2 | Numérica                                   |                                 Categórica |     |
+| Caso   |  Variable dependiente ($Y$)|  Variable explicativa ($X$) |            |
+|------------|:-----------------------|----------------------------:|:----------:|
+| Caso 1 | Numérica                   |                    Numérica |            |
+| Caso 2 | Numérica                   |                  Categórica |            |
 
 Luego, para estos dos casos vamos a interpretar el coficiente $\beta_0$ (intercepto) y $\beta_1$ (pendiente) al ajustar el modelo de regresión lineal. De tal forma, lograremos comprender la relación entre $Y$ y $X$. Partiremos con el *caso 1* y para luego abordar del *caso 2*.
 

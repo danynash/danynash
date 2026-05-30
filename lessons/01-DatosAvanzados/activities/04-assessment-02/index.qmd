@@ -387,7 +387,7 @@ tab_model(m1,m2,m3,m4,
 
 ### Pregunta 2.2:
 
-Realice un reporte de cada modelo. Puede utilizar el ejemplo de reporte entregado en el documento ubicado en la sección `Resumen` [**Etapa 4: Reporte de resultados **](https://danynash.com/lessons/03-MultipleLinearRegression/#etapa-4-reporte-de-resultados). El reporte igualmente lo puede ver a continuación:
+Realice un reporte de cada modelo. Puede utilizar el ejemplo de reporte entregado en el documento ubicado en la sección `Resumen` [**Etapa 4: Reporte de resultados **](https://danynash.com/lessons/01-DatosAvanzados/activities/03-MultipleLinearRegression/#etapa-4-reporte-de-resultados). El reporte igualmente lo puede ver a continuación:
 
 
 ::: {.callout-note title="Nota"}

@@ -9,7 +9,7 @@ toc-expand: true
 toc-title: Contenido
 author:
   - name: Dany Lopez (dxlopez@ul.cl) - José Luis Pérez (josel.perez@uc.cl)
-date-modified: May 23, 2025
+date-modified: May 30, 2026
 from: markdown+emoji
 format:
   html:

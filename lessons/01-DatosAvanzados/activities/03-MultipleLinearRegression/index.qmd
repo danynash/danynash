@@ -67,7 +67,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.align="center")
 
 # Descripción
 
-Sabemos que de manera genérica, un modelo de regresión lineal múltiple queda expresado de la siguiente forma $$Y=\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \ldots + \beta_{k-1} X_{k-1} + \beta_k X_k  +\varepsilon$$
+Sabemos que de manera genérica, un modelo de regresión lineal múltiple queda expresado de la siguiente forma $$Y=\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \ldots + \beta_{k-1} X_{k-1} + \beta_k X_k  +\varepsilon.$$
 
 En el que
 
@@ -332,7 +332,18 @@ tidy() %>%
   ) %>%
 kable(col.names = c("Predictores", "B", "SE", "t", "p"),
     digits = c(0, 2, 3, 2, 3),
-    align = c("l", "r", "r", "r", "r"))
+    align = c("l", "r", "r", "r", "r"),
+    booktabs=TRUE,
+    caption ="Modelo de regresión lineal"
+    ) %>% 
+  # kableExtra::row_spec(., 0, extra_css = "border-top: 1px solid") %>% 
+   kableExtra::row_spec(., 0, extra_css = "border-top: 1px solid") %>% 
+   kableExtra::row_spec(., 1, extra_css = "border-top: 1px solid") %>% 
+   kableExtra::row_spec(., 3, extra_css = "border-bottom: 1px solid")
+
+ 
+ 
+ 
 
 ```
 

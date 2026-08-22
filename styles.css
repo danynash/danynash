@@ -44,3 +44,146 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CODIGO PARA CURSO NIVELACION*/
+
+
+
+.hero-nivelacion {
+  padding: 2.2rem;
+  margin: 0 0 2rem 0;
+  color: white;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 90% 15%, rgba(233, 196, 106, .45), transparent 28%),
+    linear-gradient(135deg, #264653 0%, #287271 55%, #2a9d8f 100%);
+  box-shadow: 0 12px 28px rgba(38, 70, 83, .18);
+}
+
+.hero-nivelacion h1 {
+  color: white;
+  margin-top: 0;
+}
+
+.ruta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  gap: 1rem;
+  margin: 1.4rem 0 2.2rem 0;
+}
+
+.ruta-card {
+  display: block;
+  position: relative;
+  min-height: 175px;
+  padding: 1.25rem 1.25rem 1.1rem;
+  border: 1px solid #d9e1e5;
+  border-top: 7px solid var(--card-color, var(--verde));
+  border-radius: 14px;
+  background: white;
+  color: var(--texto);
+  text-decoration: none;
+  box-shadow: 0 5px 18px rgba(38, 70, 83, .08);
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+
+.ruta-card:hover {
+  color: var(--texto);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(38, 70, 83, .16);
+}
+
+.ruta-card .numero {
+  display: inline-flex;
+  width: 2.35rem;
+  height: 2.35rem;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: var(--card-color, var(--verde));
+  border-radius: 50%;
+  font-weight: 800;
+  margin-bottom: .8rem;
+}
+
+.ruta-card h3 {
+  font-size: 1.05rem;
+  margin: 0 0 .55rem 0;
+}
+
+.ruta-card p {
+  font-size: .91rem;
+  line-height: 1.35;
+  color: #52616b;
+  margin-bottom: .3rem;
+}
+
+.ruta-card .abrir {
+  color: var(--card-color, var(--verde));
+  font-size: .88rem;
+  font-weight: 700;
+}
+
+.meta-tutorial {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.meta-tutorial span {
+  padding: .38rem .72rem;
+  background: #eef3f4;
+  border-radius: 999px;
+  font-size: .9rem;
+}
+
+.pregunta-guia {
+  padding: 1.2rem 1.4rem;
+  border-left: 6px solid var(--amarillo);
+  border-radius: 0 12px 12px 0;
+  background: #fff9e9;
+  font-size: 1.12rem;
+  font-weight: 650;
+}
+
+.video-placeholder {
+  padding: 2rem;
+  border: 2px dashed #9bb2bb;
+  border-radius: 14px;
+  text-align: center;
+  color: #52616b;
+  background: #f8fbfb;
+}
+
+.pill {
+  display: inline-block;
+  padding: .10em .55em;
+  margin: .06em;
+  border-radius: 999px;
+  font-weight: 650;
+}
+
+
+.callout.callout-style-default {
+  border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+  .hero-nivelacion { padding: 1.35rem; }
+  .ruta-grid { grid-template-columns: 1fr; }
+}
+

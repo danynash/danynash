@@ -1,0 +1,444 @@
+---
+title: "¿Cuándo una medición ayuda a tomar una buena decisión?"
+subtitle: "Actividad aplicada sobre propósito, atributo e interpretación"
+image: imageProfile/constructs.png
+title-block-banner: "#f0f3f5"
+title-block-banner-color: "black"
+author:
+  - name: "Dany López González - José Luis Perez"
+    affiliation: "Pontificia Universidad Católica de Chile"
+date: 2026-08-22
+date-format: long
+lang: es
+from: markdown+emoji
+number-sections: false
+toc: true
+toc-title: "En esta actividad"
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-expand: true
+    smooth-scroll: true
+    embed-resources: true
+    code-copy: false
+    link-external-newwindow: true
+  pdf:
+    pdf-engine: xelatex
+    documentclass: scrartcl
+    classoption: 11pt
+    toc: true
+    toc-title: "En esta actividad"
+    colorlinks: true
+    geometry:
+      - top=2.2cm
+      - bottom=2.2cm
+      - left=2.4cm
+      - right=2.4cm
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+# Organización del trabajo
+
+La actividad avanza desde el análisis de una experiencia real hacia la
+formulación de una propuesta propia. El trabajo se organiza en tres partes: una
+discusión de caso, una aplicación a los intereses del curso y una búsqueda
+inicial de literatura.
+
+<div class="meta-tutorial">
+  <span>⏱️ 65 minutos</span>
+  <span>📖 Parte I: análisis de un caso — 15 minutos</span>
+  <br>
+  <span>✍️ Parte II: formulación del propósito — 30 minutos</span>
+  <span>🔎 Parte III: búsqueda de literatura — Actividad fuera de clases</span>
+</div>
+
+<div class="pregunta-guia">
+¿Qué tendría que ser cierto para que la afirmación <em>“es mejor tener un
+instrumento que no tenerlo”</em> fuese una justificación aceptable?
+</div>
+
+## Tres partes para construir una propuesta
+
+| Parte | Propósito | Tiempo |
+|---|---|---:|
+| **I. Analizar una experiencia real** | Examinar las interpretaciones, decisiones y consecuencias asociadas con los resultados de un instrumento. | 15 min |
+| **II. Formular el propósito de una propuesta propia** | Relacionar una necesidad educativa con un propósito mayor, un atributo relevante, una población y una decisión. | 45 min |
+| **III. Buscar literatura para caracterizar el atributo** | Identificar palabras clave y localizar antecedentes conceptuales y estudios de medición pertinentes. | Fuera de clases |
+
+Al finalizar, cada estudiante contará con un **propósito mayor formulado con
+claridad**, un atributo inicial asociado con ese propósito y una estrategia de
+búsqueda para continuar su caracterización. Los grupos de afinidad temática
+permitirán compartir conceptos, modelos y referencias durante este proceso.
+
+# Parte I. Analizar una experiencia real
+
+## El caso
+
+Una institución de educación superior impartía una carrera del área STEM. La
+cohorte de primer año estaba distribuida en **12 secciones de aproximadamente
+40 estudiantes cada una**, es decir, cerca de 480 estudiantes en total.
+
+La institución necesitaba diagnosticar los conocimientos previos de las y los
+estudiantes sobre un contenido específico de mecánica. Durante la discusión
+sobre el tiempo y los recursos disponibles, un directivo sostuvo que **“es
+mejor tener un instrumento que no tenerlo”**.
+
+Se construyó un instrumento compuesto por **30 preguntas de selección múltiple**.
+Después de aplicarlo, los análisis no mostraron diferencias estadísticamente
+significativas entre las 12 secciones. A partir de ese resultado se concluyó
+que las secciones eran comparables, que podía mantenerse la misma estrategia
+pedagógica en todas ellas y que no era necesario realizar adecuaciones.
+
+Posteriormente, las y los estudiantes fueron redistribuidos entre secciones de
+acuerdo con antecedentes de rendimiento académico. Después de esa
+redistribución, las secciones avanzaron a ritmos considerablemente diferentes.
+
+La situación invita a examinar qué podía afirmarse a partir de los resultados
+del instrumento y si las decisiones adoptadas estaban suficientemente
+respaldadas.
+
+## Examinen las interpretaciones y sus consecuencias
+
+Conversen en grupos de tres personas. Dediquen los primeros minutos a comparar
+sus interpretaciones y utilicen las siguientes preguntas para examinar los
+razonamientos y decisiones presentes en el caso:
+
+1. ¿Qué permite afirmar que no se hayan encontrado diferencias estadísticamente
+   significativas entre las secciones?
+2. ¿Es equivalente no encontrar diferencias a demostrar que las secciones son
+   comparables? ¿Qué evidencia adicional se necesitaría?
+3. ¿Qué interpretación de los puntajes permitió concluir que debía mantenerse
+   la misma estrategia pedagógica?
+4. ¿Las 30 preguntas representaban suficientemente el conocimiento previo que
+   resultaba relevante para aprender el contenido posterior?
+5. ¿Qué consecuencias podía tener la decisión de no realizar adecuaciones?
+6. ¿Qué otras fuentes de información podrían haber orientado esa decisión?
+7. ¿Qué explicaciones alternativas podrían dar cuenta de las diferencias de
+   avance observadas después de la redistribución?
+8. ¿Para qué decisiones habría sido razonable utilizar los resultados y para
+   cuáles no?
+
+**Conclusión provisional del grupo:**
+
+La afirmación del directivo sería aceptable si...
+
+..............................................................................................................................
+
+No sería aceptable si...
+
+..............................................................................................................................
+
+## Ocho preguntas para incorporar el contexto
+
+Interpretar resultados exige conocer los puntajes y las condiciones sociales,
+institucionales y técnicas en que fueron producidos. Para organizar la puesta
+en común utilizaremos ocho preguntas de contexto adaptadas de Ho (2024), quien
+las relaciona con las competencias profesionales discutidas por Ackerman et al.
+(2024) y Ho et al. (2024).
+
+| Dimensión | Pregunta para analizar el caso |
+|---|---|
+| **Población** | ¿En qué se parecen y en qué se diferencian las y los estudiantes evaluados de la población para la que se esperaba utilizar las conclusiones, incluidas futuras cohortes? |
+| **Condiciones de aplicación** | ¿Cuándo, cómo, dónde, por qué y por quién fue administrado el instrumento? ¿Las condiciones fueron equivalentes en las 12 secciones? |
+| **Comparabilidad** | ¿Qué evidencia permite sostener que los puntajes tienen el mismo significado entre secciones, momentos y grupos de estudiantes? |
+| **Consecuencias e incentivos** | ¿Qué importancia atribuían las y los estudiantes a la evaluación? ¿Qué incentivos o posibles consecuencias percibían al responder? |
+| **Múltiples fuentes de información** | ¿Qué otros antecedentes debían incorporarse para decidir si era necesario ajustar la enseñanza? ¿Cómo se combinarían con los puntajes? |
+| **Historia** | ¿Qué experiencias previas tenía la institución con diagnósticos, agrupamiento por rendimiento o usos inadecuados de resultados? |
+| **Conflictos de interés** | ¿Quiénes diseñaron, recomendaron y evaluaron el instrumento? ¿Existían responsabilidades o intereses que debían declararse? |
+| **Transparencia** | ¿La definición del atributo, las preguntas, los procedimientos de análisis y los límites de interpretación estaban documentados y disponibles para revisión? |
+
+Para cerrar esta parte, identifiquen **dos preguntas de contexto** que podrían
+haber cambiado de manera importante la interpretación del caso.
+
+```{=latex}
+\newpage
+```
+
+# Parte II. Formular el propósito de una propuesta propia
+
+En esta segunda parte cada estudiante trabajará con un problema de su interés.
+La formulación individual será examinada con compañeros que aborden temas
+próximos. La conversación permitirá precisar el propósito mayor, reconocer
+coincidencias y diferencias conceptuales, y establecer qué aspectos requieren
+fundamentación adicional.
+
+| Momento | Producto esperado | Tiempo |
+|---|---|---:|
+| Formulación individual | Primera relación entre problema, propósito, atributo e interpretación prevista. | 15 min |
+| Conversación por afinidad temática | Conceptos compartidos, diferencias relevantes y posibles modelos o autores para explorar. | 20 min |
+| Formulación y puesta en común del propósito | Propósito mayor revisado, decisión, atributo y contexto explícitos. | 10 min |
+
+## 1. Describir una necesidad educativa
+
+Describa una necesidad, interpretación o decisión situada en un contexto
+educativo. Luego identifique qué información contribuiría a abordarla.
+
+::: {.callout-tip title="Una manera de comenzar"}
+Formule una frase que vincule el atributo de interés con una persona usuaria,
+una decisión y un contexto:
+
+> Necesito comprender ____________ para que ____________ pueda decidir o
+> realizar ____________ en el contexto de ____________.
+:::
+
+## 2. Organizar una primera formulación
+
+La tabla siguiente permite traducir una inquietud general en una propuesta de
+medición que pueda discutirse. Cada fila cumple una función diferente:
+
+- El **problema** sitúa la necesidad educativa.
+- El **objetivo mayor** identifica la decisión o acción que se espera apoyar.
+- Los **elementos** indican sobre quiénes o qué se necesita información.
+- El **atributo** expresa aquello que interesa conocer.
+- La **estructura posible** explicita si interesa distinguir tipos, establecer
+  un orden o representar diferencias de cantidad.
+- La **interpretación prevista** anticipa qué se espera afirmar a partir de los
+  resultados.
+
+Complete las filas de manera provisional. Cuando una respuesta esté pendiente,
+escriba “por investigar” y registre la información que necesita encontrar.
+
+::: {.tabla-trabajo}
+| Aspecto | Pregunta para orientar la formulación | Formulación inicial |
+|---|---|---|
+| **Problema o necesidad educativa** | ¿Qué situación desea comprender, mejorar o atender? |  |
+| **Objetivo mayor** | ¿Qué decisión, interpretación o acción podría beneficiarse de la medición? |  |
+| **Personas que utilizarían los resultados** | ¿Quién necesita esta información y con qué responsabilidad? |  |
+| **Elementos o población de interés** | ¿Sobre quiénes, qué desempeños o qué productos se necesita información? |  |
+| **Atributo relevante** | ¿Qué característica necesita conocerse para contribuir al objetivo? |  |
+| **Definición preliminar** | ¿Qué significa el atributo y de qué conceptos cercanos debería distinguirse? |  |
+| **Estructura posible** | ¿Interesan diferencias de tipo, orden o cantidad? ¿Podrían existir dimensiones o niveles? |  |
+| **Manifestaciones esperadas** | ¿Cómo podría expresarse el atributo en desempeños, respuestas o situaciones observables? |  |
+| **Interpretación prevista** | ¿Qué se esperaría poder afirmar a partir de los resultados? |  |
+| **Uso que podría justificarse** | ¿Qué decisión concreta podrían apoyar los resultados? |  |
+| **Uso que debería evitarse** | ¿Qué conclusión o decisión excedería la información disponible? |  |
+| **Aspectos por investigar** | ¿Qué conceptos, modelos o antecedentes requieren mayor fundamentación? |  |
+:::
+
+```{=latex}
+\newpage
+```
+
+## 3. Conversar con quienes estudian temas similares
+
+Formen grupos a partir de afinidades temáticas. Por ejemplo, pueden reunirse
+quienes estén interesados en aprendizaje disciplinar, retroalimentación,
+prácticas docentes, evaluación formativa, uso de tecnologías, participación o
+bienestar. Los integrantes pueden trabajar atributos diferentes dentro de un
+tema común.
+
+El propósito de la conversación es que los integrantes se ayuden a **comparar
+definiciones, reconocer modelos posibles e identificar literatura que pueda ser
+útil para más de una propuesta**.
+
+### Desarrollo de la conversación
+
+1. Cada persona presenta brevemente su problema, propósito y atributo.
+2. El grupo identifica términos que parecen similares, pero que podrían tener
+   significados diferentes.
+3. Comparan posibles dimensiones, niveles, categorías o progresiones asociadas
+   con esos atributos.
+4. Discuten si los propósitos requieren clasificar, ordenar o cuantificar.
+5. Comparten autores, modelos, asignaturas, experiencias o referencias que
+   podrían orientar la búsqueda.
+
+### Preguntas para el grupo
+
+- ¿Estamos utilizando el mismo término para referirnos al mismo fenómeno?
+- ¿Qué conceptos cercanos habría que distinguir?
+- ¿Qué límites debería tener cada atributo?
+- ¿Existen modelos teóricos que alguno de los integrantes ya conozca?
+- ¿Qué diferencias aparecen entre las poblaciones o contextos de interés?
+- ¿Qué fuentes o palabras clave podrían ser útiles para varias propuestas?
+
+Al finalizar, el grupo deberá contar con:
+
+- Una breve descripción del interés que comparten.
+- Dos o tres diferencias conceptuales relevantes.
+- Posibles modelos, dimensiones o formas de representación para explorar.
+- Una lista inicial de términos, autores o referencias para la búsqueda.
+
+```{=latex}
+\newpage
+```
+
+## 4. Formular y compartir el propósito mayor
+
+Revise su propósito a partir de la conversación del grupo. La formulación debe
+identificar quién utilizará la información, qué atributo se estudiará, qué
+decisión o acción se espera apoyar y en qué contexto se aplicaría.
+
+Utilice la siguiente estructura:
+
+> El propósito de la medición es aportar información sobre
+> **[atributo relevante]** en **[población o elementos]**, para que
+> **[personas usuarias]** puedan **[decisión, interpretación o acción]** en
+> **[contexto de aplicación]**.
+
+Durante la puesta en común, cada grupo compartirá uno o dos ejemplos. El curso
+examinará si cada formulación permite responder estas preguntas:
+
+- ¿Quién utilizará la información?
+- ¿Qué decisión, interpretación o acción se desea apoyar?
+- ¿Cuál es el atributo relevante para ese propósito?
+- ¿Sobre qué población, desempeños o productos se recogerá información?
+- ¿En qué contexto se utilizarían los resultados?
+
+**Propósito mayor revisado:**
+
+..............................................................................................................................
+
+..............................................................................................................................
+
+```{=latex}
+\newpage
+```
+
+# Parte III. Buscar literatura para caracterizar el atributo (fuera de clases)
+
+## ¿Por qué revisar literatura?
+
+La caracterización de un atributo requiere definiciones, antecedentes y modelos
+desarrollados en la literatura académica. La revisión ayuda a:
+
+1. Conocer cómo ha sido definido en distintas tradiciones.
+2. Distinguirlo de conceptos próximos.
+3. Identificar dimensiones, niveles, categorías o progresiones propuestas.
+4. Reconocer cómo podría manifestarse en situaciones observables.
+5. Examinar en qué poblaciones y contextos se ha estudiado.
+6. Identificar desacuerdos o vacíos conceptuales.
+7. Reconocer los términos y sinónimos utilizados por la comunidad académica.
+8. Examinar instrumentos existentes como antecedentes de operacionalización.
+
+La revisión ofrece antecedentes para comparar alternativas y fundamentar las
+decisiones conceptuales. Durante la lectura, registre los términos empleados por
+los autores: esos términos formarán la base de las palabras clave para buscar
+nuevos documentos.
+
+## ¿Por qué necesitamos palabras clave?
+
+Las bases de datos recuperan documentos mediante los términos presentes en sus
+títulos, resúmenes y palabras clave. Un mismo atributo puede recibir nombres
+distintos; además, un término semejante puede tener significados diferentes
+según la disciplina o el contexto.
+
+Por eso, antes de buscar conviene preparar una pequeña red de términos:
+
+- El nombre provisional del atributo.
+- Sinónimos y conceptos cercanos.
+- Términos más amplios y más específicos.
+- Equivalentes en inglés.
+- Población y contexto.
+- Palabras asociadas con definición, teoría, dimensiones o medición.
+
+## Paso 1. Formule una pregunta de búsqueda
+
+Escriba en lenguaje natural qué necesita conocer:
+
+> ¿Cómo se ha definido y modelado **[atributo]** en **[población o contexto]** y
+> qué dimensiones, niveles o categorías se han propuesto?
+
+```{=latex}
+\newpage
+```
+
+## Paso 2. Organice los conceptos principales
+
+| Bloque | Pregunta | Términos iniciales |
+|---|---|---|
+| **Atributo** | ¿Cuál es el concepto principal y qué otros nombres puede recibir? |  |
+| **Población o contexto** | ¿En qué nivel educativo, disciplina o grupo interesa estudiarlo? |  |
+| **Caracterización conceptual** | ¿Busca definiciones, marcos, modelos, dimensiones, niveles o categorías? | definition, conceptualization, framework, model, dimensions |
+| **Medición** | ¿Busca también instrumentos o estudios que examinen interpretaciones y usos? | measurement, assessment, scale, instrument, validity, validation |
+
+## Paso 3. Busque primero definiciones y modelos
+
+Adapte esta estructura a su propuesta:
+
+```text
+("nombre del atributo" OR "sinónimo 1" OR "sinónimo 2")
+AND (education OR students OR teachers)
+AND (definition OR conceptualization OR framework OR model OR dimensions)
+```
+
+Priorice inicialmente revisiones, artículos conceptuales y estudios que
+expliquen la estructura del atributo.
+
+## Paso 4. Examine cómo ha sido medido
+
+Después de comprender las principales definiciones, realice una segunda
+búsqueda:
+
+```text
+("nombre del atributo" OR "sinónimo 1" OR "sinónimo 2")
+AND (measurement OR assessment OR scale OR instrument)
+AND (validity OR validation)
+```
+
+Esta búsqueda permite conocer instrumentos y procedimientos existentes. Utilice
+las escalas encontradas como antecedentes de operacionalización. La definición
+del atributo y la pertinencia de sus interpretaciones requieren una
+fundamentación específica para el nuevo contexto.
+
+## Paso 5. Registre dos antecedentes iniciales
+
+Busque, si es posible, una fuente conceptual y un estudio de medición. Registre
+la información que permita decidir si cada antecedente es pertinente.
+
+| Pregunta | Fuente conceptual o revisión | Estudio de medición o validación |
+|---|---|---|
+| Referencia |  |  |
+| ¿Cómo define el atributo? |  |  |
+| ¿Qué dimensiones, niveles o categorías propone? |  |  |
+| ¿En qué población y contexto se estudió? |  |  |
+| ¿Con qué propósito se produjo la información? |  |  |
+| ¿Qué podría aportar a mi propuesta? |  |  |
+| ¿Qué no debería trasladarse sin mayor análisis? |  |  |
+
+# Cierre
+
+Vuelva a la pregunta inicial y complete:
+
+**La afirmación “es mejor tener un instrumento que no tenerlo” sería una
+justificación aceptable si...**
+
+..............................................................................................................................
+
+..............................................................................................................................
+
+Antes de finalizar, registre:
+
+1. El problema educativo que desea abordar.
+2. El propósito mayor de su propuesta.
+3. El atributo que necesita caracterizar.
+4. El grupo de afinidad con el que podría continuar conversando.
+5. Las primeras palabras clave o fuentes que orientarán su revisión.
+
+# Referencias
+
+Ackerman, T. A., Bandalos, D. L., Briggs, D. C., Everson, H. T., Ho, A. D.,
+Lottridge, S. M., Madison, M. J., Sinharay, S., Rodriguez, M. C., Russell, M.,
+von Davier, A. A., & Wind, S. A. (2024). Foundational competencies in
+educational measurement. *Educational Measurement: Issues and Practice, 43*(3),
+7–17. <https://doi.org/10.1111/emip.12581>
+
+Ho, A. D. (2024, December 8). *Towards assessment literacy: Questions to ask
+about educational tests* [Handout]. Harvard Graduate School of Education.
+<https://andrewho.scholars.harvard.edu/sites/g/files/omnuum4106/files/2025-01/Assessment-Literacy.pdf>
+
+Ho, A. D., Ackerman, T. A., Bandalos, D. L., Briggs, D. C., Everson, H. T.,
+Lottridge, S. M., Madison, M. J., Sinharay, S., Rodriguez, M. C., Russell, M.,
+von Davier, A. A., & Wind, S. A. (2024). Foundational competencies in
+educational measurement: A rejoinder. *Educational Measurement: Issues and
+Practice, 43*(3), 56–63. <https://doi.org/10.1111/emip.12623>
+
+Torres Irribarra, D. (2021). *A pragmatic perspective of measurement*.
+Springer. <https://doi.org/10.1007/978-3-030-74025-2>
+
+Wilson, M. (2023). *Constructing measures: An item response modeling approach*
+(2nd ed.). Routledge. <https://doi.org/10.4324/9781003286929>

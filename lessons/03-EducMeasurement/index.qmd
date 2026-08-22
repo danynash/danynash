@@ -1,0 +1,13 @@
+---
+title: "<strong>EDU3823</strong> <br> <br> Medición Educacional"
+image: image/Med_Ed_1.png
+listing:
+  contents: "activities/*/index.qmd"
+  feed: true
+  sort: "date desc"
+  type: default
+  categories: false
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+---

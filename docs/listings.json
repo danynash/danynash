@@ -46,7 +46,14 @@
     "items": [
       "/lessons/01-DatosAvanzados/index.html",
       "/lessons/02-DatosEdSuper/index.html",
+      "/lessons/03-EducMeasurement/index.html",
       "/foonote/index.html"
+    ]
+  },
+  {
+    "listing": "/lessons/03-EducMeasurement/index.html",
+    "items": [
+      "/lessons/03-EducMeasurement/activities/01-assessment/index.html"
     ]
   },
   {

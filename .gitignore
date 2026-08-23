@@ -24,3 +24,4 @@ testing_v5.qmd
 testing_v6.qmd
 testing_v7.qmd
 testing.qmd
+**/*.quarto_ipynb

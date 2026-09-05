@@ -1,0 +1,311 @@
+---
+title: "Mapeo preliminar de constructo"
+subtitle: "Trabajo colaborativo para caracterizar el uso docente de la GenIA"
+image: imageProfile/constructs.png
+title-block-banner: "#f0f3f5"
+title-block-banner-color: "black"
+author:
+  - name: "Dany López González - José Luis Perez"
+    affiliation: "Pontificia Universidad Católica de Chile"
+date: 2026-09-05
+date-format: long
+lang: es
+from: markdown+emoji
+number-sections: false
+toc: true
+toc-title: "En esta actividad"
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-expand: true
+    smooth-scroll: true
+    embed-resources: true
+    code-copy: false
+    link-external-newwindow: true
+  pdf:
+    pdf-engine: xelatex
+    documentclass: scrartcl
+    classoption: 11pt
+    toc: true
+    toc-title: "En esta actividad"
+    colorlinks: true
+    geometry:
+      - top=2.2cm
+      - bottom=2.2cm
+      - left=2.4cm
+      - right=2.4cm
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+Durante este bloque iniciaremos un trabajo común: construir un instrumento de
+diagnóstico sobre la experiencia de uso de inteligencia artificial generativa
+(GenIA) en la práctica docente escolar. Nos concentraremos en una práctica
+pedagógica específica: la **planificación**.
+
+La propuesta asumirá inicialmente que el uso docente de la GenIA puede
+representarse mediante una estructura progresiva. Esta hipótesis supone una
+relación de orden entre diferentes niveles de uso de GenIA al planificar.
+
+<div class="meta-tutorial">
+  <span>👥 Trabajo en grupos de cuatro personas</span>
+  <span>📝 Actividad 1: definición preliminar</span>
+  <span>🔎 Actividad 2: manifestaciones observables</span>
+</div>
+
+<div class="pregunta-guia">
+¿Cómo podemos describir el uso de la GenIA al planificar de manera que sus
+manifestaciones sean coherentes con los niveles del constructo?
+</div>
+
+```{=latex}
+\newpage
+```
+
+**Organización de las dos actividades**
+
+| Actividad | Propósito | Producto esperado |
+|---|---|---|
+| **1. Construir una definición de planificación** | Recoger evidencia conceptual a partir de la experiencia profesional, la formación y la literatura. | Una definición preliminar compartida de planificación. |
+| **2. Vincular niveles y manifestaciones** | Examinar la coherencia entre la definición del constructo, sus niveles y las formas en que puede observarse. | Una manifestación para el nivel reproductivo y una para el nivel reflexivo. |
+
+
+# Actividad 1. Construir una definición compartida de planificación
+
+## Propósito de la actividad
+
+Cada grupo elaborará una definición de **planificación docente**. Para ello,
+utilizará los conocimientos y experiencias de sus integrantes como
+profesionales del campo educativo. La definición aportará evidencia conceptual
+sobre el contenido del atributo que buscamos medir.
+
+Esta actividad tiene dos propósitos complementarios:
+
+| Perspectiva | Propósito |
+|---|---|
+| **Medición** | Recoger evidencia relacionada con el contenido del constructo a partir del juicio de profesionales del campo y de potenciales participantes. |
+| **Pedagógica** | Reconocer cómo la experiencia profesional contribuye a caracterizar un constructo. En la próxima clase profundizaremos este proceso a partir de los estándares de medición. |
+
+## Organización del trabajo
+
+**Tiempo:** 20 minutos.  
+**Agrupación:** Cuatro personas.
+
+Pueden fundamentar su propuesta en las siguientes fuentes:
+
+- Su experiencia profesional.
+- Los conocimientos adquiridos en instancias de formación.
+- La literatura especializada que conozcan o hayan revisado.
+
+## Preguntas para orientar la definición
+
+Antes de redactar, conversen sobre las siguientes preguntas:
+
+- ¿Qué decisiones y acciones forman parte de la planificación docente?
+- ¿Qué productos o resultados genera una persona cuando planifica?
+- ¿Qué información utiliza para tomar decisiones de planificación?
+- ¿Qué actores, propósitos y condiciones influyen en este proceso?
+- ¿Qué características permiten reconocer que una práctica corresponde a planificación?
+- ¿Qué situaciones deberían quedar fuera de la definición acordada?
+
+Registren los principales acuerdos en la tabla.
+
+::: {.tabla-trabajo}
+| Aspecto | Pregunta para el grupo | Acuerdos preliminares |
+|---|---|---|
+| **Acciones y decisiones** | ¿Qué hace una persona cuando planifica? |  |
+| **Propósitos** | ¿Para qué planifica? |  |
+| **Información y recursos** | ¿Qué antecedentes utiliza para orientar sus decisiones? |  |
+| **Productos** | ¿Qué produce o deja preparado como resultado del proceso? |  |
+| **Condiciones** | ¿En qué contextos y bajo qué restricciones se desarrolla la planificación? |  |
+| **Límites del concepto** | ¿Qué prácticas cercanas deberían distinguirse de la planificación? |  |
+:::
+
+## Redacción de la propuesta
+
+A partir de los acuerdos, escriban una definición breve y comprensible. La
+formulación debe permitir que otra persona reconozca qué entiende el grupo por
+planificación docente.
+
+> **Entendemos la planificación docente como...**
+
+..............................................................................................................................
+
+..............................................................................................................................
+
+> **Esta definición incluye...**
+
+..............................................................................................................................
+
+> **Los límites principales de esta definición son...**
+
+..............................................................................................................................
+
+## Puesta en común
+
+Cada grupo escribirá su definición en la pizarra. Durante el plenario,
+compararemos las propuestas y construiremos una definición común preliminar de
+planificación. Esta definición orientará el análisis del uso de la GenIA en la
+segunda actividad.
+
+Para comparar las propuestas, consideren estas preguntas:
+
+- ¿Qué componentes aparecen en varias definiciones?
+- ¿Qué diferencias conceptuales requieren discusión?
+- ¿Qué términos necesitan una formulación más precisa?
+- ¿Qué límites permiten distinguir la planificación de otras prácticas docentes?
+- ¿Qué formulación recoge adecuadamente los acuerdos del curso?
+
+```{=latex}
+\newpage
+```
+
+# Actividad 2. Vincular los niveles del constructo con manifestaciones observables
+
+## Hipótesis inicial sobre los niveles de uso
+
+A partir de la literatura y de la evidencia discutida previamente,
+trabajaremos con la hipótesis de que el uso de GenIA en la planificación puede
+organizarse inicialmente entre dos niveles extremos.
+
+| Posición inicial | Nivel | Caracterización |
+|---|---|---|
+| **Extremo superior (+)** | **Uso reflexivo ** | Uso de la GenIA orientado a la reflexión sobre la práctica y a la mejora profesional. |
+| **Extremo inferior (-)** | **Uso reproductivo** | Uso de la GenIA centrado principalmente en la reproducción o generación directa de productos. |
+
+El trabajo comenzará con estos dos extremos del continuo. Posteriormente,
+examinaremos si existen niveles intermedios cualitativamente distinguibles.
+
+::: {.callout-important title="Pregunta orientadora"}
+¿Cómo se manifiesta cada nivel del constructo cuando una o un docente utiliza
+GenIA para planificar?
+:::
+
+## Instrucciones para el trabajo grupal
+
+Continúen con el mismo grupo de la actividad anterior. Utilicen su experiencia
+profesional y, cuando esté disponible, la literatura revisada. Las personas con
+poca o ninguna experiencia de uso de GenIA también pueden aportar mediante el
+análisis de las decisiones, condiciones y límites asociados con su uso.
+
+Cada grupo deberá:
+
+1. Proponer al menos una manifestación para el nivel reproductivo.
+2. Proponer al menos una manifestación para el nivel reflexivo.
+3. Explicar por qué cada manifestación representa el nivel correspondiente.
+4. Escribir sus propuestas en la pizarra para discutirlas con el curso.
+
+```{=latex}
+\newpage
+```
+
+## Andamiaje para construir un observable
+
+Para cada nivel del constructo, respondan primero estas tres preguntas:
+
+::: {.tabla-andamiaje}
+| Componente | Pregunta guía | ¿Qué buscamos identificar? |
+|---|---|---|
+| **Aspecto referencial** | **¿Qué hace con la GenIA al planificar?** | El objeto o actividad en que utiliza la GenIA: generar actividades, formular objetivos, adaptar una planificación, revisar una secuencia, etc. |
+| **Aspecto estructural: acto** | **¿Cómo utiliza la GenIA para hacerlo?** | La forma concreta de interacción: solicita, copia, selecciona, compara, modifica, cuestiona, itera, contrasta, etc. |
+| **Aspecto estructural: intención** | **¿Para qué la utiliza de esa manera?** | La intención que orienta el uso: ahorrar tiempo, obtener una respuesta, explorar alternativas, revisar una decisión, mejorar la planificación, etc. |
+:::
+
+## Integrar los tres componentes
+
+Una vez identificados los tres componentes, intégrenlos en una manifestación
+coherente del nivel:
+
+> Al planificar, la o el docente utiliza la GenIA para **[QUÉ]**, mediante
+> **[CÓMO]**, con la intención de **[PARA QUÉ]**.
+
+### Ejemplo asociado con el nivel reproductivo
+
+> Al planificar, la o el docente utiliza la GenIA para producir indicadores de
+> evaluación, adoptando sus propuestas o realizando ajustes mínimos, con la
+> intención de ahorrar tiempo.
+
+En este ejemplo:
+
+- El **aspecto referencial** corresponde a la producción de indicadores de evaluación.
+- El **acto de uso** consiste en adoptar las propuestas o realizar ajustes mínimos.
+- La **intención** corresponde al ahorro de tiempo.
+
+```{=latex}
+\newpage
+```
+
+## Plantilla de trabajo para cada nivel
+
+```{=latex}
+\begingroup
+\renewcommand{\arraystretch}{2.2}
+```
+
+::: {.tabla-nivel}
+### Nivel de uso reproductivo
+
+| Componente | Registro del grupo |
+|---|---|
+| **¿Qué hace con la GenIA al planificar?** |  |
+| **¿Cómo utiliza la GenIA para hacerlo?** |  |
+| **¿Para qué la utiliza de esa manera?** |  |
+| **Manifestación integrada** |  |
+| **¿Por qué representa el nivel reproductivo?** |  |
+:::
+
+::: {.tabla-nivel}
+### Nivel de uso reflexivo
+
+| Componente | Registro del grupo |
+|---|---|
+| **¿Qué hace con la GenIA al planificar?** |  |
+| **¿Cómo utiliza la GenIA para hacerlo?** |  |
+| **¿Para qué la utiliza de esa manera?** |  |
+| **Manifestación integrada** |  |
+| **¿Por qué representa el nivel reflexivo?** |  |
+:::
+
+```{=latex}
+\endgroup
+```
+
+## Revisar la coherencia de las propuestas
+
+Antes de escribir las manifestaciones en la pizarra, revisen cada propuesta:
+
+- ¿La actividad de planificación está descrita con claridad?
+- ¿La forma de interacción con la GenIA puede reconocerse en una situación concreta?
+- ¿La intención del uso está expresada de manera explícita?
+- ¿La manifestación corresponde al nivel asignado?
+- ¿La formulación permite distinguir los niveles extremos?
+- ¿La redacción resulta comprensible para docentes de distintos contextos escolares?
+
+## Producto final del grupo
+
+Al concluir las dos actividades, cada grupo contará con:
+
+- Una definición preliminar de planificación docente.
+- Una manifestación del nivel de uso reproductivo.
+- Una manifestación del nivel de desarrollo profesional reflexivo.
+- Una breve justificación de la relación entre cada manifestación y su nivel.
+- Preguntas o aspectos pendientes que deberán examinarse mediante nueva evidencia.
+
+**Definición común preliminar acordada por el curso:**
+
+..............................................................................................................................
+
+..............................................................................................................................
+
+**Principal pregunta que queda abierta para continuar el trabajo:**
+
+..............................................................................................................................
+
+## Referencias mencionadas en la clase
+
+Esta secuencia de construcción retoma elementos del proceso de medición
+presentados por Torres (2023) y Wilson (2005, 2023).
